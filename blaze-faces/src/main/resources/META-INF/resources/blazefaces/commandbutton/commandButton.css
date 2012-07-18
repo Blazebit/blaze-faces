@@ -1,0 +1,50 @@
+/* 
+    Document   : commandButton
+    Created on : 12.08.2011, 18:33:14
+    Author     : Bernd
+    Description:
+        
+    Purpose of the stylesheet follows.
+*/
+
+/* 
+  #{resource['libraryName:resourceName']}
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.blaze-ui-form.blaze-ui-bttn { cursor: pointer; margin-left: -5px; margin-right: 2px; }
+    .blaze-ui-form.blaze-ui-bttn .lft { background: url(#{resource['blazefaces:images/blz_cust_bttn_lft.png']}) no-repeat; width: 8px; height: 35px; left: 0; }
+    .blaze-ui-form.blaze-ui-bttn .mdl { background: url(#{resource['blazefaces:images/blz_cust_bttn_mdl.png']}) repeat-x; height: 35px; left: 8px; right: 8px; padding: 0; }
+        .blaze-ui-form.blaze-ui-bttn input, .blaze-ui-bttn a { 
+            float: left;
+            background: none;
+            border: medium none;
+            cursor: pointer;
+            color: #222;
+            font-size: 0.7em;
+            line-height: 13px;
+            padding: 13px 6px 8px;
+            text-shadow: #fff 1px 1px 1px;
+            white-space: nowrap;
+        }
+        .blaze-ui-form.blaze-ui-bttn .icon { display: inline; float: left; margin: 12px 0 0 5px; height: 15px; width: 14px; }
+    .blaze-ui-form.blaze-ui-bttn .rgt { background: url(#{resource['blazefaces:images/blz_cust_bttn_rgt.png']}) no-repeat; width: 8px; height: 35px; right: 0; }
+    
+/*-- Button - Hover State --*/
+			.blaze-ui-form.blaze-ui-bttn.hover .lft { background: url(#{resource['blazefaces:images/blz_cust_bttn_lft_hover.png']}) no-repeat; }
+			.blaze-ui-form.blaze-ui-bttn.hover .mdl { background: url(#{resource['blazefaces:images/blz_cust_bttn_mdl_hover.png']}) repeat-x; }
+			.blaze-ui-form.blaze-ui-bttn.hover .rgt { background: url(#{resource['blazefaces:images/blz_cust_bttn_rgt_hover.png']}) no-repeat; }
+			.blaze-ui-form.blaze-ui-bttn.hover a { text-decoration: none; }
+			.blaze-ui-form.blaze-ui-bttn a:hover { text-decoration: none; }
+	
+		/*-- Button - Pressed State --*/
+			.blaze-ui-form.blaze-ui-bttn.active .lft { background: url(#{resource['blazefaces:images/blz_cust_bttn_lft_pressed.png']}) no-repeat !important; }
+			.blaze-ui-form.blaze-ui-bttn.active .mdl { background: url(#{resource['blazefaces:images/blz_cust_bttn_mdl_pressed.png']}) repeat-x !important; }
+				.blaze-ui-form.blaze-ui-bttn.active input, .blaze-ui-bttn.active a { color: #fff; text-shadow: none; }
+			.blaze-ui-form.blaze-ui-bttn.active .rgt { background: url(#{resource['blazefaces:images/blz_cust_bttn_rgt_pressed.png']}) no-repeat !important; }
+	
+		/*-- Button - Disabled State --*/
+			.blaze-ui-form.blaze-ui-bttn.disabled .lft { background: url(#{resource['blazefaces:images/blz_cust_bttn_lft_disabled.png']}) no-repeat !important; }
+			.blaze-ui-form.blaze-ui-bttn.disabled .mdl { background: url(#{resource['blazefaces:images/blz_cust_bttn_mdl_disabled.png']}) repeat-x !important; }
+				.blaze-ui-form.blaze-ui-bttn.disabled .mdl input, .blaze-ui-bttn.disabled .mdl a { color: #888; }
+			.blaze-ui-form.blaze-ui-bttn.disabled .rgt { background: url(#{resource['blazefaces:images/blz_cust_bttn_rgt_disabled.png']}) no-repeat !important; }

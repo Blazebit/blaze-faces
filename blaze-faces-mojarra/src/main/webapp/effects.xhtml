@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://www.blazebit.com/blazefaces"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>BlazeFaces Showcase - effects</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <b:commandButton value="Submit">
+                <b:eventHandler type="parallel">
+                    <b:invoke code="alert('1')"/>
+                    <b:invoke code="alert('2')"/>
+                </b:eventHandler>
+                <b:eventHandler type="parallel">
+                    <b:invoke code="alert('3')"/>
+                    <b:invoke code="alert('4')"/>
+                </b:eventHandler>
+            </b:commandButton>
+            <b:button value="Show">
+                <b:show forId="panel"/>
+            </b:button>
+            <b:button value="Hide">
+                <b:hide forId="panel"/>
+            </b:button>
+            <b:panelGroup id="panel" hidden="true">
+                Some content
+            </b:panelGroup>
+        </h:form>
+    </h:body>
+</html>
