@@ -6,6 +6,7 @@ package com.blazebit.blazefaces.behavior;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.Set;
+
 import javax.faces.component.behavior.ClientBehaviorBase;
 import javax.faces.component.behavior.ClientBehaviorHint;
 

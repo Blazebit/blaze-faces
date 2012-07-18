@@ -3,9 +3,10 @@
  */
 package com.blazebit.blazefaces.component.commandlink;
 
-import com.blazebit.blazefaces.component.Command;
-import javax.faces.context.FacesContext;
 import javax.faces.component.html.HtmlCommandLink;
+import javax.faces.context.FacesContext;
+
+import com.blazebit.blazefaces.component.Command;
 
 public class CommandLink extends HtmlCommandLink implements Command {
 

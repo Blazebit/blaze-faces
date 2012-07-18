@@ -4,23 +4,23 @@
 package com.blazebit.blazefaces.component.outputtime;
 
 import java.io.IOException;
-
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
-
-import com.blazebit.blazefaces.renderkit.OutputRenderer;
-import com.blazebit.blazefaces.util.HTML5;
-import com.blazebit.blazefaces.util.RendererUtil;
-import com.ocpsoft.pretty.time.PrettyTime;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
+
+import javax.faces.component.UIComponent;
 import javax.faces.component.ValueHolder;
 import javax.faces.component.behavior.ClientBehaviorHolder;
+import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.convert.DateTimeConverter;
+
+import com.blazebit.blazefaces.renderkit.OutputRenderer;
+import com.blazebit.blazefaces.util.HTML5;
+import com.blazebit.blazefaces.util.RendererUtil;
+import com.ocpsoft.pretty.time.PrettyTime;
 
 public class OutputTimeRenderer extends OutputRenderer {
     

@@ -3,15 +3,9 @@
  */
 package com.blazebit.blazefaces.behavior.ajax;
 
-import java.io.IOException;
-import javax.faces.component.UIComponent;
-import javax.faces.view.facelets.BehaviorConfig;
-import javax.faces.view.facelets.BehaviorHandler;
-import javax.faces.view.facelets.FaceletContext;
-import javax.faces.view.facelets.MetaRuleset;
-import com.blazebit.blazefaces.facelets.MethodRule;
 import java.beans.BeanDescriptor;
 import java.beans.BeanInfo;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,11 +14,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
+
 import javax.el.ELContext;
 import javax.el.MethodExpression;
 import javax.el.MethodNotFoundException;
 import javax.faces.application.Application;
-import javax.faces.component.UIOutput;
+import javax.faces.component.UIComponent;
 import javax.faces.component.behavior.ClientBehaviorHolder;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AbortProcessingException;
@@ -33,11 +28,17 @@ import javax.faces.event.AjaxBehaviorListener;
 import javax.faces.view.AttachedObjectHandler;
 import javax.faces.view.AttachedObjectTarget;
 import javax.faces.view.BehaviorHolderAttachedObjectTarget;
+import javax.faces.view.facelets.BehaviorConfig;
+import javax.faces.view.facelets.BehaviorHandler;
 import javax.faces.view.facelets.ComponentHandler;
 import javax.faces.view.facelets.CompositeFaceletHandler;
+import javax.faces.view.facelets.FaceletContext;
+import javax.faces.view.facelets.MetaRuleset;
 import javax.faces.view.facelets.TagAttribute;
 import javax.faces.view.facelets.TagException;
 import javax.faces.view.facelets.TagHandler;
+
+import com.blazebit.blazefaces.facelets.MethodRule;
 
 /**
  *
@@ -45,7 +46,8 @@ import javax.faces.view.facelets.TagHandler;
  */
 public class AjaxBehaviorHandler extends BehaviorHandler {
 
-    private final TagAttribute event;
+    @SuppressWarnings("unused")
+	private final TagAttribute event;
     private final TagAttribute process;
     private final TagAttribute update;
     private final TagAttribute onevent;
@@ -70,7 +72,8 @@ public class AjaxBehaviorHandler extends BehaviorHandler {
         this.wrapping = isWrapping();
     }
 
-    @Override
+    @SuppressWarnings("rawtypes")
+	@Override
     protected MetaRuleset createMetaRuleset(Class type) {
         MetaRuleset metaRuleset = super.createMetaRuleset(type);
         metaRuleset.addRule(new MethodRule("listener", null, new Class[0]));
@@ -100,7 +103,8 @@ public class AjaxBehaviorHandler extends BehaviorHandler {
 
     // Applies a nested AjaxHandler by adding the AjaxBehavior to the
     // parent component.
-    private void applyNested(FaceletContext ctx, 
+    @SuppressWarnings("unchecked")
+	private void applyNested(FaceletContext ctx, 
                              UIComponent parent,
                              String eventName) {
         
@@ -167,7 +171,8 @@ public class AjaxBehaviorHandler extends BehaviorHandler {
 
     }
     
-    public static List<AttachedObjectHandler> getAttachedObjectHandlers(UIComponent component,
+    @SuppressWarnings("unchecked")
+	public static List<AttachedObjectHandler> getAttachedObjectHandlers(UIComponent component,
                                                                         boolean create) {
         Map<String, Object> attrs = component.getAttributes();
         List<AttachedObjectHandler> result = (List<AttachedObjectHandler>)
@@ -233,7 +238,8 @@ public class AjaxBehaviorHandler extends BehaviorHandler {
     }
 
     // Sets the value from the TagAttribute on the behavior
-    private void setBehaviorAttribute(FaceletContext ctx,
+    @SuppressWarnings("rawtypes")
+	private void setBehaviorAttribute(FaceletContext ctx,
                                       AjaxBehavior behavior,
                                       TagAttribute attr,
                                       Class type) {

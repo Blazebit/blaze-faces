@@ -15,7 +15,9 @@ import org.apache.commons.fileupload.FileItem;
  */
 public class DefaultUploadedFile implements UploadedFile, Serializable {
 
-    private FileItem fileItem;
+	private static final long serialVersionUID = 1L;
+	
+	private FileItem fileItem;
 
     public DefaultUploadedFile() {
     }

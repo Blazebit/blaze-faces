@@ -3,13 +3,14 @@
  */
 package com.blazebit.blazefaces.renderkit;
 
-import com.blazebit.blazefaces.renderkit.OutputRenderer;
-import com.blazebit.blazefaces.util.ComponentUtil;
-import com.blazebit.blazefaces.util.RendererUtil;
 import java.util.Map;
+
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+
+import com.blazebit.blazefaces.util.ComponentUtil;
+import com.blazebit.blazefaces.util.RendererUtil;
 
 /**
  *

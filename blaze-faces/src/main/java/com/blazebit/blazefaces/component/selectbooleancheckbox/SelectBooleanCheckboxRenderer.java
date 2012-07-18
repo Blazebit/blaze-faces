@@ -3,16 +3,17 @@
  */
 package com.blazebit.blazefaces.component.selectbooleancheckbox;
 
+import java.io.IOException;
+
+import javax.faces.component.UIComponent;
+import javax.faces.component.behavior.ClientBehaviorHolder;
+import javax.faces.context.FacesContext;
+import javax.faces.context.ResponseWriter;
+
 import com.blazebit.blazefaces.renderkit.InputRenderer;
 import com.blazebit.blazefaces.util.ComponentUtil;
 import com.blazebit.blazefaces.util.HTML5;
-import java.io.IOException;
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
-
 import com.blazebit.blazefaces.util.RendererUtil;
-import javax.faces.component.behavior.ClientBehaviorHolder;
-import javax.faces.context.ResponseWriter;
 
 public class SelectBooleanCheckboxRenderer extends InputRenderer {
     

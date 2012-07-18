@@ -1953,11 +1953,10 @@
             <type>java.lang.String</type>
         </attribute>
         <attribute>
+            <description>Used to resolve a navigation case.</description>
             <name>outcome</name>
             <required>false</required>
             <type>java.lang.String</type>
-            <ignoreInComponent>true</ignoreInComponent>
-            <description>Used to resolve a navigation case.</description>
         </attribute>
         <attribute>
             <description><![CDATA[Style of the main container element.]]>
@@ -1983,8 +1982,6 @@
     </tag>
     <tag>
         <tag-name>selectBooleanCheckbox</tag-name>
-        <description><![CDATA[]]>
-        </description>
         <component>
             <component-type>com.blazebit.blazefaces.component.SelectBooleanCheckbox</component-type>
             <renderer-type>com.blazebit.blazefaces.component.SelectBooleanCheckboxRenderer</renderer-type>
@@ -2112,8 +2109,6 @@
     </tag>
     <tag>
         <tag-name>selectManyCheckbox</tag-name>
-        <description><![CDATA[]]>
-        </description>
         <component>
             <component-type>com.blazebit.blazefaces.component.SelectManyCheckbox</component-type>
             <renderer-type>com.blazebit.blazefaces.component.SelectManyCheckboxRenderer</renderer-type>
@@ -2248,8 +2243,6 @@
     </tag>
     <tag>
         <tag-name>selectManyMenu</tag-name>
-        <description><![CDATA[]]>
-        </description>
         <component>
             <component-type>com.blazebit.blazefaces.component.SelectManyMenu</component-type>
             <renderer-type>com.blazebit.blazefaces.component.SelectManyMenuRenderer</renderer-type>
@@ -2377,8 +2370,6 @@
     </tag>
     <tag>
         <tag-name>selectOneListbox</tag-name>
-        <description><![CDATA[]]>
-        </description>
         <component>
             <component-type>com.blazebit.blazefaces.component.SelectOneListbox</component-type>
             <renderer-type>com.blazebit.blazefaces.component.SelectOneListboxRenderer</renderer-type>
@@ -2506,8 +2497,6 @@
     </tag>
     <tag>
         <tag-name>selectOneMenu</tag-name>
-        <description><![CDATA[]]>
-        </description>
         <component>
             <component-type>com.blazebit.blazefaces.component.SelectOneMenu</component-type>
             <renderer-type>com.blazebit.blazefaces.component.SelectOneMenuRenderer</renderer-type>
@@ -2670,8 +2659,6 @@
     </tag>
     <tag>
         <tag-name>selectOneRadio</tag-name>
-        <description><![CDATA[]]>
-        </description>
         <component>
             <component-type>com.blazebit.blazefaces.component.SelectOneRadio</component-type>
             <renderer-type>com.blazebit.blazefaces.component.SelectOneRadioRenderer</renderer-type>

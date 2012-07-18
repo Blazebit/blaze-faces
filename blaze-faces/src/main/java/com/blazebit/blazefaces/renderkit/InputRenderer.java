@@ -3,10 +3,11 @@
  */
 package com.blazebit.blazefaces.renderkit;
 
-import com.blazebit.blazefaces.util.ComponentUtil;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
+
+import com.blazebit.blazefaces.util.ComponentUtil;
 
 public class InputRenderer extends OutputRenderer {
 

@@ -3,25 +3,24 @@
  */
 package com.blazebit.blazefaces.renderkit;
 
-import com.blazebit.blazefaces.behavior.ajax.AjaxBehavior;
-import com.blazebit.blazefaces.behavior.handler.EventHandler;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.faces.FacesException;
 import javax.faces.application.Resource;
 import javax.faces.application.ResourceHandler;
 import javax.faces.component.UIComponent;
-import javax.faces.component.UIParameter;
 import javax.faces.component.behavior.ClientBehavior;
 import javax.faces.component.behavior.ClientBehaviorHolder;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.render.Renderer;
 
-import java.util.HashMap;
-import javax.faces.FacesException;
+import com.blazebit.blazefaces.behavior.ajax.AjaxBehavior;
+import com.blazebit.blazefaces.behavior.handler.EventHandler;
 
 public class CoreRenderer extends Renderer {
 
@@ -77,7 +76,8 @@ public class CoreRenderer extends Renderer {
         renderDataMapAttributes(facesContext, component, null);
     }
 
-    protected void renderDataMapAttributes(FacesContext facesContext, UIComponent component, Map<String, String> extraDataMap) throws IOException {
+    @SuppressWarnings("unchecked")
+	protected void renderDataMapAttributes(FacesContext facesContext, UIComponent component, Map<String, String> extraDataMap) throws IOException {
         ResponseWriter writer = facesContext.getResponseWriter();
         Map<String, String> map = new HashMap<String, String>();
         Object componentMap = component.getAttributes().get("dataMap");

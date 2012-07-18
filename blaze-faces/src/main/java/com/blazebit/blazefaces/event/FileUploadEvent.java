@@ -3,17 +3,20 @@
  */
 package com.blazebit.blazefaces.event;
 
+import java.util.Arrays;
+import java.util.List;
+
 import javax.faces.component.UIComponent;
 import javax.faces.event.FacesEvent;
 import javax.faces.event.FacesListener;
 
 import com.blazebit.blazefaces.model.UploadedFile;
-import java.util.Arrays;
-import java.util.List;
 
 public class FileUploadEvent extends FacesEvent {
 
-    private List<UploadedFile> files;
+	private static final long serialVersionUID = 1L;
+	
+	private List<UploadedFile> files;
 
     public FileUploadEvent(UIComponent component, UploadedFile file) {
         this(component, Arrays.asList(file));

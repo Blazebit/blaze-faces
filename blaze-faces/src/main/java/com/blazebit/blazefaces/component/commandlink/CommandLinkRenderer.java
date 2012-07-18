@@ -3,17 +3,18 @@
  */
 package com.blazebit.blazefaces.component.commandlink;
 
+import java.io.IOException;
+
+import javax.faces.FacesException;
+import javax.faces.component.UIComponent;
+import javax.faces.component.UIParameter;
+import javax.faces.context.FacesContext;
+import javax.faces.context.ResponseWriter;
+
 import com.blazebit.blazefaces.renderkit.CommandRenderer;
 import com.blazebit.blazefaces.util.ComponentUtil;
 import com.blazebit.blazefaces.util.HTML5;
 import com.blazebit.blazefaces.util.RendererUtil;
-import java.io.IOException;
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
-
-import javax.faces.FacesException;
-import javax.faces.component.UIParameter;
-import javax.faces.context.ResponseWriter;
 
 public class CommandLinkRenderer extends CommandRenderer {
     

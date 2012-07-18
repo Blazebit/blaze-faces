@@ -3,21 +3,21 @@
  */
 package com.blazebit.blazefaces.renderkit;
 
-import com.blazebit.blazefaces.util.AgentUtil;
-import com.blazebit.blazefaces.util.FeatureDetectionUtil;
-import com.blazebit.blazefaces.util.RendererUtil;
 import java.io.IOException;
 import java.util.Iterator;
-import java.util.ListIterator;
+
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
 import javax.el.ValueExpression;
-
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.render.Renderer;
+
+import com.blazebit.blazefaces.util.AgentUtil;
+import com.blazebit.blazefaces.util.FeatureDetectionUtil;
+import com.blazebit.blazefaces.util.RendererUtil;
 
 public class HeadRenderer extends Renderer {
 

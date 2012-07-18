@@ -3,9 +3,9 @@
  */
 package com.blazebit.blazefaces.component.selectonemenu;
 
-import javax.faces.context.FacesContext;
 import javax.faces.component.behavior.ClientBehaviorHolder;
 import javax.faces.component.html.HtmlSelectOneMenu;
+import javax.faces.context.FacesContext;
 
 public class SelectOneMenu extends HtmlSelectOneMenu implements ClientBehaviorHolder {
 

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
@@ -20,6 +21,8 @@ import javax.faces.event.ValueChangeEvent;
 @ManagedBean
 @ViewScoped
 public class IncludeBean implements Serializable {
+    
+	private static final long serialVersionUID = 1L;
     
     private Map<String, List<String>> includeMap = new HashMap<String, List<String>>();
     private List<String> dataList;

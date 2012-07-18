@@ -3,17 +3,18 @@
  */
 package com.blazebit.blazefaces.component.inputfile;
 
-import com.blazebit.blazefaces.event.FileUploadEvent;
-import javax.faces.context.FacesContext;
-import javax.el.ValueExpression;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.el.MethodExpression;
+import javax.el.ValueExpression;
 import javax.faces.application.ResourceDependencies;
 import javax.faces.application.ResourceDependency;
-import java.util.List;
-import java.util.ArrayList;
 import javax.faces.component.UIInput;
-import javax.faces.component.UINamingContainer;
 import javax.faces.component.behavior.ClientBehaviorHolder;
+import javax.faces.context.FacesContext;
+
+import com.blazebit.blazefaces.event.FileUploadEvent;
 
 @ResourceDependencies({
         
@@ -327,7 +328,8 @@ public class InputFile extends UIInput implements ClientBehaviorHolder {
         return FacesContext.getCurrentInstance();
     }
 
-    public void handleAttribute(String name, Object value) {
+    @SuppressWarnings("unchecked")
+	public void handleAttribute(String name, Object value) {
         List<String> setAttributes = (List<String>) this.getAttributes().get("javax.faces.component.UIComponentBase.attributesThatAreSet");
         if (setAttributes == null) {
             String cname = this.getClass().getName();

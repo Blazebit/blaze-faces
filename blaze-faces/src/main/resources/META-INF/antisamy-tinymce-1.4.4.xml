@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!--
-	TinyMCE
--->
+<!-- TinyMCE -->
 
 <anti-samy-rules xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="antisamy.xsd">
@@ -18,39 +16,34 @@
 
 	<common-regexps>
 
-		<!--
-			From W3C:
-			This attribute assigns a class name or set of class names to an
-			element. Any number of elements may be assigned the same class
-			name or names. Multiple class names must be separated by white
-			space characters.
-		-->
+		<!-- From W3C: This attribute assigns a class name or set of class names 
+			to an element. Any number of elements may be assigned the same class name 
+			or names. Multiple class names must be separated by white space characters. -->
 		<regexp name="htmlTitle" value="[a-zA-Z0-9\s\-_',:\[\]!\./\\\(\)&amp;]*" />
 
-		<!--  force non-empty with a '+' at the end instead of '*'
-		-->
+		<!-- force non-empty with a '+' at the end instead of '*' -->
 		<regexp name="onsiteURL" value="([\p{L}\p{N}\p{Zs}/\.\?=&amp;\-~])+" />
 
-		<!--  ([\w\\/\.\?=&amp;;\#-~]+|\#(\w)+)
-		-->
+		<!-- ([\w\\/\.\?=&amp;;\#-~]+|\#(\w)+) -->
 
-		<!--  ([\p{L}/ 0-9&amp;\#-.?=])*
-		-->
-		<regexp name="offsiteURL" value="(\s)*((ht|f)tp(s?)://|mailto:)[A-Za-z0-9]+[~a-zA-Z0-9-_\.@\#\$%&amp;;:,\?=/\+!\(\)]*(\s)*" />
+		<!-- ([\p{L}/ 0-9&amp;\#-.?=])* -->
+		<regexp name="offsiteURL"
+			value="(\s)*((ht|f)tp(s?)://|mailto:)[A-Za-z0-9]+[~a-zA-Z0-9-_\.@\#\$%&amp;;:,\?=/\+!\(\)]*(\s)*" />
 	</common-regexps>
 
-	<!--
-		Tag.name = a, b, div, body, etc.
-		Tag.action = filter: remove tags, but keep content, validate: keep content as long as it passes rules, remove: remove tag and contents
-		Attribute.name = id, class, href, align, width, etc.
-		Attribute.onInvalid = what to do when the attribute is invalid, e.g., remove the tag (removeTag), remove the attribute (removeAttribute), filter the tag (filterTag)
-		Attribute.description = What rules in English you want to tell the users they can have for this attribute. Include helpful things so they'll be able to tune their HTML
-	-->
+	<!-- Tag.name = a, b, div, body, etc. Tag.action = filter: remove tags, 
+		but keep content, validate: keep content as long as it passes rules, remove: 
+		remove tag and contents Attribute.name = id, class, href, align, width, etc. 
+		Attribute.onInvalid = what to do when the attribute is invalid, e.g., remove 
+		the tag (removeTag), remove the attribute (removeAttribute), filter the tag 
+		(filterTag) Attribute.description = What rules in English you want to tell 
+		the users they can have for this attribute. Include helpful things so they'll 
+		be able to tune their HTML -->
 
-	<!--
-		Some attributes are common to all (or most) HTML tags. There aren't many that qualify for this. You have to make sure there's no
-		collisions between any of these attribute names with attribute names of other tags that are for different purposes.
-	-->
+	<!-- Some attributes are common to all (or most) HTML tags. There aren't 
+		many that qualify for this. You have to make sure there's no collisions between 
+		any of these attribute names with attribute names of other tags that are 
+		for different purposes. -->
 
 	<common-attributes>
 
@@ -76,8 +69,7 @@
 				<regexp name="onsiteURL" />
 				<regexp name="offsiteURL" />
 
-				<!--
-				-->
+				<!-- -->
 			</regexp-list>
 		</attribute>
 
@@ -96,13 +88,10 @@
 			description="The 'style' attribute provides the ability for users to change many attributes of the tag's contents using a strict syntax" />
 	</common-attributes>
 
-	<!--
-		This requires normal updates as browsers continue to diverge from the W3C and each other. As long as the browser wars continue
-		this is going to continue. I'm not sure war is the right word for what's going on. Doesn't somebody have to win a war after
-		a while?
-
-
-	-->
+	<!-- This requires normal updates as browsers continue to diverge from the 
+		W3C and each other. As long as the browser wars continue this is going to 
+		continue. I'm not sure war is the right word for what's going on. Doesn't 
+		somebody have to win a war after a while? -->
 
 	<global-tag-attributes>
 		<attribute name="title" />
@@ -117,7 +106,7 @@
 
 	<tag-rules>
 
-		<!--  Remove  -->
+		<!-- Remove -->
 
 		<tag name="script" action="remove" />
 		<tag name="noscript" action="remove" />
@@ -133,10 +122,10 @@
 		<tag name="input" action="remove" />
 		<tag name="textarea" action="remove" />
 
-		<!--  Truncate  -->
+		<!-- Truncate -->
 		<tag name="br" action="truncate" />
 
-		<!--  Validate -->
+		<!-- Validate -->
 
 		<tag name="p" action="validate">
 			<attribute name="align" />
@@ -172,8 +161,7 @@
 			</attribute>
 		</tag>
 
-		<!--  List tags
-		-->
+		<!-- List tags -->
 		<tag name="ul" action="validate" />
 		<tag name="ol" action="validate" />
 		<tag name="li" action="validate" />
@@ -184,8 +172,7 @@
 
 	<css-rules>
 
-		<property name="text-decoration" default="none"
-			description="">
+		<property name="text-decoration" default="none" description="">
 
 			<category-list>
 				<category value="visual" />

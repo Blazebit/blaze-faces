@@ -14,15 +14,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MultipartRequest extends HttpServletRequestWrapper {
 
@@ -106,12 +105,14 @@ public class MultipartRequest extends HttpServletRequestWrapper {
         }
     }
 
-    @Override
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
     public Map getParameterMap() {
         return Collections.unmodifiableMap(formParams);
     }
 
-    @Override
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
     public Enumeration getParameterNames() {
         Set<String> paramNames = new LinkedHashSet<String>();
         paramNames.addAll(formParams.keySet());

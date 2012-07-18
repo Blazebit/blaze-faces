@@ -3,17 +3,16 @@
  */
 package com.blazebit.blazefaces.renderkit;
 
-import com.blazebit.blazefaces.util.RendererUtil;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIViewRoot;
-import javax.faces.component.html.HtmlBody;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
+
+import com.blazebit.blazefaces.util.RendererUtil;
 
 public class BodyRenderer extends CoreRenderer {
 

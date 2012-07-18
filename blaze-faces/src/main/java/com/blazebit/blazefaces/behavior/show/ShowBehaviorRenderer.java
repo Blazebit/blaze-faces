@@ -3,12 +3,13 @@
  */
 package com.blazebit.blazefaces.behavior.show;
 
-import com.blazebit.blazefaces.util.ComponentUtil;
 import javax.faces.component.UIComponent;
 import javax.faces.component.behavior.ClientBehavior;
 import javax.faces.component.behavior.ClientBehaviorContext;
 import javax.faces.context.FacesContext;
 import javax.faces.render.ClientBehaviorRenderer;
+
+import com.blazebit.blazefaces.util.ComponentUtil;
 
 /**
  *

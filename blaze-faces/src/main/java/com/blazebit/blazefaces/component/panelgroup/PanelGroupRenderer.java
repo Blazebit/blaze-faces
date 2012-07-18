@@ -6,13 +6,13 @@ package com.blazebit.blazefaces.component.panelgroup;
 import java.io.IOException;
 
 import javax.faces.component.UIComponent;
+import javax.faces.component.behavior.ClientBehaviorHolder;
 import javax.faces.context.FacesContext;
+import javax.faces.context.ResponseWriter;
 
 import com.blazebit.blazefaces.renderkit.CoreRenderer;
 import com.blazebit.blazefaces.util.HTML5;
 import com.blazebit.blazefaces.util.RendererUtil;
-import javax.faces.component.behavior.ClientBehaviorHolder;
-import javax.faces.context.ResponseWriter;
 
 public class PanelGroupRenderer extends CoreRenderer {
 

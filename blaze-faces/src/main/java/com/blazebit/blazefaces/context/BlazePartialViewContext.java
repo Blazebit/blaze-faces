@@ -4,10 +4,12 @@
 package com.blazebit.blazefaces.context;
 
 import java.util.Collection;
+
 import javax.faces.context.FacesContext;
 import javax.faces.context.PartialResponseWriter;
 import javax.faces.context.PartialViewContext;
 import javax.faces.context.PartialViewContextWrapper;
+
 import com.blazebit.blazefaces.util.FeatureDetectionUtil;
 
 public class BlazePartialViewContext extends PartialViewContextWrapper {

@@ -3,9 +3,9 @@
  */
 package com.blazebit.blazefaces.component.selectbooleancheckbox;
 
-import javax.faces.context.FacesContext;
 import javax.faces.component.behavior.ClientBehaviorHolder;
 import javax.faces.component.html.HtmlSelectBooleanCheckbox;
+import javax.faces.context.FacesContext;
 
 public class SelectBooleanCheckbox extends HtmlSelectBooleanCheckbox implements ClientBehaviorHolder {
 

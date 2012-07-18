@@ -3,19 +3,20 @@
  */
 package com.blazebit.blazefaces.web.showcase.bean;
 
-import com.blazebit.blazefaces.util.RendererUtil;
 import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.util.Calendar;
 import java.util.Date;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.FacesContext;
+
 import org.owasp.validator.html.AntiSamy;
 import org.owasp.validator.html.CleanResults;
-import org.owasp.validator.html.Policy;
 import org.owasp.validator.html.PolicyException;
 import org.owasp.validator.html.ScanException;
+
+import com.blazebit.blazefaces.util.RendererUtil;
 
 /**
  *
@@ -24,6 +25,8 @@ import org.owasp.validator.html.ScanException;
 @ManagedBean
 @RequestScoped
 public class SemanticBean implements Serializable {
+    
+	private static final long serialVersionUID = 1L;
 
     private Date yesterday;
 

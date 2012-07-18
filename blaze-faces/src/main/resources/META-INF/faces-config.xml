@@ -122,23 +122,6 @@
             <renderer-class>com.blazebit.blazefaces.renderkit.BodyRenderer</renderer-class>
         </renderer>
         
-        <client-behavior-renderer>
-            <client-behavior-renderer-type>com.blazebit.blazefaces.behavior.AjaxBehavior</client-behavior-renderer-type>
-            <client-behavior-renderer-class>com.blazebit.blazefaces.behavior.ajax.AjaxBehaviorRenderer</client-behavior-renderer-class>
-        </client-behavior-renderer>
-        <client-behavior-renderer>
-            <client-behavior-renderer-type>com.blazebit.blazefaces.behavior.InvokeBehavior</client-behavior-renderer-type>
-            <client-behavior-renderer-class>com.blazebit.blazefaces.behavior.invoke.InvokeBehaviorRenderer</client-behavior-renderer-class>
-        </client-behavior-renderer>
-        <client-behavior-renderer>
-            <client-behavior-renderer-type>com.blazebit.blazefaces.behavior.ShowBehavior</client-behavior-renderer-type>
-            <client-behavior-renderer-class>com.blazebit.blazefaces.behavior.show.ShowBehaviorRenderer</client-behavior-renderer-class>
-        </client-behavior-renderer>
-        <client-behavior-renderer>
-            <client-behavior-renderer-type>com.blazebit.blazefaces.behavior.HideBehavior</client-behavior-renderer-type>
-            <client-behavior-renderer-class>com.blazebit.blazefaces.behavior.hide.HideBehaviorRenderer</client-behavior-renderer-class>
-        </client-behavior-renderer>
-        
         <renderer>
             <component-family>com.blazebit.blazefaces.behavior</component-family>
             <renderer-type>com.blazebit.blazefaces.behavior.handler.EventHandlerRenderer</renderer-type>
@@ -226,5 +209,22 @@
             <renderer-type>com.blazebit.blazefaces.component.SelectOneRadioRenderer</renderer-type>
             <renderer-class>com.blazebit.blazefaces.component.selectoneradio.SelectOneRadioRenderer</renderer-class>
         </renderer>
+        
+        <client-behavior-renderer>
+            <client-behavior-renderer-type>com.blazebit.blazefaces.behavior.AjaxBehavior</client-behavior-renderer-type>
+            <client-behavior-renderer-class>com.blazebit.blazefaces.behavior.ajax.AjaxBehaviorRenderer</client-behavior-renderer-class>
+        </client-behavior-renderer>
+        <client-behavior-renderer>
+            <client-behavior-renderer-type>com.blazebit.blazefaces.behavior.InvokeBehavior</client-behavior-renderer-type>
+            <client-behavior-renderer-class>com.blazebit.blazefaces.behavior.invoke.InvokeBehaviorRenderer</client-behavior-renderer-class>
+        </client-behavior-renderer>
+        <client-behavior-renderer>
+            <client-behavior-renderer-type>com.blazebit.blazefaces.behavior.ShowBehavior</client-behavior-renderer-type>
+            <client-behavior-renderer-class>com.blazebit.blazefaces.behavior.show.ShowBehaviorRenderer</client-behavior-renderer-class>
+        </client-behavior-renderer>
+        <client-behavior-renderer>
+            <client-behavior-renderer-type>com.blazebit.blazefaces.behavior.HideBehavior</client-behavior-renderer-type>
+            <client-behavior-renderer-class>com.blazebit.blazefaces.behavior.hide.HideBehaviorRenderer</client-behavior-renderer-class>
+        </client-behavior-renderer>
     </render-kit>
 </faces-config>

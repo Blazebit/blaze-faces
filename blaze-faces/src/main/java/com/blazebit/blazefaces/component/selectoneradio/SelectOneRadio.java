@@ -3,9 +3,9 @@
  */
 package com.blazebit.blazefaces.component.selectoneradio;
 
-import javax.faces.context.FacesContext;
 import javax.faces.component.behavior.ClientBehaviorHolder;
 import javax.faces.component.html.HtmlSelectOneRadio;
+import javax.faces.context.FacesContext;
 
 public class SelectOneRadio extends HtmlSelectOneRadio implements ClientBehaviorHolder {
 

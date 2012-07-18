@@ -5,9 +5,8 @@ package com.blazebit.blazefaces.renderkit;
 
 
 import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
-
 import javax.faces.component.ValueHolder;
+import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 
@@ -32,7 +31,7 @@ public class OutputRenderer extends CoreRenderer {
             Object value = valHolder.getValue();
             
             if(value != null){
-                Class converterType = value.getClass();
+                Class<?> converterType = value.getClass();
                 converter = context.getApplication().createConverter(converterType);
             }
         }
@@ -61,7 +60,7 @@ public class OutputRenderer extends CoreRenderer {
                 return (String) currentValue;
             }
 
-            Class converterType = currentValue.getClass();
+            Class<?> converterType = currentValue.getClass();
             converter = context.getApplication().createConverter(converterType);
 
             if (converter == null) {

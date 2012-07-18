@@ -3,16 +3,23 @@
  */
 package com.blazebit.blazefaces.component.inputfile;
 
-import com.blazebit.blazefaces.context.BlazeEncoder;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.faces.component.UIComponent;
+import javax.faces.component.behavior.ClientBehaviorHolder;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletRequestWrapper;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.fileupload.FileItem;
+
+import com.blazebit.blazefaces.context.BlazeEncoder;
 import com.blazebit.blazefaces.event.FileUploadEvent;
 import com.blazebit.blazefaces.model.DefaultUploadedFile;
 import com.blazebit.blazefaces.model.UploadedFile;
@@ -23,12 +30,6 @@ import com.blazebit.blazefaces.util.FeatureDetectionUtil;
 import com.blazebit.blazefaces.util.HTML5;
 import com.blazebit.blazefaces.util.RendererUtil;
 import com.blazebit.blazefaces.webapp.MultipartRequest;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import javax.faces.component.behavior.ClientBehaviorHolder;
-import javax.servlet.ServletContext;
 
 public class InputFileRenderer extends InputRenderer {
     

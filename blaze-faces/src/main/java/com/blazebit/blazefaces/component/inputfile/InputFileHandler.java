@@ -18,10 +18,10 @@ public class InputFileHandler extends ComponentHandler {
 		super(config);
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	protected MetaRuleset createMetaRuleset(Class type) { 
 		MetaRuleset metaRuleset = super.createMetaRuleset(type); 
-		Class[] fileUploadEventClass = new Class[]{FileUploadEvent.class};
+		Class<?>[] fileUploadEventClass = new Class[]{FileUploadEvent.class};
 		
 		metaRuleset.addRule(new MethodRule("fileUploadListener", List.class, fileUploadEventClass));
 		

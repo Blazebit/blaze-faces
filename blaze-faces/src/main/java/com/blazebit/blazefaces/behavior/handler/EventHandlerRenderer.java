@@ -4,18 +4,19 @@
 package com.blazebit.blazefaces.behavior.handler;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
 import javax.faces.component.UIComponent;
+import javax.faces.component.UIInput;
+import javax.faces.component.behavior.ClientBehavior;
+import javax.faces.component.behavior.ClientBehaviorContext;
 import javax.faces.context.FacesContext;
 
 import com.blazebit.blazefaces.renderkit.CoreRenderer;
 import com.blazebit.blazefaces.util.ComponentUtil;
 import com.blazebit.blazefaces.util.RendererUtil;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import javax.faces.component.UIInput;
-import javax.faces.component.behavior.ClientBehavior;
-import javax.faces.component.behavior.ClientBehaviorContext;
 
 public class EventHandlerRenderer extends CoreRenderer {
     

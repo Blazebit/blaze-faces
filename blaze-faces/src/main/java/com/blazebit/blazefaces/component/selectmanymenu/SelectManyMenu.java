@@ -3,9 +3,9 @@
  */
 package com.blazebit.blazefaces.component.selectmanymenu;
 
-import javax.faces.context.FacesContext;
 import javax.faces.component.behavior.ClientBehaviorHolder;
 import javax.faces.component.html.HtmlSelectManyMenu;
+import javax.faces.context.FacesContext;
 
 public class SelectManyMenu extends HtmlSelectManyMenu implements ClientBehaviorHolder {
 

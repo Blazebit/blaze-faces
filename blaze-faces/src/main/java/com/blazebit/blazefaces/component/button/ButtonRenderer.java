@@ -3,14 +3,15 @@
  */
 package com.blazebit.blazefaces.component.button;
 
-import com.blazebit.blazefaces.renderkit.OutputRenderer;
-import com.blazebit.blazefaces.util.HTML5;
 import java.io.IOException;
+
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
-
-import com.blazebit.blazefaces.util.RendererUtil;
 import javax.faces.context.ResponseWriter;
+
+import com.blazebit.blazefaces.renderkit.OutputRenderer;
+import com.blazebit.blazefaces.util.HTML5;
+import com.blazebit.blazefaces.util.RendererUtil;
 
 public class ButtonRenderer extends OutputRenderer {
     

@@ -3,9 +3,9 @@
  */
 package com.blazebit.blazefaces.component.selectonelistbox;
 
-import javax.faces.context.FacesContext;
 import javax.faces.component.behavior.ClientBehaviorHolder;
 import javax.faces.component.html.HtmlSelectOneListbox;
+import javax.faces.context.FacesContext;
 
 public class SelectOneListbox extends HtmlSelectOneListbox implements ClientBehaviorHolder {
 

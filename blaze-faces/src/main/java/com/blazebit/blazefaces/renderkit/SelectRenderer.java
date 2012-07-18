@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
 import javax.el.ValueExpression;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIInput;
@@ -25,7 +26,8 @@ import javax.faces.model.SelectItem;
  */
 public class SelectRenderer extends InputRenderer {
 
-    protected List<SelectItem> getSelectItems(FacesContext context, UIInput component) {
+    @SuppressWarnings("unchecked")
+	protected List<SelectItem> getSelectItems(FacesContext context, UIInput component) {
         List<SelectItem> selectItems = new ArrayList<SelectItem>();
 
         for (UIComponent child : component.getChildren()) {
@@ -40,19 +42,19 @@ public class SelectRenderer extends InputRenderer {
                 if (value instanceof SelectItem[]) {
                     selectItems.addAll(Arrays.asList((SelectItem[]) value));
                 } else if (value instanceof Map) {
-                    Map map = (Map) value;
+                    Map<Object, Object> map = (Map<Object, Object>) value;
 
-                    for (Iterator it = map.keySet().iterator(); it.hasNext();) {
+                    for (Iterator<Object> it = map.keySet().iterator(); it.hasNext();) {
                         Object key = it.next();
 
                         selectItems.add(new SelectItem(map.get(key), String.valueOf(key)));
                     }
                 } else if (value instanceof Collection) {
-                    Collection collection = (Collection) value;
+                    Collection<Object> collection = (Collection<Object>) value;
                     String var = (String) uiSelectItems.getAttributes().get("var");
 
                     if (var != null) {
-                        for (Iterator it = collection.iterator(); it.hasNext();) {
+                        for (Iterator<Object> it = collection.iterator(); it.hasNext();) {
                             Object object = it.next();
                             context.getExternalContext().getRequestMap().put(var, object);
                             String itemLabel = (String) uiSelectItems.getAttributes().get("itemLabel");
@@ -61,13 +63,13 @@ public class SelectRenderer extends InputRenderer {
                             selectItems.add(new SelectItem(itemValue, itemLabel));
                         }
                     } else {
-                        for (Iterator it = collection.iterator(); it.hasNext();) {
+                        for (Iterator<Object> it = collection.iterator(); it.hasNext();) {
                             Object object = it.next();
 
                             if (object instanceof SelectItem) {
                                 selectItems.add((SelectItem) object);
                             } else if (object instanceof Enum) {
-                                Enum e = (Enum) object;
+                                Enum<?> e = (Enum<?>) object;
                                 selectItems.add(new SelectItem(e.name(), e.name()));
                             }
                         }

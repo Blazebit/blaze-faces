@@ -5,8 +5,9 @@ package com.blazebit.blazefaces.component.button;
 
 import java.util.Arrays;
 import java.util.Collection;
-import javax.faces.context.FacesContext;
+
 import javax.faces.component.html.HtmlOutcomeTargetButton;
+import javax.faces.context.FacesContext;
 
 public class Button extends HtmlOutcomeTargetButton {
 

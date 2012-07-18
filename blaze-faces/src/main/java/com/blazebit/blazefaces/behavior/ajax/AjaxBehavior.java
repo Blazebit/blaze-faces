@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
+
 import javax.el.ELContext;
 import javax.el.ELException;
 import javax.el.ValueExpression;
@@ -359,7 +360,8 @@ public class AjaxBehavior extends ClientBehaviorBase {
     }
 
 
-    private Collection<String> getCollectionValue(String propertyName,
+    @SuppressWarnings("unchecked")
+	private Collection<String> getCollectionValue(String propertyName,
                                                   Collection<String> collection) {
         if (collection!= null) {
             return collection;

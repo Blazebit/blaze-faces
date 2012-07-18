@@ -3,9 +3,9 @@
  */
 package com.blazebit.blazefaces.component.inputtext;
 
-import javax.faces.context.FacesContext;
 import javax.faces.component.behavior.ClientBehaviorHolder;
 import javax.faces.component.html.HtmlInputText;
+import javax.faces.context.FacesContext;
 
 public class InputText extends HtmlInputText implements ClientBehaviorHolder {
 

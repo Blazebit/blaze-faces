@@ -5,6 +5,7 @@ package com.blazebit.blazefaces.listener;
 
 import java.util.Collection;
 import java.util.Iterator;
+
 import javax.faces.component.EditableValueHolder;
 import javax.faces.component.NamingContainer;
 import javax.faces.component.UIComponent;
@@ -15,6 +16,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,7 +27,8 @@ import org.slf4j.LoggerFactory;
  */
 public class ResetInputPhaseListener implements PhaseListener {
 
-    private static final Logger log = LoggerFactory.getLogger(ResetInputPhaseListener.class);
+	private static final long serialVersionUID = 1L;
+	private static final Logger log = LoggerFactory.getLogger(ResetInputPhaseListener.class);
 
     @Override
     public void afterPhase(PhaseEvent pe) {
@@ -114,8 +117,8 @@ public class ResetInputPhaseListener implements PhaseListener {
         }
         // Search through our facets and children
         UIComponent result = null;
-        for (Iterator i = base.getFacetsAndChildren(); i.hasNext();) {
-            UIComponent kid = (UIComponent) i.next();
+        for (Iterator<UIComponent> i = base.getFacetsAndChildren(); i.hasNext();) {
+            UIComponent kid = i.next();
             // Special handling for UIForm because of the attribute prependId
             if (!(kid instanceof NamingContainer) || (kid instanceof UIForm && !((UIForm) kid).isPrependId() && !id.equals(kid.getId()))) {
                 if (checkId && id.equals(kid.getId())) {

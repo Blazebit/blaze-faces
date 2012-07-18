@@ -3,17 +3,18 @@
  */
 package com.blazebit.blazefaces.component.selectonelistbox;
 
-import com.blazebit.blazefaces.renderkit.SelectRenderer;
 import java.io.IOException;
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
-
 import java.util.List;
+
 import javax.el.ValueExpression;
+import javax.faces.component.UIComponent;
 import javax.faces.component.UIInput;
+import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.convert.Converter;
 import javax.faces.model.SelectItem;
+
+import com.blazebit.blazefaces.renderkit.SelectRenderer;
 
 public class SelectOneListboxRenderer extends SelectRenderer {
 
@@ -42,7 +43,7 @@ public class SelectOneListboxRenderer extends SelectRenderer {
     protected void encodeMarkup(FacesContext context, SelectOneListbox listbox) throws IOException {
         ResponseWriter writer = context.getResponseWriter();
         String clientId = listbox.getClientId(context);
-        Class type = getValueType(context, listbox);
+        Class<?> type = getValueType(context, listbox);
         
         String style = listbox.getStyle();
         String styleClass = listbox.getStyleClass();
@@ -60,7 +61,7 @@ public class SelectOneListboxRenderer extends SelectRenderer {
         writer.endElement("div");
     }
 
-    protected void encodeInput(FacesContext context, SelectOneListbox listbox, String clientId, Class type) throws IOException {
+    protected void encodeInput(FacesContext context, SelectOneListbox listbox, String clientId, Class<?> type) throws IOException {
         ResponseWriter writer = context.getResponseWriter();
         String inputid = clientId + "_input";
 
@@ -88,7 +89,7 @@ public class SelectOneListboxRenderer extends SelectRenderer {
         writer.endElement("ul");
     }
 
-    protected void encodeSelectItems(FacesContext context, SelectOneListbox listbox, Class type) throws IOException {
+    protected void encodeSelectItems(FacesContext context, SelectOneListbox listbox, Class<?> type) throws IOException {
         ResponseWriter writer = context.getResponseWriter();
         List<SelectItem> selectItems = getSelectItems(context, listbox);
         Converter converter = getConverter(context, listbox);
@@ -115,9 +116,9 @@ public class SelectOneListboxRenderer extends SelectRenderer {
         }
     }
     
-    protected Class getValueType(FacesContext context, UIInput component) {
+    protected Class<?> getValueType(FacesContext context, UIInput component) {
         ValueExpression ve = component.getValueExpression("value");
-        Class type = ve == null ? String.class : ve.getType(context.getELContext());
+        Class<?> type = ve == null ? String.class : ve.getType(context.getELContext());
         
         return type == null ? String.class : type;
     }

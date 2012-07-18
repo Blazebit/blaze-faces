@@ -3,20 +3,21 @@
  */
 package com.blazebit.blazefaces.component.selectmanymenu;
 
-import com.blazebit.blazefaces.renderkit.SelectRenderer;
-import com.blazebit.blazefaces.util.ComponentUtil;
 import java.io.IOException;
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import javax.faces.component.UIComponent;
 import javax.faces.component.behavior.ClientBehaviorHolder;
+import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 import javax.faces.model.SelectItem;
+
+import com.blazebit.blazefaces.renderkit.SelectRenderer;
+import com.blazebit.blazefaces.util.ComponentUtil;
 
 public class SelectManyMenuRenderer extends SelectRenderer {
 
@@ -66,32 +67,34 @@ public class SelectManyMenuRenderer extends SelectRenderer {
         writer.endElement("ul");
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
 	public Object getConvertedValue(FacesContext context, UIComponent component, Object submittedValue) throws ConverterException {
 		SelectManyMenu menu = (SelectManyMenu) component;
 		String[] values = (String[]) submittedValue;
 		Converter converter = getConverter(context, menu);
-        List list = null;
+        List<Object> list = null;
 
         if(converter != null) {
-            list = new ArrayList();
+            list = new ArrayList<Object>();
 
             for(String value : values) {
                 list.add(converter.getAsObject(context, menu, value));
             }
         }
         else {
-            list = Arrays.asList(values);
+            list = (List<Object>) (List<?>) Arrays.asList(values);
         }
 
         return list;
 	}
 
-    protected void encodeSelectItems(FacesContext context, SelectManyMenu menu) throws IOException {
+    @SuppressWarnings("unchecked")
+	protected void encodeSelectItems(FacesContext context, SelectManyMenu menu) throws IOException {
         ResponseWriter writer = context.getResponseWriter();
         List<SelectItem> selectItems = getSelectItems(context, menu);
         Converter converter = getConverter(context, menu);
-        List value = (List) menu.getValue();
+        List<Object> value = (List<Object>) menu.getValue();
 
         for(SelectItem selectItem : selectItems) {
             Object itemValue = selectItem.getValue();

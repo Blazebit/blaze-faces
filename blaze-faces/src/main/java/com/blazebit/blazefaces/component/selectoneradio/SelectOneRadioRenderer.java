@@ -4,17 +4,18 @@
 package com.blazebit.blazefaces.component.selectoneradio;
 
 
-import com.blazebit.blazefaces.renderkit.SelectRenderer;
 import java.io.IOException;
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
-
 import java.util.List;
+
 import javax.el.ValueExpression;
+import javax.faces.component.UIComponent;
 import javax.faces.component.UIInput;
+import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.convert.Converter;
 import javax.faces.model.SelectItem;
+
+import com.blazebit.blazefaces.renderkit.SelectRenderer;
 
 public class SelectOneRadioRenderer extends SelectRenderer {
 
@@ -138,7 +139,7 @@ public class SelectOneRadioRenderer extends SelectRenderer {
         String clientId = radio.getClientId(context);
         String containerClientId = radio.getContainerClientId(context);
         boolean disabled = radio.isDisabled();
-        Class type = getValueType(context, radio);
+        Class<?> type = getValueType(context, radio);
         
         if(itemValue != null && !itemValue.equals("")) {
             itemValue = context.getApplication().getExpressionFactory().coerceToType(itemValue, type);
@@ -167,9 +168,9 @@ public class SelectOneRadioRenderer extends SelectRenderer {
         writer.endElement("td");
     }
     
-    protected Class getValueType(FacesContext context, UIInput input) {
+    protected Class<?> getValueType(FacesContext context, UIInput input) {
         ValueExpression ve = input.getValueExpression("value");
-        Class type = ve == null ? String.class : ve.getType(context.getELContext());
+        Class<?> type = ve == null ? String.class : ve.getType(context.getELContext());
         
         return type == null ? String.class : type;
     }

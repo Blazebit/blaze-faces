@@ -3,14 +3,16 @@
  */
 package com.blazebit.blazefaces.util;
 
-import com.blazebit.blazefaces.json.JSONException;
-import com.blazebit.blazefaces.json.JSONObject;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+
+import com.blazebit.blazefaces.json.JSONException;
+import com.blazebit.blazefaces.json.JSONObject;
 
 /**
  *
@@ -23,7 +25,7 @@ public class FeatureDetectionUtil {
     private static final String MODERNIZER_RESOURCE_NAME = "core/modernizr.js";
     private static final String DETECT_RESOURCE_NAME = "core/detect.js";
 
-    public static void retrieveFeatures(FacesContext fc) {
+	public static void retrieveFeatures(FacesContext fc) {
         ExternalContext ec = fc.getExternalContext();
         Map<String, Object> sessionMap = ec.getSessionMap();
 
@@ -37,14 +39,14 @@ public class FeatureDetectionUtil {
 
                 JSONObject json = new JSONObject(features);
                 Map<String, Boolean> featureMap = new HashMap<String, Boolean>();
-                Iterator keys = json.keys();
+                Iterator<Object> keys = json.keys();
 
                 while (keys.hasNext()) {
                     String name = keys.next().toString();
                     JSONObject obj = json.optJSONObject(name);
 
                     if (obj != null) {
-                        Iterator keys2 = obj.keys();
+                        Iterator<Object> keys2 = obj.keys();
 
                         while (keys2.hasNext()) {
                             String name2 = keys2.next().toString();
@@ -70,7 +72,8 @@ public class FeatureDetectionUtil {
         return getFeatures(FacesContext.getCurrentInstance());
     }
 
-    public static Map<String, Boolean> getFeatures(FacesContext context) {
+    @SuppressWarnings("unchecked")
+	public static Map<String, Boolean> getFeatures(FacesContext context) {
         return (Map<String, Boolean>) context.getExternalContext().getSessionMap().get(FEATURES_SUBMITTED);
     }
 

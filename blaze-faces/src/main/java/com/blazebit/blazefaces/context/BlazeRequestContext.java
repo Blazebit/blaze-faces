@@ -52,7 +52,8 @@ public class BlazeRequestContext extends RequestContext {
        getPartialUpdateTargets().addAll(collection);
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public Map<String, Object> getCallbackParams() {
         if (attributes.get(CALLBACK_PARAMS_KEY) == null) {
             attributes.put(CALLBACK_PARAMS_KEY, new HashMap<String, Object>());
@@ -60,10 +61,11 @@ public class BlazeRequestContext extends RequestContext {
         return (Map<String, Object>) attributes.get(CALLBACK_PARAMS_KEY);
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public List<String> getPartialUpdateTargets() {
         if (attributes.get(PARTIAL_UPDATE_TARGETS_KEY) == null) {
-            attributes.put(PARTIAL_UPDATE_TARGETS_KEY, new ArrayList());
+            attributes.put(PARTIAL_UPDATE_TARGETS_KEY, new ArrayList<String>());
         }
         return (List<String>) attributes.get(PARTIAL_UPDATE_TARGETS_KEY);
     }

@@ -3,24 +3,20 @@
  */
 package com.blazebit.blazefaces.component.selectmanycheckbox;
 
-import com.blazebit.blazefaces.renderkit.SelectRenderer;
-import com.blazebit.blazefaces.renderkit.InputRenderer;
-import com.blazebit.blazefaces.util.ComponentUtil;
-import com.blazebit.blazefaces.util.HTML5;
 import java.io.IOException;
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
-
-import com.blazebit.blazefaces.util.RendererUtil;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+
+import javax.faces.component.UIComponent;
 import javax.faces.component.UIInput;
 import javax.faces.component.behavior.ClientBehaviorHolder;
+import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.convert.Converter;
-import javax.faces.convert.ConverterException;
 import javax.faces.model.SelectItem;
+
+import com.blazebit.blazefaces.renderkit.SelectRenderer;
+import com.blazebit.blazefaces.util.ComponentUtil;
+import com.blazebit.blazefaces.util.HTML5;
 
 public class SelectManyCheckboxRenderer extends SelectRenderer {
 
@@ -46,7 +42,6 @@ public class SelectManyCheckboxRenderer extends SelectRenderer {
 
     @Override
     public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
-        ResponseWriter writer = context.getResponseWriter();
         SelectManyCheckbox comp = (SelectManyCheckbox) component;
         
         encodeSelectItems(context, comp);
@@ -132,7 +127,7 @@ public class SelectManyCheckboxRenderer extends SelectRenderer {
         String formattedValue = getOptionAsString(context, component, converter, value);
         String clientId = component.getClientId(context);
         String containerClientId = component.getContainerClientId(context);
-        boolean checked = componentValue != null && ((List) componentValue).contains(value);
+        boolean checked = componentValue != null && ((List<?>) componentValue).contains(value);
         boolean disabled = checkbox.isDisabled();
 
         writer.startElement("td", null);

@@ -5,8 +5,6 @@ package com.blazebit.blazefaces.context;
 
 import java.io.IOException;
 import java.io.StringWriter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -14,7 +12,6 @@ import org.slf4j.LoggerFactory;
  */
 public class BlazeResponseWriter extends StringWriter{
 
-    private static final Logger log = LoggerFactory.getLogger(BlazeResponseWriter.class); 
     public static final int CR = '\r';
     public static final int LF = '\n';
 

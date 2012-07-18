@@ -3,9 +3,10 @@
  */
 package com.blazebit.blazefaces.component.commandbutton;
 
-import com.blazebit.blazefaces.component.Command;
-import javax.faces.context.FacesContext;
 import javax.faces.component.html.HtmlCommandButton;
+import javax.faces.context.FacesContext;
+
+import com.blazebit.blazefaces.component.Command;
 
 public class CommandButton extends HtmlCommandButton implements Command {
 

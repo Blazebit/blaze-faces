@@ -144,7 +144,8 @@ public class ComponentUtil {
         }
     }
 
-    public static List<SelectItem> createSelectItems(UIComponent component) {
+    @SuppressWarnings("unchecked")
+	public static List<SelectItem> createSelectItems(UIComponent component) {
         List<SelectItem> items = new ArrayList<SelectItem>();
         Iterator<UIComponent> children = component.getChildren().iterator();
 

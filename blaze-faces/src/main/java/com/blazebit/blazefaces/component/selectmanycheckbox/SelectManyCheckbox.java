@@ -3,9 +3,9 @@
  */
 package com.blazebit.blazefaces.component.selectmanycheckbox;
 
-import javax.faces.context.FacesContext;
 import javax.faces.component.behavior.ClientBehaviorHolder;
 import javax.faces.component.html.HtmlSelectManyCheckbox;
+import javax.faces.context.FacesContext;
 
 public class SelectManyCheckbox extends HtmlSelectManyCheckbox implements ClientBehaviorHolder {
 

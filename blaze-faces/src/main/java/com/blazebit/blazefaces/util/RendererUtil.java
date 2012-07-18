@@ -3,15 +3,13 @@
  */
 package com.blazebit.blazefaces.util;
 
-import com.blazebit.blazefaces.context.BlazeEncoder;
-import com.blazebit.blazefaces.context.BlazeResponseStream;
-import com.blazebit.blazefaces.context.BlazeResponseWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
 import javax.faces.FacesException;
 import javax.faces.application.Application;
 import javax.faces.application.FacesMessage;
@@ -24,9 +22,14 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseStream;
 import javax.faces.context.ResponseWriter;
 import javax.faces.render.Renderer;
+
 import org.owasp.validator.html.Policy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.blazebit.blazefaces.context.BlazeEncoder;
+import com.blazebit.blazefaces.context.BlazeResponseStream;
+import com.blazebit.blazefaces.context.BlazeResponseWriter;
 
 /**
  *
@@ -202,7 +205,8 @@ public class RendererUtil {
 
     }
 
-    public static void addBodyBottomScript(FacesContext ctx, String script) {
+    @SuppressWarnings("unchecked")
+	public static void addBodyBottomScript(FacesContext ctx, String script) {
         List<String> scripts = (List<String>) ctx.getAttributes().get(BODY_BOTTOM_SCRIPT_KEY);
 
         if (scripts == null) {
@@ -213,7 +217,8 @@ public class RendererUtil {
         ctx.getAttributes().put(BODY_BOTTOM_SCRIPT_KEY, scripts);
     }
 
-    public static List<String> getBodyBottomScripts(FacesContext ctx) {
+    @SuppressWarnings("unchecked")
+	public static List<String> getBodyBottomScripts(FacesContext ctx) {
         return (List<String>) ctx.getAttributes().get(BODY_BOTTOM_SCRIPT_KEY);
     }
 

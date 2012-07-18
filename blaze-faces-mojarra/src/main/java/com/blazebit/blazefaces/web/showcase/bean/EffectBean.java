@@ -4,11 +4,9 @@
 package com.blazebit.blazefaces.web.showcase.bean;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.event.AjaxBehaviorEvent;
 
 /**
  *
@@ -17,6 +15,8 @@ import javax.faces.event.AjaxBehaviorEvent;
 @ManagedBean
 @ViewScoped
 public class EffectBean implements Serializable {
+    
+	private static final long serialVersionUID = 1L;
     
     
 }

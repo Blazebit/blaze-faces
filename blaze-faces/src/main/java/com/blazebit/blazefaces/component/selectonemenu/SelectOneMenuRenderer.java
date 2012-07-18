@@ -3,16 +3,17 @@
  */
 package com.blazebit.blazefaces.component.selectonemenu;
 
-import com.blazebit.blazefaces.renderkit.SelectRenderer;
 import java.io.IOException;
+import java.util.List;
+
+import javax.el.ValueExpression;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
-
-import java.util.List;
-import javax.el.ValueExpression;
 import javax.faces.context.ResponseWriter;
 import javax.faces.convert.Converter;
 import javax.faces.model.SelectItem;
+
+import com.blazebit.blazefaces.renderkit.SelectRenderer;
 
 public class SelectOneMenuRenderer extends SelectRenderer {
 @Override
@@ -45,7 +46,7 @@ public class SelectOneMenuRenderer extends SelectRenderer {
         List<SelectItem> selectItems = getSelectItems(context, menu);
         String clientId = menu.getClientId(context);
         boolean disabled = menu.isDisabled();
-        Class type = getValueType(context, menu);
+        Class<?> type = getValueType(context, menu);
                 
         String style = menu.getStyle();
         String styleclass = menu.getStyleClass();
@@ -66,7 +67,7 @@ public class SelectOneMenuRenderer extends SelectRenderer {
         writer.endElement("div");
     }
 
-    protected void encodeInput(FacesContext context, SelectOneMenu menu, String clientId, List<SelectItem> selectItems, Class type) throws IOException {
+    protected void encodeInput(FacesContext context, SelectOneMenu menu, String clientId, List<SelectItem> selectItems, Class<?> type) throws IOException {
         ResponseWriter writer = context.getResponseWriter();
         String inputId = clientId + "_input";
         
@@ -86,7 +87,7 @@ public class SelectOneMenuRenderer extends SelectRenderer {
         writer.endElement("div");
     }
 
-    protected void encodeLabel(FacesContext context, SelectOneMenu menu, List<SelectItem> selectItems, Class type) throws IOException {
+    protected void encodeLabel(FacesContext context, SelectOneMenu menu, List<SelectItem> selectItems, Class<?> type) throws IOException {
         ResponseWriter writer = context.getResponseWriter();
         String label = getSelectedLabel(context, menu, selectItems, type);
         
@@ -122,7 +123,7 @@ public class SelectOneMenuRenderer extends SelectRenderer {
         writer.endElement("div");
     }
 
-    protected void encodePanel(FacesContext context, SelectOneMenu menu, List<SelectItem> selectItems, Class type) throws IOException {
+    protected void encodePanel(FacesContext context, SelectOneMenu menu, List<SelectItem> selectItems, Class<?> type) throws IOException {
         ResponseWriter writer = context.getResponseWriter();
         boolean customContent = false;//menu.getVar() != null;
         int height = 200;//calculatePanelHeight(menu, selectItems.size());
@@ -194,22 +195,22 @@ public class SelectOneMenuRenderer extends SelectRenderer {
 //        context.getExternalContext().getRequestMap().put(var, null);
 //    }
 
-    protected void encodeOptionsAsList(FacesContext context, SelectOneMenu menu, List<SelectItem> selectItems, Class type) throws IOException {
+    protected void encodeOptionsAsList(FacesContext context, SelectOneMenu menu, List<SelectItem> selectItems, Class<?> type) throws IOException {
         ResponseWriter writer = context.getResponseWriter();
-        Object value = menu.getValue();
+//        Object value = menu.getValue();
 
         for(int i = 0; i < selectItems.size(); i++) {
             SelectItem selectItem = selectItems.get(i);
-            Object itemValue = selectItem.getValue();
+//            Object itemValue = selectItem.getValue();
             String itemLabel = selectItem.getLabel();
-            Object coercedItemValue = null;
+//            Object coercedItemValue = null;
             itemLabel = isValueBlank(itemLabel) ? "&nbsp;" : itemLabel;
             
-            if(itemValue != null && !itemValue.equals("")) {
-                coercedItemValue = context.getApplication().getExpressionFactory().coerceToType(itemValue, type);
-            }
+//            if(itemValue != null && !itemValue.equals("")) {
+//                coercedItemValue = context.getApplication().getExpressionFactory().coerceToType(itemValue, type);
+//            }
 
-            boolean selected = (i==0 && value==null) || (value != null && value.equals(coercedItemValue));
+//            boolean selected = (i==0 && value==null) || (value != null && value.equals(coercedItemValue));
 //            String itemStyleClass = selected ? SelectOneMenu.ITEM_CLASS + " ui-state-active" : SelectOneMenu.ITEM_CLASS;
             
             writer.startElement("li", null);
@@ -224,7 +225,7 @@ public class SelectOneMenuRenderer extends SelectRenderer {
         }
     }
 
-    protected void encodeSelectItems(FacesContext context, SelectOneMenu menu, List<SelectItem> selectItems, Class type) throws IOException {
+    protected void encodeSelectItems(FacesContext context, SelectOneMenu menu, List<SelectItem> selectItems, Class<?> type) throws IOException {
         ResponseWriter writer = context.getResponseWriter();
         Converter converter = getConverter(context, menu);
         Object value = menu.getValue();
@@ -250,7 +251,7 @@ public class SelectOneMenuRenderer extends SelectRenderer {
         }
     }
 
-	protected String getSelectedLabel(FacesContext context, SelectOneMenu menu, List<SelectItem> items, Class type) {
+	protected String getSelectedLabel(FacesContext context, SelectOneMenu menu, List<SelectItem> items, Class<?> type) {
 		Object value = menu.getValue();
         String label = null;
         
@@ -295,9 +296,9 @@ public class SelectOneMenuRenderer extends SelectRenderer {
 		return true;
 	}
     
-    protected Class getValueType(FacesContext context, SelectOneMenu menu) {
+    protected Class<?> getValueType(FacesContext context, SelectOneMenu menu) {
         ValueExpression ve = menu.getValueExpression("value");
-        Class type = ve == null ? String.class : ve.getType(context.getELContext());
+        Class<?> type = ve == null ? String.class : ve.getType(context.getELContext());
         
         return type == null ? String.class : type;
     }

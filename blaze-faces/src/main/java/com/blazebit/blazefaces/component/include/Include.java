@@ -10,12 +10,14 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.el.ValueExpression;
 import javax.faces.component.NamingContainer;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 import javax.faces.view.facelets.FaceletContext;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -160,7 +162,8 @@ public class Include extends UIComponentBase {
      * by StateManagementStrategy because it first restores state of a node
      * then processes its children.
      */
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public void restoreState(FacesContext context, Object state) {
         Object values[] = (Object[]) state;
         super.restoreState(context, values[0]);
@@ -217,7 +220,9 @@ public class Include extends UIComponentBase {
      */
     public static class DynamicIncludeComponent extends UIComponentBase implements NamingContainer, Serializable {
 
-        private String src;
+		private static final long serialVersionUID = 1L;
+		
+		private String src;
         private int index;
 
         @Override

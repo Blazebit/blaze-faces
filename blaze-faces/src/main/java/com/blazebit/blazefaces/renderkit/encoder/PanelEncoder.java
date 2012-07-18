@@ -3,11 +3,13 @@
  */
 package com.blazebit.blazefaces.renderkit.encoder;
 
-import com.blazebit.blazefaces.context.BlazeEncoder;
 import java.io.IOException;
 import java.util.Map;
+
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
+
+import com.blazebit.blazefaces.context.BlazeEncoder;
 
 /**
  *

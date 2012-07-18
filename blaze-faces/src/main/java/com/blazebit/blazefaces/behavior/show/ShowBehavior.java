@@ -3,9 +3,10 @@
  */
 package com.blazebit.blazefaces.behavior.show;
 
-import com.blazebit.blazefaces.behavior.EffectBehavior;
 import javax.faces.application.ResourceDependencies;
 import javax.faces.application.ResourceDependency;
+
+import com.blazebit.blazefaces.behavior.EffectBehavior;
 
 /**
  *

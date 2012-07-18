@@ -6,13 +6,13 @@ package com.blazebit.blazefaces.component.outputmeter;
 import java.io.IOException;
 
 import javax.faces.component.UIComponent;
+import javax.faces.component.behavior.ClientBehaviorHolder;
 import javax.faces.context.FacesContext;
+import javax.faces.context.ResponseWriter;
 
 import com.blazebit.blazefaces.renderkit.OutputRenderer;
 import com.blazebit.blazefaces.util.HTML5;
 import com.blazebit.blazefaces.util.RendererUtil;
-import javax.faces.component.behavior.ClientBehaviorHolder;
-import javax.faces.context.ResponseWriter;
 
 public class OutputMeterRenderer extends OutputRenderer {
     
@@ -41,7 +41,6 @@ public class OutputMeterRenderer extends OutputRenderer {
 
     @Override
     public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
-        OutputMeter p = (OutputMeter) component;
         ResponseWriter writer = context.getResponseWriter();
         writer.endElement("meter");
         encodeBehaviors(context, (ClientBehaviorHolder) component);

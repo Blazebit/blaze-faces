@@ -4,17 +4,14 @@
 package com.blazebit.blazefaces.facelets;
 
 import java.io.Serializable;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import javax.el.ELException;
 import javax.el.MethodExpression;
-
 import javax.faces.context.FacesContext;
 import javax.faces.el.EvaluationException;
 import javax.faces.el.MethodBinding;
-
 import javax.faces.el.MethodNotFoundException;
 import javax.faces.view.facelets.FaceletContext;
 import javax.faces.view.facelets.MetaRule;
@@ -31,19 +28,20 @@ import javax.faces.view.facelets.TagAttributeException;
  * 
  * Implementation copied from Facelets 1.1.14, as it got hidden by JSF 2.0
  */
+@SuppressWarnings("deprecation")
 public class MethodRule extends MetaRule {
 
     private final String methodName;
-    private final Class returnTypeClass;
-    private final Class[] params;
+    private final Class<?> returnTypeClass;
+    private final Class<?>[] params;
 
-    public MethodRule(String methodName, Class returnTypeClass, Class[] params) {
+    public MethodRule(String methodName, Class<?> returnTypeClass, Class<?>[] params) {
         this.methodName = methodName;
         this.returnTypeClass = returnTypeClass;
         this.params = params;
     }
 
-    public Metadata applyRule(String name, TagAttribute attribute, MetadataTarget meta) {
+	public Metadata applyRule(String name, TagAttribute attribute, MetadataTarget meta) {
         if (false == name.equals(this.methodName)) {
             return null;
         }
@@ -69,10 +67,10 @@ public class MethodRule extends MetaRule {
 
         private final Method _method;
         private final TagAttribute _attribute;
-        private Class[] _paramList;
-        private Class _returnType;
+        private Class<?>[] _paramList;
+        private Class<?> _returnType;
 
-        public MethodBindingMetadata(Method method, TagAttribute attribute, Class returnType, Class[] paramList) {
+        public MethodBindingMetadata(Method method, TagAttribute attribute, Class<?> returnType, Class<?>[] paramList) {
             _method = method;
             _attribute = attribute;
             _paramList = paramList;
@@ -96,10 +94,10 @@ public class MethodRule extends MetaRule {
 
         private final Method _method;
         private final TagAttribute _attribute;
-        private Class[] _paramList;
-        private Class _returnType;
+        private Class<?>[] _paramList;
+        private Class<?> _returnType;
 
-        public MethodExpressionMetadata(Method method, TagAttribute attribute, Class returnType, Class[] paramList) {
+        public MethodExpressionMetadata(Method method, TagAttribute attribute, Class<?> returnType, Class<?>[] paramList) {
             _method = method;
             _attribute = attribute;
             _paramList = paramList;
@@ -119,7 +117,7 @@ public class MethodRule extends MetaRule {
         }
     }
 
-    private static class LegacyMethodBinding extends MethodBinding implements Serializable {
+	private static class LegacyMethodBinding extends MethodBinding implements Serializable {
 
         private static final long serialVersionUID = 1L;
         private final MethodExpression m;
@@ -133,7 +131,7 @@ public class MethodRule extends MetaRule {
          *
          * @see javax.faces.el.MethodBinding#getType(javax.faces.context.FacesContext)
          */
-        public Class getType(FacesContext context) throws MethodNotFoundException {
+        public Class<?> getType(FacesContext context) throws MethodNotFoundException {
             try {
                 return m.getMethodInfo(context.getELContext()).getReturnType();
             } catch (javax.el.MethodNotFoundException e) {

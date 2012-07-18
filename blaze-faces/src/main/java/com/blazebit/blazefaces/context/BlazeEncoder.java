@@ -5,6 +5,7 @@ package com.blazebit.blazefaces.context;
 
 import java.io.IOException;
 import java.util.Map;
+
 import javax.faces.context.FacesContext;
 
 /**

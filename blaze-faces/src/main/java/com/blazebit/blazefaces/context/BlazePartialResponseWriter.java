@@ -3,15 +3,17 @@
  */
 package com.blazebit.blazefaces.context;
 
-import com.blazebit.blazefaces.json.JSONException;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+
 import javax.faces.context.FacesContext;
 import javax.faces.context.PartialResponseWriter;
 import javax.faces.event.AbortProcessingException;
+
+import com.blazebit.blazefaces.json.JSONException;
 import com.blazebit.blazefaces.json.JSONObject;
-import java.util.Iterator;
 
 public class BlazePartialResponseWriter extends PartialResponseWriter {
 

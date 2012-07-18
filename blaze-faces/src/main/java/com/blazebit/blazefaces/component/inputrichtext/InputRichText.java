@@ -3,9 +3,9 @@
  */
 package com.blazebit.blazefaces.component.inputrichtext;
 
-import javax.faces.context.FacesContext;
 import javax.faces.component.behavior.ClientBehaviorHolder;
 import javax.faces.component.html.HtmlInputTextarea;
+import javax.faces.context.FacesContext;
 
 public class InputRichText extends HtmlInputTextarea implements ClientBehaviorHolder {
 

@@ -1,0 +1,95 @@
+/* 
+    Document   : ui
+    Created on : 15.08.2011, 18:48:20
+    Author     : Bernd
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.blaze-ui-form { 
+    cursor: pointer;
+    display: block;
+    float: left;
+    margin-right: 2px;
+    margin-top: -4px; 
+    height: 35px;
+    position: relative;
+}
+    .blaze-ui-form .blaze-ui-bg { position: absolute; top: 0; }
+
+/*-- Disabled UI Control --*/
+.blaze-ui-form.disabled, 
+.blaze-ui-form.disabled a, 
+.blaze-ui-form.disabled span,
+.blaze-ui-form.disabled input[type='submit'], 
+.blaze-ui-form.disabled input[type='button'] { cursor: default; }
+
+input[type="text"], input[type="password"] { background: #fff url(#{resource['blazefaces:images/input_bg.png']}) repeat-x; border: 1px solid; border-color: #9e9e9e #d9d9d9 #d9d9d9 #9e9e9e; -moz-border-radius: 2px; -webkit-border-radius: 2px; font-size: 0.75em; padding: 7px 5px 4px; }
+    input.veryShort { width: 8%; }
+    input.short { width: 15%; }
+    input.middle { width: 35%; }
+    input.long { width: 50%; }
+    input.full { width: 100%; }
+    input.break { clear: both; display: block; margin-top: 10px; }
+    input[type="text"], input[type="password"], textarea { 
+               -moz-box-sizing: border-box;
+                -ms-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+                    box-sizing: border-box;	
+    }
+    input[type="text"]:focus, input[type="text"].focus, input[type="password"]:focus, textarea:focus { -moz-box-shadow:0px 0px 2px #075ea7; -webkit-box-shadow: 0px 0px 2px #075ea7; box-shadow: 0px 0px 2px #075ea7; border: 1px solid #8BBBF1; outline: none; }
+    input[disabled] { background: none; background-color: #eee; border-color: #d9d9d9; }
+    input[type="checkbox"] { border: medium none; margin: 0; padding: 0; }
+
+label { color: #222; float: left; display: inline-block; font-size: 0.7em; }
+textarea { background: url(#{resource['blazefaces:images/input_bg.png']}) repeat-x top; border: 1px solid #ccc; border-color: #9e9e9e #d9d9d9 #d9d9d9 #9e9e9e; -moz-border-radius: 2px; -webkit-border-radius: 2px; font-size: 0.75em; padding: 7px 5px 4px; width: 50%; }
+        textarea.tiny-mce-textarea { height: 400px; width: 89%; }
+
+        
+/*-- UI Small Icons --*/
+.blaze-ui-icon { background: url(#{resource['blazefaces:images/icon_base_bg.png']}) no-repeat; float: left; display: inline; margin-right: -4px; margin-top: -5px; width: 34px; }
+    .blaze-ui-icon a { display: block; font-size: 0; text-indent: -9999px; padding: 16px 17px 20px; position: relative; }
+
+/*-- Disabled Icon State --*/
+.blaze-ui-icon.disabled { background: url(#{resource['blazefaces:images/icon_base_disabled_bg.png']}) no-repeat; }
+    .blaze-ui-icon.disabled a { opacity: 0.7; }
+
+/*-- Small Icons HOVER --*/
+.blaze-ui-icon.hover { background: url(#{resource['blazefaces:images/icon_base_bg_hover.png']}) no-repeat; }
+
+/*-- Single UI Icons --*/
+.icon-arrow-first { background: url(#{resource['blazefaces:images/icon_arrow_first.png']}) no-repeat center; }
+.icon-arrow-left { background: url(#{resource['blazefaces:images/icon_arrow_left.png']}) no-repeat center; }
+.icon-arrow-right { background: url(#{resource['blazefaces:images/icon_arrow_right.png']}) no-repeat center; }
+.icon-arrow-last { background: url(#{resource['blazefaces:images/icon_arrow_last.png']}) no-repeat center; }
+.icon-arrow-down { background: url(#{resource['blazefaces:images/icon_arrow_down.png']}) no-repeat center; }
+.icon-arrow-down-small { background: url(#{resource['blazefaces:images/icon_arrow_down_small.png']}) no-repeat center; }
+.icon-arrow-down-xsmall { background: url(#{resource['blazefaces:images/icon_arrow_down_xsmall.png']}) no-repeat center; }
+.icon-arrow-up { background: url(#{resource['blazefaces:images/icon_arrow_up.png']}) no-repeat center; }
+.icon-arrow-up-small { background: url(#{resource['blazefaces:images/icon_arrow_up_small.png']}) no-repeat center; }
+.icon-arrow-up-xsmall { background: url(#{resource['blazefaces:images/icon_arrow_up_xsmall.png']}) no-repeat center; }
+.icon-calendar { background: url(#{resource['blazefaces:images/icon_calendar.png']}) no-repeat center; }
+.icon-clipboard { background: url(#{resource['blazefaces:images/icon_clipboard_button.png']}) no-repeat center; }
+.icon-filter { background: url(#{resource['blazefaces:images/icon_filter.png']}) no-repeat center; }
+.icon-cancel-rounded { background: url(#{resource['blazefaces:images/icon_cancel_rounded.png']}) no-repeat; }
+.icon-cancel-dark-rounded { background: url(#{resource['blazefaces:images/icon_cancel_dark_rounded.png']}) no-repeat; }
+.icon-magnifier-grey { background: url(#{resource['blazefaces:images/icon_magnifier_grey.png']}) no-repeat; }
+.icon-magnifier-black { background: url(#{resource['blazefaces:images/icon_magnifier_black.png']}) no-repeat; }	
+.icon-magnifier-inset { background: url(#{resource['blazefaces:images/icon_magnifier_inset.png']}) no-repeat; }
+.icon-plus-rounded-blue { background: url(#{resource['blazefaces:images/icon_plus_rounded_blue.png']}) no-repeat; }
+.icon-plus-rounded-grey { background: url(#{resource['blazefaces:images/icon_plus_rounded_grey.png']}) no-repeat; }
+.icon-plus-rounded-inset { background: url(#{resource['blazefaces:images/icon_plus_rounded_inset.png']}) no-repeat; }
+.icon-tick-inset { background: url(#{resource['blazefaces:images/icon_tick_inset.png']}) no-repeat center; }
+
+/*-- Ajax Loader --*/
+.ajaxloader-radial { background: url(#{resource['blazefaces:images/ajax_loader_radial.gif']}) no-repeat !important; }
+.ajaxloader-radial-small { background: url(#{resource['blazefaces:images/ajax_loader_radial_small.gif']}) no-repeat !important; }
+.ajaxloader-radial-blue-small { background: url(#{resource['blazefaces:images/ajax_loader_blue_xs.gif']}) no-repeat !important; }
+
+/*-- Tooltip --*/
+.blaze-ui-tooltip { -moz-border-radius: 3px; -webkit-border-radius: 3px; -moz-box-shadow: 0 1px 5px #888888; -webkit-box-shadow: 0 1px 5px #888888; background: #333333; color: #f5f5f5; font-size: 0.7em; padding: 5px; position: absolute; z-index: 9999; }

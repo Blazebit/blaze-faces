@@ -5,9 +5,8 @@ package com.blazebit.blazefaces.context;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+
 import javax.faces.context.ResponseStream;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -15,7 +14,6 @@ import org.slf4j.LoggerFactory;
  */
 public class BlazeResponseStream extends ResponseStream{
 
-    private static final Logger log = LoggerFactory.getLogger(BlazeResponseStream.class);
     public static final int CR = '\r';
     public static final int LF = '\n';
     private ByteArrayOutputStream baos = new ByteArrayOutputStream();
