@@ -9,8 +9,8 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
-import com.blazebit.blazefaces.util.ComponentUtil;
-import com.blazebit.blazefaces.util.RendererUtil;
+import com.blazebit.blazefaces.util.ComponentUtils;
+import com.blazebit.blazefaces.util.RendererUtils;
 
 /**
  *
@@ -29,7 +29,7 @@ public class CommandRenderer extends OutputRenderer {
 
     @Override
     public void decode(FacesContext context, UIComponent component) {
-        if (ComponentUtil.componentIsDisabledOrReadonly(component)) {
+        if (ComponentUtils.componentIsDisabledOrReadonly(component)) {
             return;
         }
         
@@ -51,7 +51,7 @@ public class CommandRenderer extends OutputRenderer {
         Map<String, String> requestParameterMap = context.getExternalContext().getRequestParameterMap();
         if (requestParameterMap.get(clientId) == null) {
             // check if behavior was invoked
-            if (RendererUtil.isPartialOrBehaviorAction(context, clientId)) {
+            if (RendererUtils.isPartialOrBehaviorAction(context, clientId)) {
                 return true;
             }
             return false;

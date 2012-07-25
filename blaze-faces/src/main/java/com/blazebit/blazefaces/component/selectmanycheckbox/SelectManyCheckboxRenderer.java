@@ -15,7 +15,7 @@ import javax.faces.convert.Converter;
 import javax.faces.model.SelectItem;
 
 import com.blazebit.blazefaces.renderkit.SelectRenderer;
-import com.blazebit.blazefaces.util.ComponentUtil;
+import com.blazebit.blazefaces.util.ComponentUtils;
 import com.blazebit.blazefaces.util.HTML5;
 
 public class SelectManyCheckboxRenderer extends SelectRenderer {
@@ -24,7 +24,7 @@ public class SelectManyCheckboxRenderer extends SelectRenderer {
     public void decode(FacesContext context, UIComponent component) {
         SelectManyCheckbox comp = (SelectManyCheckbox) component;
 
-        if (ComponentUtil.componentIsDisabledOrReadonly(component)) {
+        if (ComponentUtils.componentIsDisabledOrReadonly(component)) {
             return;
         }
 

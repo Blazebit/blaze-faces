@@ -19,7 +19,7 @@ import javax.faces.convert.DateTimeConverter;
 
 import com.blazebit.blazefaces.renderkit.OutputRenderer;
 import com.blazebit.blazefaces.util.HTML5;
-import com.blazebit.blazefaces.util.RendererUtil;
+import com.blazebit.blazefaces.util.RendererUtils;
 import com.ocpsoft.pretty.time.PrettyTime;
 
 public class OutputTimeRenderer extends OutputRenderer {
@@ -33,14 +33,14 @@ public class OutputTimeRenderer extends OutputRenderer {
         writer.startElement("time", component);
         initConverter((DateTimeConverter) p.getConverter(), p);
 
-        RendererUtil.encodeAttribute(writer, "id", p.getClientId(ctx), null);
-        RendererUtil.encodeAttribute(writer, "class", p.getAttributes().get("styleClass"), null);
-        RendererUtil.encodeAttribute(writer, "pubdate", p.getAttributes().get("pubdate"), null);
+        RendererUtils.encodeAttribute(writer, "id", p.getClientId(ctx), null);
+        RendererUtils.encodeAttribute(writer, "class", p.getAttributes().get("styleClass"), null);
+        RendererUtils.encodeAttribute(writer, "pubdate", p.getAttributes().get("pubdate"), null);
         
         Object val = ((ValueHolder) component).getValue();
         
         if(val != null)
-            RendererUtil.encodeAttribute(writer, "datetime", df.format((Date) val), null);
+            RendererUtils.encodeAttribute(writer, "datetime", df.format((Date) val), null);
         renderPassThruAttributes(ctx, component, HTML5.COMMON_ATTRIBUTES);
         renderDataMapAttributes(ctx, component);
     }

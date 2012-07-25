@@ -16,7 +16,7 @@ import org.owasp.validator.html.CleanResults;
 import org.owasp.validator.html.PolicyException;
 import org.owasp.validator.html.ScanException;
 
-import com.blazebit.blazefaces.util.RendererUtil;
+import com.blazebit.blazefaces.util.RendererUtils;
 
 /**
  *
@@ -47,7 +47,7 @@ public class SemanticBean implements Serializable {
     public String getSanatized() throws ScanException, PolicyException, MalformedURLException{
         String bad = "<div><p>This <mark>is</mark> a sample<script>alert('Bad')</script></p></div>";
         AntiSamy as = new AntiSamy();
-        CleanResults cr = as.scan(bad, RendererUtil.getPolicy());
+        CleanResults cr = as.scan(bad, RendererUtils.getPolicy());
         String clean = cr.getCleanHTML();
         return clean;
     }

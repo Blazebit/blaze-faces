@@ -7,7 +7,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
 
-import com.blazebit.blazefaces.util.ComponentUtil;
+import com.blazebit.blazefaces.util.ComponentUtils;
 
 public class InputRenderer extends OutputRenderer {
 
@@ -15,7 +15,7 @@ public class InputRenderer extends OutputRenderer {
     public void decode(FacesContext context, UIComponent component) {
         UIInput comp = (UIInput) component;
         
-        if(ComponentUtil.componentIsDisabledOrReadonly(component))
+        if(ComponentUtils.componentIsDisabledOrReadonly(component))
             return;
         
         decodeBehaviors(context, comp);

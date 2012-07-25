@@ -15,9 +15,10 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.render.Renderer;
 
-import com.blazebit.blazefaces.util.AgentUtil;
-import com.blazebit.blazefaces.util.FeatureDetectionUtil;
-import com.blazebit.blazefaces.util.RendererUtil;
+import com.blazebit.blazefaces.util.AgentUtils;
+import com.blazebit.blazefaces.util.Constants;
+import com.blazebit.blazefaces.util.FeatureDetectionUtils;
+import com.blazebit.blazefaces.util.RendererUtils;
 
 public class HeadRenderer extends Renderer {
 
@@ -28,8 +29,8 @@ public class HeadRenderer extends Renderer {
 
         //Theme
         String theme = null;
-        String themeParamValue = context.getExternalContext().getInitParameter("blazefaces.THEME");
-        String featureDetection = context.getExternalContext().getInitParameter("blazefaces.FEATURE_DETECTION");
+        String themeParamValue = context.getExternalContext().getInitParameter(Constants.THEME_PARAM);
+        String featureDetection = context.getExternalContext().getInitParameter(Constants.FEATURE_DETECTION_PARAM);
 
         if (themeParamValue != null) {
             ELContext elContext = context.getELContext();
@@ -40,16 +41,16 @@ public class HeadRenderer extends Renderer {
         }
 
         if (theme == null || theme.equalsIgnoreCase("blazing")) {
-            RendererUtil.encodeCss(context, "blazefaces", "themes/blazing/theme.css");
+            RendererUtils.encodeCss(context, "blazefaces", "themes/blazing/theme.css");
         } else if (!theme.equalsIgnoreCase("none")) {
-            RendererUtil.encodeCss(context, "blazefaces-" + theme, "theme.css");
+            RendererUtils.encodeCss(context, "blazefaces-" + theme, "theme.css");
         }
 
         // Normal resources =D
         encodeComponentResources(context, "head", null);
         
         // IE specific resources...
-        if(AgentUtil.isIE(context)){
+        if(AgentUtils.isIE(context)){
             // Conditional scripts are used for IE
             encodeComponentResources(context, "head_ie", "IE");
             
@@ -64,7 +65,7 @@ public class HeadRenderer extends Renderer {
         
         if(!"false".equalsIgnoreCase(featureDetection)){
             // Feature detection script will only be rendered once
-            FeatureDetectionUtil.encodeFeatures(context);
+            FeatureDetectionUtils.encodeFeatures(context);
         }
     }
 

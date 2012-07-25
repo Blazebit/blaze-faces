@@ -3,9 +3,9 @@
  */
 package com.blazebit.blazefaces.util;
 
-public class ArrayUtil {
+public class ArrayUtils {
 
-    private ArrayUtil() {
+    private ArrayUtils() {
     }
 
     public static boolean contains(String[] array, String searchedText) {

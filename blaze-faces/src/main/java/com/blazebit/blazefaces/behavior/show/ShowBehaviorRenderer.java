@@ -9,7 +9,7 @@ import javax.faces.component.behavior.ClientBehaviorContext;
 import javax.faces.context.FacesContext;
 import javax.faces.render.ClientBehaviorRenderer;
 
-import com.blazebit.blazefaces.util.ComponentUtil;
+import com.blazebit.blazefaces.util.ComponentUtils;
 
 /**
  *
@@ -32,7 +32,7 @@ public class ShowBehaviorRenderer extends ClientBehaviorRenderer {
             source = component.getClientId(fc);
         }
 
-        String forId = ComponentUtil.findComponentClientId(behav.getForId());
+        String forId = ComponentUtils.findComponentClientId(behav.getForId());
         StringBuilder req = new StringBuilder();
         req.append("$('");
         req.append(forId);

@@ -10,7 +10,7 @@ import javax.faces.context.PartialResponseWriter;
 import javax.faces.context.PartialViewContext;
 import javax.faces.context.PartialViewContextWrapper;
 
-import com.blazebit.blazefaces.util.FeatureDetectionUtil;
+import com.blazebit.blazefaces.util.FeatureDetectionUtils;
 
 public class BlazePartialViewContext extends PartialViewContextWrapper {
 
@@ -22,7 +22,7 @@ public class BlazePartialViewContext extends PartialViewContextWrapper {
         
         if(isAjaxRequest()) {
             BlazeRequestContext.init();
-            FeatureDetectionUtil.retrieveFeatures(FacesContext.getCurrentInstance());
+            FeatureDetectionUtils.retrieveFeatures(FacesContext.getCurrentInstance());
         }
     }
     

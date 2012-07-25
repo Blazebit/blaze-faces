@@ -3,6 +3,7 @@
  */
 package com.blazebit.blazefaces.application;
 
+import com.blazebit.blazefaces.util.Constants;
 import javax.faces.application.Resource;
 import javax.faces.application.ResourceWrapper;
 
@@ -21,7 +22,7 @@ public class BlazeResource extends ResourceWrapper {
 
     @Override
     public String getRequestPath() {
-        return super.getRequestPath() + "&amp;v=" + BlazeResourceHandler.VERSION;
+        return super.getRequestPath() + "&amp;v=" + Constants.VERSION;
     }
 
     @Override

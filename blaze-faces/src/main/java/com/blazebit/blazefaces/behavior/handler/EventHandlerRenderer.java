@@ -15,8 +15,8 @@ import javax.faces.component.behavior.ClientBehaviorContext;
 import javax.faces.context.FacesContext;
 
 import com.blazebit.blazefaces.renderkit.CoreRenderer;
-import com.blazebit.blazefaces.util.ComponentUtil;
-import com.blazebit.blazefaces.util.RendererUtil;
+import com.blazebit.blazefaces.util.ComponentUtils;
+import com.blazebit.blazefaces.util.RendererUtils;
 
 public class EventHandlerRenderer extends CoreRenderer {
     
@@ -44,13 +44,13 @@ public class EventHandlerRenderer extends CoreRenderer {
             UIComponent source = null;
             
             if(target != null){
-                source = ComponentUtil.findComponent(context.getViewRoot(), target);
+                source = ComponentUtils.findComponent(context.getViewRoot(), target);
             }else{
                 source =  component.getParent();
             }
             
             scriptBuilder.append("BlazeJS.EventHandler.add('");
-            scriptBuilder.append(ComponentUtil.escapeSelectorId(source.getClientId()));
+            scriptBuilder.append(ComponentUtils.escapeSelectorId(source.getClientId()));
             scriptBuilder.append("','");
             scriptBuilder.append(domEvent);
             scriptBuilder.append("',");
@@ -61,7 +61,7 @@ public class EventHandlerRenderer extends CoreRenderer {
         }
         
         if(scriptBuilder.length() > 0)
-            RendererUtil.addBodyBottomScript(context, scriptBuilder.toString());
+            RendererUtils.addBodyBottomScript(context, scriptBuilder.toString());
     }
     
     private void encodeBehaviors(StringBuilder scriptBuilder, FacesContext context, UIComponent source, EventHandler component, String event){
@@ -79,7 +79,7 @@ public class EventHandlerRenderer extends CoreRenderer {
                 ClientBehavior behavior = ((EventHandler.DefinitionOrderComponent)current).getBehavior();
                 ClientBehaviorContext cbc = ClientBehaviorContext.createClientBehaviorContext(context, source, event, null, params);
 
-                scriptBuilder.append("function(){");
+                scriptBuilder.append("function(event){");
                 scriptBuilder.append(behavior.getScript(cbc));
                 scriptBuilder.append("}");
             }else{

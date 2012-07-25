@@ -12,7 +12,7 @@ import javax.faces.context.ResponseWriter;
 
 import com.blazebit.blazefaces.renderkit.InputRenderer;
 import com.blazebit.blazefaces.util.HTML5;
-import com.blazebit.blazefaces.util.RendererUtil;
+import com.blazebit.blazefaces.util.RendererUtils;
 
 public class InputTextRenderer extends InputRenderer {
     private static final String DEFAULT_TYPE = "text";
@@ -30,11 +30,11 @@ public class InputTextRenderer extends InputRenderer {
         String type = getType(context, component);
         
         writer.startElement("input", component);
-        RendererUtil.encodeAttribute(writer, "id", clientId, null);
-        RendererUtil.encodeAttribute(writer, "name", clientId, null);
-        RendererUtil.encodeAttribute(writer, "type", type, null);
-        RendererUtil.encodeAttribute(writer, "class", component.getAttributes().get("styleClass"), null);
-        RendererUtil.encodeAttribute(writer, "value", value, null);
+        RendererUtils.encodeAttribute(writer, "id", clientId, null);
+        RendererUtils.encodeAttribute(writer, "name", clientId, null);
+        RendererUtils.encodeAttribute(writer, "type", type, null);
+        RendererUtils.encodeAttribute(writer, "class", component.getAttributes().get("styleClass"), null);
+        RendererUtils.encodeAttribute(writer, "value", value, null);
         renderPassThruAttributes(context, component, HTML5.COMMON_ATTRIBUTES);
         writer.endElement("input");
         encodeBehaviors(context, (ClientBehaviorHolder) component);

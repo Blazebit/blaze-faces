@@ -5,9 +5,9 @@ package com.blazebit.blazefaces.util;
 
 import javax.faces.context.FacesContext;
 
-public class AgentUtil {
+public class AgentUtils {
 
-    private AgentUtil() {
+    private AgentUtils() {
     }
 
     public static boolean isIE(FacesContext facesContext) {

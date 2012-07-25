@@ -12,7 +12,7 @@ import javax.faces.context.ResponseWriter;
 
 import com.blazebit.blazefaces.renderkit.CoreRenderer;
 import com.blazebit.blazefaces.util.HTML5;
-import com.blazebit.blazefaces.util.RendererUtil;
+import com.blazebit.blazefaces.util.RendererUtils;
 
 public class PanelGroupRenderer extends CoreRenderer {
 
@@ -49,8 +49,8 @@ public class PanelGroupRenderer extends CoreRenderer {
         if(htmlTag != null){
             ResponseWriter writer = ctx.getResponseWriter();
             writer.startElement(htmlTag, component);
-            RendererUtil.encodeAttribute(writer, "id", component.getClientId(ctx), null);
-            RendererUtil.encodeAttribute(writer, "class", component.getAttributes().get("styleClass"), null);
+            RendererUtils.encodeAttribute(writer, "id", component.getClientId(ctx), null);
+            RendererUtils.encodeAttribute(writer, "class", component.getAttributes().get("styleClass"), null);
             renderPassThruAttributes(ctx, component, HTML5.COMMON_ATTRIBUTES);
             renderDataMapAttributes(ctx, component);
         }

@@ -3,14 +3,12 @@
  */
 package com.blazebit.blazefaces.application;
 
+import com.blazebit.blazefaces.util.Constants;
 import javax.faces.application.Resource;
 import javax.faces.application.ResourceHandler;
 import javax.faces.application.ResourceHandlerWrapper;
 
 public class BlazeResourceHandler extends ResourceHandlerWrapper {
-
-    public final static String VERSION = "0.1";
-    public final static String LIBRARY = "blazefaces";
 
     private ResourceHandler wrapped;
 
@@ -27,7 +25,7 @@ public class BlazeResourceHandler extends ResourceHandlerWrapper {
     public Resource createResource(String resourceName, String libraryName) {
         Resource resource = super.createResource(resourceName, libraryName);
 
-        if(resource != null && libraryName != null && libraryName.equalsIgnoreCase(LIBRARY)) {
+        if(resource != null && libraryName != null && libraryName.equalsIgnoreCase(Constants.LIBRARY)) {
             return new BlazeResource(resource);
         } else {
             return resource;

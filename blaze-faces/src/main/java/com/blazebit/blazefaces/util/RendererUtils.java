@@ -35,9 +35,9 @@ import java.util.logging.Logger;
  *
  * @author Christian Beikov
  */
-public class RendererUtil {
+public class RendererUtils {
 
-    private static final Logger log = Logger.getLogger(RendererUtil.class.getName());
+    private static final Logger log = Logger.getLogger(RendererUtils.class.getName());
     private static final Map<String, String> cssMap = new HashMap<String, String>();
     public static final String BODY_BOTTOM_SCRIPT_KEY = "com.blazebit.blazefaces.BODY_BOTTOM_SCRIPT_KEY";
 
@@ -79,7 +79,7 @@ public class RendererUtil {
 
     public static Policy getPolicy() {
         try {
-            return Policy.getInstance(RendererUtil.class.getClassLoader().getResource("META-INF/antisamy-tinymce-1.4.4.xml"));
+            return Policy.getInstance(RendererUtils.class.getClassLoader().getResource("META-INF/antisamy-tinymce-1.4.4.xml"));
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
@@ -225,7 +225,7 @@ public class RendererUtil {
     public static String getEventHandlerScript(FacesContext context, String targetClientId, String event, String code) {
         StringBuilder scriptBuilder = new StringBuilder();
         scriptBuilder.append("BlazeJS.EventHandler.add('");
-        scriptBuilder.append(ComponentUtil.escapeSelectorId(targetClientId));
+        scriptBuilder.append(ComponentUtils.escapeSelectorId(targetClientId));
         scriptBuilder.append("','");
         scriptBuilder.append(event);
         scriptBuilder.append("',function(){");
@@ -296,14 +296,14 @@ public class RendererUtil {
 
         ExternalContext external = context.getExternalContext();
         Map<String, String> params = external.getRequestParameterMap();
-        String source = params.get("javax.faces.source");
+        String source = params.get(Constants.PARTIAL_SOURCE_PARAM);
 
         if (!clientId.equals(source)) {
             return false;
         }
 
         // First check for a Behavior action event.
-        String behaviorEvent = params.get("javax.faces.behavior.event");
+        String behaviorEvent = params.get(Constants.PARTIAL_BEHAVIOR_EVENT_PARAM);
 
         if (null != behaviorEvent) {
             return ("action".equals(behaviorEvent));
@@ -311,7 +311,7 @@ public class RendererUtil {
 
         // Not a Behavior-related request.  Check for jsf.ajax.request()
         // request params.
-        String partialEvent = params.get("javax.faces.partial.event");
+        String partialEvent = params.get(Constants.PARTIAL_EVENT_PARAM);
         return ("click".equals(partialEvent));
     }
 }

@@ -17,7 +17,7 @@ import javax.faces.convert.ConverterException;
 import javax.faces.model.SelectItem;
 
 import com.blazebit.blazefaces.renderkit.SelectRenderer;
-import com.blazebit.blazefaces.util.ComponentUtil;
+import com.blazebit.blazefaces.util.ComponentUtils;
 
 public class SelectManyMenuRenderer extends SelectRenderer {
 
@@ -25,7 +25,7 @@ public class SelectManyMenuRenderer extends SelectRenderer {
     public void decode(FacesContext context, UIComponent component) {
         SelectManyMenu comp = (SelectManyMenu) component;
 
-        if (ComponentUtil.componentIsDisabledOrReadonly(component)) {
+        if (ComponentUtils.componentIsDisabledOrReadonly(component)) {
             return;
         }
 

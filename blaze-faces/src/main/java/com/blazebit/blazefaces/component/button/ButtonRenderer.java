@@ -11,7 +11,7 @@ import javax.faces.context.ResponseWriter;
 
 import com.blazebit.blazefaces.renderkit.OutputRenderer;
 import com.blazebit.blazefaces.util.HTML5;
-import com.blazebit.blazefaces.util.RendererUtil;
+import com.blazebit.blazefaces.util.RendererUtils;
 
 public class ButtonRenderer extends OutputRenderer {
     
@@ -30,11 +30,11 @@ public class ButtonRenderer extends OutputRenderer {
         String value = getCurrentValue(context, component);
 
         writer.startElement("button", comp);
-        RendererUtil.encodeAttribute(writer, "id", clientId, null);
-        RendererUtil.encodeAttribute(writer, "name", clientId, null);
-        RendererUtil.encodeAttribute(writer, "class", comp.getAttributes().get("styleClass"), null);
-        RendererUtil.encodeAttribute(writer, "type", type, null);
-        RendererUtil.encodeAttribute(writer, "value", value, null);
+        RendererUtils.encodeAttribute(writer, "id", clientId, null);
+        RendererUtils.encodeAttribute(writer, "name", clientId, null);
+        RendererUtils.encodeAttribute(writer, "class", comp.getAttributes().get("styleClass"), null);
+        RendererUtils.encodeAttribute(writer, "type", type, null);
+        RendererUtils.encodeAttribute(writer, "value", value, null);
         renderPassThruAttributes(context, component, HTML5.COMMON_ATTRIBUTES);
         
         if(component.getChildCount() > 0){

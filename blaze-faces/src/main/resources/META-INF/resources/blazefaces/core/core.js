@@ -127,18 +127,13 @@ BlazeJS.EventHandler = {
     },
     
     create : function(type, actions){
-        return function(){
+        return function(event){
             var retVal = null;
             var tempVal = null;
             // @todo: Handle type == 'parallel'
             for(var i = 0; i < actions.length; i++){
-                tempVal = actions[i]();
-                
-                if(tempVal != null)
-                    retVal = tempVal;
+                actions[i](event);
             }
-        
-            return retVal;
         }
     }
 }

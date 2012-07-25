@@ -25,10 +25,10 @@ import com.blazebit.blazefaces.model.DefaultUploadedFile;
 import com.blazebit.blazefaces.model.UploadedFile;
 import com.blazebit.blazefaces.renderkit.InputRenderer;
 import com.blazebit.blazefaces.renderkit.encoder.PanelEncoder;
-import com.blazebit.blazefaces.util.ComponentUtil;
-import com.blazebit.blazefaces.util.FeatureDetectionUtil;
+import com.blazebit.blazefaces.util.ComponentUtils;
+import com.blazebit.blazefaces.util.FeatureDetectionUtils;
 import com.blazebit.blazefaces.util.HTML5;
-import com.blazebit.blazefaces.util.RendererUtil;
+import com.blazebit.blazefaces.util.RendererUtils;
 import com.blazebit.blazefaces.webapp.MultipartRequest;
 
 public class InputFileRenderer extends InputRenderer {
@@ -39,7 +39,7 @@ public class InputFileRenderer extends InputRenderer {
     public void decode(FacesContext ctx, UIComponent component) {
         InputFile fileUpload = (InputFile) component;
         
-        if(ComponentUtil.componentIsDisabledOrReadonly(component))
+        if(ComponentUtils.componentIsDisabledOrReadonly(component))
             return;
         
         String clientId = fileUpload.getClientId(ctx);
@@ -105,7 +105,7 @@ public class InputFileRenderer extends InputRenderer {
         String containerId = clientId + "_container";
         
         if(fileUpload.getContainer() != null){
-            containerId = ComponentUtil.findComponentClientId(fileUpload.getContainer());
+            containerId = ComponentUtils.findComponentClientId(fileUpload.getContainer());
         }
         
         writer.startElement("script", fileUpload);
@@ -120,7 +120,7 @@ public class InputFileRenderer extends InputRenderer {
         writer.write(",container : " + containerId);
         writer.write(",autoUpload : " + fileUpload.isAutoUpload());
         writer.write(",dragAndDrop : " + fileUpload.isDragAndDrop());
-        writer.write(",supportsDragAndDrop : " + FeatureDetectionUtil.isSupported("draganddrop"));
+        writer.write(",supportsDragAndDrop : " + FeatureDetectionUtils.isSupported("draganddrop"));
         writer.write(",mode : '" + fileUpload.getMode() + "'");
         writer.write(",cancelLabel : '" + fileUpload.getCancelLabel() + "'");
         
@@ -151,7 +151,7 @@ public class InputFileRenderer extends InputRenderer {
         writer.write(",cancelable : '" + fileUpload.isCancelable() + "'");
         writer.write(",showProgress : '" + fileUpload.isShowProgress() + "'");
         writer.write(",multiple : " + fileUpload.isMultiple() + "");
-        writer.write(",supportsMultiple : " + FeatureDetectionUtil.isSupported("input.multiple") + "");
+        writer.write(",supportsMultiple : " + FeatureDetectionUtils.isSupported("input.multiple") + "");
         
         writer.write(",overviewTemplate : '" + encodeOverviewTemplate(context, fileUpload) + "'");
         writer.write(",itemTemplate : '" + encodeItemTemplate(context, fileUpload) + "'");
@@ -168,9 +168,9 @@ public class InputFileRenderer extends InputRenderer {
     
     protected String encodeOverviewTemplate(FacesContext ctx, InputFile fileUpload) throws IOException {
         if (fileUpload.getFacet("overview") != null) {
-            return RendererUtil.encodeComponent(ctx, fileUpload.getFacet("overview"));
+            return RendererUtils.encodeComponent(ctx, fileUpload.getFacet("overview"));
         } else {
-            return RendererUtil.encodeToString(ctx, new BlazeEncoder() {
+            return RendererUtils.encodeToString(ctx, new BlazeEncoder() {
                 
                 public void encode(FacesContext ctx, Map<String, Object> attributes) throws IOException {
                     ResponseWriter writer = ctx.getResponseWriter();
@@ -222,9 +222,9 @@ public class InputFileRenderer extends InputRenderer {
     
     protected String encodeItemTemplate(FacesContext ctx, InputFile fileUpload) throws IOException {
         if (fileUpload.getFacet("item") != null) {
-            return RendererUtil.encodeComponent(ctx, fileUpload.getFacet("item"));
+            return RendererUtils.encodeComponent(ctx, fileUpload.getFacet("item"));
         } else {
-            return RendererUtil.encodeToString(ctx, new BlazeEncoder() {
+            return RendererUtils.encodeToString(ctx, new BlazeEncoder() {
                 
                 public void encode(FacesContext ctx, Map<String, Object> attributes) throws IOException {
                     ResponseWriter writer = ctx.getResponseWriter();                    
@@ -379,7 +379,7 @@ public class InputFileRenderer extends InputRenderer {
         writer.writeAttribute("id", clientId, null);
         writer.writeAttribute("name", clientId, null);
         
-        if (fileUpload.isMultiple() && FeatureDetectionUtil.isSupported("input.multiple")) {
+        if (fileUpload.isMultiple() && FeatureDetectionUtils.isSupported("input.multiple")) {
             writer.writeAttribute("multiple", "multiple", null);
         }
         if (fileUpload.getStyleClass() != null) {

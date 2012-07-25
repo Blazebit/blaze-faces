@@ -12,9 +12,9 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
 import com.blazebit.blazefaces.renderkit.CommandRenderer;
-import com.blazebit.blazefaces.util.ComponentUtil;
+import com.blazebit.blazefaces.util.ComponentUtils;
 import com.blazebit.blazefaces.util.HTML5;
-import com.blazebit.blazefaces.util.RendererUtil;
+import com.blazebit.blazefaces.util.RendererUtils;
 
 public class CommandLinkRenderer extends CommandRenderer {
     
@@ -28,7 +28,7 @@ public class CommandLinkRenderer extends CommandRenderer {
         String clientId = comp.getClientId(context);
         Object value = comp.getAttributes().get("value");
         String styleClass = comp.getStyleClass();
-        UIComponent form = ComponentUtil.findParentForm(context, comp);
+        UIComponent form = ComponentUtils.findParentForm(context, comp);
         
         if (form == null) {
             throw new FacesException("Commandlink \"" + clientId + "\" must be inside a form component");
@@ -95,8 +95,8 @@ public class CommandLinkRenderer extends CommandRenderer {
             request.append(".reset('").append(formId).append("');");
         }
         
-        String script = RendererUtil.getEventHandlerScript(facesContext, component.getClientId(facesContext), "click", request.toString());
-        RendererUtil.addBodyBottomScript(facesContext, script);
+        String script = RendererUtils.getEventHandlerScript(facesContext, component.getClientId(facesContext), "click", request.toString());
+        RendererUtils.addBodyBottomScript(facesContext, script);
     }
 
     @Override

@@ -21,6 +21,7 @@ import javax.faces.render.Renderer;
 
 import com.blazebit.blazefaces.behavior.ajax.AjaxBehavior;
 import com.blazebit.blazefaces.behavior.handler.EventHandler;
+import com.blazebit.blazefaces.util.Constants;
 
 public class CoreRenderer extends Renderer {
 
@@ -239,13 +240,13 @@ public class CoreRenderer extends Renderer {
         }
 
         Map<String, String> params = context.getExternalContext().getRequestParameterMap();
-        String behaviorEvent = params.get("javax.faces.behavior.event");
+        String behaviorEvent = params.get(Constants.PARTIAL_BEHAVIOR_EVENT_PARAM);
 
         if(null != behaviorEvent) {
             List<ClientBehavior> behaviorsForEvent = behaviors.get(behaviorEvent);
 
             if(behaviors.size() > 0) {
-               String behaviorSource = params.get("javax.faces.source");
+               String behaviorSource = params.get(Constants.PARTIAL_SOURCE_PARAM);
                
                if(behaviorSource != null && behaviorSource.equals(clientId)) {
                    for (ClientBehavior behavior: behaviorsForEvent) {

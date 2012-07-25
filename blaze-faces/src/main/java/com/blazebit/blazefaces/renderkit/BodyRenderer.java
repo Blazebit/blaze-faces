@@ -12,7 +12,7 @@ import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.blazebit.blazefaces.util.RendererUtil;
+import com.blazebit.blazefaces.util.RendererUtils;
 
 public class BodyRenderer extends CoreRenderer {
 
@@ -64,7 +64,7 @@ public class BodyRenderer extends CoreRenderer {
             iter.next().encodeAll(context);
         }
         
-        List<String> scripts = RendererUtil.getBodyBottomScripts(context);
+        List<String> scripts = RendererUtils.getBodyBottomScripts(context);
         
         if(scripts != null && scripts.size() > 0){
             writer.startElement("script", null);
@@ -77,7 +77,7 @@ public class BodyRenderer extends CoreRenderer {
             writer.endElement("script");
         }
         
-        RendererUtil.renderUnhandledMessages(context);
+        RendererUtils.renderUnhandledMessages(context);
         writer.endElement("body");
     }
 }

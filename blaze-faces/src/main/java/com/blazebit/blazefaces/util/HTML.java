@@ -103,17 +103,17 @@ public class HTML {
 		"rows"
 	};
 	
-	public static String[] LINK_EVENTS = ArrayUtil.concat(COMMON_EVENTS, BLUR_FOCUS_EVENTS);
+	public static String[] LINK_EVENTS = ArrayUtils.concat(COMMON_EVENTS, BLUR_FOCUS_EVENTS);
 	
-	public static String[] BUTTON_EVENTS = ArrayUtil.concat(LINK_EVENTS, CHANGE_SELECT_EVENTS);
+	public static String[] BUTTON_EVENTS = ArrayUtils.concat(LINK_EVENTS, CHANGE_SELECT_EVENTS);
 	
-	public static String[] IMG_ATTRS = ArrayUtil.concat(IMG_ATTRS_WITHOUT_EVENTS, COMMON_EVENTS);
+	public static String[] IMG_ATTRS = ArrayUtils.concat(IMG_ATTRS_WITHOUT_EVENTS, COMMON_EVENTS);
 	
-	public static String[] LINK_ATTRS = ArrayUtil.concat(LINK_ATTRS_WITHOUT_EVENTS, LINK_EVENTS);
+	public static String[] LINK_ATTRS = ArrayUtils.concat(LINK_ATTRS_WITHOUT_EVENTS, LINK_EVENTS);
 	
-	public static String[] BUTTON_ATTRS = ArrayUtil.concat(BUTTON_ATTRS_WITHOUT_EVENTS, BUTTON_EVENTS);	
+	public static String[] BUTTON_ATTRS = ArrayUtils.concat(BUTTON_ATTRS_WITHOUT_EVENTS, BUTTON_EVENTS);	
 	
-	public static final String[] INPUT_TEXT_ATTRS = ArrayUtil.concat(INPUT_TEXT_ATTRS_WITHOUT_EVENTS, COMMON_EVENTS, CHANGE_SELECT_EVENTS, BLUR_FOCUS_EVENTS);
+	public static final String[] INPUT_TEXT_ATTRS = ArrayUtils.concat(INPUT_TEXT_ATTRS_WITHOUT_EVENTS, COMMON_EVENTS, CHANGE_SELECT_EVENTS, BLUR_FOCUS_EVENTS);
 
-    public static final String[] INPUT_TEXTAREA_ATTRS = ArrayUtil.concat(INPUT_TEXT_ATTRS, TEXTAREA_ATTRS);
+    public static final String[] INPUT_TEXTAREA_ATTRS = ArrayUtils.concat(INPUT_TEXT_ATTRS, TEXTAREA_ATTRS);
 }

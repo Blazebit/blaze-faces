@@ -32,7 +32,7 @@ public class HTML5 {
         "onfocus"
     };
             
-    public static final String[] WINDOW_EVENT_ATTRIBUTES = ArrayUtil.concat(SHARED_EVENT_ATTRIBUTES, new String[]{
+    public static final String[] WINDOW_EVENT_ATTRIBUTES = ArrayUtils.concat(SHARED_EVENT_ATTRIBUTES, new String[]{
         "onafterprintNew",
         "onbeforeprintNew",
         "onbeforeonloadNew",
@@ -52,7 +52,7 @@ public class HTML5 {
         "onunloadNew"
     });
     
-    public static final String[] FORM_EVENT_ATTRIBUTES = ArrayUtil.concat(SHARED_EVENT_ATTRIBUTES, new String[]{
+    public static final String[] FORM_EVENT_ATTRIBUTES = ArrayUtils.concat(SHARED_EVENT_ATTRIBUTES, new String[]{
         "onchange",
         "oncontextmenuNew",
         "onformchangeNew",
@@ -88,9 +88,9 @@ public class HTML5 {
         "onscrollNew"
     };
     
-    public static final String[] COMMON_EVENT_ATTRIBUTES = ArrayUtil.concat(KEYBOARD_EVENT_ATTRIBUTES, MOUSE_EVENT_ATTRIBUTES);
+    public static final String[] COMMON_EVENT_ATTRIBUTES = ArrayUtils.concat(KEYBOARD_EVENT_ATTRIBUTES, MOUSE_EVENT_ATTRIBUTES);
     
-    public static final String[] COMMON_ATTRIBUTES = ArrayUtil.concat(COMMON_TAG_ATTRIBUTES, COMMON_EVENT_ATTRIBUTES);
+    public static final String[] COMMON_ATTRIBUTES = ArrayUtils.concat(COMMON_TAG_ATTRIBUTES, COMMON_EVENT_ATTRIBUTES);
     
     public static final String[] MEDIA_EVENT_ATTRIBUTES = {
         "onabort",

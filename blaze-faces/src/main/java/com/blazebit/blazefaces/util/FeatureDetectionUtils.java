@@ -18,7 +18,7 @@ import com.blazebit.blazefaces.json.JSONObject;
  *
  * @author Christian Beikov
  */
-public class FeatureDetectionUtil {
+public class FeatureDetectionUtils {
 
     private static final String FEATURES_SUBMITTED = "FEATURES_SUBMITTED";
     private static final String RESOURCE_LIBRARY = "blazefaces";
@@ -94,8 +94,8 @@ public class FeatureDetectionUtil {
 
     public static void encodeFeatures(FacesContext context) throws IOException {
         if (!context.getExternalContext().getSessionMap().containsKey(FEATURES_SUBMITTED)) {
-            RendererUtil.encodeScript(context, RESOURCE_LIBRARY, MODERNIZER_RESOURCE_NAME);
-            RendererUtil.encodeScript(context, RESOURCE_LIBRARY, DETECT_RESOURCE_NAME);
+            RendererUtils.encodeScript(context, RESOURCE_LIBRARY, MODERNIZER_RESOURCE_NAME);
+            RendererUtils.encodeScript(context, RESOURCE_LIBRARY, DETECT_RESOURCE_NAME);
         }
     }
 }
