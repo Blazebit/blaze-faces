@@ -13,6 +13,8 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
@@ -20,12 +22,10 @@ import javax.servlet.http.HttpServletRequestWrapper;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class MultipartRequest extends HttpServletRequestWrapper {
 
-    private static final Logger logger = LoggerFactory.getLogger(MultipartRequest.class);
+    private static final Logger logger = Logger.getLogger(MultipartRequest.class.getName());
     private Map<String, List<String>> formParams;
     private Map<String, List<FileItem>> fileParams;
     private String charEncoding;
@@ -53,7 +53,7 @@ public class MultipartRequest extends HttpServletRequestWrapper {
             }
 
         } catch (FileUploadException e) {
-            logger.error("Error in parsing fileupload request", e);
+            logger.log(Level.SEVERE, "Error in parsing fileupload request", e);
 
             throw new IOException(e.getMessage());
         }
@@ -82,7 +82,7 @@ public class MultipartRequest extends HttpServletRequestWrapper {
                     items.add(item.getString());
                 }
             } catch (UnsupportedEncodingException ex) {
-                logger.error("Unsupported encoding for file upload given! Assuming systems default encoding!", ex);
+                logger.log(Level.SEVERE, "Unsupported encoding for file upload given! Assuming systems default encoding!", ex);
                 charEncoding = null;
                 items.add(item.getString());
             }

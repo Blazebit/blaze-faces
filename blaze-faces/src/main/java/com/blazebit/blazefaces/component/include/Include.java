@@ -10,6 +10,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.el.ValueExpression;
 import javax.faces.component.NamingContainer;
@@ -17,9 +19,6 @@ import javax.faces.component.UIComponent;
 import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 import javax.faces.view.facelets.FaceletContext;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * This component allows including facelets dynamically. It is using
@@ -32,7 +31,7 @@ import org.slf4j.LoggerFactory;
  */
 public class Include extends UIComponentBase {
 
-    private static final Logger log = LoggerFactory.getLogger(Include.class);
+    private static final Logger log = Logger.getLogger(Include.class.getName());
     private static final String SRC_ATTRIBUTE = "src";
     
     public static final String COMPONENT_FAMILY = "com.blazebit.blazefaces.component";
@@ -107,7 +106,7 @@ public class Include extends UIComponentBase {
 
     private void buildView(FacesContext context, String src) {
         try {
-            log.debug("Building view: " + src);
+            log.log(Level.FINE, "Building view: " + src);
             DynamicIncludeComponent panel = new DynamicIncludeComponent();
             int index = findFreeIndex();
             panel.src = src;

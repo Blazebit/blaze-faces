@@ -5,6 +5,8 @@ package com.blazebit.blazefaces.listener;
 
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.faces.component.EditableValueHolder;
 import javax.faces.component.NamingContainer;
@@ -17,9 +19,6 @@ import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
  *
  * @author Christian Beikov
@@ -28,7 +27,7 @@ import org.slf4j.LoggerFactory;
 public class ResetInputPhaseListener implements PhaseListener {
 
 	private static final long serialVersionUID = 1L;
-	private static final Logger log = LoggerFactory.getLogger(ResetInputPhaseListener.class);
+	private static final Logger log = Logger.getLogger(ResetInputPhaseListener.class.getName());
 
     @Override
     public void afterPhase(PhaseEvent pe) {
@@ -42,7 +41,7 @@ public class ResetInputPhaseListener implements PhaseListener {
                 if (comp != null) {
                     recursiveReset(comp);
                 } else {
-                    log.warn("Could not find component with id '" + renderId + "' in view '" + view.getViewId() + "'");
+                    log.log(Level.WARNING, "Could not find component with id '" + renderId + "' in view '" + view.getViewId() + "'");
                 }
             }
         }

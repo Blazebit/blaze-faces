@@ -24,12 +24,12 @@ import javax.faces.context.ResponseWriter;
 import javax.faces.render.Renderer;
 
 import org.owasp.validator.html.Policy;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.blazebit.blazefaces.context.BlazeEncoder;
 import com.blazebit.blazefaces.context.BlazeResponseStream;
 import com.blazebit.blazefaces.context.BlazeResponseWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -37,7 +37,7 @@ import com.blazebit.blazefaces.context.BlazeResponseWriter;
  */
 public class RendererUtil {
 
-    private static final Logger log = LoggerFactory.getLogger(RendererUtil.class);
+    private static final Logger log = Logger.getLogger(RendererUtil.class.getName());
     private static final Map<String, String> cssMap = new HashMap<String, String>();
     public static final String BODY_BOTTOM_SCRIPT_KEY = "com.blazebit.blazefaces.BODY_BOTTOM_SCRIPT_KEY";
 
@@ -255,7 +255,7 @@ public class RendererUtil {
                 messagesRenderer.encodeBegin(ctx, messages);
                 messagesRenderer.encodeEnd(ctx, messages);
             } catch (IOException ioe) {
-                log.error(ioe.toString(), ioe);
+                log.log(Level.SEVERE, ioe.toString(), ioe);
             }
         } else {
             Iterator<String> clientIds = ctx.getClientIdsWithMessages();
@@ -283,7 +283,7 @@ public class RendererUtil {
                     }
                 }
                 if (messageCount > 0) {
-                    log.info("jsf.non_displayed_message", builder.toString());
+                    log.log(Level.INFO, "jsf.non_displayed_message", builder.toString());
                 }
             }
         }

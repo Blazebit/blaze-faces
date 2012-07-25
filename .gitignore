@@ -1,35 +1,18 @@
-#################
-## Eclipse
-#################
-
-*.pydevproject
 .project
-.metadata
-bin/
-tmp/
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
-.classpath
 .settings/
-.loadpath
-
-# External tool builders
-.externalToolBuilders/
-
-# Locally stored "Eclipse launch configurations"
-*.launch
-
-# CDT-specific
-.cproject
-
-# PDT-specific
-.buildpath
-
-#################
-## Maven
-#################
-
+.classpath
 target/
+blaze-faces/.project
+blaze-faces/.settings/
+blaze-faces/.classpath
+blaze-faces/target/
+blaze-faces-mojarra/.project
+blaze-faces-mojarra/.settings/
+blaze-faces-mojarra/.classpath
+blaze-faces-mojarra/target/
+blaze-faces-mojarra/faces-config.NavData
+blaze-faces-myfaces/.project
+blaze-faces-myfaces/.settings/
+blaze-faces-myfaces/.classpath
+blaze-faces-myfaces/target/
+blaze-faces-myfaces/faces-config.NavData
