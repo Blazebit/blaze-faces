@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE component SYSTEM "../misc/component.dtd" [
+<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
+<!ENTITY widget_var_attribute					SYSTEM "../entities/widget_var_attribute.xml">
+<!ENTITY html5_data_attributes					SYSTEM "../entities/html5_data_attributes.xml">
+]>
+<component>
+    <tag>panelGroup</tag>
+    <componentClass>com.blazebit.blazefaces.component.panelgroup.PanelGroup</componentClass>
+    <componentType>com.blazebit.blazefaces.component.PanelGroup</componentType>
+    <componentFamily>com.blazebit.blazefaces.component</componentFamily>
+    <rendererType>com.blazebit.blazefaces.component.PanelGroupRenderer</rendererType>
+    <rendererClass>com.blazebit.blazefaces.component.panelgroup.PanelGroupRenderer</rendererClass>
+    <parent>javax.faces.component.UIPanel</parent>
+    <description>Panel is a grouping component for other components, notable features are toggling, closing, built-in popup menu and ajax event listeners.</description>
+    <interfaces>
+		<interface>
+			<name>com.blazebit.blazefaces.component.Widget</name>
+		</interface>
+        <interface>
+			<name>javax.faces.component.behavior.ClientBehaviorHolder</name>
+		</interface>
+	</interfaces>
+    <attributes>
+        &standard_uicomponent_attributes;
+        &widget_var_attribute;
+		&html5_data_attributes;
+        <attribute>
+            <description><![CDATA[The type of the panel that should be rendered.
+            Valid values are:
+            <ul>
+                <li>div</li>
+                <li>span</li>
+                <li>article</li>
+                <li>aside</li>
+                <li>footer</li>
+                <li>header</li>
+                <li>hgroup</li>
+                <li>nav</li>
+                <li>section</li>
+                <li>h1-h6</li>
+                <li>address</li>
+                <li>blockquote</li>
+                <li>p</li>
+                <li>code</li>
+                <li>figure</li>
+                <li>figcaption</li>
+                <li>summary</li>
+            </ul>]]>
+            </description>
+            <name>type</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <name>style</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+            <description>Style of the panelGroup.</description>
+        </attribute>
+        <attribute>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+            <description>Style class of the panelGroup.</description>
+        </attribute>
+    </attributes>
+    <resources>
+        <resource>
+			<name>core/html5.js</name>
+			<target>head_lt_ie9</target>
+		</resource>
+		<resource>
+			<name>core/innershiv.js</name>
+		</resource>
+	</resources>
+</component>

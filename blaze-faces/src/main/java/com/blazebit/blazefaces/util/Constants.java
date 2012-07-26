@@ -31,8 +31,18 @@ public class Constants {
 
     public static final String THEME_PARAM = "blazefaces.THEME";
     public static final String FEATURE_DETECTION_PARAM = "blazefaces.FEATURE_DETECTION";
+    public static final String AUTO_UPDATE = "blazefaces.AUTO_UPDATE";
+    public static final String PUSH_SERVER_URL = "blazefaces.PUSH_SERVER_URL";
     public static final String SUBMIT_PARAM = "blazefaces.SUBMIT";
+    
+    public static final String DOWNLOAD_COOKIE = "blazefaces.download";
 
     public final static String VERSION = "0.1.3-SNAPSHOT";
     public final static String LIBRARY = "blazebit";
+
+    public final static String CUSTOM_EVENT = "CUSTOM_EVENT";
+    
+    public final static String PUSH_PATH = "/blazepush";
+    
+    public static final String DYNAMIC_CONTENT_PARAM = "bfdrid";
 }

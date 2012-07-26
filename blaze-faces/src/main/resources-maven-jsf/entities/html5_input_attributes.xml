@@ -1,0 +1,126 @@
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>autocomplete</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>autofocus</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>form</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>formaction</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>formenctype</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>formmethod</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>formnovalidate</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>formtarget</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>height</name>
+	<required>false</required>
+	<type>java.lang.Integer</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>width</name>
+	<required>false</required>
+	<type>java.lang.Boolean</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>list</name>
+	<required>false</required>
+	<type>java.lang.Boolean</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>min</name>
+	<required>false</required>
+	<type>java.lang.Boolean</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>max</name>
+	<required>false</required>
+	<type>java.lang.Boolean</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>multiple</name>
+	<required>false</required>
+	<type>java.lang.Boolean</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>pattern</name>
+	<required>false</required>
+	<type>java.lang.Boolean</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>placeholder</name>
+	<required>false</required>
+	<type>java.lang.Boolean</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>required</name>
+	<required>false</required>
+	<type>java.lang.Boolean</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>step</name>
+	<required>false</required>
+	<type>java.lang.Boolean</type>
+</attribute>

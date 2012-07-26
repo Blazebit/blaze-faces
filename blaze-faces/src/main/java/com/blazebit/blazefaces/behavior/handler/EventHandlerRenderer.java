@@ -50,7 +50,7 @@ public class EventHandlerRenderer extends CoreRenderer {
             }
             
             scriptBuilder.append("BlazeJS.EventHandler.add('");
-            scriptBuilder.append(ComponentUtils.escapeSelectorId(source.getClientId()));
+            scriptBuilder.append(ComponentUtils.escapeJQueryId(source.getClientId()));
             scriptBuilder.append("','");
             scriptBuilder.append(domEvent);
             scriptBuilder.append("',");

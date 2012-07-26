@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE component SYSTEM "../misc/component.dtd" [
+<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
+]>
+<component>
+	<tag>resources</tag>
+	<tagClass>com.blazebit.blazefaces.component.resources.ResourcesTag</tagClass>
+	<componentClass>com.blazebit.blazefaces.component.resources.Resources</componentClass>
+	<componentType>com.blazebit.blazefaces.component.Resources</componentType>
+	<componentFamily>com.blazebit.blazefaces.component</componentFamily>
+	<rendererType>com.blazebit.blazefaces.component.ResourcesRenderer</rendererType>
+	<rendererClass>com.blazebit.blazefaces.component.resources.ResourcesRenderer</rendererClass>
+	<parent>javax.faces.component.UIComponentBase</parent>
+	<attributes>
+		&standard_ui_component_attributes;
+		<attribute>
+			<name>exclude</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+	</attributes>
+</component>

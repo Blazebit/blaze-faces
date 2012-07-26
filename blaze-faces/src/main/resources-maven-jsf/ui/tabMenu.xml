@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE component SYSTEM "../misc/component.dtd" [
+<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
+]>
+<component>
+	<tag>tabMenu</tag>
+	<tagClass>com.blazebit.blazefaces.component.tabmenu.TabMenuTag</tagClass>
+	<componentClass>com.blazebit.blazefaces.component.tabmenu.TabMenu</componentClass>
+	<componentType>com.blazebit.blazefaces.component.TabMenu</componentType>
+	<componentFamily>com.blazebit.blazefaces.component</componentFamily>
+	<rendererType>com.blazebit.blazefaces.component.TabMenuRenderer</rendererType>
+	<rendererClass>com.blazebit.blazefaces.component.tabmenu.TabMenuRenderer</rendererClass>
+	<parent>com.blazebit.blazefaces.component.menu.AbstractMenu</parent>
+    <description>TabMenu is a menu component that displays menuitems as tabs.</description>
+    <interfaces>
+		<interface>
+			<name>com.blazebit.blazefaces.component.Widget</name>
+		</interface>
+	</interfaces>
+	<attributes>
+		&standard_uicomponent_attributes;
+        &widget_var_attribute;
+		<attribute>
+			<name>model</name>
+			<required>false</required>
+			<type>com.blazebit.blazefaces.model.MenuModel</type>
+            <description>MenuModel instance to create menus programmatically.</description>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+            <description>Style of main container element.</description>
+		</attribute>
+		<attribute>
+			<name>styleClass</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+            <description>Style class of main container.</description>
+		</attribute>
+        <attribute>
+            <name>activeIndex</name>
+            <required>false</required>
+            <type>java.lang.Integer</type>
+            <defaultValue>0</defaultValue>
+            <description>Index of the active tab. Default is 0.</description>
+        </attribute>
+	</attributes>
+	<resources>
+        <resource>
+			<name>blazefaces.css</name>
+		</resource>
+		<resource>
+			<name>jquery/jquery.js</name>
+		</resource>
+		<resource>
+			<name>blazefaces.js</name>
+		</resource>
+	</resources>
+</component>

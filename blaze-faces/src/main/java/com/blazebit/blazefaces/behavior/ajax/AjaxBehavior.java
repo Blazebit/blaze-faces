@@ -36,10 +36,7 @@ import javax.faces.event.AjaxBehaviorListener;
     @ResourceDependency(library = "blazefaces", name = "core/core.js"),
     @ResourceDependency(library = "blazefaces", name = "core/ajax.js")})
 public class AjaxBehavior extends ClientBehaviorBase {
-
-    protected static String BEHAVIOR_ID = "com.blazebit.blazefaces.behavior.AjaxBehavior";
-    protected static Set<ClientBehaviorHint> HINTS = Collections.unmodifiableSet(EnumSet.of(ClientBehaviorHint.SUBMITTING));
-    
+ 
     private String update;
     private String process;
     private Boolean global;
@@ -55,6 +52,9 @@ public class AjaxBehavior extends ClientBehaviorBase {
     private boolean partialSubmitSet = false;
     private Map<String, ValueExpression> bindings;
 
+    public static final String BEHAVIOR_ID = "com.blazebit.blazefaces.behavior.AjaxBehavior";
+    private static final Set<ClientBehaviorHint> HINTS = Collections.unmodifiableSet(EnumSet.of(ClientBehaviorHint.SUBMITTING));
+   
     @Override
     public String getRendererType() {
         return BEHAVIOR_ID;
@@ -70,6 +70,7 @@ public class AjaxBehavior extends ClientBehaviorBase {
         
         return ((result != null) ? result : false);
     }
+    
     public void setAsync(boolean async) {
         this.async = async;
         
@@ -81,6 +82,7 @@ public class AjaxBehavior extends ClientBehaviorBase {
         
         return ((result != null) ? result : true);
     }
+    
     public void setGlobal(boolean global) {
         this.global = global;
         
@@ -90,6 +92,7 @@ public class AjaxBehavior extends ClientBehaviorBase {
     public String getOncomplete() {
         return (String) eval("oncomplete", oncomplete);
     }
+    
     public void setOncomplete(String oncomplete) {
         this.oncomplete = oncomplete;
 
@@ -109,6 +112,7 @@ public class AjaxBehavior extends ClientBehaviorBase {
     public String getOnsuccess() {
         return (String) eval("onsuccess", onsuccess);
     }
+    
     public void setOnsuccess(String onsuccess) {
         this.onsuccess = onsuccess;
         
@@ -118,6 +122,7 @@ public class AjaxBehavior extends ClientBehaviorBase {
     public String getOnerror() {
         return (String) eval("onerror", onerror);
     }
+    
     public void setOnerror(String onerror) {
         this.onerror = onerror;
         
@@ -127,6 +132,7 @@ public class AjaxBehavior extends ClientBehaviorBase {
     public String getProcess() {
         return (String) eval("process", process);
     }
+    
     public void setProcess(String process) {
         this.process = process;
         
@@ -136,6 +142,7 @@ public class AjaxBehavior extends ClientBehaviorBase {
     public String getUpdate() {
         return (String) eval("update", update);
     }
+    
     public void setUpdate(String update) {
         this.update = update;
 
@@ -145,6 +152,7 @@ public class AjaxBehavior extends ClientBehaviorBase {
     public MethodExpression getListener() {
         return listener;
     }
+    
     public void setListener(MethodExpression listener) {
         this.listener = listener;
     }
@@ -154,6 +162,7 @@ public class AjaxBehavior extends ClientBehaviorBase {
         
         return ((result != null) ? result : false);
     }
+    
     public void setDisabled(boolean disabled) {
         this.disabled = disabled;
         
@@ -165,6 +174,7 @@ public class AjaxBehavior extends ClientBehaviorBase {
         
         return ((result != null) ? result : false);
     }
+    
     public void setImmediate(Boolean immediate) {
         this.immediate = immediate;
         
@@ -180,6 +190,7 @@ public class AjaxBehavior extends ClientBehaviorBase {
         
         return ((result != null) ? result : false);
     }
+    
     public void setPartialSubmit(boolean partialSubmit) {
         this.partialSubmit = partialSubmit;
         this.partialSubmitSet = true;
@@ -197,6 +208,7 @@ public class AjaxBehavior extends ClientBehaviorBase {
         }
 
         ValueExpression expression = getValueExpression(propertyName);
+        
         if(expression != null) {
             return expression.getValue(FacesContext.getCurrentInstance().getELContext());
         }
@@ -231,6 +243,7 @@ public class AjaxBehavior extends ClientBehaviorBase {
         else {
             if(bindings != null) {
                 bindings.remove(name);
+                
                 if(bindings.isEmpty()) {
                     bindings = null;
                 }
@@ -275,14 +288,6 @@ public class AjaxBehavior extends ClientBehaviorBase {
             partialSubmit = (Boolean)value;
             this.partialSubmitSet = true;
         }
-    }
-    
-    public void addAjaxBehaviorListener(AjaxBehaviorListener listener) {
-        addBehaviorListener(listener);
-    }
-
-    public void removeAjaxBehaviorListener(AjaxBehaviorListener listener) {
-        removeBehaviorListener(listener);
     }
     
     @Override
@@ -376,5 +381,13 @@ public class AjaxBehavior extends ClientBehaviorBase {
             bindings.put(names[i], (ValueExpression) UIComponentBase.restoreAttachedState(context, states[i]));
         }
         return bindings;
+    }
+    
+    public void addAjaxBehaviorListener(AjaxBehaviorListener listener) {
+        addBehaviorListener(listener);
+    }
+
+    public void removeAjaxBehaviorListener(AjaxBehaviorListener listener) {
+        removeBehaviorListener(listener);
     }
 }

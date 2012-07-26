@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE component SYSTEM "../misc/component.dtd" [
+<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
+]>
+<component>
+	<tag>rowEditor</tag>
+	<tagClass>com.blazebit.blazefaces.component.roweditor.RowEditorTag</tagClass>
+	<componentClass>com.blazebit.blazefaces.component.roweditor.RowEditor</componentClass>
+	<componentType>com.blazebit.blazefaces.component.RowEditor</componentType>
+	<componentFamily>com.blazebit.blazefaces.component</componentFamily>
+    <rendererType>com.blazebit.blazefaces.component.RowEditorRenderer</rendererType>
+	<rendererClass>com.blazebit.blazefaces.component.roweditor.RowEditorRenderer</rendererClass>
+	<parent>javax.faces.component.UIComponentBase</parent>
+    <description>RowToggler is a helper component for datatable.</description>
+	<attributes>
+		&standard_uicomponent_attributes;
+	</attributes>
+</component>

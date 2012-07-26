@@ -1,0 +1,7 @@
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>dataMap</name>
+	<required>false</required>
+	<type>java.util.Map</type>
+</attribute>

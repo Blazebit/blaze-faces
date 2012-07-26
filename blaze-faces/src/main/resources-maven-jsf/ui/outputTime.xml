@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE component SYSTEM "../misc/component.dtd" [
+<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
+<!ENTITY widget_var_attribute					SYSTEM "../entities/widget_var_attribute.xml">
+]>
+<component>
+    <tag>panel</tag>
+    <componentClass>com.blazebit.blazefaces.component.outputtime.OutputTime</componentClass>
+    <componentType>com.blazebit.blazefaces.component.OutputTime</componentType>
+    <componentFamily>com.blazebit.blazefaces.component</componentFamily>
+    <rendererType>com.blazebit.blazefaces.component.OutputTimeRenderer</rendererType>
+    <rendererClass>com.blazebit.blazefaces.component.outputtime.OutputTimeRenderer</rendererClass>
+    <parent>javax.faces.component.UIOutput</parent>
+    <description>Panel is a grouping component for other components, notable features are toggling, closing, built-in popup menu and ajax event listeners.</description>
+    <interfaces>
+		<interface>
+			<name>com.blazebit.blazefaces.component.Widget</name>
+		</interface>
+        <interface>
+			<name>javax.faces.component.behavior.ClientBehaviorHolder</name>
+		</interface>
+	</interfaces>
+    <attributes>
+        &standard_uicomponent_attributes;
+        &widget_var_attribute;
+		<attribute>
+            <description><![CDATA[If the time element is the publication date of the document or of an article element that contains it, set this to true.]]>
+            </description>
+            <name>pubdate</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+        <attribute>
+            <description><![CDATA[The date time value to be displayed.]]>
+            </description>
+            <name>value</name>
+            <required>false</required>
+            <type>java.util.Date</type>
+        </attribute>
+        <attribute>
+            <description><![CDATA[Indicates wether the time should be printed as human readable text or as normal date.]]>
+            </description>
+            <name>pretty</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+        <attribute>
+            <description>
+                <![CDATA[
+                    This attribute sets a predefined formatting style which determines how a date string is to be formatted. It only applies the type attribute is "date" or "both".
+                    Valid values for this attribute are:
+                    
+                    <table width="350" border="1">
+                        <tbody>
+                            <tr>
+                                <th align="left">Date Style </th>
+                                <th align="left">Example</th>
+                            </tr>
+                            <tr>
+                                <td align="left">default</td>
+                                <td nowrap="" align="left"><span>Jan 1, 2006 1:20:45 PM</span></td>
+                            </tr>
+                            <tr>
+                                <td align="left">short</td>
+                                <td align="left"><span>1/1/06 1:20:45 PM</span></td>
+                            </tr>
+                            <tr>
+                                <td align="left">medium</td>
+                                <td align="left"><span>Jan 1, 2006 1:20:45 PM</span></td>
+                            </tr>
+                            <tr>
+                                <td align="left">long</td>
+                                <td align="left"><span>January 1, 2006 1:20:45 PM</span></td>
+                            </tr>
+                            <tr>
+                                <td align="left">full</td>
+                                <td align="left"><span>Sunday, January 1, 2006 1:20:45 PM</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                ]]>
+            </description>
+            <name>dateStyle</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description><![CDATA[
+                The timeStyle attribute sets a predefined formatting style which determines how a time string is to be formatted and parsed. Applied only if the type attribute is "time" or "both".
+                Valid values are:
+
+                <table width="350" border="1">
+                        <tbody>
+                                <tr>
+                                        <th align="left">Date Style </th>
+                                        <th align="left">Example</th>
+                                </tr>
+                                <tr>
+                                        <td align="left">default</td>
+                                        <td nowrap="" align="left"><span id="time7">Jan 1, 2006 10:05:30 AM</span></td>
+                                </tr>
+                                <tr>
+                                        <td align="left">short</td>
+                                        <td align="left"><span id="time8">1/1/06 10:05:30 AM</span></td>
+                                </tr>
+                                <tr>
+                                        <td align="left">medium</td>
+                                        <td align="left"><span id="time9">Jan 1, 2006 10:05:30 AM</span></td>
+                                </tr>
+                                <tr>
+                                        <td align="left">long</td>
+                                        <td align="left"><span id="time10">January 1, 2006 10:05:30 AM</span></td>
+                                </tr>
+                                <tr>
+                                        <td align="left">full</td>
+                                        <td align="left"><span id="time11">Sunday, January 1, 2006 10:05:30 AM</span></td>
+                                </tr>
+                        </tbody>
+                </table>
+                The default value is "default".
+            ]]>
+            </description>
+            <name>timeStyle</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description><![CDATA[
+                This attribute sets the time zone for which to interpret date/time information.
+                The value must be either a value-binding expression that evaluates to a java.util.TimeZone instance,
+                or a String that is a timezone ID as per the Java API documentation for java.util.TimeZone.getTimeZone(). 
+            ]]>
+            </description>
+            <name>timeZone</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description><![CDATA[
+                The locale attribute sets the language, country, and variant for formatting locale-sensitive data such as numbers and dates.
+                If not specified, the Locale returned by FacesContext.getViewRoot().getLocale() will be used. Valid expressions must evaluate to a java.util.Locale.
+            ]]>
+            </description>
+            <name>locale</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description><![CDATA[
+                The pattern attribute sets the custom formatting pattern which determines how the date/time string should be formatted and parsed. 
+                <table border="1">
+                        <tbody>
+                        <tr>
+                                <th align="left">Pattern</th>
+                                <th align="left">Result</th>
+                        </tr>
+                                <tr><td>yyyy.MM.dd 'at' HH:mm:ss z</td><td>2006.01.01  at 10:05:30 EST </td></tr>
+                                <tr bgcolor="#eeeeff"><td>EEE, MMM d, ''yy</td><td>Sun, Jan 1, '06 </td></tr>
+                                <tr><td>h:mm a</td><td>10:05 AM </td></tr><tr bgcolor="#eeeeff"><td>hh 'o''clock' a, zzzz</td><td>10 o'clock AM, Eastern Standard Time </td></tr>
+                                <tr><td>EEE, d MMM yyyy HH:mm:ss Z </td><td>Sun, 1 Jan 2006 10:05:30 -0500 </td></tr>
+                        </tbody>
+                </table>
+                For more examples of date formatting patterns, please see the  Java API documentation for java.text.SimpleDateFormat.
+            ]]>
+            </description>
+            <name>pattern</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description><![CDATA[
+                 This attributes specifies what type of information the string to be formatted or parsed will contain.
+                 The valid values for this attribute are "date", "time", and "both". The default value is "date".
+            ]]>
+            </description>
+            <name>type</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <name>style</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+            <description>Style of the outputTime.</description>
+        </attribute>
+        <attribute>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+            <description>Style class of the outputTime.</description>
+        </attribute>
+    </attributes>
+    <resources>
+        <resource>
+			<name>core/html5.js</name>
+			<target>head_lt_ie9</target>
+		</resource>
+		<resource>
+			<name>core/innershiv.js</name>
+		</resource>
+	</resources>
+</component>

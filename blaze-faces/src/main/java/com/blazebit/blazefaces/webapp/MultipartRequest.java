@@ -1,10 +1,21 @@
 /*
- * Copyright 2011 Blazebit
+ * Copyright 2011-2012 Blazebit
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.blazebit.blazefaces.webapp;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
@@ -13,7 +24,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,13 +38,12 @@ public class MultipartRequest extends HttpServletRequestWrapper {
     private static final Logger logger = Logger.getLogger(MultipartRequest.class.getName());
     private Map<String, List<String>> formParams;
     private Map<String, List<FileItem>> fileParams;
-    private String charEncoding;
+    private Map<String, String[]> parameterMap;
 
-    public MultipartRequest(HttpServletRequest request, ServletFileUpload servletFileUpload, String charEncoding) throws IOException {
+    public MultipartRequest(HttpServletRequest request, ServletFileUpload servletFileUpload) throws IOException {
         super(request);
         formParams = new LinkedHashMap<String, List<String>>();
         fileParams = new LinkedHashMap<String, List<FileItem>>();
-        this.charEncoding = charEncoding;
 
         parseRequest(request, servletFileUpload);
     }
@@ -53,7 +62,7 @@ public class MultipartRequest extends HttpServletRequestWrapper {
             }
 
         } catch (FileUploadException e) {
-            logger.log(Level.SEVERE, "Error in parsing fileupload request", e);
+            logger.severe("Error in parsing fileupload request");
 
             throw new IOException(e.getMessage());
         }
@@ -74,19 +83,7 @@ public class MultipartRequest extends HttpServletRequestWrapper {
             formParams.get(item.getFieldName()).add(item.getString());
         } else {
             List<String> items = new ArrayList<String>();
-            
-            try {
-                if (charEncoding != null) {
-                    items.add(item.getString(charEncoding));
-                } else {
-                    items.add(item.getString());
-                }
-            } catch (UnsupportedEncodingException ex) {
-                logger.log(Level.SEVERE, "Unsupported encoding for file upload given! Assuming systems default encoding!", ex);
-                charEncoding = null;
-                items.add(item.getString());
-            }
-            
+            items.add(item.getString());
             formParams.put(item.getFieldName(), items);
         }
     }
@@ -101,22 +98,36 @@ public class MultipartRequest extends HttpServletRequestWrapper {
                 return values.get(0);
             }
         } else {
-            return null;
+            return super.getParameter(name);
         }
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-	@Override
+    @Override
     public Map getParameterMap() {
-        return Collections.unmodifiableMap(formParams);
+        if (parameterMap == null) {
+            Map<String, String[]> map = new LinkedHashMap<String, String[]>();
+
+            for (String formParam : formParams.keySet()) {
+                map.put(formParam, formParams.get(formParam).toArray(new String[0]));
+            }
+
+            map.putAll(super.getParameterMap());
+
+            parameterMap = Collections.unmodifiableMap(map);
+        }
+
+        return parameterMap;
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-	@Override
+    @Override
     public Enumeration getParameterNames() {
         Set<String> paramNames = new LinkedHashSet<String>();
         paramNames.addAll(formParams.keySet());
-        paramNames.addAll(fileParams.keySet());
+
+        Enumeration<String> original = super.getParameterNames();
+        while (original.hasMoreElements()) {
+            paramNames.add(original.nextElement());
+        }
 
         return Collections.enumeration(paramNames);
     }
@@ -131,33 +142,25 @@ public class MultipartRequest extends HttpServletRequestWrapper {
                 return values.toArray(new String[values.size()]);
             }
         } else {
-            return null;
+            return super.getParameterValues(name);
         }
     }
 
     public FileItem getFileItem(String name) {
         if (fileParams.containsKey(name)) {
-            return fileParams.get(name).get(0);
+            List<FileItem> items = fileParams.get(name);
+
+            return items.get(0);
         } else {
             return null;
         }
     }
-
+    
     public List<FileItem> getFileItems(String name) {
         if (fileParams.containsKey(name)) {
             return fileParams.get(name);
         } else {
             return Collections.emptyList();
-        }
-    }
-
-    //Workaround to mimic ajax request since flash does not allow custom request headers
-    @Override
-    public String getHeader(String name) {
-        if (name != null && name.equalsIgnoreCase("Faces-Request")) {
-            return "partial/ajax";
-        } else {
-            return ((HttpServletRequest) getRequest()).getHeader(name);
         }
     }
 }

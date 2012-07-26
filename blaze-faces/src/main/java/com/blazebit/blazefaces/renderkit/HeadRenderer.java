@@ -40,9 +40,11 @@ public class HeadRenderer extends Renderer {
             theme = (String) ve.getValue(elContext);
         }
 
-        if (theme == null || theme.equalsIgnoreCase("blazing")) {
-            RendererUtils.encodeCss(context, "blazefaces", "themes/blazing/theme.css");
-        } else if (!theme.equalsIgnoreCase("none")) {
+        if (theme == null){
+            theme = "blazing";
+        }
+        
+        if (!theme.equalsIgnoreCase("none")) {
             RendererUtils.encodeCss(context, "blazefaces-" + theme, "theme.css");
         }
 

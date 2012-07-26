@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE component SYSTEM "../misc/component.dtd" [
+<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
+<!ENTITY widget_var_attribute					SYSTEM "../entities/widget_var_attribute.xml">
+]>
+<component>
+	<tag>galleriaOverlay</tag>
+	<tagClass>com.blazebit.blazefaces.component.galleria.GalleriaOverlayTag</tagClass>
+	<componentClass>com.blazebit.blazefaces.component.galleria.GalleriaOverlay</componentClass>
+	<componentType>com.blazebit.blazefaces.component.GalleriaOverlay</componentType>
+	<componentFamily>com.blazebit.blazefaces.component</componentFamily>
+    <rendererType>com.blazebit.blazefaces.component.GalleriaOverlayRenderer</rendererType>
+	<rendererClass>com.blazebit.blazefaces.component.galleria.GalleriaOverlayRenderer</rendererClass>
+	<parent>javax.faces.component.UIColumn</parent>
+    <attributes>
+        <attribute>
+            <name>title</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+    </attributes>
+</component>

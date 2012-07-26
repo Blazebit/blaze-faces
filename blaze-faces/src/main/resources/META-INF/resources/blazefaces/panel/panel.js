@@ -1,137 +1,127 @@
-(function() {
-    var Panel = function( selector ) {
-        this.uiid           = BlazeJS.UI.generateUIID();
-        this.$selector 	= $( selector );
-        this.$toggleIcon	= this.$selector.find( ".panel-title .toggle" );
-        this.isDataTable    = this.$selector.find( ".data_table" ).length > 0 ? true : false;
-        
-        if ( this.$selector.length > 0 ) {
-            this._init();
-        }
-    }
-
-    Panel.prototype = {
-        _init : function() {
-            // add toggle event
-            if ( this.$toggleIcon.length > 0 ) {
-                this.addToggleEvent();
-            }
-            if ( this.isDataTable ) {
-                this._initDataTable();
-            }
-            
-            // add uiid
-            this.$selector.attr( "data-uiid", this.uiid );
-
-            BlazeJS.UI.add( this );
-        },
-        
-        _initDataTable : function() {
-            this.$dataTable = this.$selector.find( ".data_table" );
-            
-            this._addTableRowClasses();
-            this._addSelectAllRowsEvent();
-        },
-        
-        _addTableRowClasses : function() {
-            var $row = null;
-            
-            this.$dataTable.find( "tbody tr" ).each( function( i, n ) {
-                $row = $( this );
-                
-                if ( ( ( i + 1 ) % 2 === 0 ) && !$row.hasClass( "even" ) ) {
-                    $( this ).addClass( "even" );
-                }
-                else if ( !$row.hasClass( "odd" ) ){
-                    $( this ).addClass( "odd" );
-                }
-            })
-        },
-        
-        _addSelectAllRowsEvent : function() {
-            var cbID = this.$dataTable.find( ".select_all_cb .blaze-ui-cb" ).attr( "data-uiid"),
-                cb   = BlazeJS.UI.get( cbID ),
-                that = this;
-            
-            if ( cb ) {
-                cb.onChange( function( value ) {
-                    that._handleTableRowSelection( value );
-                })
-            }
-        },
-        
-        selectAllTableRows : function() {
-            this._handleTableRowSelection( true );
-        },
-        
-        deselectAllTableRows : function() {
-            this._handleTableRowSelection( false );
-        },
-        
-        _handleTableRowSelection : function( value ) {
-            var cb = this.$dataTable.find( ".select_cb .blaze-ui-cb" );
-						
-            cb.each( function( i, n ) {
-                BlazeJS.UI.get( n.getAttribute( "data-uiid" ) ).setValue( value );
-
-                value ? $( this ).closest( "tr" ).addClass( "selected" ) : $( this ).closest( "tr" ).removeClass( "selected" );
-            })
-        },
-
-        toggle : function() {
-            if ( this.$toggleIcon.length > 0 ) {
-                this.handleToggleEvent();
-            }
-        },
-
-        addToggleEvent : function() {
-            var that = this;
-
-            this.$toggleIcon.click( function( e ) {
-                that.handleToggleEvent();
-
-                e.preventDefault();
-            })
-        },
-
-        handleToggleEvent : function() {
-            if ( this.$selector.hasClass( "closed" ) ) {
-                this.open();
-            }
-            else {
-                this.close();
-            }
-        },
-
-        open : function() {
-            this.$selector.removeClass( "closed" );
-
-            this.$selector.find( ".panel-body" )
-                          .slideDown( 300, function() {
-                              $( this ).removeClass( "noDisplay" );
-                          })
-        },
-
-        close : function() {
-            var that = this;
-
-            this.$selector.find( ".panel-body" )
-                          .slideUp( 300, function() {
-                              that.$selector.addClass( "closed" );
-                          })
-        }
-    }
-
-    BlazeJS.UI.Panel = function( selector ) {
-        var panel = new Panel( selector );
-
-        return {
-            toggle : panel.toggle
-        };
-    }
+/**
+ * BlazeFaces Panel Widget
+ */
+BlazeFaces.widget.Panel = BlazeFaces.widget.BaseWidget.extend({
     
-    jQuery(document).ready(function() {
-        new BlazeJS.UI.Panel( ".panel-wrapper" );
+    init: function(cfg) {
+        this._super(cfg);
+        this.onshowHandlers = [];
         
-    })
-})();
+        if(this.cfg.toggleable) {
+            this.toggler = $(this.jqId + '_toggler');
+            this.toggleStateHolder = $(this.jqId + '_collapsed');
+            this.content = $(this.jqId + '_content');
+
+            this.setupToggleTrigger();
+        }
+
+        if(this.cfg.closable) {
+            this.visibleStateHolder = $(this.jqId + "_visible");
+
+            this.setupCloseTrigger();
+        }
+
+        if(this.cfg.hasMenu) {
+            this.visibleStateHolder = $(this.jqId + "_visible");
+
+            this.setupMenuTrigger();
+        }
+        
+        this.jq.data('widget', this);
+    },
+    
+    toggle: function() {
+        if(this.cfg.collapsed) {
+            this.toggler.removeClass('ui-icon-plusthick').addClass('ui-icon-minusthick');
+            this.cfg.collapsed = false;
+            this.toggleStateHolder.val(false);
+        }
+        else {
+            this.toggler.removeClass('ui-icon-minusthick').addClass('ui-icon-plusthick');
+            this.cfg.collapsed = true;
+            this.toggleStateHolder.val(true);
+        }
+
+        var _self = this;
+
+        this.content.slideToggle(this.cfg.toggleSpeed, 'easeInOutCirc',
+            function(e) {
+                if(_self.cfg.behaviors) {
+                    var toggleBehavior = _self.cfg.behaviors['toggle'];
+                    if(toggleBehavior) {
+                        toggleBehavior.call(_self, e);
+                    }
+                }
+                
+                if(_self.onshowHandlers.length > 0) {
+                    _self.invokeOnshowHandlers();
+                }
+            });
+    },
+    
+    close: function() {
+        this.visibleStateHolder.val(false);
+
+        var _self = this;
+
+        $(this.jqId).fadeOut(this.cfg.closeSpeed,
+            function(e) {
+                if(_self.cfg.behaviors) {
+                    var closeBehavior = _self.cfg.behaviors['close'];
+                    if(closeBehavior) {
+                        closeBehavior.call(_self, e);
+                    }
+                }
+            }
+        );
+    },
+    
+    show: function() {
+        var _self = this;
+        $(this.jqId).fadeIn(this.cfg.closeSpeed, function() {
+            _self.invokeOnshowHandlers();
+        });
+
+        this.visibleStateHolder.val(true);
+    },
+    
+    setupToggleTrigger: function() {
+        var _self = this,
+        trigger = this.toggler.parent();
+
+        this.setupTriggerVisuals(trigger);
+
+        trigger.click(function() {_self.toggle();});
+    },
+    
+    setupCloseTrigger: function() {
+        var _self = this,
+        trigger = $(this.jqId + '_closer').parent();
+
+        this.setupTriggerVisuals(trigger);
+
+        trigger.click(function() {_self.close();});
+    },
+    
+    setupMenuTrigger: function() {
+        var trigger = $(this.jqId + '_menu').parent();
+
+        this.setupTriggerVisuals(trigger);
+    },
+    
+    setupTriggerVisuals: function(trigger) {
+        trigger.mouseover(function() {$(this).addClass('ui-state-hover');})
+                .mouseout(function() {$(this).removeClass('ui-state-hover');});
+    },
+    
+    addOnshowHandler: function(fn) {
+        this.onshowHandlers.push(fn);
+    },
+    
+    invokeOnshowHandlers: function() {
+        this.onshowHandlers = $.grep(this.onshowHandlers, function(fn) {
+            return !fn.call();
+        });
+    }
+
+});

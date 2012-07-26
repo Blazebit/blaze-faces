@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE component SYSTEM "../misc/component.dtd" [
+<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
+<!ENTITY widget_var_attribute					SYSTEM "../entities/widget_var_attribute.xml">
+]>
+<component>
+	<tag>blockUI</tag>
+	<tagClass>com.blazebit.blazefaces.component.blockui.BlockUI</tagClass>
+	<componentClass>com.blazebit.blazefaces.component.blockui.BlockUI</componentClass>
+	<componentType>com.blazebit.blazefaces.component.BlockUI</componentType>
+	<componentFamily>com.blazebit.blazefaces.component</componentFamily>
+	<rendererType>com.blazebit.blazefaces.component.BlockUIRenderer</rendererType>
+	<rendererClass>com.blazebit.blazefaces.component.blockui.BlockUIRenderer</rendererClass>
+	<parent>javax.faces.component.UIPanel</parent>
+    <description>
+      BlockUI blocks JSF components during ajax processing.
+    </description>
+    <interfaces>
+		<interface>
+			<name>com.blazebit.blazefaces.component.Widget</name>
+		</interface>
+	</interfaces>
+	<attributes>
+		&standard_uicomponent_attributes;
+		&widget_var_attribute;
+		<attribute>
+			<name>trigger</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+            <description>Identifier of component(s) to bind the block UI.</description>
+		</attribute>
+		<attribute>
+			<name>block</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+            <description>Component whose UI to block.</description>
+		</attribute>
+        <attribute>
+			<name>blocked</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+            <defaultValue>false</defaultValue>
+            <description>Blocks the ui by default when enabled.</description>
+		</attribute>
+	</attributes>
+	<resources>
+        <resource>
+			<name>blazefaces.css</name>
+		</resource>
+		<resource>
+			<name>jquery/jquery.js</name>
+		</resource>
+		<resource>
+			<name>blazefaces.js</name>
+		</resource>
+	</resources>
+</component>

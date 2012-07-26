@@ -33,7 +33,9 @@ public class CommandRenderer extends OutputRenderer {
             return;
         }
         
-        String clientId = decodeBehaviors(context, component);
+        decodeBehaviors(context, component);
+        String clientId = component.getClientId(context);
+        
         if (wasClicked(context, component, clientId) && !isReset(component)) {
             component.queueEvent(new ActionEvent(component));
         }

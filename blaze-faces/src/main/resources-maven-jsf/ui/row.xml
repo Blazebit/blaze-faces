@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE component SYSTEM "../misc/component.dtd" [
+<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
+]>
+<component>
+	<tag>row</tag>
+	<tagClass>com.blazebit.blazefaces.component.row.RowTag</tagClass>
+	<componentClass>com.blazebit.blazefaces.component.row.Row</componentClass>
+	<componentType>com.blazebit.blazefaces.component.Row</componentType>
+	<componentFamily>com.blazebit.blazefaces.component</componentFamily>
+	<parent>javax.faces.component.UIComponentBase</parent>
+    <description>Row is a helper component for datatable.</description>
+	<attributes>
+		&standard_uicomponent_attributes;
+	</attributes>
+</component>

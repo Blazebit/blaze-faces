@@ -38,6 +38,7 @@ public class AjaxBehaviorRenderer extends ClientBehaviorRenderer {
     @Override
     public String getScript(ClientBehaviorContext behaviorContext, ClientBehavior behavior) {
         AjaxBehavior ajaxBehavior = (AjaxBehavior) behavior;
+        
         if(ajaxBehavior.isDisabled()) {
             return null;
         }
@@ -46,6 +47,7 @@ public class AjaxBehaviorRenderer extends ClientBehaviorRenderer {
         UIComponent component = behaviorContext.getComponent();
         String source = behaviorContext.getSourceId();
         String process = ajaxBehavior.getProcess();
+        
         if(process == null) {
             process = "@this";
         }

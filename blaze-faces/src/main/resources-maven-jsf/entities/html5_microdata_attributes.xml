@@ -1,0 +1,35 @@
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>itemid</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>itemref</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>itemtype</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>itemscope</name>
+	<required>false</required>
+	<type>java.lang.Boolean</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>itemprop</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>

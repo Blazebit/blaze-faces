@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE component SYSTEM "../misc/component.dtd" [
+<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
+<!ENTITY widget_var_attribute					SYSTEM "../entities/widget_var_attribute.xml">
+]>
+<component>
+	<tag>stack</tag>
+	<tagClass>com.blazebit.blazefaces.component.stack.StackTag</tagClass>
+	<componentClass>com.blazebit.blazefaces.component.stack.Stack</componentClass>
+	<componentType>com.blazebit.blazefaces.component.Stack</componentType>
+	<componentFamily>com.blazebit.blazefaces.component</componentFamily>
+	<rendererType>com.blazebit.blazefaces.component.StackRenderer</rendererType>
+	<rendererClass>com.blazebit.blazefaces.component.stack.StackRenderer</rendererClass>
+	<parent>com.blazebit.blazefaces.component.menu.AbstractMenu</parent>
+    <description>Stack is a navigation component that mimics the stacks feature in Mac OS X.</description>
+     <interfaces>
+		<interface>
+			<name>com.blazebit.blazefaces.component.Widget</name>
+		</interface>
+	</interfaces>
+	<attributes>
+		&standard_uicomponent_attributes;
+		&widget_var_attribute;
+		<attribute>
+			<name>model</name>
+			<required>false</required>
+			<type>com.blazebit.blazefaces.model.MenuModel</type>
+            <description>MenuModel instance to create menus programmatically.</description>
+		</attribute>
+		<attribute>
+			<name>icon</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+            <description>An optional image to contain stacked items.</description>
+		</attribute>
+		<attribute>
+			<name>openSpeed</name>
+			<required>false</required>
+			<type>java.lang.Integer</type>
+			<defaultValue>300</defaultValue>
+            <description>Speed of the animation in milliseconds when opening the stack. Default is 300.</description>
+		</attribute>
+		<attribute>
+			<name>closeSpeed</name>
+			<required>false</required>
+			<type>java.lang.Integer</type>
+			<defaultValue>300</defaultValue>
+            <description>Speed of the animation in milliseconds when opening the stack. Default is 300.</description>
+		</attribute>
+        <attribute>
+			<name>expanded</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+			<defaultValue>false</defaultValue>
+            <description></description>
+		</attribute>
+	</attributes>
+	<resources>
+		<resource>
+			<name>stack/stack.css</name>
+		</resource>
+		<resource>
+			<name>jquery/jquery.js</name>
+		</resource>
+		<resource>
+			<name>blazefaces.js</name>
+		</resource>
+		<resource>
+			<name>stack/stack.js</name>
+		</resource>
+	</resources>
+</component>

@@ -31,6 +31,8 @@ public class OutputTimeRenderer extends OutputRenderer {
         OutputTime p = (OutputTime) component;
         ResponseWriter writer = ctx.getResponseWriter();
         writer.startElement("time", component);
+        // removed the following line from component constructor
+//        setConverter(getFacesContext().getApplication().createConverter(DateTimeConverter.class));
         initConverter((DateTimeConverter) p.getConverter(), p);
 
         RendererUtils.encodeAttribute(writer, "id", p.getClientId(ctx), null);
@@ -39,8 +41,10 @@ public class OutputTimeRenderer extends OutputRenderer {
         
         Object val = ((ValueHolder) component).getValue();
         
-        if(val != null)
+        if(val != null){
             RendererUtils.encodeAttribute(writer, "datetime", df.format((Date) val), null);
+        }
+        
         renderPassThruAttributes(ctx, component, HTML5.COMMON_ATTRIBUTES);
         renderDataMapAttributes(ctx, component);
     }

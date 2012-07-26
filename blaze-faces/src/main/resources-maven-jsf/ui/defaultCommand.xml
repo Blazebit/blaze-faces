@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE component SYSTEM "../misc/component.dtd" [
+<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
+<!ENTITY widget_var_attribute					SYSTEM "../entities/widget_var_attribute.xml">
+]>
+<component>
+    <tag>defaultCommand</tag>
+    <tagClass>com.blazebit.blazefaces.component.defaultcommand.DefaultCommandTag</tagClass>
+    <componentClass>com.blazebit.blazefaces.component.defaultcommand.DefaultCommand</componentClass>
+    <componentType>com.blazebit.blazefaces.component.DefaultCommand</componentType>
+    <componentFamily>com.blazebit.blazefaces.component</componentFamily>
+    <rendererType>com.blazebit.blazefaces.component.DefaultCommandRenderer</rendererType>
+    <rendererClass>com.blazebit.blazefaces.component.defaultcommand.DefaultCommandRenderer</rendererClass>
+    <parent>javax.faces.component.UIComponentBase</parent>
+    <description>DefaultCommand defines the default command component to invoke when enter key is pressed in a form.</description>
+    <interfaces>
+        <interface>
+            <name>com.blazebit.blazefaces.component.Widget</name>
+        </interface>
+    </interfaces>
+    <attributes>
+        &standard_uicomponent_attributes;
+        &widget_var_attribute;
+        <attribute>
+            <name>target</name>
+            <required>true</required>
+            <type>java.lang.String</type>
+            <description>Identifier of the default command component.</description>
+        </attribute>
+        <attribute>
+            <name>scope</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+            <description>Identifier of the grouping component to enable multiple default commands in a form.</description>
+        </attribute>
+    </attributes>
+    <resources>
+        <resource>
+            <name>jquery/jquery.js</name>
+        </resource>
+        <resource>
+            <name>blazefaces.js</name>
+        </resource>
+    </resources>
+</component>

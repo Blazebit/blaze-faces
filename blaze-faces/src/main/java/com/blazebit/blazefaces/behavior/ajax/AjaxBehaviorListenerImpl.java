@@ -49,7 +49,7 @@ public class AjaxBehaviorListenerImpl implements AjaxBehaviorListener, Serializa
             listener.invoke(elContext, new Object[]{});
         } catch (MethodNotFoundException mnfe) {
             MethodExpression argListener = context.getApplication().getExpressionFactory().
-                        createMethodExpression(elContext, listener.getExpressionString(), null, new Class[]{event.getClass()});
+                        createMethodExpression(elContext, listener.getExpressionString(), null, new Class<?>[]{event.getClass()});
             
             argListener.invoke(elContext, new Object[]{event});
         }

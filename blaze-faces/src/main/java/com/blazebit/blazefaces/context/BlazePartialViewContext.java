@@ -21,7 +21,7 @@ public class BlazePartialViewContext extends PartialViewContextWrapper {
         this.wrapped = wrapped;
         
         if(isAjaxRequest()) {
-            BlazeRequestContext.init();
+            new DefaultRequestContext();
             FeatureDetectionUtils.retrieveFeatures(FacesContext.getCurrentInstance());
         }
     }
@@ -47,15 +47,14 @@ public class BlazePartialViewContext extends PartialViewContextWrapper {
     }
 
     @Override
-    public Collection<String> getRenderIds() {
-        RequestContext requestContext = RequestContext.getCurrentInstance();
+    public boolean isAjaxRequest() {
+        return getWrapped().isAjaxRequest()
+                || FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().containsKey("javax.faces.partial.ajax");
+    }
 
-        if (requestContext == null || requestContext.getPartialUpdateTargets().isEmpty()) {
-            return getWrapped().getRenderIds();
-        } else {
-            requestContext.addPartialUpdateTargets(getWrapped().getRenderIds());
-
-            return requestContext.getPartialUpdateTargets();
-        }
+    @Override
+    public boolean isPartialRequest() {
+        return getWrapped().isPartialRequest()
+                || FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().containsKey("javax.faces.partial.execute");
     }
 }

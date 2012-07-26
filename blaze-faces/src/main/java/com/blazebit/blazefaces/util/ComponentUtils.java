@@ -3,6 +3,7 @@
  */
 package com.blazebit.blazefaces.util;
 
+import com.blazebit.blazefaces.component.Widget;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -284,7 +285,7 @@ public class ComponentUtils {
         return items;
     }
 
-    public static String escapeSelectorId(String id) {
+    public static String escapeJQueryId(String id) {
         return "#" + id.replaceAll(":", "\\\\\\\\:");
     }
 
@@ -362,6 +363,17 @@ public class ComponentUtils {
             }
         }
         return result;
+    }
+    public static String getWidgetVar(String id) {
+	    UIComponent component = findComponent(FacesContext.getCurrentInstance().getViewRoot(), id);
+
+        if(component == null) {
+            throw new FacesException("Cannot find component " + id + " in view.");
+        } else if(component instanceof Widget) {
+            return ((Widget) component).resolveWidgetVar();
+        } else {
+            throw new FacesException("Component with id " + id + " is not a Widget");
+        }
     }
 
     public static boolean isLiteralText(UIComponent component) {

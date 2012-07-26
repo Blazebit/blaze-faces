@@ -1,0 +1,133 @@
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>onkeydown</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>onkeypress</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>onkeyup</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>onclick</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>ondblclick</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>ondrag</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>ondragend</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>ondragenter</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>ondragleave</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>ondragover</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>ondragstart</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>ondrop</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>onmousedown</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>onmousemove</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>onmouseout</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>onmouseover</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>onmouseup</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>onmousewheel</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>
+<attribute>
+	<description><![CDATA[]]>
+	</description>
+	<name>onscroll</name>
+	<required>false</required>
+	<type>java.lang.String</type>
+</attribute>

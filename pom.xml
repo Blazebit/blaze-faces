@@ -20,6 +20,7 @@
         <module>blaze-faces</module>
         <module>blaze-faces-mojarra</module>
         <module>blaze-faces-myfaces</module>
+        <module>maven-jsf-plugin</module>
     </modules>
 
     <issueManagement>

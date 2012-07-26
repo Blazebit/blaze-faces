@@ -1,125 +1,67 @@
 /*
- * Copyright 2011 Blazebit
+ * Copyright 2011-2012 Blazebit
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.blazebit.blazefaces.renderkit;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import javax.el.ValueExpression;
+import java.lang.reflect.Array;
 import javax.faces.component.UIComponent;
-import javax.faces.component.UIInput;
-import javax.faces.component.UISelectItem;
-import javax.faces.component.UISelectItems;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
-import javax.faces.convert.ConverterException;
-import javax.faces.model.SelectItem;
 
-/**
- *
- * @author Christian Beikov
- */
 public class SelectRenderer extends InputRenderer {
-
-    @SuppressWarnings("unchecked")
-	protected List<SelectItem> getSelectItems(FacesContext context, UIInput component) {
-        List<SelectItem> selectItems = new ArrayList<SelectItem>();
-
-        for (UIComponent child : component.getChildren()) {
-            if (child instanceof UISelectItem) {
-                UISelectItem uiSelectItem = (UISelectItem) child;
-
-                selectItems.add(new SelectItem(uiSelectItem.getItemValue(), uiSelectItem.getItemLabel()));
-            } else if (child instanceof UISelectItems) {
-                UISelectItems uiSelectItems = ((UISelectItems) child);
-                Object value = uiSelectItems.getValue();
-
-                if (value instanceof SelectItem[]) {
-                    selectItems.addAll(Arrays.asList((SelectItem[]) value));
-                } else if (value instanceof Map) {
-                    Map<Object, Object> map = (Map<Object, Object>) value;
-
-                    for (Iterator<Object> it = map.keySet().iterator(); it.hasNext();) {
-                        Object key = it.next();
-
-                        selectItems.add(new SelectItem(map.get(key), String.valueOf(key)));
+    
+    protected boolean isSelected(FacesContext context, UIComponent component, Object itemValue, Object valueArray, Converter converter) {
+        if(itemValue == null && valueArray == null) {
+            return true;
+        }
+        
+        if(valueArray != null) {
+            if(!valueArray.getClass().isArray()) {
+                return valueArray.equals(itemValue);
+            }
+            
+            int length = Array.getLength(valueArray);
+            for(int i = 0; i < length; i++) {
+                Object value = Array.get(valueArray, i);
+                
+                if(value == null && itemValue == null) {
+                    return true;
+                } 
+                else {
+                    if((value == null) ^ (itemValue == null)) {
+                        continue;
                     }
-                } else if (value instanceof Collection) {
-                    Collection<Object> collection = (Collection<Object>) value;
-                    String var = (String) uiSelectItems.getAttributes().get("var");
-
-                    if (var != null) {
-                        for (Iterator<Object> it = collection.iterator(); it.hasNext();) {
-                            Object object = it.next();
-                            context.getExternalContext().getRequestMap().put(var, object);
-                            String itemLabel = (String) uiSelectItems.getAttributes().get("itemLabel");
-                            Object itemValue = uiSelectItems.getAttributes().get("itemValue");
-
-                            selectItems.add(new SelectItem(itemValue, itemLabel));
+                    
+                    Object compareValue;
+                    if (converter == null) {
+                        compareValue = coerceToModelType(context, itemValue, value.getClass());
+                    } 
+                    else {
+                        compareValue = itemValue;
+                        
+                        if (compareValue instanceof String && !(value instanceof String)) {
+                            compareValue = converter.getAsObject(context, component, (String) compareValue);
                         }
-                    } else {
-                        for (Iterator<Object> it = collection.iterator(); it.hasNext();) {
-                            Object object = it.next();
+                    }
 
-                            if (object instanceof SelectItem) {
-                                selectItems.add((SelectItem) object);
-                            } else if (object instanceof Enum) {
-                                Enum<?> e = (Enum<?>) object;
-                                selectItems.add(new SelectItem(e.name(), e.name()));
-                            }
-                        }
+                    if (value.equals(compareValue)) {
+                        return (true);
                     }
                 }
             }
         }
-
-        return selectItems;
-    }
-
-    protected String getOptionAsString(FacesContext context, UIInput component, Converter converter, Object value) {
-        if (converter != null) {
-            return converter.getAsString(context, component, value);
-        } else if (value == null) {
-            return "";
-        } else {
-            return value.toString();
-        }
-    }
-
-    protected Converter getConverter(FacesContext context, UIInput component) {
-        Converter converter = component.getConverter();
-
-        if (converter != null) {
-            return converter;
-        } else {
-            ValueExpression ve = component.getValueExpression("value");
-
-            if (ve != null) {
-                Class<?> valueType = ve.getType(context.getELContext());
-
-                if (valueType != null) {
-                    return context.getApplication().createConverter(valueType);
-                }
-            }
-        }
-
-        return null;
-    }
-
-    @Override
-    public Object getConvertedValue(FacesContext context, UIComponent component, Object submittedValue) throws ConverterException {
-        UIInput input = (UIInput) component;
-        Converter converter = getConverter(context, input);
-
-        if (converter != null) {
-            return converter.getAsObject(context, component, (String) submittedValue);
-        } else {
-            return submittedValue;
-        }
+        return false;
     }
 }

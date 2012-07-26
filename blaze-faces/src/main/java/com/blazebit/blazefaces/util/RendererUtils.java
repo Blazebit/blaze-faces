@@ -225,7 +225,7 @@ public class RendererUtils {
     public static String getEventHandlerScript(FacesContext context, String targetClientId, String event, String code) {
         StringBuilder scriptBuilder = new StringBuilder();
         scriptBuilder.append("BlazeJS.EventHandler.add('");
-        scriptBuilder.append(ComponentUtils.escapeSelectorId(targetClientId));
+        scriptBuilder.append(ComponentUtils.escapeJQueryId(targetClientId));
         scriptBuilder.append("','");
         scriptBuilder.append(event);
         scriptBuilder.append("',function(){");

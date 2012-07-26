@@ -1,8 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <faces-config version="2.0"
-    xmlns="http://java.sun.com/xml/ns/javaee" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+              xmlns="http://java.sun.com/xml/ns/javaee" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+	
+	<name>blazefaces</name>
+	
     <factory>
         <partial-view-context-factory>
             com.blazebit.blazefaces.context.BlazePartialViewContextFactory
@@ -11,11 +14,35 @@
 
     <application>
         <resource-handler>com.blazebit.blazefaces.application.BlazeResourceHandler</resource-handler>
+        <system-event-listener>
+            <source-class>javax.faces.application.Application</source-class>
+            <system-event-class>javax.faces.event.PostConstructApplicationEvent</system-event-class>
+            <system-event-listener-class>com.blazebit.blazefaces.webapp.PostConstructApplicationEventListener</system-event-listener-class>
+        </system-event-listener>
+        <system-event-listener>
+            <source-class>com.blazebit.blazefaces.component.messages.Messages</source-class>
+            <system-event-class>javax.faces.event.PostAddToViewEvent</system-event-class>
+            <system-event-listener-class>com.blazebit.blazefaces.event.AutoUpdateComponentListener</system-event-listener-class>
+        </system-event-listener>
+        <system-event-listener>
+            <source-class>com.blazebit.blazefaces.component.growl.Growl</source-class>
+            <system-event-class>javax.faces.event.PostAddToViewEvent</system-event-class>
+            <system-event-listener-class>com.blazebit.blazefaces.event.AutoUpdateComponentListener</system-event-listener-class>
+        </system-event-listener>
+        <system-event-listener>
+            <source-class>com.blazebit.blazefaces.component.outputpanel.OutputPanel</source-class>
+            <system-event-class>javax.faces.event.PostAddToViewEvent</system-event-class>
+            <system-event-listener-class>com.blazebit.blazefaces.event.AutoUpdateComponentListener</system-event-listener-class>
+        </system-event-listener>
     </application>
     
     <behavior>
         <behavior-id>com.blazebit.blazefaces.behavior.AjaxBehavior</behavior-id>
         <behavior-class>com.blazebit.blazefaces.behavior.ajax.AjaxBehavior</behavior-class>
+    </behavior>
+    <behavior>
+        <behavior-id>com.blazebit.blazefaces.component.PrinterBehavior</behavior-id>
+        <behavior-class>com.blazebit.blazefaces.behavior.printer.PrinterBehavior</behavior-class>
     </behavior>
     <behavior>
         <behavior-id>com.blazebit.blazefaces.behavior.InvokeBehavior</behavior-id>
@@ -28,36 +55,673 @@
     <behavior>
         <behavior-id>com.blazebit.blazefaces.behavior.HideBehavior</behavior-id>
         <behavior-class>com.blazebit.blazefaces.behavior.hide.HideBehavior</behavior-class>
-    </behavior>
+    </behavior><component>
+		<component-type>com.blazebit.blazefaces.component.AccordionPanel</component-type>
+		<component-class>com.blazebit.blazefaces.component.accordionpanel.AccordionPanel</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.AjaxStatus</component-type>
+		<component-class>com.blazebit.blazefaces.component.ajaxstatus.AjaxStatus</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.AutoComplete</component-type>
+		<component-class>com.blazebit.blazefaces.component.autocomplete.AutoComplete</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.chart.BarChart</component-type>
+		<component-class>com.blazebit.blazefaces.component.chart.bar.BarChart</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.BlockUI</component-type>
+		<component-class>com.blazebit.blazefaces.component.blockui.BlockUI</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.BreadCrumb</component-type>
+		<component-class>com.blazebit.blazefaces.component.breadcrumb.BreadCrumb</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.chart.BubbleChart</component-type>
+		<component-class>com.blazebit.blazefaces.component.chart.bubble.BubbleChart</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Button</component-type>
+		<component-class>com.blazebit.blazefaces.component.button.Button</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Calendar</component-type>
+		<component-class>com.blazebit.blazefaces.component.calendar.Calendar</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Captcha</component-type>
+		<component-class>com.blazebit.blazefaces.component.captcha.Captcha</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Carousel</component-type>
+		<component-class>com.blazebit.blazefaces.component.carousel.Carousel</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.CellEditor</component-type>
+		<component-class>com.blazebit.blazefaces.component.celleditor.CellEditor</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.ColorPicker</component-type>
+		<component-class>com.blazebit.blazefaces.component.colorpicker.ColorPicker</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Column</component-type>
+		<component-class>com.blazebit.blazefaces.component.column.Column</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.ColumnGroup</component-type>
+		<component-class>com.blazebit.blazefaces.component.columngroup.ColumnGroup</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Columns</component-type>
+		<component-class>com.blazebit.blazefaces.component.columns.Columns</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.CommandButton</component-type>
+		<component-class>com.blazebit.blazefaces.component.commandbutton.CommandButton</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.CommandLink</component-type>
+		<component-class>com.blazebit.blazefaces.component.commandlink.CommandLink</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.ConfirmDialog</component-type>
+		<component-class>com.blazebit.blazefaces.component.confirmdialog.ConfirmDialog</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.ContextMenu</component-type>
+		<component-class>com.blazebit.blazefaces.component.contextmenu.ContextMenu</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Dashboard</component-type>
+		<component-class>com.blazebit.blazefaces.component.dashboard.Dashboard</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.DataGrid</component-type>
+		<component-class>com.blazebit.blazefaces.component.datagrid.DataGrid</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.DataList</component-type>
+		<component-class>com.blazebit.blazefaces.component.datalist.DataList</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.DataTable</component-type>
+		<component-class>com.blazebit.blazefaces.component.datatable.DataTable</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.DefaultCommand</component-type>
+		<component-class>com.blazebit.blazefaces.component.defaultcommand.DefaultCommand</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Dialog</component-type>
+		<component-class>com.blazebit.blazefaces.component.dialog.Dialog</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Dock</component-type>
+		<component-class>com.blazebit.blazefaces.component.dock.Dock</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.chart.DonutChart</component-type>
+		<component-class>com.blazebit.blazefaces.component.chart.donut.DonutChart</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Draggable</component-type>
+		<component-class>com.blazebit.blazefaces.component.dnd.Draggable</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Droppable</component-type>
+		<component-class>com.blazebit.blazefaces.component.dnd.Droppable</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Editor</component-type>
+		<component-class>com.blazebit.blazefaces.component.editor.Editor</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Effect</component-type>
+		<component-class>com.blazebit.blazefaces.component.effect.Effect</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.FeedReader</component-type>
+		<component-class>com.blazebit.blazefaces.component.feedreader.FeedReader</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Fieldset</component-type>
+		<component-class>com.blazebit.blazefaces.component.fieldset.Fieldset</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.FileUpload</component-type>
+		<component-class>com.blazebit.blazefaces.component.fileupload.FileUpload</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Focus</component-type>
+		<component-class>com.blazebit.blazefaces.component.focus.Focus</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Galleria</component-type>
+		<component-class>com.blazebit.blazefaces.component.galleria.Galleria</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.GalleriaContent</component-type>
+		<component-class>com.blazebit.blazefaces.component.galleria.GalleriaContent</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.GalleriaOverlay</component-type>
+		<component-class>com.blazebit.blazefaces.component.galleria.GalleriaOverlay</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.GMap</component-type>
+		<component-class>com.blazebit.blazefaces.component.gmap.GMap</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.GMapInfoWindow</component-type>
+		<component-class>com.blazebit.blazefaces.component.gmap.GMapInfoWindow</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.GraphicImage</component-type>
+		<component-class>com.blazebit.blazefaces.component.graphicimage.GraphicImage</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Growl</component-type>
+		<component-class>com.blazebit.blazefaces.component.growl.Growl</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Hotkey</component-type>
+		<component-class>com.blazebit.blazefaces.component.hotkey.Hotkey</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.IdleMonitor</component-type>
+		<component-class>com.blazebit.blazefaces.component.idlemonitor.IdleMonitor</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.ImageCompare</component-type>
+		<component-class>com.blazebit.blazefaces.component.imagecompare.ImageCompare</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.ImageCropper</component-type>
+		<component-class>com.blazebit.blazefaces.component.imagecropper.ImageCropper</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.ImageSwitch</component-type>
+		<component-class>com.blazebit.blazefaces.component.imageswitch.ImageSwitch</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Inplace</component-type>
+		<component-class>com.blazebit.blazefaces.component.inplace.Inplace</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.InputMask</component-type>
+		<component-class>com.blazebit.blazefaces.component.inputmask.InputMask</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.InputText</component-type>
+		<component-class>com.blazebit.blazefaces.component.inputtext.InputText</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.InputTextarea</component-type>
+		<component-class>com.blazebit.blazefaces.component.inputtextarea.InputTextarea</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Keyboard</component-type>
+		<component-class>com.blazebit.blazefaces.component.keyboard.Keyboard</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Layout</component-type>
+		<component-class>com.blazebit.blazefaces.component.layout.Layout</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.LayoutUnit</component-type>
+		<component-class>com.blazebit.blazefaces.component.layout.LayoutUnit</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.LightBox</component-type>
+		<component-class>com.blazebit.blazefaces.component.lightbox.LightBox</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.chart.LineChart</component-type>
+		<component-class>com.blazebit.blazefaces.component.chart.line.LineChart</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Log</component-type>
+		<component-class>com.blazebit.blazefaces.component.log.Log</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Media</component-type>
+		<component-class>com.blazebit.blazefaces.component.media.Media</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.MegaMenu</component-type>
+		<component-class>com.blazebit.blazefaces.component.megamenu.MegaMenu</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Menu</component-type>
+		<component-class>com.blazebit.blazefaces.component.menu.Menu</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Menubar</component-type>
+		<component-class>com.blazebit.blazefaces.component.menubar.Menubar</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.MenuButton</component-type>
+		<component-class>com.blazebit.blazefaces.component.menubutton.MenuButton</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.MenuItem</component-type>
+		<component-class>com.blazebit.blazefaces.component.menuitem.MenuItem</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Message</component-type>
+		<component-class>com.blazebit.blazefaces.component.message.Message</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Messages</component-type>
+		<component-class>com.blazebit.blazefaces.component.messages.Messages</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.chart.MeterGaugeChart</component-type>
+		<component-class>com.blazebit.blazefaces.component.chart.metergauge.MeterGaugeChart</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.Mindmap</component-type>
+		<component-class>com.blazebit.blazefaces.component.mindmap.Mindmap</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.NotificationBar</component-type>
+		<component-class>com.blazebit.blazefaces.component.notificationbar.NotificationBar</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.chart.OhlcChart</component-type>
+		<component-class>com.blazebit.blazefaces.component.chart.ohlc.OhlcChart</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.OrderList</component-type>
+		<component-class>com.blazebit.blazefaces.component.orderlist.OrderList</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Outputlabelk</component-type>
+		<component-class>com.blazebit.blazefaces.component.outputlabel.OutputLabel</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.OutputPanel</component-type>
+		<component-class>com.blazebit.blazefaces.component.outputpanel.OutputPanel</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.OverlayPanel</component-type>
+		<component-class>com.blazebit.blazefaces.component.overlaypanel.OverlayPanel</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Panel</component-type>
+		<component-class>com.blazebit.blazefaces.component.panel.Panel</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.PanelGrid</component-type>
+		<component-class>com.blazebit.blazefaces.component.panelgrid.PanelGrid</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.PanelMenu</component-type>
+		<component-class>com.blazebit.blazefaces.component.panelmenu.PanelMenu</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Password</component-type>
+		<component-class>com.blazebit.blazefaces.component.password.Password</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.PhotoCam</component-type>
+		<component-class>com.blazebit.blazefaces.component.photocam.PhotoCam</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.PickList</component-type>
+		<component-class>com.blazebit.blazefaces.component.picklist.PickList</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.chart.PieChart</component-type>
+		<component-class>com.blazebit.blazefaces.component.chart.pie.PieChart</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Poll</component-type>
+		<component-class>com.blazebit.blazefaces.component.poll.Poll</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.ProgressBar</component-type>
+		<component-class>com.blazebit.blazefaces.component.progressbar.ProgressBar</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.RadioButton</component-type>
+		<component-class>com.blazebit.blazefaces.component.radiobutton.RadioButton</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Rating</component-type>
+		<component-class>com.blazebit.blazefaces.component.rating.Rating</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.RemoteCommand</component-type>
+		<component-class>com.blazebit.blazefaces.component.remotecommand.RemoteCommand</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Resizable</component-type>
+		<component-class>com.blazebit.blazefaces.component.resizable.Resizable</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Resources</component-type>
+		<component-class>com.blazebit.blazefaces.component.resources.Resources</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Ring</component-type>
+		<component-class>com.blazebit.blazefaces.component.ring.Ring</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Row</component-type>
+		<component-class>com.blazebit.blazefaces.component.row.Row</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.RowEditor</component-type>
+		<component-class>com.blazebit.blazefaces.component.roweditor.RowEditor</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.RowExpansion</component-type>
+		<component-class>com.blazebit.blazefaces.component.rowexpansion.RowExpansion</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.RowToggler</component-type>
+		<component-class>com.blazebit.blazefaces.component.rowtoggler.RowToggler</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.Schedule</component-type>
+		<component-class>com.blazebit.blazefaces.component.schedule.Schedule</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.ScrollPanel</component-type>
+		<component-class>com.blazebit.blazefaces.component.scrollpanel.ScrollPanel</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.SelectBooleanButton</component-type>
+		<component-class>com.blazebit.blazefaces.component.selectbooleanbutton.SelectBooleanButton</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.SelectBooleanCheckbox</component-type>
+		<component-class>com.blazebit.blazefaces.component.selectbooleancheckbox.SelectBooleanCheckbox</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.SelectCheckboxMenu</component-type>
+		<component-class>com.blazebit.blazefaces.component.selectcheckboxmenu.SelectCheckboxMenu</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.SelectManyButton</component-type>
+		<component-class>com.blazebit.blazefaces.component.selectmanybutton.SelectManyButton</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.SelectManyCheckbox</component-type>
+		<component-class>com.blazebit.blazefaces.component.selectmanycheckbox.SelectManyCheckbox</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.SelectManyMenu</component-type>
+		<component-class>com.blazebit.blazefaces.component.selectmanymenu.SelectManyMenu</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.SelectOneButton</component-type>
+		<component-class>com.blazebit.blazefaces.component.selectonebutton.SelectOneButton</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.SelectOneListbox</component-type>
+		<component-class>com.blazebit.blazefaces.component.selectonelistbox.SelectOneListbox</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.SelectOneMenu</component-type>
+		<component-class>com.blazebit.blazefaces.component.selectonemenu.SelectOneMenu</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.SelectOneRadio</component-type>
+		<component-class>com.blazebit.blazefaces.component.selectoneradio.SelectOneRadio</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Separator</component-type>
+		<component-class>com.blazebit.blazefaces.component.separator.Separator</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.Sheet</component-type>
+		<component-class>com.blazebit.blazefaces.component.sheet.Sheet</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.SlideMenu</component-type>
+		<component-class>com.blazebit.blazefaces.component.slidemenu.SlideMenu</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Slider</component-type>
+		<component-class>com.blazebit.blazefaces.component.slider.Slider</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Socket</component-type>
+		<component-class>com.blazebit.blazefaces.component.socket.Socket</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Spacer</component-type>
+		<component-class>com.blazebit.blazefaces.component.spacer.Spacer</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Spinner</component-type>
+		<component-class>com.blazebit.blazefaces.component.spinner.Spinner</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.SplitButton</component-type>
+		<component-class>com.blazebit.blazefaces.component.splitbutton.SplitButton</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Stack</component-type>
+		<component-class>com.blazebit.blazefaces.component.stack.Stack</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Submenu</component-type>
+		<component-class>com.blazebit.blazefaces.component.submenu.Submenu</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.SubTable</component-type>
+		<component-class>com.blazebit.blazefaces.component.subtable.SubTable</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.SummaryRow</component-type>
+		<component-class>com.blazebit.blazefaces.component.summaryrow.SummaryRow</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Tab</component-type>
+		<component-class>com.blazebit.blazefaces.component.tabview.Tab</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.TabMenu</component-type>
+		<component-class>com.blazebit.blazefaces.component.tabmenu.TabMenu</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.TabView</component-type>
+		<component-class>com.blazebit.blazefaces.component.tabview.TabView</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.TagCloud</component-type>
+		<component-class>com.blazebit.blazefaces.component.tagcloud.TagCloud</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Terminal</component-type>
+		<component-class>com.blazebit.blazefaces.component.terminal.Terminal</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.ThemeSwitcher</component-type>
+		<component-class>com.blazebit.blazefaces.component.themeswitcher.ThemeSwitcher</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.TieredMenu</component-type>
+		<component-class>com.blazebit.blazefaces.component.tieredmenu.TieredMenu</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Toolbar</component-type>
+		<component-class>com.blazebit.blazefaces.component.toolbar.Toolbar</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.ToolbarGroup</component-type>
+		<component-class>com.blazebit.blazefaces.component.toolbar.ToolbarGroup</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Tooltip</component-type>
+		<component-class>com.blazebit.blazefaces.component.tooltip.Tooltip</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Tree</component-type>
+		<component-class>com.blazebit.blazefaces.component.tree.Tree</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.UITreeNode</component-type>
+		<component-class>com.blazebit.blazefaces.component.tree.UITreeNode</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.TreeTable</component-type>
+		<component-class>com.blazebit.blazefaces.component.treetable.TreeTable</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Watermark</component-type>
+		<component-class>com.blazebit.blazefaces.component.watermark.Watermark</component-class>
+	</component>
+
+	<component>
+		<component-type>com.blazebit.blazefaces.component.Wizard</component-type>
+		<component-class>com.blazebit.blazefaces.component.wizard.Wizard</component-class>
+	</component>
     
     <component>
         <component-type>com.blazebit.blazefaces.behavior.handler.EventHandler</component-type>
         <component-class>com.blazebit.blazefaces.behavior.handler.EventHandler</component-class>
     </component>
-    
     <component>
         <component-type>com.blazebit.blazefaces.component.Include</component-type>
         <component-class>com.blazebit.blazefaces.component.include.Include</component-class>
-    </component>
-    <component>
-        <component-type>com.blazebit.blazefaces.component.Button</component-type>
-        <component-class>com.blazebit.blazefaces.component.button.Button</component-class>
-    </component>
-    <component>
-        <component-type>com.blazebit.blazefaces.component.CommandButton</component-type>
-        <component-class>com.blazebit.blazefaces.component.commandbutton.CommandButton</component-class>
-    </component>
-    <component>
-        <component-type>com.blazebit.blazefaces.component.CommandLink</component-type>
-        <component-class>com.blazebit.blazefaces.component.commandlink.CommandLink</component-class>
-    </component>
-    <component>
-        <component-type>com.blazebit.blazefaces.component.InputText</component-type>
-        <component-class>com.blazebit.blazefaces.component.inputtext.InputText</component-class>
-    </component>
-    <component>
-        <component-type>com.blazebit.blazefaces.component.InputTextarea</component-type>
-        <component-class>com.blazebit.blazefaces.component.inputtextarea.InputTextarea</component-class>
     </component>
     <component>
         <component-type>com.blazebit.blazefaces.component.InputRichText</component-type>
@@ -79,36 +743,6 @@
         <component-type>com.blazebit.blazefaces.component.OutputMeter</component-type>
         <component-class>com.blazebit.blazefaces.component.outputmeter.OutputMeter</component-class>
     </component>
-    
-    <component>
-        <component-type>com.blazebit.blazefaces.component.SelectBooleanCheckbox</component-type>
-        <component-class>com.blazebit.blazefaces.component.selectbooleancheckbox.SelectBooleanCheckbox</component-class>
-    </component>
-
-    <component>
-        <component-type>com.blazebit.blazefaces.component.SelectManyCheckbox</component-type>
-        <component-class>com.blazebit.blazefaces.component.selectmanycheckbox.SelectManyCheckbox</component-class>
-    </component>
-
-    <component>
-        <component-type>com.blazebit.blazefaces.component.SelectManyMenu</component-type>
-        <component-class>com.blazebit.blazefaces.component.selectmanymenu.SelectManyMenu</component-class>
-    </component>
-
-    <component>
-        <component-type>com.blazebit.blazefaces.component.SelectOneListbox</component-type>
-        <component-class>com.blazebit.blazefaces.component.selectonelistbox.SelectOneListbox</component-class>
-    </component>
-
-    <component>
-        <component-type>com.blazebit.blazefaces.component.SelectOneMenu</component-type>
-        <component-class>com.blazebit.blazefaces.component.selectonemenu.SelectOneMenu</component-class>
-    </component>
-
-    <component>
-        <component-type>com.blazebit.blazefaces.component.SelectOneRadio</component-type>
-        <component-class>com.blazebit.blazefaces.component.selectoneradio.SelectOneRadio</component-class>
-    </component>
         
     <render-kit>
         <renderer>
@@ -121,37 +755,616 @@
             <renderer-type>javax.faces.Body</renderer-type>
             <renderer-class>com.blazebit.blazefaces.renderkit.BodyRenderer</renderer-class>
         </renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.AccordionPanelRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.accordionpanel.AccordionPanelRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.AjaxStatusRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.ajaxstatus.AjaxStatusRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.AutoCompleteRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.autocomplete.AutoCompleteRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.chart.BarChartRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.chart.bar.BarChartRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.BlockUIRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.blockui.BlockUIRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.BreadCrumbRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.breadcrumb.BreadCrumbRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.chart.BubbleChartRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.chart.bubble.BubbleChartRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.ButtonRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.button.ButtonRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.CalendarRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.calendar.CalendarRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.CaptchaRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.captcha.CaptchaRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.CarouselRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.carousel.CarouselRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.CellEditorRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.celleditor.CellEditorRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>ccom.blazebit.blazefaces.component.ColorPickerRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.colorpicker.ColorPickerRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.CommandButtonRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.commandbutton.CommandButtonRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.CommandLinkRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.commandlink.CommandLinkRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.ConfirmDialogRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.confirmdialog.ConfirmDialogRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.ContextMenuRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.contextmenu.ContextMenuRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.DashboardRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.dashboard.DashboardRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.DataGridRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.datagrid.DataGridRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.DataListRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.datalist.DataListRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.DataTableRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.datatable.DataTableRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.DefaultCommandRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.defaultcommand.DefaultCommandRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.DialogRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.dialog.DialogRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.DockRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.dock.DockRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.chart.DonutChartRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.chart.donut.DonutChartRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.DraggableRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.dnd.DraggableRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.DroppableRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.dnd.DroppableRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.EditorRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.editor.EditorRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.EffectRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.effect.EffectRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.FeedReaderRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.feedreader.FeedReaderRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.FieldsetRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.fieldset.FieldsetRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.FileUploadRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.fileupload.FileUploadRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.FocusRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.focus.FocusRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.GalleriaRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.galleria.GalleriaRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.GalleriaContentRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.galleria.GalleriaContentRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.GalleriaOverlayRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.galleria.GalleriaOverlayRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.GMapRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.gmap.GMapRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.GraphicImageRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.graphicimage.GraphicImageRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.GrowlRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.growl.GrowlRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.HotkeyRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.hotkey.HotkeyRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.IdleMonitorRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.idlemonitor.IdleMonitorRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.ImageCompareRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.imagecompare.ImageCompareRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.ImageCropperRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.imagecropper.ImageCropperRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.ImageSwitchRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.imageswitch.ImageSwitchRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.InplaceRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.inplace.InplaceRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.InputMaskRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.inputmask.InputMaskRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.InputTextRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.inputtext.InputTextRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.InputTextareaRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.inputtextarea.InputTextareaRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.KeyboardRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.keyboard.KeyboardRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.LayoutRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.layout.LayoutRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.LayoutUnitRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.layout.LayoutUnitRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.LightBoxRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.lightbox.LightBoxRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.chart.LineChartRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.chart.line.LineChartRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.LogRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.log.LogRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.MediaRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.media.MediaRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.MegaMenuRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.megamenu.MegaMenuRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.MenuRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.menu.MenuRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.MenubarRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.menubar.MenubarRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.MenuButtonRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.menubutton.MenuButtonRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.MessageRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.message.MessageRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.MessagesRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.messages.MessagesRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.chart.MeterGaugeChartRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.chart.metergauge.MeterGaugeChartRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.MindmapRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.mindmap.MindmapRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.NotificationBarRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.notificationbar.NotificationBarRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.chart.OhlcChartRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.chart.ohlc.OhlcChartRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.OrderListRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.orderlist.OrderListRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.OutputLabelRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.outputlabel.OutputLabelRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.OutputPanelRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.outputpanel.OutputPanelRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.OverlayPanelRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.overlaypanel.OverlayPanelRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.PanelRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.panel.PanelRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.PanelGridRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.panelgrid.PanelGridRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.PanelMenuRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.panelmenu.PanelMenuRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.PasswordRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.password.PasswordRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.PhotoCamRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.photocam.PhotoCamRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.PickListRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.picklist.PickListRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.chart.PieChartRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.chart.pie.PieChartRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.PollRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.poll.PollRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.ProgressBarRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.progressbar.ProgressBarRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.RadioButtonRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.radiobutton.RadioButtonRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.RatingRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.rating.RatingRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.RemoteCommandRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.remotecommand.RemoteCommandRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.ResizableRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.resizable.ResizableRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.ResourcesRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.resources.ResourcesRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.RingRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.ring.RingRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.RowEditorRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.roweditor.RowEditorRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.RowTogglerRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.rowtoggler.RowTogglerRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.ScheduleRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.schedule.ScheduleRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.ScrollPanelRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.scrollpanel.ScrollPanelRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.SelectBooleanButtonRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.selectbooleanbutton.SelectBooleanButtonRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.SelectBooleanCheckboxRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.selectbooleancheckbox.SelectBooleanCheckboxRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.SelectCheckboxMenuRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.selectcheckboxmenu.SelectCheckboxMenuRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.SelectManyButtonRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.selectmanybutton.SelectManyButtonRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.SelectManyCheckboxRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.selectmanycheckbox.SelectManyCheckboxRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.SelectManyMenuRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.selectmanymenu.SelectManyMenuRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.SelectOneButtonRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.selectonebutton.SelectOneButtonRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.SelectOneListboxRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.selectonelistbox.SelectOneListboxRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.SelectOneMenuRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.selectonemenu.SelectOneMenuRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.SelectOneRadioRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.selectoneradio.SelectOneRadioRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.SeparatorRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.separator.SeparatorRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.SheetRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.sheet.SheetRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.SlideMenuRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.slidemenu.SlideMenuRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.SliderRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.slider.SliderRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.SocketRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.socket.SocketRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.SpacerRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.spacer.SpacerRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.SpinnerRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.spinner.SpinnerRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.SplitButtonRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.splitbutton.SplitButtonRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.StackRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.stack.StackRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.SubTableRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.subtable.SubTableRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.SummaryRowRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.summaryrow.SummaryRowRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.TabMenuRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.tabmenu.TabMenuRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.TabViewRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.tabview.TabViewRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.TagCloudRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.tagcloud.TagCloudRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.TerminalRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.terminal.TerminalRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.ThemeSwitcherRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.themeswitcher.ThemeSwitcherRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.TieredMenuRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.tieredmenu.TieredMenuRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.ToolbarRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.toolbar.ToolbarRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.TooltipRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.tooltip.TooltipRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.TreeRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.tree.TreeRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.TreeTableRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.treetable.TreeTableRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.WatermarkRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.watermark.WatermarkRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.blazebit.blazefaces.component</component-family>
+			<renderer-type>com.blazebit.blazefaces.component.WizardRenderer</renderer-type>
+			<renderer-class>com.blazebit.blazefaces.component.wizard.WizardRenderer</renderer-class>
+		</renderer>
         
         <renderer>
             <component-family>com.blazebit.blazefaces.behavior</component-family>
             <renderer-type>com.blazebit.blazefaces.behavior.handler.EventHandlerRenderer</renderer-type>
             <renderer-class>com.blazebit.blazefaces.behavior.handler.EventHandlerRenderer</renderer-class>
-        </renderer>
-        
-        <renderer>
-            <component-family>com.blazebit.blazefaces.component</component-family>
-            <renderer-type>com.blazebit.blazefaces.component.ButtonRenderer</renderer-type>
-            <renderer-class>com.blazebit.blazefaces.component.button.ButtonRenderer</renderer-class>
-        </renderer>
-        <renderer>
-            <component-family>com.blazebit.blazefaces.component</component-family>
-            <renderer-type>com.blazebit.blazefaces.component.CommandButtonRenderer</renderer-type>
-            <renderer-class>com.blazebit.blazefaces.component.commandbutton.CommandButtonRenderer</renderer-class>
-        </renderer>
-        <renderer>
-            <component-family>com.blazebit.blazefaces.component</component-family>
-            <renderer-type>com.blazebit.blazefaces.component.CommandLinkRenderer</renderer-type>
-            <renderer-class>com.blazebit.blazefaces.component.commandlink.CommandLinkRenderer</renderer-class>
-        </renderer>
-        <renderer>
-            <component-family>com.blazebit.blazefaces.component</component-family>
-            <renderer-type>com.blazebit.blazefaces.component.InputTextRenderer</renderer-type>
-            <renderer-class>com.blazebit.blazefaces.component.inputtext.InputTextRenderer</renderer-class>
-        </renderer>
-        <renderer>
-            <component-family>com.blazebit.blazefaces.component</component-family>
-            <renderer-type>com.blazebit.blazefaces.component.InputTextareaRenderer</renderer-type>
-            <renderer-class>com.blazebit.blazefaces.component.inputtextarea.InputTextareaRenderer</renderer-class>
         </renderer>
         <renderer>
             <component-family>com.blazebit.blazefaces.component</component-family>
@@ -177,37 +1390,6 @@
             <component-family>com.blazebit.blazefaces.component</component-family>
             <renderer-type>com.blazebit.blazefaces.component.OutputMeterRenderer</renderer-type>
             <renderer-class>com.blazebit.blazefaces.component.outputmeter.OutputMeterRenderer</renderer-class>
-        </renderer>
-        
-        <renderer>
-            <component-family>com.blazebit.blazefaces.component</component-family>
-            <renderer-type>com.blazebit.blazefaces.component.SelectBooleanCheckboxRenderer</renderer-type>
-            <renderer-class>com.blazebit.blazefaces.component.selectbooleancheckbox.SelectBooleanCheckboxRenderer</renderer-class>
-        </renderer>
-        <renderer>
-            <component-family>com.blazebit.blazefaces.component</component-family>
-            <renderer-type>com.blazebit.blazefaces.component.SelectManyCheckboxRenderer</renderer-type>
-            <renderer-class>com.blazebit.blazefaces.component.selectmanycheckbox.SelectManyCheckboxRenderer</renderer-class>
-        </renderer>
-        <renderer>
-            <component-family>com.blazebit.blazefaces.component</component-family>
-            <renderer-type>com.blazebit.blazefaces.component.SelectManyMenuRenderer</renderer-type>
-            <renderer-class>com.blazebit.blazefaces.component.selectmanymenu.SelectManyMenuRenderer</renderer-class>
-        </renderer>
-        <renderer>
-            <component-family>com.blazebit.blazefaces.component</component-family>
-            <renderer-type>com.blazebit.blazefaces.component.SelectOneListboxRenderer</renderer-type>
-            <renderer-class>com.blazebit.blazefaces.component.selectonelistbox.SelectOneListboxRenderer</renderer-class>
-        </renderer>
-        <renderer>
-            <component-family>com.blazebit.blazefaces.component</component-family>
-            <renderer-type>com.blazebit.blazefaces.component.SelectOneMenuRenderer</renderer-type>
-            <renderer-class>com.blazebit.blazefaces.component.selectonemenu.SelectOneMenuRenderer</renderer-class>
-        </renderer>
-        <renderer>
-            <component-family>com.blazebit.blazefaces.component</component-family>
-            <renderer-type>com.blazebit.blazefaces.component.SelectOneRadioRenderer</renderer-type>
-            <renderer-class>com.blazebit.blazefaces.component.selectoneradio.SelectOneRadioRenderer</renderer-class>
         </renderer>
         
         <client-behavior-renderer>

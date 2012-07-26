@@ -14,6 +14,7 @@ import javax.faces.event.AbortProcessingException;
 
 import com.blazebit.blazefaces.json.JSONException;
 import com.blazebit.blazefaces.json.JSONObject;
+import java.util.List;
 
 public class BlazePartialResponseWriter extends PartialResponseWriter {
 
@@ -31,6 +32,7 @@ public class BlazePartialResponseWriter extends PartialResponseWriter {
         if(requestContext != null) {
             try {
                 encodeCallbackParams(requestContext);
+                encodeScripts(requestContext);
             } catch (Exception exception) {
                 throw new AbortProcessingException(exception);
             } finally {
@@ -83,6 +85,19 @@ public class BlazePartialResponseWriter extends PartialResponseWriter {
 
             endExtension();
         }
+    }
+    
+    private void encodeScripts(RequestContext requestContext) throws IOException {
+        List<String> scripts = requestContext.getScriptsToExecute();
+        if(!scripts.isEmpty()) {
+            startEval();
+
+            for(String script : scripts) {
+                write(script + ";");
+            }
+
+            endEval();
+        }           
     }
 
     @Override

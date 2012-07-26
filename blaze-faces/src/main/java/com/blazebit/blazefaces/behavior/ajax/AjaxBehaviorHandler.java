@@ -89,7 +89,7 @@ public class AjaxBehaviorHandler extends BehaviorHandler {
         }
     }
 
-    // Tests whether the <f:ajax> is wrapping other tags.
+    // Tests whether the <b:ajax> is wrapping other tags.
     private boolean isWrapping() {
 
         // Would be nice if there was some easy way to determine whether
@@ -104,10 +104,7 @@ public class AjaxBehaviorHandler extends BehaviorHandler {
     // Applies a nested AjaxHandler by adding the AjaxBehavior to the
     // parent component.
     @SuppressWarnings("unchecked")
-    private void applyNested(FaceletContext ctx,
-            UIComponent parent,
-            String eventName) {
-
+    private void applyNested(FaceletContext ctx, UIComponent parent, String eventName) {
         if (!ComponentHandler.isNew(parent)) {
             return;
         }
@@ -116,30 +113,36 @@ public class AjaxBehaviorHandler extends BehaviorHandler {
         if (UIComponent.isCompositeComponent(parent)) {
             // Check composite component event name:
             boolean tagApplied = false;
+            
             if (parent instanceof ClientBehaviorHolder) {
                 applyAttachedObject(ctx, parent, eventName);  // error here will propagate up
                 tagApplied = true;
             }
 
             BeanInfo componentBeanInfo = (BeanInfo) parent.getAttributes().get(UIComponent.BEANINFO_KEY);
+            
             if (null == componentBeanInfo) {
                 throw new TagException(tag, "Composite component does not have BeanInfo attribute");
             }
 
             BeanDescriptor componentDescriptor = componentBeanInfo.getBeanDescriptor();
+            
             if (null == componentDescriptor) {
                 throw new TagException(tag, "Composite component BeanInfo does not have BeanDescriptor");
             }
 
             List<AttachedObjectTarget> targetList = (List<AttachedObjectTarget>) componentDescriptor.getValue(AttachedObjectTarget.ATTACHED_OBJECT_TARGETS_KEY);
+            
             if (null == targetList && !tagApplied) {
                 throw new TagException(tag, "Composite component does not support behavior events");
             }
 
             boolean supportedEvent = false;
+            
             for (AttachedObjectTarget target : targetList) {
                 if (target instanceof BehaviorHolderAttachedObjectTarget) {
                     BehaviorHolderAttachedObjectTarget behaviorTarget = (BehaviorHolderAttachedObjectTarget) target;
+                    
                     if ((null != eventName && eventName.equals(behaviorTarget.getName()))
                             || (null == eventName && behaviorTarget.isDefaultEvent())) {
                         supportedEvent = true;
@@ -187,30 +190,23 @@ public class AjaxBehaviorHandler extends BehaviorHandler {
                 result = Collections.EMPTY_LIST;
             }
         }
+        
         return result;
 
     }
-
-//    public void applyAttachedObject(FacesContext context, UIComponent parent) {
-//        FaceletContext ctx = (FaceletContext) context.getAttributes().get(FaceletContext.FACELET_CONTEXT_KEY);
-//        
-//        applyAttachedObject(ctx, parent, getEventName());
-//    }
-
-//    public String getFor() {
-//        return null;
-//    }
     
     public void applyAttachedObject(FaceletContext context, UIComponent component, String eventName) {                
         ClientBehaviorHolder holder = (ClientBehaviorHolder) component;
 
         if(null == eventName) {
             eventName = holder.getDefaultEventName();
+            
             if (null == eventName) {
                 throw new TagException(this.tag, "Event attribute could not be determined: "  + eventName);
             }
         } else {
             Collection<String> eventNames = holder.getEventNames();
+            
             if (!eventNames.contains(eventName)) {
                 throw new TagException(this.tag,  "Event:" + eventName + " is not supported.");
             }

@@ -6,6 +6,7 @@ blaze-faces/.project
 blaze-faces/.settings/
 blaze-faces/.classpath
 blaze-faces/target/
+blaze-faces/faces-config.NavData
 blaze-faces-mojarra/.project
 blaze-faces-mojarra/.settings/
 blaze-faces-mojarra/.classpath
@@ -16,3 +17,7 @@ blaze-faces-myfaces/.settings/
 blaze-faces-myfaces/.classpath
 blaze-faces-myfaces/target/
 blaze-faces-myfaces/faces-config.NavData
+maven-jsf-plugin/.project
+maven-jsf-plugin/.settings/
+maven-jsf-plugin/.classpath
+maven-jsf-plugin/target/
