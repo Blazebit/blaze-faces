@@ -8,7 +8,6 @@
 ]>
 <component>
 	<tag>commandButton</tag>
-	<tagClass>com.blazebit.blazefaces.component.commandbutton.CommandButtonTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.commandbutton.CommandButton</componentClass>
 	<componentType>com.blazebit.blazefaces.component.CommandButton</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

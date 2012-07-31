@@ -7,7 +7,6 @@
 ]>
 <component>
 	<tag>selectBooleanCheckbox</tag>
-	<tagClass>com.blazebit.blazefaces.component.selectbooleancheckbox.SelectBooleanCheckboxTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.selectbooleancheckbox.SelectBooleanCheckbox</componentClass>
 	<componentType>com.blazebit.blazefaces.component.SelectBooleanCheckbox</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

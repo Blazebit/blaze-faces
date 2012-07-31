@@ -6,7 +6,6 @@
 ]>
 <component>
 	<tag>ring</tag>
-	<tagClass>com.blazebit.blazefaces.component.ring.RingTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.ring.Ring</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Ring</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

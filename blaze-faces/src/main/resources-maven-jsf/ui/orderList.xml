@@ -7,7 +7,6 @@
 ]>
 <component>
 	<tag>orderList</tag>
-	<tagClass>com.blazebit.blazefaces.component.orderlist.OrderListTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.orderlist.OrderList</componentClass>
 	<componentType>com.blazebit.blazefaces.component.OrderList</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

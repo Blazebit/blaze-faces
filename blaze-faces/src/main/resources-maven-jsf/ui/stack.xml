@@ -5,7 +5,6 @@
 ]>
 <component>
 	<tag>stack</tag>
-	<tagClass>com.blazebit.blazefaces.component.stack.StackTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.stack.Stack</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Stack</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

@@ -4,7 +4,6 @@
 ]>
 <component>
 	<tag>rowEditor</tag>
-	<tagClass>com.blazebit.blazefaces.component.roweditor.RowEditorTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.roweditor.RowEditor</componentClass>
 	<componentType>com.blazebit.blazefaces.component.RowEditor</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

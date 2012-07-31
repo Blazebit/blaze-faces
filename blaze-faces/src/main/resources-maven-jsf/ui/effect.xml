@@ -4,7 +4,6 @@
 ]>
 <component>
 	<tag>effect</tag>
-	<tagClass>com.blazebit.blazefaces.component.effect.EffectTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.effect.Effect</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Effect</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

@@ -4,7 +4,6 @@
 ]>
 <component>
 	<tag>rowToggler</tag>
-	<tagClass>com.blazebit.blazefaces.component.rowtoggler.RowTogglerTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.rowtoggler.RowToggler</componentClass>
 	<componentType>com.blazebit.blazefaces.component.RowToggler</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

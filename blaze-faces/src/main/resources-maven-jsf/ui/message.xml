@@ -4,7 +4,6 @@
 ]>
 <component>
 	<tag>message</tag>
-	<tagClass>com.blazebit.blazefaces.component.message.MessageTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.message.Message</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Message</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://blazebit.com/faces"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:my="http://java.sun.com/jsf/composite/components">
+    <h:head>
+        <title>BlazeFaces Showcase - ajax</title>
+    </h:head>
+    <h:body>
+        <h:form id="form">
+            <b:commandButton id="normalButton" value="Ajax Behavior directly added">
+                <b:ajax update="panel"/>
+            </b:commandButton>
+            <my:commandButton id="compositeButton">
+                <b:ajax event="click" update=":form:panel"/>
+            </my:commandButton>
+            <b:panelGroup id="panel" type="div">
+                #{ajaxBean.time}
+            </b:panelGroup>
+        </h:form>
+    </h:body>
+</html>

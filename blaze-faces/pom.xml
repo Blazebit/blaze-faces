@@ -15,55 +15,6 @@
     <url>http://blazebit.com/faces</url>
     <description>BlazeFaces JSF Component Library</description>
 
-    <issueManagement>
-        <system>github</system>
-        <url>https://github.com/Blazebit/blaze-Faces/issues</url>
-    </issueManagement>
-
-    <licenses>
-        <license>
-            <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-        </license>
-    </licenses>
-
-    <organization>
-        <name>Blazebit</name>
-        <url>http://www.blazebit.com</url>
-    </organization>
-    
-    <scm>
-        <connection>scm:git:git@github.com:Blazebit/blaze-faces.git</connection>
-        <developerConnection>scm:git:git@github.com:Blazebit/blaze-faces.git</developerConnection>
-        <url>git@github.com:Blazebit/blaze-faces.git</url>
-    </scm>
-
-    <developers>
-        <developer>
-            <id>christian</id>
-            <name>Christian Beikov</name>
-            <email>christian@blazebit.com</email>
-            <organization>Blazebit</organization>
-            <organizationUrl>http://www.blazebit.com</organizationUrl>
-            <timezone>UTC+1</timezone>
-            <roles>
-                <role>Project Owner</role>
-                <role>Committer</role>
-            </roles>
-        </developer>
-        <developer>
-            <id>cchet</id>
-            <name>Thomas Herzog</name>
-            <email>t.herzog@curecomp.com</email>
-            <organization>Curecomp</organization>
-            <organizationUrl>http://www.curecomp.com</organizationUrl>
-            <timezone>UTC+1</timezone>
-            <roles>
-                <role>Committer</role>
-            </roles>
-        </developer>
-    </developers>
-
     <dependencies>
         <dependency>
             <groupId>org.owasp.esapi</groupId>
@@ -229,14 +180,13 @@
                         <id>generate-ui</id>
                         <phase>generate-sources</phase>
                         <configuration>
-                            <uri>http://www.blazebit.com/blazefaces</uri>
+                            <uri>http://blazebit.com/faces</uri>
                             <shortName>b</shortName>
                             <jsfVersion>2</jsfVersion>
                             <templatesDir>src/main/java-templates</templatesDir>
                             <componentConfigsDir>target/resources-maven-jsf/ui</componentConfigsDir>
                             <standardFacesConfig>src/main/resources-maven-jsf/standard-faces-config.xml</standardFacesConfig>
                             <standardFaceletsTaglib>src/main/resources-maven-jsf/standard-facelets-taglib.xml</standardFaceletsTaglib>
-                            <standardTLD>src/main/resources-maven-jsf/standard-tld.xml</standardTLD>
                         </configuration>
                         <goals>
                             <goal>generate-components</goal>

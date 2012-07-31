@@ -4,7 +4,6 @@
 ]>
 <component>
 	<tag>tabMenu</tag>
-	<tagClass>com.blazebit.blazefaces.component.tabmenu.TabMenuTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.tabmenu.TabMenu</componentClass>
 	<componentType>com.blazebit.blazefaces.component.TabMenu</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

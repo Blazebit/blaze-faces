@@ -4,7 +4,6 @@
 ]>
 <component>
     <tag>hotkey</tag>
-    <tagClass>com.blazebit.blazefaces.component.hotkey.HotkeyTag</tagClass>
     <componentClass>com.blazebit.blazefaces.component.hotkey.Hotkey</componentClass>
     <componentType>com.blazebit.blazefaces.component.Hotkey</componentType>
     <componentFamily>com.blazebit.blazefaces.component</componentFamily>

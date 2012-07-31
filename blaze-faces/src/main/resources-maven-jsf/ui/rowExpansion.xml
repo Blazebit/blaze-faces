@@ -4,7 +4,6 @@
 ]>
 <component>
 	<tag>rowExpansion</tag>
-	<tagClass>com.blazebit.blazefaces.component.rowexpansion.RowExpansionTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.rowexpansion.RowExpansion</componentClass>
 	<componentType>com.blazebit.blazefaces.component.RowExpansion</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

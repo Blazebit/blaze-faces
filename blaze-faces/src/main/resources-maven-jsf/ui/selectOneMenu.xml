@@ -7,7 +7,6 @@
 ]>
 <component>
 	<tag>selectOneMenu</tag>
-	<tagClass>com.blazebit.blazefaces.component.selectonemenu.SelectOneMenuTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.selectonemenu.SelectOneMenu</componentClass>
 	<componentType>com.blazebit.blazefaces.component.SelectOneMenu</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

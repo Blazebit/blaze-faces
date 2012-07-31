@@ -7,7 +7,6 @@
 ]>
 <component>
 	<tag>selectOneRadio</tag>
-	<tagClass>com.blazebit.blazefaces.component.selectoneradio.SelectOneRadioTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.selectoneradio.SelectOneRadio</componentClass>
 	<componentType>com.blazebit.blazefaces.component.SelectOneRadio</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

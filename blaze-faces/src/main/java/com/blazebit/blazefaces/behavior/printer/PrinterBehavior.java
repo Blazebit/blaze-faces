@@ -1,5 +1,5 @@
 /*
- * Copyright 2009-2012 Prime Teknoloji.
+ * Copyright 2011-2012 Blazebit
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,9 +24,9 @@ import javax.faces.component.behavior.ClientBehaviorContext;
 import javax.faces.context.FacesContext;
 
 @ResourceDependencies({
-    @ResourceDependency(library = "primefaces", name = "jquery/jquery.js"),
-    @ResourceDependency(library = "primefaces", name = "printer/printer.js"),
-    @ResourceDependency(library = "primefaces", name = "primefaces.js")
+    @ResourceDependency(library = "blazefaces", name = "jquery/jquery.js"),
+    @ResourceDependency(library = "blazefaces", name = "printer/printer.js"),
+    @ResourceDependency(library = "blazefaces", name = "blazefaces.js")
 })
 public class PrinterBehavior extends ClientBehaviorBase {
 
@@ -48,6 +48,6 @@ public class PrinterBehavior extends ClientBehaviorBase {
             throw new FacesException("Cannot find component " + target + " in view.");
         }
 
-        return "$(PrimeFaces.escapeClientId('" + targetComponent.getClientId(facesContext) + "')).jqprint();return false;";
+        return "$(BlazeFaces.escapeClientId('" + targetComponent.getClientId(facesContext) + "')).jqprint();return false;";
     }
 }

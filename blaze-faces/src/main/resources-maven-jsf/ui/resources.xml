@@ -4,7 +4,6 @@
 ]>
 <component>
 	<tag>resources</tag>
-	<tagClass>com.blazebit.blazefaces.component.resources.ResourcesTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.resources.Resources</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Resources</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

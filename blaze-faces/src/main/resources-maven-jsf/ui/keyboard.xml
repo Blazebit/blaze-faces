@@ -8,7 +8,6 @@
 ]>
 <component>
 	<tag>keyboard</tag>
-	<tagClass>com.blazebit.blazefaces.component.keyboard.KeyboardTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.keyboard.Keyboard</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Keyboard</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

@@ -5,7 +5,6 @@
 ]>
 <component>
 	<tag>socket</tag>
-	<tagClass>com.blazebit.blazefaces.component.socket.SocketTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.socket.Socket</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Socket</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

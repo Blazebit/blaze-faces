@@ -8,7 +8,6 @@
 ]>
 <component>
 	<tag>inputMask</tag>
-	<tagClass>com.blazebit.blazefaces.component.inputmask.InputMaskTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.inputmask.InputMask</componentClass>
 	<componentType>com.blazebit.blazefaces.component.InputMask</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

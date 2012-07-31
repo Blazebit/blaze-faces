@@ -7,7 +7,6 @@
 ]>
 <component>
 	<tag>pickList</tag>
-	<tagClass>com.blazebit.blazefaces.component.picklist.PickListTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.picklist.PickList</componentClass>
 	<componentType>com.blazebit.blazefaces.component.PickList</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

@@ -4,7 +4,6 @@
 ]>
 <component>
 	<tag>cellEditor</tag>
-	<tagClass>com.blazebit.blazefaces.component.celleditor.CellEditorTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.celleditor.CellEditor</componentClass>
 	<componentType>com.blazebit.blazefaces.component.CellEditor</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

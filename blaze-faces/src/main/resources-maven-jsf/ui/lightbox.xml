@@ -7,7 +7,6 @@
 ]>
 <component>
 	<tag>lightBox</tag>
-	<tagClass>com.blazebit.blazefaces.component.lightbox.LightBoxTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.lightbox.LightBox</componentClass>
 	<componentType>com.blazebit.blazefaces.component.LightBox</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

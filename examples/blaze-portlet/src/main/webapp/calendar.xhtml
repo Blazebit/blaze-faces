@@ -1,0 +1,18 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:b="http://blazebit.com/faces">
+
+    <h:head></h:head>
+
+    <h:form>
+
+        <b:calendar value="#{testBean.date}" />	
+        <b:commandButton update="display" value="Submit" /> 
+        
+        <h:outputText id="display" value="#{testBean.date}" />
+
+    </h:form>
+
+</f:view>

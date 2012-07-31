@@ -4,7 +4,6 @@
 ]>
 <component>
 	<tag>focus</tag>
-	<tagClass>com.blazebit.blazefaces.component.focus.FocusTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.focus.Focus</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Focus</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

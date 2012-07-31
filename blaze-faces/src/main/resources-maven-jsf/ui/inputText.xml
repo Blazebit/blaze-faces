@@ -8,7 +8,6 @@
 ]>
 <component>
 	<tag>inputText</tag>
-	<tagClass>com.blazebit.blazefaces.component.inputtext.InputText</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.inputtext.InputText</componentClass>
 	<componentType>com.blazebit.blazefaces.component.InputText</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

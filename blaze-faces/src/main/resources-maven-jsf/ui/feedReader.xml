@@ -4,7 +4,6 @@
 ]>
 <component>
 	<tag>feedReader</tag>
-	<tagClass>com.blazebit.blazefaces.component.feedreader.FeedReaderTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.feedreader.FeedReader</componentClass>
 	<componentType>com.blazebit.blazefaces.component.FeedReader</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

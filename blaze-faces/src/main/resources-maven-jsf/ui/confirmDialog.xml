@@ -5,7 +5,6 @@
 ]>
 <component>
 	<tag>confirmDialog</tag>
-	<tagClass>com.blazebit.blazefaces.component.confirmdialog.ConfirmDialogTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.confirmdialog.ConfirmDialog</componentClass>
 	<componentType>com.blazebit.blazefaces.component.ConfirmDialog</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

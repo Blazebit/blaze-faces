@@ -5,7 +5,6 @@
 ]>
 <component>
     <tag>poll</tag>
-    <tagClass>com.blazebit.blazefaces.component.poll.PollTag</tagClass>
     <componentClass>com.blazebit.blazefaces.component.poll.Poll</componentClass>
     <componentHandlerClass>com.blazebit.blazefaces.component.poll.PollHandler</componentHandlerClass>
     <componentType>com.blazebit.blazefaces.component.Poll</componentType>

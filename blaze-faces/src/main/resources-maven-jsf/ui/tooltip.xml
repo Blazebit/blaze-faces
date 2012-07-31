@@ -6,7 +6,6 @@
 ]>
 <component>
 	<tag>tooltip</tag>
-	<tagClass>com.blazebit.blazefaces.component.tooltip.TooltipTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.tooltip.Tooltip</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Tooltip</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

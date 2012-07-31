@@ -8,7 +8,6 @@
 ]>
 <component>
     <tag>calendar</tag>
-    <tagClass>com.blazebit.blazefaces.component.calendar.CalendarTag</tagClass>
     <componentClass>com.blazebit.blazefaces.component.calendar.Calendar</componentClass>
     <componentHandlerClass>com.blazebit.blazefaces.component.calendar.CalendarHandler</componentHandlerClass>
     <componentType>com.blazebit.blazefaces.component.Calendar</componentType>

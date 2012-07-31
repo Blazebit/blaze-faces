@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 Blazebit
+ * Copyright 2011-2012 Blazebit
  */
 package com.blazebit.blazefaces.behavior.hide;
 

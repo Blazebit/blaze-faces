@@ -6,7 +6,6 @@
 ]>
 <component>
 	<tag>watermark</tag>
-	<tagClass>com.blazebit.blazefaces.component.watermark.WatermarkTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.watermark.Watermark</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Watermark</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

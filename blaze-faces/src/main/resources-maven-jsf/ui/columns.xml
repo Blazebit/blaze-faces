@@ -4,7 +4,6 @@
 ]>
 <component>
     <tag>columns</tag>
-    <tagClass>com.blazebit.blazefaces.component.columns.ColumnsTag</tagClass>
     <componentClass>com.blazebit.blazefaces.component.columns.Columns</componentClass>
     <componentType>com.blazebit.blazefaces.component.Columns</componentType>
     <componentFamily>com.blazebit.blazefaces.component</componentFamily>

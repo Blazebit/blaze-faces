@@ -6,7 +6,6 @@
 ]>
 <component>
 	<tag>dataTable</tag>
-	<tagClass>com.blazebit.blazefaces.component.datatable.DataTableTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.datatable.DataTable</componentClass>
     <componentHandlerClass>com.blazebit.blazefaces.component.datatable.DataTableHandler</componentHandlerClass>
 	<componentType>com.blazebit.blazefaces.component.DataTable</componentType>

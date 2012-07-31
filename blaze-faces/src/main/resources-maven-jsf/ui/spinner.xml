@@ -8,7 +8,6 @@
 ]>
 <component>
 	<tag>spinner</tag>
-	<tagClass>com.blazebit.blazefaces.component.spinner.SpinnerTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.spinner.Spinner</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Spinner</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

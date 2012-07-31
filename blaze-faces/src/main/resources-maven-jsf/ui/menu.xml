@@ -5,7 +5,6 @@
 ]>
 <component>
 	<tag>menu</tag>
-	<tagClass>com.blazebit.blazefaces.component.menu.MenuTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.menu.Menu</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Menu</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

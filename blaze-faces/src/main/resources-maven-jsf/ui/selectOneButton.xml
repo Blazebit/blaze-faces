@@ -7,7 +7,6 @@
 ]>
 <component>
 	<tag>selectOneButton</tag>
-	<tagClass>com.blazebit.blazefaces.component.selectonebutton.SelectOneButtonTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.selectonebutton.SelectOneButton</componentClass>
 	<componentType>com.blazebit.blazefaces.component.SelectOneButton</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

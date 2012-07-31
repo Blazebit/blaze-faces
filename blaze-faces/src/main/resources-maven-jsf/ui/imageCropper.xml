@@ -7,7 +7,6 @@
 ]>
 <component>
 	<tag>imageCropper</tag>
-	<tagClass>com.blazebit.blazefaces.component.imagecropper.ImageCropperTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.imagecropper.ImageCropper</componentClass>
 	<componentType>com.blazebit.blazefaces.component.ImageCropper</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

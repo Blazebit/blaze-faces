@@ -1,0 +1,12 @@
+    
+    <name>blazefaces-mobile</name>
+    
+    <ordering>
+        <after>
+            <name>blazefaces</name>
+        </after>
+    </ordering>
+  
+    <application>
+        <navigation-handler>com.blazebit.blazefaces.mobile.navigation.MobileNavigationHandler</navigation-handler>
+    </application>

@@ -4,7 +4,6 @@
 ]>
 <component>
 	<tag>toolbar</tag>
-	<tagClass>com.blazebit.blazefaces.component.toolbar.ToolbarTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.toolbar.Toolbar</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Toolbar</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

@@ -15,7 +15,7 @@ in an easy way, but still stay as flexible as possible.
 
 How to use it?
 ============
-Include the jars you want in your project and use the namespace "http://www.blazebit.com/blazefaces" for your JSF views!
+Include the jars you want in your project and use the namespace "http://blazebit.com/faces" for your JSF views!
 
 Contents of distribution
 ========================

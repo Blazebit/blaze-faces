@@ -5,7 +5,6 @@
 ]>
 <component>
     <tag>remoteCommand</tag>
-    <tagClass>com.blazebit.blazefaces.component.remotecommand.RemoteCommandTag</tagClass>
     <componentClass>com.blazebit.blazefaces.component.remotecommand.RemoteCommand</componentClass>
     <componentType>com.blazebit.blazefaces.component.RemoteCommand</componentType>
     <componentFamily>com.blazebit.blazefaces.component</componentFamily>

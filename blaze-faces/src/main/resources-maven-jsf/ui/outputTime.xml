@@ -4,14 +4,14 @@
 <!ENTITY widget_var_attribute					SYSTEM "../entities/widget_var_attribute.xml">
 ]>
 <component>
-    <tag>panel</tag>
+    <tag>outputTime</tag>
     <componentClass>com.blazebit.blazefaces.component.outputtime.OutputTime</componentClass>
     <componentType>com.blazebit.blazefaces.component.OutputTime</componentType>
     <componentFamily>com.blazebit.blazefaces.component</componentFamily>
     <rendererType>com.blazebit.blazefaces.component.OutputTimeRenderer</rendererType>
     <rendererClass>com.blazebit.blazefaces.component.outputtime.OutputTimeRenderer</rendererClass>
     <parent>javax.faces.component.UIOutput</parent>
-    <description>Panel is a grouping component for other components, notable features are toggling, closing, built-in popup menu and ajax event listeners.</description>
+    <description>OutputTime is an output component for date/time values. It makes use of the HTML5 time-Tag and can also print pretty times like "5 minutes ago" based on the given locale.</description>
     <interfaces>
 		<interface>
 			<name>com.blazebit.blazefaces.component.Widget</name>

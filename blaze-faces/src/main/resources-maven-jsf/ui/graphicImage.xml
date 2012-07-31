@@ -4,7 +4,6 @@
 ]>
 <component>
 	<tag>graphicImage</tag>
-	<tagClass>com.blazebit.blazefaces.component.graphicimage.GraphicImageTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.graphicimage.GraphicImage</componentClass>
 	<componentType>com.blazebit.blazefaces.component.GraphicImage</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

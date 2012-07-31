@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://blazebit.com/faces"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>BlazeFaces Showcase - inputFile</title>
+        <f:metadata>
+            <f:event type="preRenderView" listener="#{inputFileBean.preRender}"/>
+        </f:metadata>
+    </h:head>
+    <h:body>
+        <h:form id="exampleForm" enctype="multipart/form-data">
+            <b:inputFile id="uploadField" value="#{inputFileBean.files}" fileUploadListener="#{inputFileBean.fileUploadListener}" cancelable="true" showProgress="true">
+                <f:facet name="overview">
+                    <h:link value="#" styleClass="toggleFileTable icon-arrow-up-small tooltip" title="Dateien Tabelle schließen"/>
+                    {progress}
+                    <h:panelGroup styleClass="meta" layout="block">
+                        <h:panelGroup styleClass="p">{percent}%</h:panelGroup>
+                        <h:panelGroup styleClass="upgeloaded"> von {filesize} MB</h:panelGroup>
+                        <h:panelGroup styleClass="speed">{speed}</h:panelGroup>
+                        <h:panelGroup styleClass="time-remaining">{timeremain}</h:panelGroup>
+                    </h:panelGroup>
+                    <h:panelGroup styleClass="amountFiles tooltip" layout="block">
+                        <h:panelGroup>{filecount}</h:panelGroup>
+                    </h:panelGroup>
+                </f:facet>
+                <f:facet name="item">
+                    {cancel}
+                    {progress}
+                    <h:panelGroup styleClass="meta" layout="block">
+                        <h:panelGroup styleClass="p">{percent}%</h:panelGroup>
+                        <h:panelGroup styleClass="upgeloaded"> von {filesize} MB</h:panelGroup>
+                        <h:panelGroup styleClass="speed">{speed}</h:panelGroup>
+                    </h:panelGroup>
+                    <h:panelGroup styleClass="file-name" layout="block">
+                        <h:panelGroup>{filename}</h:panelGroup>
+                    </h:panelGroup>
+                </f:facet>
+            </b:inputFile>
+        </h:form>
+    </h:body>
+</html>

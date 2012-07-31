@@ -4,7 +4,6 @@
 ]>
 <component>
 	<tag>summaryRow</tag>
-	<tagClass>com.blazebit.blazefaces.component.summaryrow.SummaryRowTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.summaryrow.SummaryRow</componentClass>
     <componentHandlerClass>com.blazebit.blazefaces.component.summaryrow.SummaryRowHandler</componentHandlerClass>
 	<componentType>com.blazebit.blazefaces.component.SummaryRow</componentType>

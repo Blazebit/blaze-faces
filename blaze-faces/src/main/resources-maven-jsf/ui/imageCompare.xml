@@ -4,7 +4,6 @@
 ]>
 <component>
 	<tag>imageCompare</tag>
-	<tagClass>com.blazebit.blazefaces.component.imagecompare.ImageCompareTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.imagecompare.ImageCompare</componentClass>
 	<componentType>com.blazebit.blazefaces.component.ImageCompare</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

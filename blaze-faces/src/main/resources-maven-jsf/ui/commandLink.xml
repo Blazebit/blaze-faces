@@ -9,7 +9,6 @@
 ]>
 <component>
 	<tag>commandLink</tag>
-	<tagClass>com.blazebit.blazefaces.component.commandlink.CommandLinkTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.commandlink.CommandLink</componentClass>
 	<componentType>com.blazebit.blazefaces.component.CommandLink</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

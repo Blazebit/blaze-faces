@@ -6,7 +6,6 @@
 ]>
 <component>
     <tag>dataList</tag>
-    <tagClass>com.blazebit.blazefaces.component.datalist.DataListTag</tagClass>
     <componentClass>com.blazebit.blazefaces.component.datalist.DataList</componentClass>
     <componentType>com.blazebit.blazefaces.component.DataList</componentType>
     <componentFamily>com.blazebit.blazefaces.component</componentFamily>

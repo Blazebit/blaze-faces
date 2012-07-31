@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE component SYSTEM "../misc/component.dtd" [
+<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
+<!ENTITY output_component_attributes			SYSTEM "../entities/output_component_attributes.xml">
+<!ENTITY input_component_attributes				SYSTEM "../entities/input_component_attributes.xml">
+]>
+<component>
+	<tag>switch</tag>
+	<componentClass>com.blazebit.blazefaces.mobile.component.uiswitch.UISwitch</componentClass>
+	<componentType>com.blazebit.blazefaces.mobile.UISwitch</componentType>
+	<componentFamily>com.blazebit.blazefaces.mobile.component</componentFamily>
+	<rendererType>com.blazebit.blazefaces.mobile.component.UISwitchRenderer</rendererType>
+	<rendererClass>com.blazebit.blazefaces.mobile.component.uiswitch.UISwitchRenderer</rendererClass>
+	<parent>javax.faces.component.UIInput</parent>
+	<attributes>
+		&input_component_attributes;
+        <attribute>
+            <name>onLabel</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <name>offLabel</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+			<name>label</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+            <description>User presentable name.</description>
+		</attribute>
+	</attributes>
+</component>

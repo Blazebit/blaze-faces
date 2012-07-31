@@ -8,7 +8,6 @@
 ]>
 <component>
 	<tag>inputTextarea</tag>
-	<tagClass>com.blazebit.blazefaces.component.inputtextarea.InputTextarea</tagClass>
     <componentHandlerClass>com.blazebit.blazefaces.component.autocomplete.AutoCompleteHandler</componentHandlerClass>
 	<componentClass>com.blazebit.blazefaces.component.inputtextarea.InputTextarea</componentClass>
 	<componentType>com.blazebit.blazefaces.component.InputTextarea</componentType>

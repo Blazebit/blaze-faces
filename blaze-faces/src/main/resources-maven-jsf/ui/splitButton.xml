@@ -6,7 +6,6 @@
 ]>
 <component>
 	<tag>splitButton</tag>
-	<tagClass>com.blazebit.blazefaces.component.splitbutton.SplitButtonTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.splitbutton.SplitButton</componentClass>
 	<componentType>com.blazebit.blazefaces.component.SplitButton</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

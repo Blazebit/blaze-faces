@@ -12,7 +12,7 @@
     <rendererType>com.blazebit.blazefaces.component.PanelGroupRenderer</rendererType>
     <rendererClass>com.blazebit.blazefaces.component.panelgroup.PanelGroupRenderer</rendererClass>
     <parent>javax.faces.component.UIPanel</parent>
-    <description>Panel is a grouping component for other components, notable features are toggling, closing, built-in popup menu and ajax event listeners.</description>
+    <description>Panel is a grouping component for other components. The type of the panelGroup affects what HTML tag will be rendered.</description>
     <interfaces>
 		<interface>
 			<name>com.blazebit.blazefaces.component.Widget</name>

@@ -4,7 +4,6 @@
 ]>
 <component>
 	<tag>gmapInfoWindow</tag>
-	<tagClass>com.blazebit.blazefaces.component.gmap.GMapInfoWindowTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.gmap.GMapInfoWindow</componentClass>
 	<componentType>com.blazebit.blazefaces.component.GMapInfoWindow</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

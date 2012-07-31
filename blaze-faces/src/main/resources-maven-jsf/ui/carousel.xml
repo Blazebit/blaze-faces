@@ -6,7 +6,6 @@
 ]>
 <component>
 	<tag>carousel</tag>
-	<tagClass>com.blazebit.blazefaces.component.carousel.CarouselTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.carousel.Carousel</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Carousel</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

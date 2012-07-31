@@ -1,0 +1,22 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:b="http://blazebit.com/faces">
+
+    <h:head></h:head>
+
+    <h:form>
+
+        <b:editor value="#{testBean.html}" widgetVar="editor" width="600"/>
+
+        <h:panelGrid columns="2" style="margin-top:10px">
+            <b:commandButton value="Submit" update="display" image="ui-icon ui-icon-disk" />
+            <b:commandButton type="button" value="Clear" onclick="editor.clear()" image="ui-icon ui-icon-close" />
+        </h:panelGrid>
+
+        <h:outputText id="display" value="#{testBean.html}" escape="false" />
+
+    </h:form>
+
+</f:view>

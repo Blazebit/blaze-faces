@@ -8,7 +8,6 @@
 ]>
 <component>
 	<tag>editor</tag>
-	<tagClass>com.blazebit.blazefaces.component.editor.EditorTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.editor.Editor</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Editor</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

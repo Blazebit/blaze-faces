@@ -6,7 +6,6 @@
 ]>
 <component>
 	<tag>captcha</tag>
-	<tagClass>com.blazebit.blazefaces.component.captcha.CaptchaTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.captcha.Captcha</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Captcha</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

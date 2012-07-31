@@ -5,7 +5,6 @@
 ]>
 <component>
 	<tag>growl</tag>
-	<tagClass>com.blazebit.blazefaces.component.growl.GrowlTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.growl.Growl</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Growl</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

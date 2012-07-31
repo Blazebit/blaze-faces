@@ -6,7 +6,6 @@
 ]>
 <component>
     <tag>sheet</tag>
-    <tagClass>com.blazebit.blazefaces.component.sheet.SheetTag</tagClass>
     <componentClass>com.blazebit.blazefaces.component.sheet.Sheet</componentClass>
     <componentType>com.blazebit.blazefaces.Sheet</componentType>
     <componentFamily>com.blazebit.blazefaces</componentFamily>

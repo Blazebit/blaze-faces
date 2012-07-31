@@ -4,7 +4,6 @@
 ]>
 <component>
 	<tag>separator</tag>
-	<tagClass>com.blazebit.blazefaces.component.separator.SeparatorTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.separator.Separator</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Separator</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

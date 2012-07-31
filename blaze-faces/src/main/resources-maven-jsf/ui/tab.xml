@@ -6,7 +6,6 @@
 ]>
 <component>
 	<tag>tab</tag>
-	<tagClass>com.blazebit.blazefaces.component.tabview.TabTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.tabview.Tab</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Tab</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

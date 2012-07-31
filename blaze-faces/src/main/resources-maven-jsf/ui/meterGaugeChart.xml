@@ -5,7 +5,6 @@
 ]>
 <component>
     <tag>meterGaugeChart</tag>
-    <tagClass>com.blazebit.blazefaces.component.chart.metergauge.MeterGaugeChartTag</tagClass>
     <componentClass>com.blazebit.blazefaces.component.chart.metergauge.MeterGaugeChart</componentClass>
     <componentType>com.blazebit.blazefaces.component.chart.MeterGaugeChart</componentType>
     <componentFamily>com.blazebit.blazefaces.component</componentFamily>

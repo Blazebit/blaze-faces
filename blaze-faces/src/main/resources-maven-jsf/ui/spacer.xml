@@ -4,7 +4,6 @@
 ]>
 <component>
 	<tag>spacer</tag>
-	<tagClass>com.blazebit.blazefaces.component.spacer.SpacerTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.spacer.Spacer</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Spacer</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

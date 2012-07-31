@@ -8,7 +8,6 @@
 ]>
 <component>
     <tag>autoComplete</tag>
-    <tagClass>com.blazebit.blazefaces.component.autocomplete.AutoCompleteTag</tagClass>
     <componentHandlerClass>com.blazebit.blazefaces.component.autocomplete.AutoCompleteHandler</componentHandlerClass>
     <componentClass>com.blazebit.blazefaces.component.autocomplete.AutoComplete</componentClass>
     <componentType>com.blazebit.blazefaces.component.AutoComplete</componentType>

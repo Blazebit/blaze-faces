@@ -4,7 +4,6 @@
 ]>
 <component>
 	<tag>breadCrumb</tag>
-	<tagClass>com.blazebit.blazefaces.component.breadcrumb.BreadCrumbTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.breadcrumb.BreadCrumb</componentClass>
 	<componentType>com.blazebit.blazefaces.component.BreadCrumb</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

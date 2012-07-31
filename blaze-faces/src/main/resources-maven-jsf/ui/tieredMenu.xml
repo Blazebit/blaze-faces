@@ -5,7 +5,6 @@
 ]>
 <component>
 	<tag>tieredMenu</tag>
-	<tagClass>com.blazebit.blazefaces.component.tieredmenu.TieredMenuTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.tieredmenu.TieredMenu</componentClass>
 	<componentType>com.blazebit.blazefaces.component.TieredMenu</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

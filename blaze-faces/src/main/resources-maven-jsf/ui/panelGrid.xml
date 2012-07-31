@@ -5,7 +5,6 @@
 ]>
 <component>
 	<tag>panelGrid</tag>
-	<tagClass>com.blazebit.blazefaces.component.panelgrid.PanelGridTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.panelgrid.PanelGrid</componentClass>
 	<componentType>com.blazebit.blazefaces.component.PanelGrid</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

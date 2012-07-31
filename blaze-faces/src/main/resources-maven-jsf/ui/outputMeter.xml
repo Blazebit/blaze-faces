@@ -5,14 +5,14 @@
 <!ENTITY widget_var_attribute					SYSTEM "../entities/widget_var_attribute.xml">
 ]>
 <component>
-    <tag>panel</tag>
+    <tag>outputMeter</tag>
     <componentClass>com.blazebit.blazefaces.component.outputmeter.OutputMeter</componentClass>
     <componentType>com.blazebit.blazefaces.component.OutputMeter</componentType>
     <componentFamily>com.blazebit.blazefaces.component</componentFamily>
     <rendererType>com.blazebit.blazefaces.component.OutputMeterRenderer</rendererType>
     <rendererClass>com.blazebit.blazefaces.component.outputmeter.OutputMeterRenderer</rendererClass>
     <parent>javax.faces.component.UIOutput</parent>
-    <description>Panel is a grouping component for other components, notable features are toggling, closing, built-in popup menu and ajax event listeners.</description>
+    <description>OutputMeter is an output component for numbers. It makes use of the HTML5 meter-Tag and thus provides semantic information for the value.</description>
     <interfaces>
 		<interface>
 			<name>com.blazebit.blazefaces.component.Widget</name>

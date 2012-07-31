@@ -6,7 +6,6 @@
 ]>
 <component>
 	<tag>slider</tag>
-	<tagClass>com.blazebit.blazefaces.component.slider.SliderTag</tagClass>
     <componentHandlerClass>com.blazebit.blazefaces.component.slider.SliderHandler</componentHandlerClass>
 	<componentClass>com.blazebit.blazefaces.component.slider.Slider</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Slider</componentType>

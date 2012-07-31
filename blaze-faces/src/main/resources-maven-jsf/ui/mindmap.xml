@@ -5,7 +5,6 @@
 ]>
 <component>
     <tag>mindmap</tag>
-    <tagClass>com.blazebit.blazefaces.component.mindmap.MindmapTag</tagClass>
     <componentClass>com.blazebit.blazefaces.component.mindmap.Mindmap</componentClass>
     <componentType>com.blazebit.blazefaces.Mindmap</componentType>
     <componentFamily>com.blazebit.blazefaces</componentFamily>

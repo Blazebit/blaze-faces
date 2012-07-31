@@ -4,7 +4,6 @@
 ]>
 <component>
 	<tag>treeNode</tag>
-	<tagClass>com.blazebit.blazefaces.component.tree.UITreeNodeTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.tree.UITreeNode</componentClass>
 	<componentType>com.blazebit.blazefaces.component.UITreeNode</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

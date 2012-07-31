@@ -5,7 +5,6 @@
 ]>
 <component>
 	<tag>radioButton</tag>
-	<tagClass>com.blazebit.blazefaces.component.radiobutton.RadioButtonTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.radiobutton.RadioButton</componentClass>
 	<componentType>com.blazebit.blazefaces.component.RadioButton</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

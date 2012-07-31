@@ -4,7 +4,6 @@
 ]>
 <component>
 	<tag>layoutUnit</tag>
-	<tagClass>com.blazebit.blazefaces.component.layout.LayoutUnitTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.layout.LayoutUnit</componentClass>
 	<componentType>com.blazebit.blazefaces.component.LayoutUnit</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

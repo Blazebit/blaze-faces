@@ -6,7 +6,6 @@
 ]>
 <component>
     <tag>dataGrid</tag>
-    <tagClass>com.blazebit.blazefaces.component.datagrid.DataGridTag</tagClass>
     <componentClass>com.blazebit.blazefaces.component.datagrid.DataGrid</componentClass>
     <componentType>com.blazebit.blazefaces.component.DataGrid</componentType>
     <componentFamily>com.blazebit.blazefaces.component</componentFamily>

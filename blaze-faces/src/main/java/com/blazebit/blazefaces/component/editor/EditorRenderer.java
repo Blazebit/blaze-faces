@@ -130,4 +130,30 @@ public class EditorRenderer extends CoreRenderer{
 
 		return value;
 	}
+
+	// TODO: Review code
+//    @Override
+//    public void encodeBegin(FacesContext context, UIComponent component) throws IOException {
+//        ResponseWriter writer = context.getResponseWriter();
+//        String clientId = component.getClientId(context);
+//        
+//        writer.startElement("textarea", component);
+//        RendererUtils.encodeAttribute(writer, "id", clientId, null);
+//        RendererUtils.encodeAttribute(writer, "name", clientId, null);
+//        RendererUtils.encodeAttribute(writer, "class", component.getAttributes().get("styleClass"), null);
+//        renderPassThruAttributes(context, component, HTML5.COMMON_ATTRIBUTES);
+//        encodeBehaviors(context, (ClientBehaviorHolder) component);
+//    }
+//
+//    @Override
+//    public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
+//        ResponseWriter writer = context.getResponseWriter();
+//        String value = getCurrentValue(context, component);
+//        
+//        if(value != null){
+//            writer.writeText(value, component, "value");
+//        }
+//        
+//        writer.endElement("textarea");
+//    }
 }

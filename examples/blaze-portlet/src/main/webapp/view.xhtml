@@ -1,0 +1,24 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:b="http://blazebit.com/faces">
+
+    <div>
+		BlazeFaces Portlet
+        <br />
+        
+        <h3>Plain Menu</h3>
+        <h:form>
+            <h:panelGrid columns="1">
+                <h:commandLink value="Calendar" action="calendar?faces-redirect=true"/>
+                <h:commandLink value="Editor" action="editor?faces-redirect=true"/>
+                <h:commandLink value="Gamble" action="edit?faces-redirect=true"/>
+                <h:commandLink value="Export" action="export?faces-redirect=true"/>
+            </h:panelGrid>
+            
+        </h:form>
+        
+	</div>
+
+</f:view>

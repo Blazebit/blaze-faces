@@ -5,7 +5,6 @@
 ]>
 <component>
 	<tag>outputLabel</tag>
-	<tagClass>com.blazebit.blazefaces.component.outputlabel.OutputLabelTag</tagClass>
 	<componentClass>com.blazebit.blazefaces.component.outputlabel.OutputLabel</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Outputlabelk</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>

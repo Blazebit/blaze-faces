@@ -18,9 +18,10 @@
     
     <modules>
         <module>blaze-faces</module>
-        <module>blaze-faces-mojarra</module>
-        <module>blaze-faces-myfaces</module>
+        <module>blaze-faces-mobile</module>
+        <module>examples</module>
         <module>maven-jsf-plugin</module>
+        <module>themes</module>
     </modules>
 
     <issueManagement>
@@ -81,15 +82,13 @@
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>blaze-faces-mojarra</artifactId>
-                <version>${project.version}</version> 
-            <type>war</type>
+                <artifactId>blaze-faces-mobile</artifactId>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>blaze-faces-myfaces</artifactId>
+                <artifactId>blaze-faces-examples-parent</artifactId>
                 <version>${project.version}</version> 
-            <type>war</type>
             </dependency>
         </dependencies>
     </dependencyManagement>
