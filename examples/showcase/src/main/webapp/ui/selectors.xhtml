@@ -14,20 +14,20 @@
 
 			<h:form id="form">
                 
-                <p:panel id="panel" header="New User" style="margin-bottom:10px;">
-                    <p:messages id="messages" />
+                <b:panel id="panel" header="New User" style="margin-bottom:10px;">
+                    <b:messages id="messages" />
                     
                     <h:panelGrid columns="4">
                         <h:outputLabel for="firstname" value="Firstname: *" />
-                        <p:inputText id="firstname" value="#{pprBean.firstname}" required="true" label="Firstname">
+                        <b:inputText id="firstname" value="#{pprBean.firstname}" required="true" label="Firstname">
                             <f:validateLength minimum="2" />
-                        </p:inputText>
-                        <p:message for="firstname" />
+                        </b:inputText>
+                        <b:message for="firstname" />
                         <h:outputText value="#{pprBean.firstname}" />
 
                         <h:outputLabel for="surname" value="Surname: *" />
-                        <p:inputText id="surname" value="#{pprBean.surname}" required="true" label="Surname"/>
-                        <p:message for="surname" />
+                        <b:inputText id="surname" value="#{pprBean.surname}" required="true" label="Surname"/>
+                        <b:message for="surname" />
                         <h:outputText value="#{pprBean.surname}" />
                         
                         <h:outputLabel for="city" value="City: *" />
@@ -35,46 +35,46 @@
                             <f:selectItem itemLabel="Select One" itemValue="" />
                             <f:selectItems value="#{pprBean.cities}" />
                         </h:selectOneMenu>
-                        <p:message for="city" />
+                        <b:message for="city" />
                         <h:outputText value="#{pprBean.city}" />
                         
                     </h:panelGrid>
-                </p:panel>
+                </b:panel>
                 
                 <h:panelGrid columns="5">
-                    <p:commandButton update="@(form)" value="All Forms" />
+                    <b:commandButton update="@(form)" value="All Forms" />
                     
-                    <p:commandButton update="@(form:last)" value="Last Form" />
+                    <b:commandButton update="@(form:last)" value="Last Form" />
                 
-                    <p:commandButton update="@(.ui-panel)" value="All Panels" />
+                    <b:commandButton update="@(.ui-panel)" value="All Panels" />
                 
-                    <p:commandButton process="@(.ui-panel :input)" update="@(.ui-panel)" value="Inputs of Panel" />
+                    <b:commandButton process="@(.ui-panel :input)" update="@(.ui-panel)" value="Inputs of Panel" />
                     
-                    <p:commandButton process="@(.ui-panel :input:not(select))" update="@(.ui-panel)" value="Inputs Except Select" />
+                    <b:commandButton process="@(.ui-panel :input:not(select))" update="@(.ui-panel)" value="Inputs Except Select" />
                 </h:panelGrid>
 				
 			</h:form>
 			
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="selectors.xhtml">
+			<b:tabView>
+				<b:tab title="selectors.xhtml">
 <pre name="code" class="xml">
     &lt;h:form id="form"&gt;
 
-        &lt;p:panel id="panel" header="New User" style="margin-bottom:10px;"&gt;
-            &lt;p:messages id="messages" /&gt;
+        &lt;b:panel id="panel" header="New User" style="margin-bottom:10px;"&gt;
+            &lt;b:messages id="messages" /&gt;
 
             &lt;h:panelGrid columns="4"&gt;
                 &lt;h:outputLabel for="firstname" value="Firstname: *" /&gt;
-                &lt;p:inputText id="firstname" value="\#{pprBean.firstname}" required="true" label="Firstname"&gt;
+                &lt;b:inputText id="firstname" value="\#{pprBean.firstname}" required="true" label="Firstname"&gt;
                     &lt;f:validateLength minimum="2" /&gt;
-                &lt;/p:inputText&gt;
-                &lt;p:message for="firstname" /&gt;
+                &lt;/b:inputText&gt;
+                &lt;b:message for="firstname" /&gt;
                 &lt;h:outputText value="\#{pprBean.firstname}" /&gt;
 
                 &lt;h:outputLabel for="surname" value="Surname: *" /&gt;
-                &lt;p:inputText id="surname" value="\#{pprBean.surname}" required="true" label="Surname"/&gt;
-                &lt;p:message for="surname" /&gt;
+                &lt;b:inputText id="surname" value="\#{pprBean.surname}" required="true" label="Surname"/&gt;
+                &lt;b:message for="surname" /&gt;
                 &lt;h:outputText value="\#{pprBean.surname}" /&gt;
 
                 &lt;h:outputLabel for="city" value="City: *" /&gt;
@@ -82,28 +82,28 @@
                     &lt;f:selectItem itemLabel="Select One" itemValue="" /&gt;
                     &lt;f:selectItems value="\#{pprBean.cities}" /&gt;
                 &lt;/h:selectOneMenu&gt;
-                &lt;p:message for="city" /&gt;
+                &lt;b:message for="city" /&gt;
                 &lt;h:outputText value="\#{pprBean.city}" /&gt;
 
             &lt;/h:panelGrid&gt;
-        &lt;/p:panel&gt;
+        &lt;/b:panel&gt;
 
         &lt;h:panelGrid columns="5"&gt;
-            &lt;p:commandButton update="@(form)" value="All Forms" /&gt;
+            &lt;b:commandButton update="@(form)" value="All Forms" /&gt;
 
-            &lt;p:commandButton update="@(form:last)" value="Last Form" /&gt;
+            &lt;b:commandButton update="@(form:last)" value="Last Form" /&gt;
 
-            &lt;p:commandButton update="@(.ui-panel)" value="All Panels" /&gt;
+            &lt;b:commandButton update="@(.ui-panel)" value="All Panels" /&gt;
 
-            &lt;p:commandButton process="@(.ui-panel :input)" update="@(.ui-panel)" value="Inputs of Panel" /&gt;
+            &lt;b:commandButton process="@(.ui-panel :input)" update="@(.ui-panel)" value="Inputs of Panel" /&gt;
 
-            &lt;p:commandButton process="@(.ui-panel :input:not(select))" update="@(.ui-panel)" value="Inputs Except Select" /&gt;
+            &lt;b:commandButton process="@(.ui-panel :input:not(select))" update="@(.ui-panel)" value="Inputs Except Select" /&gt;
         &lt;/h:panelGrid&gt;
 
     &lt;/h:form&gt;
 </pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 			
 		</div>
 				

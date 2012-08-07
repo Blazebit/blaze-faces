@@ -15,55 +15,53 @@
 
 			<h:form id="form">
                 
-                <p:log />
+                <b:log />
 				
 				<h:panelGrid columns="5" cellpadding="5">
 					<h:outputLabel for="name" value="Name:" style="font-weight:bold"/>
 					
-					<p:inputText id="name" value="#{pprBean.firstname}" />
+					<b:inputText id="name" value="#{pprBean.firstname}" />
 					
-					<p:commandButton value="False" update="display" partialSubmit="false" process="name"/>
+					<b:commandButton value="False" update="display" partialSubmit="false" process="name"/>
                     
-                    <p:commandButton value="True" update="display" partialSubmit="true" process="name"/>
+                    <b:commandButton value="True" update="display" partialSubmit="true" process="name"/>
                     
                     <h:outputText value="#{pprBean.firstname}" id="display" />
 				</h:panelGrid>
                 
-                <p:inputText />
+                <b:inputText />
                 <br />
-                <p:inputText />
+                <b:inputText />
                 <br />
-                <p:inputText />
+                <b:inputText />
                 <br />
-                <p:inputText />
+                <b:inputText />
                 <br />
-                <p:inputText />
+                <b:inputText />
                 <br />
-                <p:inputText />
+                <b:inputText />
                 <br />
-                <p:inputText />
+                <b:inputText />
                 <br />
-                <p:inputText />
+                <b:inputText />
                 <br />
-                <p:inputText />
+                <b:inputText />
                 <br />
-                <p:inputText />
+                <b:inputText />
                 <br />
-                <p:inputText />
+                <b:inputText />
                 <br />
-                <p:inputTextarea />
+                <b:inputTextarea />
                 <br />
-                <p:inputTextarea />
+                <b:inputTextarea />
                 <br />
-                <p:inputTextarea />
+                <b:inputTextarea />
                 <br />
-                <p:inputTextarea />
+                <b:inputTextarea />
                 <br />
-                <p:inputTextarea />
+                <b:inputTextarea />
                 <br />
-                <p:inputTextarea />
-                <br />
-                <h:selectOneMenu />
+                <b:inputTextarea />
                 <br />
                 <h:selectOneMenu />
                 <br />
@@ -75,39 +73,41 @@
                 <br />
                 <h:selectOneMenu />
                 <br />
-                <p:inputText />
+                <h:selectOneMenu />
                 <br />
-                <p:inputText />
+                <b:inputText />
                 <br />
-                <p:inputText />
+                <b:inputText />
                 <br />
-                <p:inputText />
+                <b:inputText />
                 <br />
-                <p:inputText />
+                <b:inputText />
                 <br />
-                <p:inputText />
+                <b:inputText />
                 <br />
-                <p:inputText />
+                <b:inputText />
                 <br />
-                <p:inputText />
+                <b:inputText />
                 <br />
-                <p:inputText />
+                <b:inputText />
                 <br />
-                <p:inputText />
+                <b:inputText />
                 <br />
-                <p:inputText />
+                <b:inputText />
                 <br />
-                <p:inputTextarea />
+                <b:inputText />
                 <br />
-                <p:inputTextarea />
+                <b:inputTextarea />
                 <br />
-                <p:inputTextarea />
+                <b:inputTextarea />
                 <br />
-                <p:inputTextarea />
+                <b:inputTextarea />
                 <br />
-                <p:inputTextarea />
+                <b:inputTextarea />
                 <br />
-                <p:inputTextarea />
+                <b:inputTextarea />
+                <br />
+                <b:inputTextarea />
                 <br />
                 <h:selectOneMenu />
                 <br />
@@ -125,60 +125,58 @@
 			</h:form>
 			
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="partialSubmit.xhtml">
+			<b:tabView>
+				<b:tab title="partialSubmit.xhtml">
 <pre name="code" class="xml">
 &lt;h:form id="form"&gt;
 
-    &lt;p:log /&gt;
+    &lt;b:log /&gt;
 
     &lt;h:panelGrid columns="5" cellpadding="5"&gt;
         &lt;h:outputLabel for="name" value="Name:" style="font-weight:bold"/&gt;
 
-        &lt;p:inputText id="name" value="\#{pprBean.firstname}" /&gt;
+        &lt;b:inputText id="name" value="\#{pprBean.firstname}" /&gt;
 
-        &lt;p:commandButton value="False" update="display" partialSubmit="false" process="name"/&gt;
+        &lt;b:commandButton value="False" update="display" partialSubmit="false" process="name"/&gt;
 
-        &lt;p:commandButton value="True" update="display" partialSubmit="true" process="name"/&gt;
+        &lt;b:commandButton value="True" update="display" partialSubmit="true" process="name"/&gt;
 
         &lt;h:outputText value="\#{pprBean.firstname}" id="display" /&gt;
     &lt;/h:panelGrid&gt;
 
-    &lt;p:inputText /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputText /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputText /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputText /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputText /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputText /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputText /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputText /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputText /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputText /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputText /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputTextarea /&gt;
+    &lt;b:inputTextarea /&gt;
     &lt;br /&gt;
-    &lt;p:inputTextarea /&gt;
+    &lt;b:inputTextarea /&gt;
     &lt;br /&gt;
-    &lt;p:inputTextarea /&gt;
+    &lt;b:inputTextarea /&gt;
     &lt;br /&gt;
-    &lt;p:inputTextarea /&gt;
+    &lt;b:inputTextarea /&gt;
     &lt;br /&gt;
-    &lt;p:inputTextarea /&gt;
+    &lt;b:inputTextarea /&gt;
     &lt;br /&gt;
-    &lt;p:inputTextarea /&gt;
-    &lt;br /&gt;
-    &lt;h:selectOneMenu /&gt;
+    &lt;b:inputTextarea /&gt;
     &lt;br /&gt;
     &lt;h:selectOneMenu /&gt;
     &lt;br /&gt;
@@ -190,39 +188,41 @@
     &lt;br /&gt;
     &lt;h:selectOneMenu /&gt;
     &lt;br /&gt;
-    &lt;p:inputText /&gt;
+    &lt;h:selectOneMenu /&gt;
     &lt;br /&gt;
-    &lt;p:inputText /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputText /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputText /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputText /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputText /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputText /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputText /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputText /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputText /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputText /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputTextarea /&gt;
+    &lt;b:inputText /&gt;
     &lt;br /&gt;
-    &lt;p:inputTextarea /&gt;
+    &lt;b:inputTextarea /&gt;
     &lt;br /&gt;
-    &lt;p:inputTextarea /&gt;
+    &lt;b:inputTextarea /&gt;
     &lt;br /&gt;
-    &lt;p:inputTextarea /&gt;
+    &lt;b:inputTextarea /&gt;
     &lt;br /&gt;
-    &lt;p:inputTextarea /&gt;
+    &lt;b:inputTextarea /&gt;
     &lt;br /&gt;
-    &lt;p:inputTextarea /&gt;
+    &lt;b:inputTextarea /&gt;
+    &lt;br /&gt;
+    &lt;b:inputTextarea /&gt;
     &lt;br /&gt;
     &lt;h:selectOneMenu /&gt;
     &lt;br /&gt;
@@ -239,9 +239,9 @@
 
 &lt;/h:form&gt;
 						</pre>
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="PPRBean.java">
+				<b:tab title="PPRBean.java">
 <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -260,8 +260,8 @@ public class PPRBean implements Serializable {
 	}
 }
 </pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 			
 		</div>
 				

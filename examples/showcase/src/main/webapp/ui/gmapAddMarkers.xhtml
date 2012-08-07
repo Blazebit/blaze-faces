@@ -79,59 +79,59 @@
 			<p>This examples demonstrates how to add a marker and keep client side representation in sync with the server side model. Even though you use Google Maps as a JSF component
 			you can still take advantage of the full Google Maps API.</p>
 
-			<p:growl id="messages" showDetail="true" />
+			<b:growl id="messages" showDetail="true" />
 
-			<p:gmap id="gmap" center="36.890257,30.707417" zoom="13" type="HYBRID" style="width:600px;height:400px"
+			<b:gmap id="gmap" center="36.890257,30.707417" zoom="13" type="HYBRID" style="width:600px;height:400px"
 				model="#{mapBean.emptyModel}" onPointClick="handlePointClick(event);" widgetVar="map" />
 				
-			<p:dialog widgetVar="dlg" effect="FADE" effectDuration="0.5" close="false" fixedCenter="true">
+			<b:dialog widgetVar="dlg" effect="FADE" effectDuration="0.5" close="false" fixedCenter="true">
 				<h:form prependId="false">
 					<h:panelGrid columns="2">
 						<h:outputLabel for="title" value="Title:" />
-						<p:inputText id="title" value="#{mapBean.title}" />
+						<b:inputText id="title" value="#{mapBean.title}" />
 						
 						<f:facet name="footer">
-							<p:commandButton value="Add" actionListener="#{mapBean.addMarker}" update=":messages" oncomplete="markerAddComplete()"/>
-							<p:commandButton value="Cancel" onclick="return cancel()"/>
+							<b:commandButton value="Add" actionListener="#{mapBean.addMarker}" update=":messages" oncomplete="markerAddComplete()"/>
+							<b:commandButton value="Cancel" onclick="return cancel()"/>
 						</f:facet>
 					</h:panelGrid>
 					
 					<h:inputHidden id="lat" value="#{mapBean.lat}" />
 					<h:inputHidden id="lng" value="#{mapBean.lng}" />
 				</h:form>
-			</p:dialog>
+			</b:dialog>
 			
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="gmapAddMarker.xhtml">
+			<b:tabView>
+				<b:tab title="gmapAddMarker.xhtml">
 					<pre name="code" class="xml">
-&lt;p:growl id="messages" showDetail="true" /&gt;
+&lt;b:growl id="messages" showDetail="true" /&gt;
 
-&lt;p:gmap id="gmap" center="36.890257,30.707417" zoom="13" type="HYBRID" 
+&lt;b:gmap id="gmap" center="36.890257,30.707417" zoom="13" type="HYBRID" 
 	style="width:600px;height:400px"
 	model="\#{mapBean.emptyModel}" 
 	onPointClick="handlePointClick(event);" 
 	widgetVar="map" /&gt;
 	
-&lt;p:dialog widgetVar="dlg" effect="FADE" effectDuration="0.5" close="false" fixedCenter="true"&gt;
+&lt;b:dialog widgetVar="dlg" effect="FADE" effectDuration="0.5" close="false" fixedCenter="true"&gt;
 	&lt;h:form prependId="false"&gt;
 		&lt;h:panelGrid columns="2"&gt;
 			&lt;h:outputLabel for="title" value="Title:" /&gt;
-			&lt;p:inputText id="title" value="\#{mapBean.title}" /&gt;
+			&lt;b:inputText id="title" value="\#{mapBean.title}" /&gt;
 			
 			&lt;f:facet name="footer"&gt;
-				&lt;p:commandButton value="Add" 
+				&lt;b:commandButton value="Add" 
 						actionListener="\#{mapBean.addMarker}" 
 						update="messages" 
 						oncomplete="markerAddComplete()"/&gt;
-				&lt;p:commandButton value="Cancel" onclick="return cancel()"/&gt;
+				&lt;b:commandButton value="Cancel" onclick="return cancel()"/&gt;
 			&lt;/f:facet&gt;
 		&lt;/h:panelGrid&gt;
 		
 		&lt;h:inputHidden id="lat" value="\#{mapBean.lat}" /&gt;
 		&lt;h:inputHidden id="lng" value="\#{mapBean.lng}" /&gt;
 	&lt;/h:form&gt;
-&lt;/p:dialog&gt;
+&lt;/b:dialog&gt;
 
 &lt;script type="text/javascript"&gt;
 	var currentMarker = null;
@@ -169,9 +169,9 @@
 	}
 &lt;/script&gt;
 					</pre>
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="MapBean.java">
+				<b:tab title="MapBean.java">
 					<pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -240,8 +240,8 @@ public class MapBean implements Serializable {
 
 }
 					</pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 			
 												
 		</div>

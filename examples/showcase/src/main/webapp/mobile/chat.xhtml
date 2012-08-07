@@ -31,31 +31,31 @@
             <pm:content>
                 <h:form id="chatForm">
                     
-                    <p:outputPanel id="container">
+                    <b:outputPanel id="container">
                         <h:panelGroup rendered="#{chatView.loggedIn}" >
-                            <p:outputPanel id="content" layout="block" style="width:100%;height:200px;overflow:auto"/>
+                            <b:outputPanel id="content" layout="block" style="width:100%;height:200px;overflow:auto"/>
 
-                            <p:separator />
+                            <b:separator />
 
-                            <p:inputText value="#{chatView.globalMessage}" styleClass="messageInput" />
-                            <p:commandButton value="Send" actionListener="#{chatView.sendGlobal}" 
+                            <b:inputText value="#{chatView.globalMessage}" styleClass="messageInput" />
+                            <b:commandButton value="Send" actionListener="#{chatView.sendGlobal}" 
                                      oncomplete="$('.messageInput').val('')"/>
                         </h:panelGroup>
                     
                         <h:panelGroup rendered="#{not chatView.loggedIn}" >
-                            <p:inputText id="username" value="#{chatView.username}" />
-                            <p:watermark for="username" value="Username" />
+                            <b:inputText id="username" value="#{chatView.username}" />
+                            <b:watermark for="username" value="Username" />
                             
-                            <p:separator />
+                            <b:separator />
 
-                            <p:commandButton value="Login" icon="refresh" update="container"
+                            <b:commandButton value="Login" icon="refresh" update="container"
                                               actionListener="#{chatView.login}" />
                         </h:panelGroup>
-                    </p:outputPanel>
+                    </b:outputPanel>
                             
                 </h:form>
                 
-                <p:socket onMessage="handleMessage" channel="/chat" widgetVar="subscriber"/>
+                <b:socket onMessage="handleMessage" channel="/chat" widgetVar="subscriber"/>
                 
             </pm:content>
 

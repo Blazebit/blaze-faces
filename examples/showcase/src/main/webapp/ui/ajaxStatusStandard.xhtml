@@ -13,20 +13,20 @@
 
             <h:form>
 
-                <p:panel id="panel" header="Ajax Status">
+                <b:panel id="panel" header="Ajax Status">
 
-                    <p:messages id="msgs" />
+                    <b:messages id="msgs" />
 
                     <h:panelGrid columns="3" cellpadding="5">
                         <h:outputLabel for="firstname" value="Firstname: *" />
-                        <p:inputText id="firstname" value="#{personBean.firstname}" required="true" label="Firstname">
+                        <b:inputText id="firstname" value="#{personBean.firstname}" required="true" label="Firstname">
                             <f:validateLength minimum="2" />
-                        </p:inputText>
-                        <p:message for="firstname" id="lblErrFirstName" />
+                        </b:inputText>
+                        <b:message for="firstname" id="lblErrFirstName" />
 
                         <h:outputLabel for="surname" value="Surname: *" />
-                        <p:inputText id="surname" value="#{personBean.surname}" required="true" label="Surname"/>
-                        <p:message for="surname" id="lblErrSurname" />
+                        <b:inputText id="surname" value="#{personBean.surname}" required="true" label="Surname"/>
+                        <b:message for="surname" id="lblErrSurname" />
 
                     </h:panelGrid>
 
@@ -34,30 +34,30 @@
                         <f:ajax execute="panel" render="panel" />
                     </h:commandButton>
                     
-                </p:panel>
+                </b:panel>
 
             </h:form>
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="ajaxStatusStandard.xhtml">
+            <b:tabView>
+                <b:tab title="ajaxStatusStandard.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form&gt;
 
-    &lt;p:panel id="panel" header="Ajax Status"&gt;
+    &lt;b:panel id="panel" header="Ajax Status"&gt;
 
-        &lt;p:messages id="msgs" /&gt;
+        &lt;b:messages id="msgs" /&gt;
 
         &lt;h:panelGrid columns="3" cellpadding="5"&gt;
             &lt;h:outputLabel for="firstname" value="Firstname: *" /&gt;
-            &lt;p:inputText id="firstname" value="\#{personBean.firstname}" required="true" label="Firstname"&gt;
+            &lt;b:inputText id="firstname" value="\#{personBean.firstname}" required="true" label="Firstname"&gt;
                 &lt;f:validateLength minimum="2" /&gt;
-            &lt;/p:inputText&gt;
-            &lt;p:message for="firstname" id="lblErrFirstName" /&gt;
+            &lt;/b:inputText&gt;
+            &lt;b:message for="firstname" id="lblErrFirstName" /&gt;
 
             &lt;h:outputLabel for="surname" value="Surname: *" /&gt;
-            &lt;p:inputText id="surname" value="\#{personBean.surname}" required="true" label="Surname"/&gt;
-            &lt;p:message for="surname" id="lblErrSurname" /&gt;
+            &lt;b:inputText id="surname" value="\#{personBean.surname}" required="true" label="Surname"/&gt;
+            &lt;b:message for="surname" id="lblErrSurname" /&gt;
 
         &lt;/h:panelGrid&gt;
 
@@ -65,23 +65,23 @@
             &lt;f:ajax execute="panel" render="panel" /&gt;
         &lt;/h:commandButton&gt;
 
-    &lt;/p:panel&gt;
+    &lt;/b:panel&gt;
 
 &lt;/h:form&gt;
 
-&lt;p:ajaxStatus style="width:64px;height:64px;position:fixed;right:5px;bottom:5px"&gt;
+&lt;b:ajaxStatus style="width:64px;height:64px;position:fixed;right:5px;bottom:5px"&gt;
     &lt;f:facet name="start"&gt;
-        &lt;p:graphicImage value="/images/loading.gif" /&gt;
+        &lt;b:graphicImage value="/images/loading.gif" /&gt;
     &lt;/f:facet&gt;
 
     &lt;f:facet name="complete"&gt;
         &lt;h:outputText value="" /&gt;
     &lt;/f:facet&gt;
-&lt;/p:ajaxStatus&gt;
+&lt;/b:ajaxStatus&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="PersonBean.java">
+                <b:tab title="PersonBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -114,8 +114,8 @@ public class PersonBean {
 	}
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 
 
         </div>

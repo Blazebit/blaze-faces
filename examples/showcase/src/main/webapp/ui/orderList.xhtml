@@ -13,92 +13,92 @@
             <h:form id="form">
 
                 <h3 style="margin-top:0">Basic OrderList</h3>
-                <p:orderList value="#{orderListBean.cities}" var="city" controlsLocation="none"
+                <b:orderList value="#{orderListBean.cities}" var="city" controlsLocation="none"
                              itemLabel="#{city}" itemValue="#{city}" iconOnly="true" id="basicList"/>
 
-                <p:commandButton value="Submit" update="displayCities" oncomplete="cityDialog.show()" style="margin-top:5px" id="btnCitySubmit"/>
+                <b:commandButton value="Submit" update="displayCities" oncomplete="cityDialog.show()" style="margin-top:5px" id="btnCitySubmit"/>
                 
                 <h3>Pojo Support with Clip Effect, Captions, Custom Content and Reorder Controls</h3>
-                <p:orderList value="#{orderListBean.players}" var="player" iconOnly="true" effect="clip"
+                <b:orderList value="#{orderListBean.players}" var="player" iconOnly="true" effect="clip"
 								itemValue="#{player}" converter="player" controlsLocation="left" id="customList">
                     <f:facet name="caption">Available</f:facet>
                     
-                    <p:column style="width:25%">
-                        <p:graphicImage value="/images/barca/#{player.photo}" width="30" height="40" />
-                    </p:column>
+                    <b:column style="width:25%">
+                        <b:graphicImage value="/images/barca/#{player.photo}" width="30" height="40" />
+                    </b:column>
                     
-                     <p:column style="width:75%;">
+                     <b:column style="width:75%;">
                         #{player.name} - #{player.number}
-                    </p:column>
-                </p:orderList>
+                    </b:column>
+                </b:orderList>
 
-                <p:commandButton value="Submit" update="displayPlayers" oncomplete="playerDialog.show()" style="margin-top:5px" id="btnPlayerSubmit"/>
+                <b:commandButton value="Submit" update="displayPlayers" oncomplete="playerDialog.show()" style="margin-top:5px" id="btnPlayerSubmit"/>
 
-                <p:dialog modal="true" showEffect="fade" hideEffect="fade" widgetVar="cityDialog" header="Cities" width="200" id="dlgCities">
-                    <p:dataList id="displayCities" value="#{orderListBean.cities}" var="city">
+                <b:dialog modal="true" showEffect="fade" hideEffect="fade" widgetVar="cityDialog" header="Cities" width="200" id="dlgCities">
+                    <b:dataList id="displayCities" value="#{orderListBean.cities}" var="city">
                         <h:outputText value="#{city}"  />
-                    </p:dataList>
-                </p:dialog>
+                    </b:dataList>
+                </b:dialog>
                 
-                <p:dialog modal="true" showEffect="fade" hideEffect="fade" widgetVar="playerDialog" header="Players" width="200" id="dlgPlayers">
+                <b:dialog modal="true" showEffect="fade" hideEffect="fade" widgetVar="playerDialog" header="Players" width="200" id="dlgPlayers">
                     <h:panelGrid id="displayPlayers" columns="2">
                         <ui:repeat value="#{orderListBean.players}" var="player">
                             <h:outputText value="#{player.name} - #{player.number}" style="margin-right:5px" />
                             <br />
                         </ui:repeat>
                     </h:panelGrid>
-                </p:dialog>
+                </b:dialog>
 
             </h:form>
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="orderList.xhtml">
+            <b:tabView>
+                <b:tab title="orderList.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form id="form"&gt;
 
     &lt;h3 style="margin-top:0"&gt;Basic OrderList&lt;/h3&gt;
-    &lt;p:orderList value="\#{orderListBean.cities}" var="city" controlsLocation="none"
+    &lt;b:orderList value="\#{orderListBean.cities}" var="city" controlsLocation="none"
                  itemLabel="\#{city}" itemValue="\#{city}" iconOnly="true" id="basicList"/&gt;
 
-    &lt;p:commandButton value="Submit" update="displayCities" oncomplete="cityDialog.show()" style="margin-top:5px" id="btnCitySubmit"/&gt;
+    &lt;b:commandButton value="Submit" update="displayCities" oncomplete="cityDialog.show()" style="margin-top:5px" id="btnCitySubmit"/&gt;
 
     &lt;h3&gt;Pojo Support with Clip Effect, Captions, Custom Content and Reorder Controls&lt;/h3&gt;
-    &lt;p:orderList value="\#{orderListBean.players}" var="player" iconOnly="true" effect="clip"
+    &lt;b:orderList value="\#{orderListBean.players}" var="player" iconOnly="true" effect="clip"
                     itemValue="\#{player}" converter="player" controlsLocation="left" id="customList"&gt;
         &lt;f:facet name="caption"&gt;Available&lt;/f:facet&gt;
 
-        &lt;p:column style="width:25%"&gt;
-            &lt;p:graphicImage value="/images/barca/\#{player.photo}" width="30" height="40" /&gt;
-        &lt;/p:column&gt;
+        &lt;b:column style="width:25%"&gt;
+            &lt;b:graphicImage value="/images/barca/\#{player.photo}" width="30" height="40" /&gt;
+        &lt;/b:column&gt;
 
-         &lt;p:column style="width:75%;"&gt;
+         &lt;b:column style="width:75%;"&gt;
             \#{player.name} - \#{player.number}
-        &lt;/p:column&gt;
-    &lt;/p:orderList&gt;
+        &lt;/b:column&gt;
+    &lt;/b:orderList&gt;
 
-    &lt;p:commandButton value="Submit" update="displayPlayers" oncomplete="playerDialog.show()" style="margin-top:5px" id="btnPlayerSubmit"/&gt;
+    &lt;b:commandButton value="Submit" update="displayPlayers" oncomplete="playerDialog.show()" style="margin-top:5px" id="btnPlayerSubmit"/&gt;
 
-    &lt;p:dialog modal="true" showEffect="fade" hideEffect="fade" widgetVar="cityDialog" header="Cities" width="200" id="dlgCities"&gt;
-        &lt;p:dataList id="displayCities" value="\#{orderListBean.cities}" var="city"&gt;
+    &lt;b:dialog modal="true" showEffect="fade" hideEffect="fade" widgetVar="cityDialog" header="Cities" width="200" id="dlgCities"&gt;
+        &lt;b:dataList id="displayCities" value="\#{orderListBean.cities}" var="city"&gt;
             &lt;h:outputText value="\#{city}"  /&gt;
-        &lt;/p:dataList&gt;
-    &lt;/p:dialog&gt;
+        &lt;/b:dataList&gt;
+    &lt;/b:dialog&gt;
 
-    &lt;p:dialog modal="true" showEffect="fade" hideEffect="fade" widgetVar="playerDialog" header="Players" width="200" id="dlgPlayers"&gt;
+    &lt;b:dialog modal="true" showEffect="fade" hideEffect="fade" widgetVar="playerDialog" header="Players" width="200" id="dlgPlayers"&gt;
         &lt;h:panelGrid id="displayPlayers" columns="2"&gt;
             &lt;ui:repeat value="\#{orderListBean.players}" var="player"&gt;
                 &lt;h:outputText value="\#{player.name} - \#{player.number}" style="margin-right:5px" /&gt;
                 &lt;br /&gt;
             &lt;/ui:repeat&gt;
         &lt;/h:panelGrid&gt;
-    &lt;/p:dialog&gt;
+    &lt;/b:dialog&gt;
 
 &lt;/h:form&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="OrderListBean.java">
+                <b:tab title="OrderListBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -147,9 +147,9 @@ public class OrderListBean {
     }
 }
                     </pre>
-                </p:tab>
+                </b:tab>
 
-            </p:tabView>
+            </b:tabView>
             
 
         </div>

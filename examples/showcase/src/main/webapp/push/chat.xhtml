@@ -67,123 +67,123 @@
 			<div class="entry">
 			<p>Chat is a simple push based application created with BlazePush.</p>
             
-            <p:growl id="growl" showDetail="true" />
+            <b:growl id="growl" showDetail="true" />
             
             <h:form id="form">
                 
-                <p:fieldset id="container" legend="BlazeChat" toggleable="true">
+                <b:fieldset id="container" legend="BlazeChat" toggleable="true">
                     
                     <h:panelGroup rendered="#{chatView.loggedIn}">
                         
                         <h:panelGrid columns="2" columnClasses="publicColumn,usersColumn" style="width:100%">
-                            <p:outputPanel id="public" layout="block" styleClass="ui-corner-all ui-widget-content chatlogs"/>
+                            <b:outputPanel id="public" layout="block" styleClass="ui-corner-all ui-widget-content chatlogs"/>
                             
-                            <p:dataList id="users" var="user" value="#{chatUsers.users}" styleClass="usersList">
+                            <b:dataList id="users" var="user" value="#{chatUsers.users}" styleClass="usersList">
                                 <f:facet name="header">
                                     Users
                                 </f:facet>
 
-                                <p:commandButton title="Chat" icon="ui-icon-comment" oncomplete="pChat.show()" update=":form:privateChatContainer">
+                                <b:commandButton title="Chat" icon="ui-icon-comment" oncomplete="pChat.show()" update=":form:privateChatContainer">
                                     <f:setPropertyActionListener value="#{user}" target="#{chatView.privateUser}" />
-                                </p:commandButton>
+                                </b:commandButton>
                                 #{user}
-                            </p:dataList>
+                            </b:dataList>
                         </h:panelGrid>
                         
-                        <p:separator />
+                        <b:separator />
                         
-                        <p:inputText value="#{chatView.globalMessage}" styleClass="messageInput" />
-                        <p:spacer width="5" />
-                        <p:commandButton value="Send" actionListener="#{chatView.sendGlobal}" oncomplete="$('.messageInput').val('').focus()"/>
-                        <p:spacer width="5" />
-                        <p:commandButton value="Disconnect" actionListener="#{chatView.disconnect}" global="false" update="container" />
+                        <b:inputText value="#{chatView.globalMessage}" styleClass="messageInput" />
+                        <b:spacer width="5" />
+                        <b:commandButton value="Send" actionListener="#{chatView.sendGlobal}" oncomplete="$('.messageInput').val('').focus()"/>
+                        <b:spacer width="5" />
+                        <b:commandButton value="Disconnect" actionListener="#{chatView.disconnect}" global="false" update="container" />
                     </h:panelGroup>
                     
                     <h:panelGroup rendered="#{not chatView.loggedIn}" >
-                        Username: <p:inputText value="#{chatView.username}" />
+                        Username: <b:inputText value="#{chatView.username}" />
                 
-                        <p:spacer width="5" />
-                        <p:commandButton value="Login" actionListener="#{chatView.login}" update="container" 
+                        <b:spacer width="5" />
+                        <b:commandButton value="Login" actionListener="#{chatView.login}" update="container" 
                                          icon="ui-icon-person" />
                     </h:panelGroup>
                     
-                </p:fieldset>
+                </b:fieldset>
                 
-                <p:dialog widgetVar="pChat" header="Private Chat" modal="true" showEffect="fade" hideEffect="fade">
+                <b:dialog widgetVar="pChat" header="Private Chat" modal="true" showEffect="fade" hideEffect="fade">
                     <h:panelGrid id="privateChatContainer" columns="2" columnClasses="vtop,vtop">
-                        <p:outputLabel for="pChatInput" value="To: #{chatView.privateUser}" />
-                        <p:inputTextarea id="pChatInput" value="#{chatView.privateMessage}" rows="5" cols="30" />
+                        <b:outputLabel for="pChatInput" value="To: #{chatView.privateUser}" />
+                        <b:inputTextarea id="pChatInput" value="#{chatView.privateMessage}" rows="5" cols="30" />
                         
-                        <p:spacer />
-                        <p:commandButton value="Send" actionListener="#{chatView.sendPrivate}" oncomplete="pChat.hide()" />
+                        <b:spacer />
+                        <b:commandButton value="Send" actionListener="#{chatView.sendPrivate}" oncomplete="pChat.hide()" />
                     </h:panelGrid>
-                </p:dialog>
+                </b:dialog>
                              
             </h:form>
             
-            <p:socket onMessage="handleMessage" channel="/chat" autoConnect="false" widgetVar="subscriber">
-                <p:ajax event="message" update=":form:users" />
-            </p:socket>
+            <b:socket onMessage="handleMessage" channel="/chat" autoConnect="false" widgetVar="subscriber">
+                <b:ajax event="message" update=":form:users" />
+            </b:socket>
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="chat.xhtml">
+            <b:tabView>
+                <b:tab title="chat.xhtml">
                     <pre name="code" class="xml">
-&lt;p:growl id="growl" showDetail="true" /&gt;
+&lt;b:growl id="growl" showDetail="true" /&gt;
 
 &lt;h:form id="form"&gt;
 
-    &lt;p:fieldset id="container" legend="BlazeChat" toggleable="true"&gt;
+    &lt;b:fieldset id="container" legend="BlazeChat" toggleable="true"&gt;
 
         &lt;h:panelGroup rendered="\#{chatView.loggedIn}"&gt;
 
             &lt;h:panelGrid columns="2" columnClasses="publicColumn,usersColumn" style="width:100%"&gt;
-                &lt;p:outputPanel id="public" layout="block" styleClass="ui-corner-all ui-widget-content chatlogs"/&gt;
+                &lt;b:outputPanel id="public" layout="block" styleClass="ui-corner-all ui-widget-content chatlogs"/&gt;
 
-                &lt;p:dataList id="users" var="user" value="\#{chatUsers.users}" styleClass="usersList"&gt;
+                &lt;b:dataList id="users" var="user" value="\#{chatUsers.users}" styleClass="usersList"&gt;
                     &lt;f:facet name="header"&gt;
                         Users
                     &lt;/f:facet&gt;
 
-                    &lt;p:commandButton title="Chat" icon="ui-icon-comment" oncomplete="pChat.show()" update=":form:privateChatContainer"&gt;
+                    &lt;b:commandButton title="Chat" icon="ui-icon-comment" oncomplete="pChat.show()" update=":form:privateChatContainer"&gt;
                         &lt;f:setPropertyActionListener value="\#{user}" target="\#{chatView.privateUser}" /&gt;
-                    &lt;/p:commandButton&gt;
+                    &lt;/b:commandButton&gt;
                     \#{user}
-                &lt;/p:dataList&gt;
+                &lt;/b:dataList&gt;
             &lt;/h:panelGrid&gt;
 
-            &lt;p:separator /&gt;
+            &lt;b:separator /&gt;
 
-            &lt;p:inputText value="\#{chatView.globalMessage}" styleClass="messageInput" /&gt;
-            &lt;p:spacer width="5" /&gt;
-            &lt;p:commandButton value="Send" actionListener="\#{chatView.sendGlobal}" oncomplete="$('.messageInput').val('').focus()"/&gt;
-            &lt;p:spacer width="5" /&gt;
-            &lt;p:commandButton value="Disconnect" actionListener="\#{chatView.disconnect}" global="false" update="container" /&gt;
+            &lt;b:inputText value="\#{chatView.globalMessage}" styleClass="messageInput" /&gt;
+            &lt;b:spacer width="5" /&gt;
+            &lt;b:commandButton value="Send" actionListener="\#{chatView.sendGlobal}" oncomplete="$('.messageInput').val('').focus()"/&gt;
+            &lt;b:spacer width="5" /&gt;
+            &lt;b:commandButton value="Disconnect" actionListener="\#{chatView.disconnect}" global="false" update="container" /&gt;
         &lt;/h:panelGroup&gt;
 
         &lt;h:panelGroup rendered="\#{not chatView.loggedIn}" &gt;
-            Username: &lt;p:inputText value="\#{chatView.username}" /&gt;
+            Username: &lt;b:inputText value="\#{chatView.username}" /&gt;
 
-            &lt;p:spacer width="5" /&gt;
-            &lt;p:commandButton value="Login" actionListener="\#{chatView.login}" update="container" 
+            &lt;b:spacer width="5" /&gt;
+            &lt;b:commandButton value="Login" actionListener="\#{chatView.login}" update="container" 
                                 icon="ui-icon-person" /&gt;
         &lt;/h:panelGroup&gt;
 
-    &lt;/p:fieldset&gt;
+    &lt;/b:fieldset&gt;
 
-    &lt;p:dialog widgetVar="pChat" header="Private Chat" modal="true" showEffect="fade" hideEffect="fade"&gt;
+    &lt;b:dialog widgetVar="pChat" header="Private Chat" modal="true" showEffect="fade" hideEffect="fade"&gt;
         &lt;h:panelGrid id="privateChatContainer" columns="2" columnClasses="vtop,vtop"&gt;
-            &lt;p:outputLabel for="pChatInput" value="To: \#{chatView.privateUser}" /&gt;
-            &lt;p:inputTextarea id="pChatInput" value="\#{chatView.privateMessage}" rows="5" cols="30" /&gt;
+            &lt;b:outputLabel for="pChatInput" value="To: \#{chatView.privateUser}" /&gt;
+            &lt;b:inputTextarea id="pChatInput" value="\#{chatView.privateMessage}" rows="5" cols="30" /&gt;
 
-            &lt;p:spacer /&gt;
-            &lt;p:commandButton value="Send" actionListener="\#{chatView.sendPrivate}" oncomplete="pChat.hide()" /&gt;
+            &lt;b:spacer /&gt;
+            &lt;b:commandButton value="Send" actionListener="\#{chatView.sendPrivate}" oncomplete="pChat.hide()" /&gt;
         &lt;/h:panelGrid&gt;
-    &lt;/p:dialog&gt;
+    &lt;/b:dialog&gt;
 
 &lt;/h:form&gt;
 
-&lt;p:socket onMessage="handleMessage" channel="/chat" autoConnect="false" widgetVar="subscriber"/&gt;
+&lt;b:socket onMessage="handleMessage" channel="/chat" autoConnect="false" widgetVar="subscriber"/&gt;
 
 &lt;script type="text/javascript"&gt;
     function handleMessage(data) {
@@ -195,9 +195,9 @@
     }
 &lt;/script&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
                 
-                <p:tab title="ChatView.java">
+                <b:tab title="ChatView.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -310,8 +310,8 @@ public class ChatView {
     }
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 		
 		</div>
 	</ui:define>

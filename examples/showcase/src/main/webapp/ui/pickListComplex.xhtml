@@ -31,21 +31,21 @@
              	it uses a facet based design to make customization of controls easier.</p>
                
 				<h:form id="form">
-					<p:pickList value="#{pickListBean.players}" var="player" 
+					<b:pickList value="#{pickListBean.players}" var="player" 
 								itemLabel="#{player.name}" itemValue="#{player}" converter="player">
-						<f:facet name="add"><p:graphicImage value="/images/picklist/add.png" styleClass="pickListControl"/></f:facet>
-						<f:facet name="addAll"><p:graphicImage value="/images/picklist/addall.png" styleClass="pickListControl"/></f:facet>
-						<f:facet name="remove"><p:graphicImage value="/images/picklist/remove.png" styleClass="pickListControl"/></f:facet>
-						<f:facet name="removeAll"><p:graphicImage value="/images/picklist/removeall.png" styleClass="pickListControl"/></f:facet>
-					</p:pickList>
+						<f:facet name="add"><b:graphicImage value="/images/picklist/add.png" styleClass="pickListControl"/></f:facet>
+						<f:facet name="addAll"><b:graphicImage value="/images/picklist/addall.png" styleClass="pickListControl"/></f:facet>
+						<f:facet name="remove"><b:graphicImage value="/images/picklist/remove.png" styleClass="pickListControl"/></f:facet>
+						<f:facet name="removeAll"><b:graphicImage value="/images/picklist/removeall.png" styleClass="pickListControl"/></f:facet>
+					</b:pickList>
 					
 					<br />
 				
-					<p:commandButton value="Submit" update="form:display"/>
+					<b:commandButton value="Submit" update="form:display"/>
 					
 					<br />	<br />
 					
-					<p:outputPanel id="display">
+					<b:outputPanel id="display">
 						<table>
 							<tr>
 								<td><strong>Source</strong></td>
@@ -67,32 +67,32 @@
 								</td>
 							</tr>
 						</table>
-					</p:outputPanel>
+					</b:outputPanel>
 					
 				</h:form>
 				
 				<h3>Source</h3>
 				<pre name="code" class="xml">
 &lt;h:form id="form"&gt;
-	&lt;p:pickList value="\#{pickListBean.players}" var="player" 
+	&lt;b:pickList value="\#{pickListBean.players}" var="player" 
 				itemLabel="\#{player.name}" itemValue="\#{player}" converter="player"&gt;
 		&lt;f:facet name="add"&gt;
-			&lt;p:graphicImage value="/images/picklist/add.png" /&gt;
+			&lt;b:graphicImage value="/images/picklist/add.png" /&gt;
 		&lt;/f:facet&gt;
 		&lt;f:facet name="addAll"&gt;
-			&lt;p:graphicImage value="/images/picklist/addall.png" /&gt;
+			&lt;b:graphicImage value="/images/picklist/addall.png" /&gt;
 		&lt;/f:facet&gt;
 		&lt;f:facet name="remove"&gt;
-			&lt;p:graphicImage value="/images/picklist/remove.png" /&gt;
+			&lt;b:graphicImage value="/images/picklist/remove.png" /&gt;
 		&lt;/f:facet&gt;
 		&lt;f:facet name="removeAll"&gt;
-			&lt;p:graphicImage value="/images/picklist/removeall.png" /&gt;
+			&lt;b:graphicImage value="/images/picklist/removeall.png" /&gt;
 		&lt;/f:facet&gt;
-	&lt;/p:pickList&gt;
+	&lt;/b:pickList&gt;
 
-	&lt;p:commandButton value="Submit" update="form:display"/&gt;
+	&lt;b:commandButton value="Submit" update="form:display"/&gt;
 	
-	&lt;p:outputPanel id="display"&gt;
+	&lt;b:outputPanel id="display"&gt;
 		&lt;table&gt;
 			&lt;tr&gt;
 				&lt;td&gt;&lt;strong&gt;Source&lt;/strong&gt;&lt;/td&gt;
@@ -114,7 +114,7 @@
 				&lt;/td&gt;
 			&lt;/tr&gt;
 		&lt;/table&gt;
-	&lt;/p:outputPanel&gt;
+	&lt;/b:outputPanel&gt;
 	
 &lt;/h:form&gt;
 			</pre>

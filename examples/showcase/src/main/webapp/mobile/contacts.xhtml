@@ -14,22 +14,22 @@
             <h:form id="listContactsForm">
                 <pm:header title="Contacts">
                     <f:facet name="right">
-                        <p:commandButton value="New" icon="plus" action="#{contactsView.prepareNewContact}" update=":newContactForm"/>
+                        <b:commandButton value="New" icon="plus" action="#{contactsView.prepareNewContact}" update=":newContactForm"/>
                     </f:facet>
                 </pm:header>
 
                 <pm:content>
-                    <p:dataList id="contactsList" value="#{contactsView.contacts}" var="contact">
-                        <p:column>
-                            <p:graphicImage value="/images/pf-logo.png" />
+                    <b:dataList id="contactsList" value="#{contactsView.contacts}" var="contact">
+                        <b:column>
+                            <b:graphicImage value="/images/pf-logo.png" />
                             <h3>
-                                <p:commandLink value="#{contact.firstname} #{contact.surname}" action="pm:new" update=":newContactForm">
+                                <b:commandLink value="#{contact.firstname} #{contact.surname}" action="pm:new" update=":newContactForm">
                                     <f:setPropertyActionListener value="#{contact}" target="#{contactsView.contact}" />
-                                </p:commandLink>
+                                </b:commandLink>
                             </h3>
                             <p><a href="tel:#{contact.phone}">Call</a></p>
-                        </p:column>
-                    </p:dataList>
+                        </b:column>
+                    </b:dataList>
                 </pm:content>
             </h:form>
         </pm:view>
@@ -37,24 +37,24 @@
         <!-- New Contact -->
         <pm:view id="new">
             <pm:header title="New Contact">
-                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
+                <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
             </pm:header>
 
             <pm:content>
                 <h:form id="newContactForm">
-                    <p:inputText id="name" value="#{contactsView.contact.firstname}" label="Name:"/>
+                    <b:inputText id="name" value="#{contactsView.contact.firstname}" label="Name:"/>
 
-                    <p:inputText id="surname" value="#{contactsView.contact.surname}" label="Surname:"/>
+                    <b:inputText id="surname" value="#{contactsView.contact.surname}" label="Surname:"/>
 
-                    <p:inputText id="age" value="#{contactsView.contact.age}" type="number" label="Age:"/>
+                    <b:inputText id="age" value="#{contactsView.contact.age}" type="number" label="Age:"/>
 
-                    <p:inputText id="phone" value="#{contactsView.contact.phone}" label="Phone:"/>
+                    <b:inputText id="phone" value="#{contactsView.contact.phone}" label="Phone:"/>
 
-                    <p:inputText id="mail" value="#{contactsView.contact.mail}" label="Email:"/>
+                    <b:inputText id="mail" value="#{contactsView.contact.mail}" label="Email:"/>
 
-                    <p:inputTextarea id="address" value="#{contactsView.contact.address}" label="Address:"/>
+                    <b:inputTextarea id="address" value="#{contactsView.contact.address}" label="Address:"/>
                     
-                    <p:commandButton value="Save" action="#{contactsView.saveContact}" update=":listContactsForm:contactsList" icon="check" />
+                    <b:commandButton value="Save" action="#{contactsView.saveContact}" update=":listContactsForm:contactsList" icon="check" />
                 </h:form>
             </pm:content>
 

@@ -14,13 +14,13 @@
 
             <h:form prependId="false">
                 
-                <p:dataTable id="dataTable" var="car" value="#{tableBean.carsSmall}">
+                <b:dataTable id="dataTable" var="car" value="#{tableBean.carsSmall}">
 
                     <f:facet name="header">
                         List of Cars
                     </f:facet>
 
-                    <p:column>
+                    <b:column>
                         <f:facet name="header">
                             Model
                         </f:facet>
@@ -30,41 +30,41 @@
                         <f:facet name="footer">
                             8 digit code
                         </f:facet>
-                    </p:column>
+                    </b:column>
 
-                    <p:column headerText="Manufacturer">
+                    <b:column headerText="Manufacturer">
                         <h:outputText value="#{car.manufacturer}" />
-                    </p:column>
+                    </b:column>
 
-                    <p:column headerText="Color">
+                    <b:column headerText="Color">
                         <h:outputText value="#{car.color}" />
-                    </p:column>
+                    </b:column>
 
-                    <p:column headerText="Year" footerText="1960-2010">
+                    <b:column headerText="Year" footerText="1960-2010">
                         <h:outputText value="#{car.year}" />
-                    </p:column>
+                    </b:column>
 
                     <f:facet name="footer">
                         In total there are #{fn:length(tableBean.carsSmall)} cars.
                     </f:facet>
                     
-                </p:dataTable>
+                </b:dataTable>
 
             </h:form>
             
 		<h3>Source</h3>
-		<p:tabView>
-			<p:tab title="datatableHeaderFooter.xhtml">
+		<b:tabView>
+			<b:tab title="datatableHeaderFooter.xhtml">
                 <pre name="code" class="xml">
 &lt;h:form prependId="false"&gt;
 
-    &lt;p:dataTable id="dataTable" var="car" value="\#{tableBean.carsSmall}"&gt;
+    &lt;b:dataTable id="dataTable" var="car" value="\#{tableBean.carsSmall}"&gt;
 
         &lt;f:facet name="header"&gt;
             List of Cars
         &lt;/f:facet&gt;
 
-        &lt;p:column&gt;
+        &lt;b:column&gt;
             &lt;f:facet name="header"&gt;
                 Model
             &lt;/f:facet&gt;
@@ -74,31 +74,31 @@
             &lt;f:facet name="footer"&gt;
                 8 digit code
             &lt;/f:facet&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Manufacturer"&gt;
+        &lt;b:column headerText="Manufacturer"&gt;
             &lt;h:outputText value="\#{car.manufacturer}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Color"&gt;
+        &lt;b:column headerText="Color"&gt;
             &lt;h:outputText value="\#{car.color}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Year" footerText="1960-2010"&gt;
+        &lt;b:column headerText="Year" footerText="1960-2010"&gt;
             &lt;h:outputText value="\#{car.year}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
         &lt;f:facet name="footer"&gt;
             In total there are \#{fn:length(tableBean.carsSmall)} cars.
         &lt;/f:facet&gt;
 
-    &lt;/p:dataTable&gt;
+    &lt;/b:dataTable&gt;
 
 &lt;/h:form&gt;
 				</pre>
-			</p:tab>
+			</b:tab>
 
-			<p:tab title="TableBean.java">
+			<b:tab title="TableBean.java">
 			<pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -175,8 +175,8 @@ public class TableBean implements Serializable {
 	}
 }
 				</pre>
-			</p:tab>
-		</p:tabView>
+			</b:tab>
+		</b:tabView>
 	       </div>
 
 	</ui:define>

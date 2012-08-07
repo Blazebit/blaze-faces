@@ -33,28 +33,28 @@
                 
                 <br />
                 
-                <p:commandButton value="Click" actionListener="#{globalCounter.increment}" />
+                <b:commandButton value="Click" actionListener="#{globalCounter.increment}" />
             </h:form>
             
-            <p:socket onMessage="handleMessage" channel="/counter" />
+            <b:socket onMessage="handleMessage" channel="/counter" />
             
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="chat.xhtml">
+            <b:tabView>
+                <b:tab title="chat.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form id="form"&gt;
     &lt;h:outputText id="out" value="\#{globalCounter.count}" styleClass="ui-widget display" /&gt;
 
     &lt;br /&gt;
 
-    &lt;p:commandButton value="Click" actionListener="\#{globalCounter.increment}" /&gt;
+    &lt;b:commandButton value="Click" actionListener="\#{globalCounter.increment}" /&gt;
 &lt;/h:form&gt;
 
-&lt;p:socket onMessage="handleMessage" channel="/counter" /&gt;
+&lt;b:socket onMessage="handleMessage" channel="/counter" /&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
                 
-                <p:tab title="GlobalCounterBean.java">
+                <b:tab title="GlobalCounterBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -86,8 +86,8 @@ public class GlobalCounterBean implements Serializable{
 	}
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 		
 		</div>
 	</ui:define>

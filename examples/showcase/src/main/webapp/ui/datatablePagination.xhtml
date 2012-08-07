@@ -13,7 +13,7 @@
             
             <h:form prependId="false">
 
-                <p:dataTable id="dataTable" var="car" value="#{tableBean.cars}"
+                <b:dataTable id="dataTable" var="car" value="#{tableBean.cars}"
                              paginator="true" rows="10"
                              paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                              rowsPerPageTemplate="5,10,15">
@@ -21,44 +21,44 @@
                         Ajax Pagination
                     </f:facet>
                     
-                    <p:column>
+                    <b:column>
                         <f:facet name="header">
                             <h:outputText value="Model" />
                         </f:facet>
                         <h:outputText value="#{car.model}" />
-                    </p:column>
+                    </b:column>
 
-                    <p:column>
+                    <b:column>
                         <f:facet name="header">
                             <h:outputText value="Year" />
                         </f:facet>
                         <h:outputText value="#{car.year}" />
-                    </p:column>
+                    </b:column>
 
-                    <p:column>
+                    <b:column>
                         <f:facet name="header">
                             <h:outputText value="Manufacturer" />
                         </f:facet>
                         <h:outputText value="#{car.manufacturer}" />
-                    </p:column>
+                    </b:column>
 
-                    <p:column>
+                    <b:column>
                         <f:facet name="header">
                             <h:outputText value="Color" />
                         </f:facet>
                         <h:outputText value="#{car.color}" />
-                    </p:column>
-                </p:dataTable>
+                    </b:column>
+                </b:dataTable>
 
             </h:form>
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="datatablePagination.xhtml">
+            <b:tabView>
+                <b:tab title="datatablePagination.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form prependId="false"&gt;
 
-    &lt;p:dataTable id="dataTable" var="car" value="\#{tableBean.cars}"
+    &lt;b:dataTable id="dataTable" var="car" value="\#{tableBean.cars}"
                  paginator="true" rows="10"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                  rowsPerPageTemplate="5,10,15"&gt;
@@ -66,40 +66,40 @@
             Ajax Pagination
         &lt;/f:facet&gt;
 
-        &lt;p:column&gt;
+        &lt;b:column&gt;
             &lt;f:facet name="header"&gt;
                 &lt;h:outputText value="Model" /&gt;
             &lt;/f:facet&gt;
             &lt;h:outputText value="\#{car.model}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column&gt;
+        &lt;b:column&gt;
             &lt;f:facet name="header"&gt;
                 &lt;h:outputText value="Year" /&gt;
             &lt;/f:facet&gt;
             &lt;h:outputText value="\#{car.year}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column&gt;
+        &lt;b:column&gt;
             &lt;f:facet name="header"&gt;
                 &lt;h:outputText value="Manufacturer" /&gt;
             &lt;/f:facet&gt;
             &lt;h:outputText value="\#{car.manufacturer}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column&gt;
+        &lt;b:column&gt;
             &lt;f:facet name="header"&gt;
                 &lt;h:outputText value="Color" /&gt;
             &lt;/f:facet&gt;
             &lt;h:outputText value="\#{car.color}" /&gt;
-        &lt;/p:column&gt;
-    &lt;/p:dataTable&gt;
+        &lt;/b:column&gt;
+    &lt;/b:dataTable&gt;
 
 &lt;/h:form&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="TableBean.java">
+                <b:tab title="TableBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -176,8 +176,8 @@ public class TableBean implements Serializable {
 	}
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 
         </div>
 

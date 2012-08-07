@@ -1,4 +1,5 @@
-
+<?xml version="1.0" encoding="UTF-8"?>
+<facelet-taglib>
     <function>
         <function-name>concat</function-name>
         <function-class>com.blazebit.blazefaces.util.Functions</function-class>
@@ -376,4 +377,4 @@
             <type>java.lang.String</type>
         </attribute>
     </tag>
-	
+</facelet-taglib>

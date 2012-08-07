@@ -33,11 +33,11 @@
             </ul>
 		</div>
         
-        <p:confirmDialog header="Oooops!!!" severity="alert" 
+        <b:confirmDialog header="Oooops!!!" severity="alert" 
                          visible="#{not empty param['expired']}" 
                          message="View has expired." widgetVar="confirmDlg">
-            <p:commandButton type="button" value="OK" onclick="confirmDlg.hide()" />
-        </p:confirmDialog>
+            <b:commandButton type="button" value="OK" onclick="confirmDlg.hide()" />
+        </b:confirmDialog>
 
 	</ui:define>
 </ui:composition>

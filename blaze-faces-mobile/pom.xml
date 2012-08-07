@@ -53,7 +53,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${version.compiler.plugin}</version>
                 <configuration>
                     <showDeprecation>true</showDeprecation>
                     <showWarnings>true</showWarnings>
@@ -107,7 +106,6 @@
             <plugin>
                 <groupId>com.blazebit</groupId>
                 <artifactId>maven-jsf-plugin</artifactId>
-                <version>${project.version}</version>
                 <executions>
                     <execution>
                         <id>generate-mobile</id>
@@ -144,7 +142,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>2.2</version>
                 <configuration>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>

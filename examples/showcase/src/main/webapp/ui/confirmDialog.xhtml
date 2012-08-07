@@ -13,48 +13,48 @@
 
 				<h:form prependId="false">
 					
-					<p:growl id="messages" showDetail="true" />
+					<b:growl id="messages" showDetail="true" />
 				
-					<p:commandButton id="showDialogButton" value="Destroy the World" onclick="confirmation.show()" type="button"/>
+					<b:commandButton id="showDialogButton" value="Destroy the World" onclick="confirmation.show()" type="button"/>
 					
-					<p:confirmDialog id="confirmDialog" message="Are you sure about destroying the world?"
+					<b:confirmDialog id="confirmDialog" message="Are you sure about destroying the world?"
 								header="Initiating destroy process" severity="alert" widgetVar="confirmation">
 								
-						<p:commandButton id="confirm" value="Yes Sure" actionListener="#{buttonBean.destroyWorld}" update="messages" oncomplete="confirmation.hide()"/>
-						<p:commandButton id="decline" value="Not Yet" onclick="confirmation.hide()" type="button" /> 
+						<b:commandButton id="confirm" value="Yes Sure" actionListener="#{buttonBean.destroyWorld}" update="messages" oncomplete="confirmation.hide()"/>
+						<b:commandButton id="decline" value="Not Yet" onclick="confirmation.hide()" type="button" /> 
 								
-					</p:confirmDialog>
+					</b:confirmDialog>
 
 				</h:form>
 				
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="confirmDialog.xhtml">
+			<b:tabView>
+				<b:tab title="confirmDialog.xhtml">
 <pre name="code" class="xml">
 &lt;h:form prependId="false"&gt;
 					
-	&lt;p:growl id="messages" /&gt;
+	&lt;b:growl id="messages" /&gt;
 
 	&lt;h:panelGrid columns="1" cellpadding="5"&gt;
 		&lt;h:outputText id="msg" value="\#{buttonBean.text}"/&gt;
 		
-		&lt;p:commandButton id="showDialogButton" value="Destroy the World" onclick="confirmation.show()" type="button"/&gt;
+		&lt;b:commandButton id="showDialogButton" value="Destroy the World" onclick="confirmation.show()" type="button"/&gt;
 	&lt;/h:panelGrid&gt;
 	
-	&lt;p:confirmDialog id="confirmDialog" message="Are you sure about destroying the world?"
+	&lt;b:confirmDialog id="confirmDialog" message="Are you sure about destroying the world?"
 				header="Initiating destroy process" severity="alert" widgetVar="confirmation"&gt;
 				
-		&lt;p:commandButton id="confirm" value="Yes Sure" update="messages" oncomplete="confirmation.hide()"
+		&lt;b:commandButton id="confirm" value="Yes Sure" update="messages" oncomplete="confirmation.hide()"
 					actionListener="\#{buttonBean.destroyWorld}" /&gt;
-		&lt;p:commandButton id="decline" value="Not Yet" onclick="confirmation.hide()" type="button" /&gt; 
+		&lt;b:commandButton id="decline" value="Not Yet" onclick="confirmation.hide()" type="button" /&gt; 
 				
-	&lt;/p:confirmDialog&gt;
+	&lt;/b:confirmDialog&gt;
 
 &lt;/h:form&gt;	
 </pre>
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="ButtonBean.java">
+				<b:tab title="ButtonBean.java">
 				<pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -71,8 +71,8 @@ public class ButtonBean {
 	}
 }
 				</pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 			
 		
 	

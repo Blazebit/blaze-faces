@@ -10,25 +10,25 @@
 		<div class="entry">
             <p>LineChart is created with a CartesianChartModel.</p>
 
-            <p:lineChart id="linear" value="#{chartBean.linearModel}" legendPosition="e"
+            <b:lineChart id="linear" value="#{chartBean.linearModel}" legendPosition="e"
                          title="Linear Chart" minY="0" maxY="10" style="height:300px;"/>
 
-            <p:lineChart id="category" value="#{chartBean.categoryModel}" legendPosition="e"
+            <b:lineChart id="category" value="#{chartBean.categoryModel}" legendPosition="e"
                          title="Category Chart" minY="0" maxY="200" style="height:300px;margin-top:20px"/>
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="lineChart.xhtml">
+            <b:tabView>
+                <b:tab title="lineChart.xhtml">
                     <pre name="code" class="xml">
-&lt;p:lineChart id="linear" value="\#{chartBean.linearModel}" legendPosition="e"
+&lt;b:lineChart id="linear" value="\#{chartBean.linearModel}" legendPosition="e"
      title="Linear Chart" minY="0" maxY="10" style="height:300px"/&gt;
 
-&lt;p:lineChart id="category" value="\#{chartBean.categoryModel}" legendPosition="e"
+&lt;b:lineChart id="category" value="\#{chartBean.categoryModel}" legendPosition="e"
      title="Category Chart" minY="0" maxY="200" style="height:300px;margin-top:20px"/&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="ChartBean.java">
+                <b:tab title="ChartBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -109,8 +109,8 @@ public class ChartBean implements Serializable {
     }
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 
         </div>
 

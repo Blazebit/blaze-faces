@@ -13,17 +13,17 @@
 
             <h:form>
                 
-                <p:growl id="msg" showDetail="true" escape="false" />
+                <b:growl id="msg" showDetail="true" escape="false" />
 
                 <h3 style="margin-top:0">Basic PickList</h3>
 
-                <p:pickList id="pickList" value="#{pickListBean.cities}" var="city" 
+                <b:pickList id="pickList" value="#{pickListBean.cities}" var="city" 
                             itemLabel="#{city}" itemValue="#{city}" />
 
-                <p:commandButton id="citySubmit" value="Submit" update="displayCities" oncomplete="cityDialog.show()" style="margin-top:5px"/>
+                <b:commandButton id="citySubmit" value="Submit" update="displayCities" oncomplete="cityDialog.show()" style="margin-top:5px"/>
 
                 <h3>PickList on Steroids: Pojo Support with Effect, Captions, Custom Content, Reordering, Filtering and Ajax Transfer</h3>
-                <p:pickList id="pojoPickList" value="#{pickListBean.players}" var="player" effect="bounce"
+                <b:pickList id="pojoPickList" value="#{pickListBean.players}" var="player" effect="bounce"
 								itemValue="#{player}" itemLabel="#{player.name}" converter="player"
                                 showSourceControls="true" showTargetControls="true" 
                                 showSourceFilter="true" showTargetFilter="true" filterMatchMode="contains" >
@@ -31,21 +31,21 @@
                     <f:facet name="sourceCaption">Available</f:facet>
                     <f:facet name="targetCaption">Starting</f:facet>
                     
-                    <p:ajax event="transfer" listener="#{pickListBean.onTransfer}" update="msg" />
+                    <b:ajax event="transfer" listener="#{pickListBean.onTransfer}" update="msg" />
                     
-                    <p:column style="width:25%">
-                        <p:graphicImage value="/images/barca/#{player.photo}" width="30" height="40" />
-                    </p:column>
+                    <b:column style="width:25%">
+                        <b:graphicImage value="/images/barca/#{player.photo}" width="30" height="40" />
+                    </b:column>
                     
-                     <p:column style="width:75%;">
+                     <b:column style="width:75%;">
                         #{player.name}
-                    </p:column>
+                    </b:column>
                     
-                </p:pickList>
+                </b:pickList>
 
-                <p:commandButton id="pojoSubmit" value="Submit" update="displayPlayers" oncomplete="playerDialog.show()" style="margin-top:5px"/>
+                <b:commandButton id="pojoSubmit" value="Submit" update="displayPlayers" oncomplete="playerDialog.show()" style="margin-top:5px"/>
 
-                <p:dialog modal="true" showEffect="fade" hideEffect="fade" widgetVar="cityDialog">
+                <b:dialog modal="true" showEffect="fade" hideEffect="fade" widgetVar="cityDialog">
                     <h:panelGrid id="displayCities" columns="2">
                         <h:outputText value="Source: " style="font-weight:bold"/>
                          <ui:repeat value="#{pickListBean.cities.source}" var="item">
@@ -57,9 +57,9 @@
                             <h:outputText value="#{item}" style="margin-right:5px" />
                         </ui:repeat>
                     </h:panelGrid>
-                </p:dialog>
+                </b:dialog>
 
-                <p:dialog modal="true" showEffect="fade" hideEffect="fade" widgetVar="playerDialog">
+                <b:dialog modal="true" showEffect="fade" hideEffect="fade" widgetVar="playerDialog">
                     <h:panelGrid id="displayPlayers" columns="2">
                         <h:outputText value="Source: " style="font-weight:bold"/>
                         <ui:repeat value="#{pickListBean.players.source}" var="player">
@@ -71,27 +71,27 @@
                             <h:outputText value="#{player.name}" style="margin-right:5px" />
                         </ui:repeat>
                     </h:panelGrid>
-                </p:dialog>
+                </b:dialog>
 
             </h:form>
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="picklist.xhtml">
+            <b:tabView>
+                <b:tab title="picklist.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form&gt;
                 
-    &lt;p:growl id="msg" showDetail="true" escape="false" /&gt;
+    &lt;b:growl id="msg" showDetail="true" escape="false" /&gt;
 
     &lt;h3 style="margin-top:0"&gt;Basic PickList&lt;/h3&gt;
 
-    &lt;p:pickList id="pickList" value="\#{pickListBean.cities}" var="city" 
+    &lt;b:pickList id="pickList" value="\#{pickListBean.cities}" var="city" 
                 itemLabel="\#{city}" itemValue="\#{city}" /&gt;
 
-    &lt;p:commandButton id="citySubmit" value="Submit" update="displayCities" oncomplete="cityDialog.show()" style="margin-top:5px"/&gt;
+    &lt;b:commandButton id="citySubmit" value="Submit" update="displayCities" oncomplete="cityDialog.show()" style="margin-top:5px"/&gt;
 
     &lt;h3&gt;PickList on Steroids: Pojo Support with Effect, Captions, Custom Content, Reordering, Filtering and Ajax Transfer&lt;/h3&gt;
-    &lt;p:pickList id="pojoPickList" value="\#{pickListBean.players}" var="player" effect="bounce"
+    &lt;b:pickList id="pojoPickList" value="\#{pickListBean.players}" var="player" effect="bounce"
                     itemValue="\#{player}" itemLabel="\#{player.name}" converter="player"
                     showSourceControls="true" showTargetControls="true" 
                     showSourceFilter="true" showTargetFilter="true" filterMatchMode="contains" &gt;
@@ -99,21 +99,21 @@
         &lt;f:facet name="sourceCaption"&gt;Available&lt;/f:facet&gt;
         &lt;f:facet name="targetCaption"&gt;Starting&lt;/f:facet&gt;
 
-        &lt;p:ajax event="transfer" listener="\#{pickListBean.onTransfer}" update="msg" /&gt;
+        &lt;b:ajax event="transfer" listener="\#{pickListBean.onTransfer}" update="msg" /&gt;
 
-        &lt;p:column style="width:25%"&gt;
-            &lt;p:graphicImage value="/images/barca/\#{player.photo}" width="30" height="40" /&gt;
-        &lt;/p:column&gt;
+        &lt;b:column style="width:25%"&gt;
+            &lt;b:graphicImage value="/images/barca/\#{player.photo}" width="30" height="40" /&gt;
+        &lt;/b:column&gt;
 
-            &lt;p:column style="width:75%;"&gt;
+            &lt;b:column style="width:75%;"&gt;
             \#{player.name}
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-    &lt;/p:pickList&gt;
+    &lt;/b:pickList&gt;
 
-    &lt;p:commandButton id="pojoSubmit" value="Submit" update="displayPlayers" oncomplete="playerDialog.show()" style="margin-top:5px"/&gt;
+    &lt;b:commandButton id="pojoSubmit" value="Submit" update="displayPlayers" oncomplete="playerDialog.show()" style="margin-top:5px"/&gt;
 
-    &lt;p:dialog modal="true" showEffect="fade" hideEffect="fade" widgetVar="cityDialog"&gt;
+    &lt;b:dialog modal="true" showEffect="fade" hideEffect="fade" widgetVar="cityDialog"&gt;
         &lt;h:panelGrid id="displayCities" columns="2"&gt;
             &lt;h:outputText value="Source: " style="font-weight:bold"/&gt;
                 &lt;ui:repeat value="\#{pickListBean.cities.source}" var="item"&gt;
@@ -125,9 +125,9 @@
                 &lt;h:outputText value="\#{item}" style="margin-right:5px" /&gt;
             &lt;/ui:repeat&gt;
         &lt;/h:panelGrid&gt;
-    &lt;/p:dialog&gt;
+    &lt;/b:dialog&gt;
 
-    &lt;p:dialog modal="true" showEffect="fade" hideEffect="fade" widgetVar="playerDialog"&gt;
+    &lt;b:dialog modal="true" showEffect="fade" hideEffect="fade" widgetVar="playerDialog"&gt;
         &lt;h:panelGrid id="displayPlayers" columns="2"&gt;
             &lt;h:outputText value="Source: " style="font-weight:bold"/&gt;
             &lt;ui:repeat value="\#{pickListBean.players.source}" var="player"&gt;
@@ -139,13 +139,13 @@
                 &lt;h:outputText value="\#{player.name}" style="margin-right:5px" /&gt;
             &lt;/ui:repeat&gt;
         &lt;/h:panelGrid&gt;
-    &lt;/p:dialog&gt;
+    &lt;/b:dialog&gt;
 
 &lt;/h:form&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="PickListBean.java">
+                <b:tab title="PickListBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -220,9 +220,9 @@ public class PickListBean {
     }
 }
                     </pre>
-                </p:tab>
+                </b:tab>
 
-            </p:tabView>
+            </b:tabView>
             
 
         </div>

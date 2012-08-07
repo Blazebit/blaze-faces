@@ -10,25 +10,25 @@
 		<div class="entry">
             <p>A specific part on Cartesian Charts can be zoomed using drag and drop.</p>
 
-            <p:lineChart value="#{chartBean.linearModel}" legendPosition="e" zoom="true"
+            <b:lineChart value="#{chartBean.linearModel}" legendPosition="e" zoom="true"
                          title="Linear Chart" minY="0" maxY="10" style="height:300px;" widgetVar="chart"/>
 
             <br />
             
-            <p:commandButton type="button" value="Reset" icon="ui-icon-cancel" onclick="chart.resetZoom()"/>
+            <b:commandButton type="button" value="Reset" icon="ui-icon-cancel" onclick="chart.resetZoom()"/>
             
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="lineChart.xhtml">
+            <b:tabView>
+                <b:tab title="lineChart.xhtml">
                     <pre name="code" class="xml">
-&lt;p:lineChart id="linear" value="\#{chartBean.linearModel}" legendPosition="e" zoom="true"
+&lt;b:lineChart id="linear" value="\#{chartBean.linearModel}" legendPosition="e" zoom="true"
      title="Linear Chart" minY="0" maxY="10" style="height:300px" widgetVar="chart"/&gt;
 
-&lt;p:commandButton type="button" value="Reset" icon="ui-icon-cancel" onclick="chart.resetZoom()"/&gt;
+&lt;b:commandButton type="button" value="Reset" icon="ui-icon-cancel" onclick="chart.resetZoom()"/&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="ChartBean.java">
+                <b:tab title="ChartBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -77,8 +77,8 @@ public class ChartBean implements Serializable {
     }
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 
         </div>
 

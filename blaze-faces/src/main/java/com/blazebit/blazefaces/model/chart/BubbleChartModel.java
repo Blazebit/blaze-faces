@@ -42,11 +42,6 @@ public class BubbleChartModel extends ChartModel implements Serializable {
     public void add(BubbleChartSeries bubble){
         this.data.add(bubble);
     }
-    
-    @Deprecated
-    public void addBubble(BubbleChartSeries bubble){
-        this.data.add(bubble);
-    }
 
     public void clear() {
         this.data.clear();

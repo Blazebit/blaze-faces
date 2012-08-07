@@ -23,38 +23,38 @@
             <p>Polling can be started and stopped manually on demand.</p>
 
             <h:form id="form">
-                <p:commandButton type="button" value="Start" icon="ui-icon-play" onclick="poll.start()" id="btnStart" />
-                <p:commandButton type="button" value="Stop" icon="ui-icon-pause" onclick="poll.stop()" id="btnStop" />
+                <b:commandButton type="button" value="Start" icon="ui-icon-play" onclick="poll.start()" id="btnStart" />
+                <b:commandButton type="button" value="Stop" icon="ui-icon-pause" onclick="poll.stop()" id="btnStop" />
 
                 <br /><br />
 
                 <h:outputText id="txt_count" value="#{counterBean.count}" />
 
-                <p:poll interval="4" listener="#{counterBean.increment}"
+                <b:poll interval="4" listener="#{counterBean.increment}"
                         update="txt_count" widgetVar="poll" autoStart="false"/>
             </h:form>
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="poll.xhtml">
+            <b:tabView>
+                <b:tab title="poll.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form id="form"&gt;
 
-    &lt;p:commandButton type="button" value="Start"
+    &lt;b:commandButton type="button" value="Start"
             icon="ui-icon-play" onclick="poll.start()" id="btnStart" /&gt;
-    &lt;p:commandButton type="button" value="Stop"
+    &lt;b:commandButton type="button" value="Stop"
             icon="ui-icon-pause" onclick="poll.stop()" id="btnStop" /&gt;
 
     &lt;h:outputText id="txt_count" value="\#{counterBean.count}" /&gt;
 
-    &lt;p:poll interval="4" listener="\#{counterBean.increment}"
+    &lt;b:poll interval="4" listener="\#{counterBean.increment}"
             update="txt_count" widgetVar="poll" autoStart="false"/&gt;
 
 &lt;/h:form&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="CounterBean.java">
+                <b:tab title="CounterBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -79,8 +79,8 @@ public class CounterBean implements Serializable{
 	}
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
         </div>
 
     </ui:define>

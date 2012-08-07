@@ -12,18 +12,18 @@
         <!-- Main View -->
         <pm:view id="main" swatch="e">
             <pm:header title="Notes">
-                <f:facet name="right"><p:button value="New" icon="plus" href="#new" /></f:facet>
+                <f:facet name="right"><b:button value="New" icon="plus" href="#new" /></f:facet>
             </pm:header>
 
             <pm:content>
                 <h:form id="listNotesForm">
-                    <p:dataList id="notesList" value="#{notesView.notes}" var="note" type="inset">
-                        <p:column>
-                            <p:commandLink value="#{note.shortText}" update=":newNoteForm:noteText" action="pm:new">
+                    <b:dataList id="notesList" value="#{notesView.notes}" var="note" type="inset">
+                        <b:column>
+                            <b:commandLink value="#{note.shortText}" update=":newNoteForm:noteText" action="pm:new">
                                 <f:setPropertyActionListener value="#{note}" target="#{notesView.note}" />
-                            </p:commandLink>
-                        </p:column>
-                    </p:dataList>
+                            </b:commandLink>
+                        </b:column>
+                    </b:dataList>
                 </h:form>
             </pm:content>
 
@@ -32,16 +32,16 @@
         <!-- New Notes -->
         <pm:view id="new" swatch="e">
             <pm:header title="New Note">
-                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true" /></f:facet>
+                <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true" /></f:facet>
             </pm:header>
 
             <pm:content>
                 <h:form id="newNoteForm">
-                    <p:inputTextarea id="noteText" value="#{notesView.note.text}" />
+                    <b:inputTextarea id="noteText" value="#{notesView.note.text}" />
 
-                    <p:separator />
+                    <b:separator />
 
-                    <p:commandButton value="Save" action="#{notesView.save}" update="noteText :listNotesForm:notesList" icon="check" />
+                    <b:commandButton value="Save" action="#{notesView.save}" update="noteText :listNotesForm:notesList" icon="check" />
 
                 </h:form>
             </pm:content>

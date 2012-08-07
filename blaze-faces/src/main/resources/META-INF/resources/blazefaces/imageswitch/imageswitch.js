@@ -868,11 +868,9 @@ $.fn.cycle.defaults = {
 	speedOut:	   null,  // speed of the 'out' transition
 	next:		   null,  // selector for element to use as event trigger for next slide
 	prev:		   null,  // selector for element to use as event trigger for previous slide
-//	prevNextClick: null,  // @deprecated; please use onPrevNextEvent instead
 	onPrevNextEvent: null,  // callback fn for prev/next events: function(isNext, zeroBasedSlideIndex, slideElement)
 	prevNextEvent:'click.cycle',// event which drives the manual transition to the previous or next slide
 	pager:		   null,  // selector for element to use as pager container
-	//pagerClick   null,  // @deprecated; please use onPagerEvent instead
 	onPagerEvent:  null,  // callback fn for pager events: function(zeroBasedSlideIndex, slideElement)
 	pagerEvent:	  'click.cycle', // name of event which drives the pager navigation
 	allowPagerClickBubble: false, // allows or prevents click event on pager anchors from bubbling

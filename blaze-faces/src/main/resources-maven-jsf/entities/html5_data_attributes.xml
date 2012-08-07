@@ -1,7 +1,10 @@
-<attribute>
-	<description><![CDATA[]]>
-	</description>
-	<name>dataMap</name>
-	<required>false</required>
-	<type>java.util.Map</type>
-</attribute>
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+	<attribute>
+		<description><![CDATA[]]>
+		</description>
+		<name>dataMap</name>
+		<required>false</required>
+		<type>java.util.Map</type>
+	</attribute>
+</component>

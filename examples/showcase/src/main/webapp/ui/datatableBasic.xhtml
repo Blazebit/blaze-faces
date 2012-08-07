@@ -11,52 +11,52 @@
 			<p>Basic usage is same as standard datatable.</p>
 
             <h:form>
-                <p:dataTable var="car" value="#{tableBean.carsSmall}">
-                    <p:column headerText="Model">
+                <b:dataTable var="car" value="#{tableBean.carsSmall}">
+                    <b:column headerText="Model">
                         <h:outputText value="#{car.model}" />
-                    </p:column>
+                    </b:column>
 
-                    <p:column headerText="Year">
+                    <b:column headerText="Year">
                         <h:outputText value="#{car.year}" />
-                    </p:column>
+                    </b:column>
 
-                    <p:column headerText="Manufacturer">
+                    <b:column headerText="Manufacturer">
                         <h:outputText value="#{car.manufacturer}" />
-                    </p:column>
+                    </b:column>
 
-                    <p:column headerText="Color">
+                    <b:column headerText="Color">
                         <h:outputText value="#{car.color}" />
-                    </p:column>
-                </p:dataTable>
+                    </b:column>
+                </b:dataTable>
             </h:form>
 
 		<h3>Source</h3>
-		<p:tabView>
-			<p:tab title="datatableBasic.xhtml">
+		<b:tabView>
+			<b:tab title="datatableBasic.xhtml">
 <pre name="code" class="xml">
 &lt;h:form&gt;
-    &lt;p:dataTable var="car" value="\#{tableBean.carsSmall}"&gt;
-        &lt;p:column headerText="Model"&gt;
+    &lt;b:dataTable var="car" value="\#{tableBean.carsSmall}"&gt;
+        &lt;b:column headerText="Model"&gt;
             &lt;h:outputText value="\#{car.model}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Year"&gt;
+        &lt;b:column headerText="Year"&gt;
             &lt;h:outputText value="\#{car.year}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Manufacturer"&gt;
+        &lt;b:column headerText="Manufacturer"&gt;
             &lt;h:outputText value="\#{car.manufacturer}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Color"&gt;
+        &lt;b:column headerText="Color"&gt;
             &lt;h:outputText value="\#{car.color}" /&gt;
-        &lt;/p:column&gt;
-    &lt;/p:dataTable&gt;
+        &lt;/b:column&gt;
+    &lt;/b:dataTable&gt;
 &lt;/h:form&gt;
 				</pre>
-			</p:tab>
+			</b:tab>
 			
-			<p:tab title="TableBean.java">
+			<b:tab title="TableBean.java">
 			<pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -133,8 +133,8 @@ public class TableBean implements Serializable {
 	}
 }
 				</pre>
-			</p:tab>
-		</p:tabView>
+			</b:tab>
+		</b:tabView>
 	       </div>
 				
 	</ui:define>

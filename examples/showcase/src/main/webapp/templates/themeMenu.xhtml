@@ -4,10 +4,10 @@
             xmlns:ui="http://java.sun.com/jsf/facelets"
             xmlns:b="http://blazebit.com/faces">
 
-    <p:themeSwitcher value="#{themeSwitcherBean.theme}" style="width:155px" effect="fade">
+    <b:themeSwitcher value="#{themeSwitcherBean.theme}" style="width:155px" effect="fade">
         <f:selectItem itemLabel="Choose Theme" itemValue="" />
         <f:selectItems value="#{themeSwitcherBean.themes}" />
-        <p:ajax listener="#{themeSwitcherBean.saveTheme}" />
-    </p:themeSwitcher>
+        <b:ajax listener="#{themeSwitcherBean.saveTheme}" />
+    </b:themeSwitcher>
     
 </ui:composition>

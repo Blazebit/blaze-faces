@@ -119,8 +119,10 @@ public class FacesConfigMojo extends BaseFacesMojo {
             String line = null;
 
             while ((line = reader.readLine()) != null) {
-                writer.write(line);
-                writer.write("\n");
+            	if(!line.contains("<?xml") && !line.contains("<faces-config") && !line.contains("</faces-config")){
+	                writer.write(line);
+	                writer.write("\n");
+            	}
             }
         } catch (FileNotFoundException fileNotFoundException) {
             return;
@@ -155,8 +157,10 @@ public class FacesConfigMojo extends BaseFacesMojo {
             String line = null;
 
             while ((line = reader.readLine()) != null) {
-                writer.write(line);
-                writer.write("\n");
+            	if(!line.contains("<?xml") && !line.contains("<render-kit") && !line.contains("</render-kit")){
+	                writer.write(line);
+	                writer.write("\n");
+            	}
             }
         } catch (FileNotFoundException fileNotFoundException) {
             return;

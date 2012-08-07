@@ -15,43 +15,43 @@
             <h:form>
                 
                 <h:panelGrid columns="3">
-                    <p:photoCam widgetVar="pc" listener="#{photoCamBean.oncapture}" update="photos"/>
+                    <b:photoCam widgetVar="pc" listener="#{photoCamBean.oncapture}" update="photos"/>
                     
-                    <p:commandButton type="button" value="Capture" onclick="pc.capture()"/>
+                    <b:commandButton type="button" value="Capture" onclick="pc.capture()"/>
                     
-                    <p:imageSwitch effect="zoom" id="photos">
+                    <b:imageSwitch effect="zoom" id="photos">
                         <ui:repeat value="#{photoCamBean.photos}" var="photo">
-                            <p:graphicImage value="/photocam/#{photo}.png" />
+                            <b:graphicImage value="/photocam/#{photo}.png" />
                         </ui:repeat>
-                    </p:imageSwitch>
+                    </b:imageSwitch>
                 </h:panelGrid>
                 
             </h:form>
             
             <h3>Source</h3>
-			<p:tabView>
-				<p:tab title="photoCam.xhtml">
+			<b:tabView>
+				<b:tab title="photoCam.xhtml">
 					<pre name="code" class="xml">
 &lt;h:form&gt;
 
     &lt;h:panelGrid columns="3"&gt;
-        &lt;p:photoCam widgetVar="pc" listener="\#{photoCamBean.oncapture}" update="photos"/&gt;
+        &lt;b:photoCam widgetVar="pc" listener="\#{photoCamBean.oncapture}" update="photos"/&gt;
 
-        &lt;p:commandButton type="button" value="Capture" onclick="pc.capture()"/&gt;
+        &lt;b:commandButton type="button" value="Capture" onclick="pc.capture()"/&gt;
 
-        &lt;p:imageSwitch effect="zoom" id="photos"&gt;
+        &lt;b:imageSwitch effect="zoom" id="photos"&gt;
             &lt;ui:repeat value="\#{photoCamBean.photos}" var="photo"&gt;
-                &lt;p:graphicImage value="/photocam/\#{photo}.png" /&gt;
+                &lt;b:graphicImage value="/photocam/\#{photo}.png" /&gt;
             &lt;/ui:repeat&gt;
-        &lt;/p:imageSwitch&gt;
+        &lt;/b:imageSwitch&gt;
     &lt;/h:panelGrid&gt;
 
 &lt;/h:form&gt;
 					</pre>
 
-                    </p:tab>
+                    </b:tab>
 
-                    <p:tab title="PhotoCamBean.java">
+                    <b:tab title="PhotoCamBean.java">
                         <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -98,8 +98,8 @@ public class PhotoCamBean {
     }
 }
                         </pre>
-                    </p:tab>
-			</p:tabView>
+                    </b:tab>
+			</b:tabView>
 
         </div>
 

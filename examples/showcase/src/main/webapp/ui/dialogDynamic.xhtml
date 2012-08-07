@@ -12,24 +12,24 @@
 			<p>Dynamic dialogs fetch their content just before they are displayed rather than initial page load. This
             is a useful feature to reduce page size and speed up page load time.</p>
 				
-				<p:commandButton id="basic" value="Show Dialog" onclick="dlg.show();" type="button" />
+				<b:commandButton id="basic" value="Show Dialog" onclick="dlg.show();" type="button" />
 							
-                <p:dialog id="dialog" header="Dynamic Dialog" widgetVar="dlg" dynamic="true">
+                <b:dialog id="dialog" header="Dynamic Dialog" widgetVar="dlg" dynamic="true">
 					<h:outputText value="This content is loaded lazy." />
-				</p:dialog>	
+				</b:dialog>	
 				
 				<h3>Source</h3>
-				<p:tabView>
-					<p:tab title="dialogDynamic.xhtml">
+				<b:tabView>
+					<b:tab title="dialogDynamic.xhtml">
 				<pre name="code" class="xml">	
-&lt;p:commandButton id="basic" value="Show Dialog" onclick="dlg.show();" type="button" /&gt;
+&lt;b:commandButton id="basic" value="Show Dialog" onclick="dlg.show();" type="button" /&gt;
 							
-&lt;p:dialog id="dialog" header="Dynamic Dialog" widgetVar="dlg" dynamic="true"&gt;
+&lt;b:dialog id="dialog" header="Dynamic Dialog" widgetVar="dlg" dynamic="true"&gt;
     &lt;h:outputText value="This content is loaded lazy." /&gt;
-&lt;/p:dialog&gt;
+&lt;/b:dialog&gt;
 				</pre>
-					</p:tab>
-				</p:tabView>
+					</b:tab>
+				</b:tabView>
 		</div>
 
 	</ui:define>

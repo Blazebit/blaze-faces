@@ -12,42 +12,42 @@
             <p>Charts are interactive components, information about selected series and items can be passed via ajax to a JSF backing bean using ItemSelectEvent.</p>
 
             <h:form prependId="false">
-                <p:growl id="growl" showDetail="true" />
+                <b:growl id="growl" showDetail="true" />
 
-                <p:pieChart id="pieChart" value="#{chartBean.pieModel}" legendPosition="w"
+                <b:pieChart id="pieChart" value="#{chartBean.pieModel}" legendPosition="w"
                         title="Interactive Pie Chart" style="width:400px;height:300px">
-                    <p:ajax event="itemSelect" listener="#{chartBean.itemSelect}" update="growl" />
-                </p:pieChart>
+                    <b:ajax event="itemSelect" listener="#{chartBean.itemSelect}" update="growl" />
+                </b:pieChart>
 
-                <p:barChart id="barChart" value="#{chartBean.categoryModel}" legendPosition="ne"
+                <b:barChart id="barChart" value="#{chartBean.categoryModel}" legendPosition="ne"
                         title="Interactive Bar Chart" style="height:300px">
-                    <p:ajax event="itemSelect" listener="#{chartBean.itemSelect}" update="growl" />
-                </p:barChart>
+                    <b:ajax event="itemSelect" listener="#{chartBean.itemSelect}" update="growl" />
+                </b:barChart>
                 
             </h:form>
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="interactiveCharts.xhtml">
+            <b:tabView>
+                <b:tab title="interactiveCharts.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form prependId="false"&gt;
-    &lt;p:growl id="growl" showDetail="true" /&gt;
+    &lt;b:growl id="growl" showDetail="true" /&gt;
 
-    &lt;p:pieChart id="pieChart" value="\#{chartBean.pieModel}" legendPosition="w"
+    &lt;b:pieChart id="pieChart" value="\#{chartBean.pieModel}" legendPosition="w"
             title="Interactive Pie Chart" style="width:400px;height:300px"&gt;
-        &lt;p:ajax event="itemSelect" listener="\#{chartBean.itemSelect}" update="growl" /&gt;
-    &lt;/p:pieChart&gt;
+        &lt;b:ajax event="itemSelect" listener="\#{chartBean.itemSelect}" update="growl" /&gt;
+    &lt;/b:pieChart&gt;
 
-    &lt;p:barChart id="barChart" value="\#{chartBean.categoryModel}" legendPosition="ne"
+    &lt;b:barChart id="barChart" value="\#{chartBean.categoryModel}" legendPosition="ne"
             title="Interactive Bar Chart" style="height:300px"&gt;
-        &lt;p:ajax event="itemSelect" listener="\#{chartBean.itemSelect}" update="growl" /&gt;
-    &lt;/p:barChart&gt;
+        &lt;b:ajax event="itemSelect" listener="\#{chartBean.itemSelect}" update="growl" /&gt;
+    &lt;/b:barChart&gt;
 
 &lt;/h:form&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="ChartBean.java">
+                <b:tab title="ChartBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -120,8 +120,8 @@ public class ChartBean implements Serializable {
     }
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
         </div>
 
     </ui:define>

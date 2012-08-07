@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE component SYSTEM "../misc/component.dtd" [
-<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
-<!ENTITY widget_var_attribute					SYSTEM "../entities/widget_var_attribute.xml">
-]>
-<component>
+<component  xmlns="http://blazebit.com/jsf/component" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://blazebit.com/jsf/component ../misc/component.xsd">
 	<tag>resizable</tag>
 	<componentClass>com.blazebit.blazefaces.component.resizable.Resizable</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Resizable</componentType>
@@ -24,8 +20,8 @@
 		</interface>
 	</interfaces>
 	<attributes>
-		&standard_uicomponent_attributes;
-		&widget_var_attribute;
+		<xi:include href="./../entities/standard_uicomponent_attributes.xml" parse="text"/>
+		<xi:include href="./../entities/widget_var_attribute.xml" parse="text"/>
         <attribute>
             <name>for</name>
             <required>false</required>
@@ -90,8 +86,8 @@
 		<attribute>
 			<name>maxHeight</name>
 			<required>false</required>
-			<defaultValue>Integer.MAX_VALUE</defaultValue>
 			<type>java.lang.Integer</type>
+			<defaultValue>Integer.MAX_VALUE</defaultValue>
             <description>Maximum height boundary in pixels. Default is max integer value.</description>
 		</attribute>
 		<attribute>
@@ -104,22 +100,22 @@
 		<attribute>
 			<name>minHeight</name>
 			<required>false</required>
-			<defaultValue>Integer.MIN_VALUE</defaultValue>
 			<type>java.lang.Integer</type>
+			<defaultValue>Integer.MIN_VALUE</defaultValue>
             <description>Maximum height boundary in pixels. Default is min integer value.</description>
 		</attribute>
         <attribute>
 			<name>containment</name>
 			<required>false</required>
-			<defaultValue>false</defaultValue>
 			<type>java.lang.Boolean</type>
+			<defaultValue>false</defaultValue>
             <description>Sets resizable boundaries as the parents size. Default is false.</description>
 		</attribute>
         <attribute>
 			<name>grid</name>
 			<required>false</required>
-			<defaultValue>1</defaultValue>
 			<type>java.lang.Integer</type>
+			<defaultValue>1</defaultValue>
             <description>Snaps resizing to grid structure. Default is 1.</description>
 		</attribute>
         <attribute>

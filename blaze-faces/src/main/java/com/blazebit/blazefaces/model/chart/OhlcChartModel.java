@@ -43,11 +43,6 @@ public class OhlcChartModel extends ChartModel implements Serializable {
         this.data.add(ohlc);
     }
     
-    @Deprecated
-    public void addRecord(OhlcChartSeries ohlc){
-        this.data.add(ohlc);
-    }
-    
     public void clear() {
         this.data.clear();
     }

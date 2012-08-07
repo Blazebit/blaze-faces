@@ -12,47 +12,47 @@
 			
 			<h:form id="form">
 			
-				<p:growl id="messages" showDetail="true" />
+				<b:growl id="messages" showDetail="true" />
 
-				<p:tree id="treeSingle" value="#{treeBean.root}" var="node"
+				<b:tree id="treeSingle" value="#{treeBean.root}" var="node"
 						selectionMode="single"
 						selection="#{treeBean.selectedNode}">
 
-					<p:treeNode>
+					<b:treeNode>
 						<h:outputText value="#{node}" />
-					</p:treeNode>
-				</p:tree>
+					</b:treeNode>
+				</b:tree>
 				
-				<p:commandButton value="Display Selected" update="messages" style="margin:20px 0 20px 0;"
+				<b:commandButton value="Display Selected" update="messages" style="margin:20px 0 20px 0;"
 								actionListener="#{treeBean.displaySelectedSingle}" id="btnDisplay"/>
 				
 			</h:form>
 				
 		<h3>Source</h3>			
-			<p:tabView>
-				<p:tab title="treeSelectionMultiple.xhtml">
+			<b:tabView>
+				<b:tab title="treeSelectionMultiple.xhtml">
 					<pre name="code" class="xml">
 &lt;h:form id="form"&gt;
 
-    &lt;p:growl id="messages" showDetail="true" /&gt;
+    &lt;b:growl id="messages" showDetail="true" /&gt;
 
-    &lt;p:tree id="treeSingle" value="\#{treeBean.root}" var="node"
+    &lt;b:tree id="treeSingle" value="\#{treeBean.root}" var="node"
             selectionMode="single"
             selection="\#{treeBean.selectedNode}"&gt;
 
-        &lt;p:treeNode&gt;
+        &lt;b:treeNode&gt;
             &lt;h:outputText value="\#{node}" /&gt;
-        &lt;/p:treeNode&gt;
-    &lt;/p:tree&gt;
+        &lt;/b:treeNode&gt;
+    &lt;/b:tree&gt;
 
-    &lt;p:commandButton value="Display Selected" update="messages"
+    &lt;b:commandButton value="Display Selected" update="messages"
                     actionListener="\#{treeBean.displaySelectedSingle}" id="btnDisplay"/&gt;
 
 &lt;/h:form&gt;
 					</pre>
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="TreeBean.java">
+				<b:tab title="TreeBean.java">
 					<pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -110,8 +110,8 @@ public class TreeBean implements Serializable {
 	}
 }
 					</pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
             </div>
 	</ui:define>
 </ui:composition>

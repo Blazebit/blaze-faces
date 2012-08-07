@@ -12,30 +12,30 @@
             <p>DynamicImage is used to present images that are created programatically at runtime or images stored in database.</p>
 
             <h3>JFreeChart on-the-fly</h3>
-            <p:graphicImage id="chart" value="#{dynamicImageController.chart}" />
+            <b:graphicImage id="chart" value="#{dynamicImageController.chart}" />
 
             <h3>Barcode on-the-fly</h3>
-            <p:graphicImage id="barcode" value="#{dynamicImageController.barcode}" />
+            <b:graphicImage id="barcode" value="#{dynamicImageController.barcode}" />
             
             <h3>GraphicText on-the-fly</h3>
-            <p:graphicImage id="text" value="#{dynamicImageController.graphicText}" />
+            <b:graphicImage id="text" value="#{dynamicImageController.graphicText}" />
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="dynamicImage.xhtml">
+            <b:tabView>
+                <b:tab title="dynamicImage.xhtml">
                     <pre name="code" class="xml">
 &lt;h3&gt;JFreeChart on-the-fly&lt;/h3&gt;
-&lt;p:graphicImage value="\#{dynamicImageController.chart}" /&gt;
+&lt;b:graphicImage value="\#{dynamicImageController.chart}" /&gt;
 
 &lt;h3&gt;Barcode on-the-fly&lt;/h3&gt;
-&lt;p:graphicImage value="\#{dynamicImageController.barcode}" /&gt;
+&lt;b:graphicImage value="\#{dynamicImageController.barcode}" /&gt;
     
 &lt;h3&gt;GraphicText on-the-fly&lt;/h3&gt;
-&lt;p:graphicImage value="\#{dynamicImageController.graphicText}" /&gt;
+&lt;b:graphicImage value="\#{dynamicImageController.graphicText}" /&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="DynamicImageController.java">
+                <b:tab title="DynamicImageController.java">
 <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -116,8 +116,8 @@ public class DynamicImageController {
 
             </pre>
 
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 
         </div>
 

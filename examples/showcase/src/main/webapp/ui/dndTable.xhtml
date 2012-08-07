@@ -23,76 +23,76 @@
 
 			<h:form id="carForm">
 
-                <p:fieldset id="availableCarsField" legend="Available Cars">
-                    <p:dataTable id="availableCars" var="car" value="#{tableBean.carsSmall}">
-                        <p:column style="width:20px">
+                <b:fieldset id="availableCarsField" legend="Available Cars">
+                    <b:dataTable id="availableCars" var="car" value="#{tableBean.carsSmall}">
+                        <b:column style="width:20px">
                             <h:outputText id="dragIcon" styleClass="ui-icon ui-icon-arrow-4" />
-                            <p:draggable for="dragIcon" revert="true" />
-                        </p:column>
+                            <b:draggable for="dragIcon" revert="true" />
+                        </b:column>
 
-                        <p:column headerText="Model">
+                        <b:column headerText="Model">
                             <h:outputText value="#{car.model}" />
-                        </p:column>
+                        </b:column>
 
-                        <p:column headerText="Year">
+                        <b:column headerText="Year">
                             <h:outputText value="#{car.year}" />
-                        </p:column>
+                        </b:column>
 
-                        <p:column headerText="Manufacturer">
+                        <b:column headerText="Manufacturer">
                             <h:outputText value="#{car.manufacturer}" />
-                        </p:column>
+                        </b:column>
 
-                        <p:column headerText="Color">
+                        <b:column headerText="Color">
                             <h:outputText value="#{car.color}" />
-                        </p:column>
-                    </p:dataTable>
-                </p:fieldset>
+                        </b:column>
+                    </b:dataTable>
+                </b:fieldset>
 
-                <p:fieldset id="selectedCars" legend="Selected Cars" style="margin-top:20px">
+                <b:fieldset id="selectedCars" legend="Selected Cars" style="margin-top:20px">
 
-                    <p:outputPanel id="dropArea">
+                    <b:outputPanel id="dropArea">
 
                         <h:outputText value="!!!Drop here!!!" rendered="#{empty tableBean.droppedCars}" style="font-size:24px;" />
 
-                        <p:dataTable id="selectedCarsTable" var="car" value="#{tableBean.droppedCars}" rendered="#{not empty tableBean.droppedCars}">
-                            <p:column headerText="Model">
+                        <b:dataTable id="selectedCarsTable" var="car" value="#{tableBean.droppedCars}" rendered="#{not empty tableBean.droppedCars}">
+                            <b:column headerText="Model">
                                 <h:outputText value="#{car.model}" />
-                            </p:column>
+                            </b:column>
 
-                            <p:column headerText="Year">
+                            <b:column headerText="Year">
                                 <h:outputText value="#{car.year}" />
-                            </p:column>
+                            </b:column>
 
-                            <p:column headerText="Manufacturer">
+                            <b:column headerText="Manufacturer">
                                 <h:outputText value="#{car.manufacturer}" />
-                            </p:column>
+                            </b:column>
 
-                            <p:column headerText="Color">
+                            <b:column headerText="Color">
                                 <h:outputText value="#{car.color}" />
-                            </p:column>
+                            </b:column>
 
-                            <p:column style="width:32px">
-                                <p:commandButton update=":carForm:display" oncomplete="carDialog.show()" icon="ui-icon-search">
+                            <b:column style="width:32px">
+                                <b:commandButton update=":carForm:display" oncomplete="carDialog.show()" icon="ui-icon-search">
                                     <f:setPropertyActionListener value="#{car}" target="#{tableBean.selectedCar}" />
-                                </p:commandButton>
-                            </p:column>
-                        </p:dataTable>
+                                </b:commandButton>
+                            </b:column>
+                        </b:dataTable>
 
-                    </p:outputPanel>
+                    </b:outputPanel>
 
-                </p:fieldset>
+                </b:fieldset>
 
-                <p:droppable for="selectedCars" tolerance="touch" activeStyleClass="ui-state-highlight" datasource="availableCars" onDrop="handleDrop">
-                    <p:ajax listener="#{tableBean.onCarDrop}" update="dropArea availableCars" />
-                </p:droppable>
+                <b:droppable for="selectedCars" tolerance="touch" activeStyleClass="ui-state-highlight" datasource="availableCars" onDrop="handleDrop">
+                    <b:ajax listener="#{tableBean.onCarDrop}" update="dropArea availableCars" />
+                </b:droppable>
 
-                <p:dialog header="Car Detail" widgetVar="carDialog" resizable="false" draggable="false"
+                <b:dialog header="Car Detail" widgetVar="carDialog" resizable="false" draggable="false"
                           width="200" showEffect="fade" hideEffect="fade" modal="true">
 
                     <h:panelGrid id="display" columns="2" cellpadding="4">
 
                         <f:facet name="header">
-                            <p:graphicImage value="/images/cars/#{tableBean.selectedCar.manufacturer}.jpg"/>
+                            <b:graphicImage value="/images/cars/#{tableBean.selectedCar.manufacturer}.jpg"/>
                         </f:facet>
 
                         <h:outputText value="Model:" />
@@ -107,90 +107,90 @@
                         <h:outputText value="Color:" />
                         <h:outputText value="#{tableBean.selectedCar.color}" style="font-weight:bold"/>
                     </h:panelGrid>
-                </p:dialog>
+                </b:dialog>
 
 			</h:form>
 
 		<h3>Source</h3>
-<p:tabView>
-	<p:tab title="datagrid.xhtml">
+<b:tabView>
+	<b:tab title="datagrid.xhtml">
 		<pre name="code" class="xml">
 &lt;h:form id="carForm"&gt;
 
-    &lt;p:fieldset legend="Available Cars"&gt;
-        &lt;p:dataTable id="availableCars" var="car" value="\#{tableBean.carsSmall}"&gt;
-            &lt;p:column style="width:20px"&gt;
+    &lt;b:fieldset legend="Available Cars"&gt;
+        &lt;b:dataTable id="availableCars" var="car" value="\#{tableBean.carsSmall}"&gt;
+            &lt;b:column style="width:20px"&gt;
                 &lt;h:outputText id="dragIcon"
                     styleClass="ui-icon ui-icon-arrow-4" /&gt;
-                &lt;p:draggable for="dragIcon" revert="true" /&gt;
-            &lt;/p:column&gt;
+                &lt;b:draggable for="dragIcon" revert="true" /&gt;
+            &lt;/b:column&gt;
 
-            &lt;p:column headerText="Model"&gt;
+            &lt;b:column headerText="Model"&gt;
                 &lt;h:outputText value="\#{car.model}" /&gt;
-            &lt;/p:column&gt;
+            &lt;/b:column&gt;
 
-            &lt;p:column headerText="Year"&gt;
+            &lt;b:column headerText="Year"&gt;
                 &lt;h:outputText value="\#{car.year}" /&gt;
-            &lt;/p:column&gt;
+            &lt;/b:column&gt;
 
-            &lt;p:column headerText="Manufacturer"&gt;
+            &lt;b:column headerText="Manufacturer"&gt;
                 &lt;h:outputText value="\#{car.manufacturer}" /&gt;
-            &lt;/p:column&gt;
+            &lt;/b:column&gt;
 
-            &lt;p:column headerText="Color"&gt;
+            &lt;b:column headerText="Color"&gt;
                 &lt;h:outputText value="\#{car.color}" /&gt;
-            &lt;/p:column&gt;
-        &lt;/p:dataTable&gt;
-    &lt;/p:fieldset&gt;
+            &lt;/b:column&gt;
+        &lt;/b:dataTable&gt;
+    &lt;/b:fieldset&gt;
 
-    &lt;p:fieldset id="selectedCars" legend="Selected Cars" style="margin-top:20px"&gt;
-        &lt;p:outputPanel id="dropArea"&gt;
+    &lt;b:fieldset id="selectedCars" legend="Selected Cars" style="margin-top:20px"&gt;
+        &lt;b:outputPanel id="dropArea"&gt;
             &lt;h:outputText value="!!!Drop here!!!"
                     rendered="\#{empty tableBean.droppedCars}"
                     style="font-size:24px;" /&gt;
 
-            &lt;p:dataTable var="car" value="\#{tableBean.droppedCars}" 
+            &lt;b:dataTable var="car" value="\#{tableBean.droppedCars}" 
                     rendered="\#{not empty tableBean.droppedCars}"&gt;
 
-                &lt;p:column headerText="Model"&gt;
+                &lt;b:column headerText="Model"&gt;
                     &lt;h:outputText value="\#{car.model}" /&gt;
-                &lt;/p:column&gt;
+                &lt;/b:column&gt;
 
-                &lt;p:column headerText="Year"&gt;
+                &lt;b:column headerText="Year"&gt;
                     &lt;h:outputText value="\#{car.year}" /&gt;
-                &lt;/p:column&gt;
+                &lt;/b:column&gt;
 
-                &lt;p:column headerText="Manufacturer"&gt;
+                &lt;b:column headerText="Manufacturer"&gt;
                     &lt;h:outputText value="\#{car.manufacturer}" /&gt;
-                &lt;/p:column&gt;
+                &lt;/b:column&gt;
 
-                &lt;p:column headerText="Color"&gt;
+                &lt;b:column headerText="Color"&gt;
                     &lt;h:outputText value="\#{car.color}" /&gt;
-                &lt;/p:column&gt;
+                &lt;/b:column&gt;
 
-                &lt;p:column style="width:32px"&gt;
-                    &lt;p:commandButton update=":carForm:display"
+                &lt;b:column style="width:32px"&gt;
+                    &lt;b:commandButton update=":carForm:display"
                             oncomplete="carDialog.show()"
                             icon="ui-icon-search"&gt;
                         &lt;f:setPropertyActionListener value="\#{car}"
                             target="\#{tableBean.selectedCar}" /&gt;
-                    &lt;/p:commandButton&gt;
-                &lt;/p:column&gt;
-            &lt;/p:dataTable&gt;
-        &lt;/p:outputPanel&gt;
-    &lt;/p:fieldset&gt;
+                    &lt;/b:commandButton&gt;
+                &lt;/b:column&gt;
+            &lt;/b:dataTable&gt;
+        &lt;/b:outputPanel&gt;
+    &lt;/b:fieldset&gt;
 
-    &lt;p:droppable for="selectedCars" tolerance="touch" activeStyleClass="ui-state-highlight" datasource="availableCars" onDrop="handleDrop"&gt;
-        &lt;p:ajax listener="\#{tableBean.onCarDrop}" update="dropArea availableCars" /&gt;
-    &lt;/p:droppable&gt;
+    &lt;b:droppable for="selectedCars" tolerance="touch" activeStyleClass="ui-state-highlight" datasource="availableCars" onDrop="handleDrop"&gt;
+        &lt;b:ajax listener="\#{tableBean.onCarDrop}" update="dropArea availableCars" /&gt;
+    &lt;/b:droppable&gt;
 
-    &lt;p:dialog header="Car Detail" widgetVar="carDialog" resizable="false" draggable="false"
+    &lt;b:dialog header="Car Detail" widgetVar="carDialog" resizable="false" draggable="false"
               width="200" showEffect="fade" hideEffect="fade" modal="true"&gt;
 
         &lt;h:panelGrid id="display" columns="2" cellpadding="4"&gt;
 
             &lt;f:facet name="header"&gt;
-                &lt;p:graphicImage value="/images/cars/\#{tableBean.selectedCar.manufacturer}.jpg"/&gt;
+                &lt;b:graphicImage value="/images/cars/\#{tableBean.selectedCar.manufacturer}.jpg"/&gt;
             &lt;/f:facet&gt;
 
             &lt;h:outputText value="Model:" /&gt;
@@ -205,13 +205,13 @@
             &lt;h:outputText value="Color:" /&gt;
             &lt;h:outputText value="\#{tableBean.selectedCar.color}"/&gt;
         &lt;/h:panelGrid&gt;
-    &lt;/p:dialog&gt;
+    &lt;/b:dialog&gt;
 
 &lt;/h:form&gt;
 		</pre>
-	</p:tab>
+	</b:tab>
 
-	<p:tab title="TableBean.java">
+	<b:tab title="TableBean.java">
 		<pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -302,8 +302,8 @@ public class TableBean implements Serializable {
     }
 }
 		</pre>
-	</p:tab>
-</p:tabView>
+	</b:tab>
+</b:tabView>
 
 		</div>
 

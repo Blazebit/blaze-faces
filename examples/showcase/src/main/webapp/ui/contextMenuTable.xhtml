@@ -13,44 +13,44 @@
 			
 			<h:form>
 			
-				<p:growl id="msg" />
+				<b:growl id="msg" />
 				
-				<p:dataTable id="cars" var="car" value="#{tableBean.carsSmall}">
-					<p:column>
+				<b:dataTable id="cars" var="car" value="#{tableBean.carsSmall}">
+					<b:column>
 						<f:facet name="header">
 							Model
 						</f:facet>
 						<h:outputText value="#{car.model}" />
-					</p:column>
+					</b:column>
 		
-					<p:column>
+					<b:column>
 						<f:facet name="header">
 							Year
 						</f:facet>
 						<h:outputText value="#{car.year}" />
-					</p:column>
+					</b:column>
 		
-					<p:column>
+					<b:column>
 						<f:facet name="header">
 							Manufacturer
 						</f:facet>
 						<h:outputText value="#{car.manufacturer}" />
-					</p:column>
+					</b:column>
 		
-					<p:column>
+					<b:column>
 						<f:facet name="header">
 							Color
 						</f:facet>
 						<h:outputText value="#{car.color}" />
-					</p:column>
-				</p:dataTable>
+					</b:column>
+				</b:dataTable>
 				
-				<p:contextMenu for="cars">
-					<p:menuitem value="Delete" actionListener="#{buttonBean.save}" update="msg"/>
-					<p:menuitem value="Update" actionListener="#{buttonBean.update}" update="msg"/>
-					<p:menuitem value="Delete" actionListener="#{buttonBean.delete}" ajax="false"/>
-					<p:menuitem value="Go Home" url="http://www.blazebit.com/faces" target="_blank"/>
-				</p:contextMenu>
+				<b:contextMenu for="cars">
+					<b:menuitem value="Delete" actionListener="#{buttonBean.save}" update="msg"/>
+					<b:menuitem value="Update" actionListener="#{buttonBean.update}" update="msg"/>
+					<b:menuitem value="Delete" actionListener="#{buttonBean.delete}" ajax="false"/>
+					<b:menuitem value="Go Home" url="http://www.blazebit.com/faces" target="_blank"/>
+				</b:contextMenu>
 				
 			</h:form>
 						

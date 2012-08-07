@@ -11,26 +11,26 @@
         <div class="entry">
             <p>BubbleChart is created with a BubbleChartModel.</p>
 
-            <p:bubbleChart id="sample" value="#{chartBean.bubbleModel}" xaxisLabel="Price" yaxisLabel="Sales"
+            <b:bubbleChart id="sample" value="#{chartBean.bubbleModel}" xaxisLabel="Price" yaxisLabel="Sales"
                         title="Sample Bubble Chart" style="width:400px;height:300px" />
             <br/>
             <br/>
-            <p:bubbleChart id="custom" value="#{chartBean.bubbleModel}" shadow="false" bubbleGradients="true" bubbleAlpha="0.8"
+            <b:bubbleChart id="custom" value="#{chartBean.bubbleModel}" shadow="false" bubbleGradients="true" bubbleAlpha="0.8"
                         title="Custom Bubble Chart" style="width:400px;height:300px" xaxisAngle="-50" yaxisAngle="50" />
             
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="bubbleChart.xhtml">
+            <b:tabView>
+                <b:tab title="bubbleChart.xhtml">
                     <pre name="code" class="xml">
-&lt;p:bubbleChart id="sample" value="\#{chartBean.bubbleModel}" xaxisLabel="Price" yaxisLabel="Labels"
+&lt;b:bubbleChart id="sample" value="\#{chartBean.bubbleModel}" xaxisLabel="Price" yaxisLabel="Labels"
                 title="Sample Bubble Chart" style="width:400px;height:300px" /&gt;
 
-&lt;p:bubbleChart id="custom" value="#{chartBean.bubbleModel}" shadow="false" bubbleGradients="true" bubbleAlpha="0.8"
+&lt;b:bubbleChart id="custom" value="#{chartBean.bubbleModel}" shadow="false" bubbleGradients="true" bubbleAlpha="0.8"
                 title="Custom Bubble Chart" style="width:400px;height:300px" xaxisAngle="-50" yaxisAngle="50"/&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="ChartBean.java">
+                <b:tab title="ChartBean.java">
             <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -60,8 +60,8 @@ public class ChartBean implements Serializable {
     }
 }
             </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
         </div>
     </ui:define>
 </ui:composition>

@@ -726,7 +726,7 @@ BlazeFaces.ajax.Queue = {
     }
 };
 
-
+BlazeJS = {};
 BlazeJS.EventHandler = {
     add : function(selector, event, fn){
         $(selector).bind(event, fn);
@@ -734,8 +734,6 @@ BlazeJS.EventHandler = {
     
     create : function(type, actions){
         return function(event){
-            var retVal = null;
-            var tempVal = null;
             // @todo: Handle type == 'parallel'
             for(var i = 0; i < actions.length; i++){
                 actions[i](event);

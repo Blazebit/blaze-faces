@@ -14,31 +14,31 @@
 
 			<h:form id="form">
 
-				<p:tree value="#{treeBean.root}" var="node" dynamic="true" cache="true" id="tree">
-					<p:treeNode>
+				<b:tree value="#{treeBean.root}" var="node" dynamic="true" cache="true" id="tree">
+					<b:treeNode>
 						<h:outputText value="#{node}"/>
-					</p:treeNode>
-				</p:tree>
+					</b:treeNode>
+				</b:tree>
 
 			</h:form>
 			
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="tree.xhtml">
+			<b:tabView>
+				<b:tab title="tree.xhtml">
 					<pre name="code" class="xml">
 &lt;h:form id="form"&gt;
 
-    &lt;p:tree value="#{treeBean.root}" var="node" dynamic="true" cache="true" id="tree"&gt;
-        &lt;p:treeNode&gt;
+    &lt;b:tree value="#{treeBean.root}" var="node" dynamic="true" cache="true" id="tree"&gt;
+        &lt;b:treeNode&gt;
             &lt;h:outputText value="#{node}"/&gt;
-        &lt;/p:treeNode&gt;
-    &lt;/p:tree&gt;
+        &lt;/b:treeNode&gt;
+    &lt;/b:tree&gt;
 
 &lt;/h:form&gt;
 					</pre> 
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="TreeBean.java">
+				<b:tab title="TreeBean.java">
 					<pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -73,8 +73,8 @@ public class TreeBean {
 	}
 }
 					</pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 		</div>
 
 	</ui:define>

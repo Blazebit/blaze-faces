@@ -25,29 +25,29 @@ function exportChart() {
 		<div class="entry">
             <p>Charts are canvas based and can be exported as static images with client side api.</p>
 
-            <p:lineChart value="#{chartBean.linearModel}" legendPosition="e" zoom="true"
+            <b:lineChart value="#{chartBean.linearModel}" legendPosition="e" zoom="true"
                          title="Linear Chart" minY="0" maxY="10" style="width:500px;height:300px" widgetVar="chart"/>
 
             <br />
             
-            <p:commandButton type="button" value="Export" icon="ui-icon-extlink" onclick="exportChart()"/>
+            <b:commandButton type="button" value="Export" icon="ui-icon-extlink" onclick="exportChart()"/>
             
-            <p:dialog widgetVar="dlg" showEffect="fade" modal="true" header="Chart as an Image">
-                <p:outputPanel id="output" layout="block" style="width:500px;height:300px"/>
-            </p:dialog>
+            <b:dialog widgetVar="dlg" showEffect="fade" modal="true" header="Chart as an Image">
+                <b:outputPanel id="output" layout="block" style="width:500px;height:300px"/>
+            </b:dialog>
             
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="lineChart.xhtml">
+            <b:tabView>
+                <b:tab title="lineChart.xhtml">
                     <pre name="code" class="xml">
-&lt;p:lineChart value="\#{chartBean.linearModel}" legendPosition="e" zoom="true"
+&lt;b:lineChart value="\#{chartBean.linearModel}" legendPosition="e" zoom="true"
                          title="Linear Chart" minY="0" maxY="10" style="width:500px;height:300px" widgetVar="chart"/&gt;
             
-&lt;p:commandButton type="button" value="Export" icon="ui-icon-extlink" onclick="exportChart()"/&gt;
+&lt;b:commandButton type="button" value="Export" icon="ui-icon-extlink" onclick="exportChart()"/&gt;
 
-&lt;p:dialog widgetVar="dlg" showEffect="fade" modal="true" header="Chart as an Image"&gt;
-    &lt;p:outputPanel id="output" layout="block" style="width:500px;height:300px"/&gt;
-&lt;/p:dialog&gt;
+&lt;b:dialog widgetVar="dlg" showEffect="fade" modal="true" header="Chart as an Image"&gt;
+    &lt;b:outputPanel id="output" layout="block" style="width:500px;height:300px"/&gt;
+&lt;/b:dialog&gt;
 
 function exportChart() {
     //export image
@@ -57,9 +57,9 @@ function exportChart() {
     dlg.show();
 }
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="ChartBean.java">
+                <b:tab title="ChartBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -108,8 +108,8 @@ public class ChartBean implements Serializable {
     }
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 
         </div>
 

@@ -54,19 +54,19 @@
             
             <div id="globalthemeswitcher">
                 <h:form>
-                    <p:themeSwitcher value="#{themeSwitcherBean.theme}" style="width:175px;" effect="fade" var="t">
+                    <b:themeSwitcher value="#{themeSwitcherBean.theme}" style="width:175px;" effect="fade" var="t">
                         <f:selectItem itemLabel="Choose Theme" itemValue="" />
                         <f:selectItems value="#{themeSwitcherBean.advancedThemes}" var="theme" itemLabel="#{theme.name}" itemValue="#{theme}"/>
-                        <p:ajax listener="#{themeSwitcherBean.saveTheme}" />
+                        <b:ajax listener="#{themeSwitcherBean.saveTheme}" />
                         
-                        <p:column>
+                        <b:column>
                             <h:graphicImage name="images/themes/#{t.image}" />
-                        </p:column>
+                        </b:column>
                         
-                        <p:column>
+                        <b:column>
                             #{t.name}
-                        </p:column>
-                    </p:themeSwitcher>
+                        </b:column>
+                    </b:themeSwitcher>
                 </h:form>
             </div>
 		</div>
@@ -455,15 +455,15 @@
 		</div>
 
         <ui:insert name="status">
-            <p:ajaxStatus style="width:64px;height:64px;position:fixed;right:5px;bottom:5px">
+            <b:ajaxStatus style="width:64px;height:64px;position:fixed;right:5px;bottom:5px">
                 <f:facet name="start">
-                    <p:graphicImage value="/images/loading.gif" />
+                    <b:graphicImage value="/images/loading.gif" />
                 </f:facet>
 
                 <f:facet name="complete">
                     <h:outputText value="" />
                 </f:facet>
-            </p:ajaxStatus>
+            </b:ajaxStatus>
         </ui:insert>
 
 	</h:body>

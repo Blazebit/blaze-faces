@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE component SYSTEM "../misc/component.dtd" [
-<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
-<!ENTITY data_component_attributes				SYSTEM "../entities/data_component_attributes.xml">
-]>
-<component>
+<component  xmlns="http://blazebit.com/jsf/component"
+			xmlns:xi="http://www.w3.org/2001/XInclude"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://blazebit.com/jsf/component ../misc/component.xsd">
 	<tag>subTable</tag>
 	<componentClass>com.blazebit.blazefaces.component.subtable.SubTable</componentClass>
 	<componentType>com.blazebit.blazefaces.component.SubTable</componentType>
@@ -13,6 +12,6 @@
 	<parent>javax.faces.component.UIData</parent>
     <description>SubTable is a helper component of datatable used for grouping.</description>
 	<attributes>
-        &data_component_attributes;
+		<xi:include href="./../entities/data_component_attributes.xml" parse="text"/>
 	</attributes>
 </component>

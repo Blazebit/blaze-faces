@@ -1,4 +1,5 @@
-    
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config>
     <name>blazefaces-mobile</name>
     
     <ordering>
@@ -10,3 +11,4 @@
     <application>
         <navigation-handler>com.blazebit.blazefaces.mobile.navigation.MobileNavigationHandler</navigation-handler>
     </application>
+</faces-config>

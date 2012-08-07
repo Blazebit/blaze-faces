@@ -12,13 +12,13 @@
             <p>Log component is a visual console to display logs of BlazeFaces. Using log client side API,
             you can also use the component.</p>
 
-            <p:log id="log" />
+            <b:log id="log" />
             
             <h3>Client Side API</h3>
-            <p:commandButton type="button" id="info" value="Info" onclick="BlazeFaces.info('This is an info message.')" />
-            <p:commandButton type="button" id="warn" value="Warn" onclick="BlazeFaces.warn('This is a warn message.')" />
-            <p:commandButton type="button" id="debug" value="Debug" onclick="BlazeFaces.debug('This is a debug message.')" />
-            <p:commandButton type="button" id="error" value="Error" onclick="BlazeFaces.error('This is an error message.')" />
+            <b:commandButton type="button" id="info" value="Info" onclick="BlazeFaces.info('This is an info message.')" />
+            <b:commandButton type="button" id="warn" value="Warn" onclick="BlazeFaces.warn('This is a warn message.')" />
+            <b:commandButton type="button" id="debug" value="Debug" onclick="BlazeFaces.debug('This is a debug message.')" />
+            <b:commandButton type="button" id="error" value="Error" onclick="BlazeFaces.error('This is an error message.')" />
             
             <h3>Ajax Request</h3>
             <h:form id="frm">
@@ -26,9 +26,9 @@
 				<h:panelGrid columns="4" cellpadding="5">
 					<h:outputLabel for="name" value="Name:" style="font-weight:bold"/>
 					
-					<p:inputText id="name" value="#{pprBean.firstname}" />
+					<b:inputText id="name" value="#{pprBean.firstname}" />
 					
-					<p:commandButton value="Submit" id="submit" update="display"/>
+					<b:commandButton value="Submit" id="submit" update="display"/>
                     
                     <h:outputText value="#{pprBean.firstname}" id="display" />
 				</h:panelGrid>
@@ -36,16 +36,16 @@
 			</h:form>
 				
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="log.xhtml">
+            <b:tabView>
+                <b:tab title="log.xhtml">
                     <pre name="code" class="xml">
-&lt;p:log /&gt;
+&lt;b:log /&gt;
             
 &lt;h3&gt;Client Side API&lt;/h3&gt;
-&lt;p:commandButton type="button" value="Info" onclick="BlazeFaces.info('This is an info message.')" /&gt;
-&lt;p:commandButton type="button" value="Warn" onclick="BlazeFaces.warn('This is a warn message.')" /&gt;
-&lt;p:commandButton type="button" value="Debug" onclick="BlazeFaces.debug('This is a debug message.')" /&gt;
-&lt;p:commandButton type="button" value="Error" onclick="BlazeFaces.error('This is an error message.')" /&gt;
+&lt;b:commandButton type="button" value="Info" onclick="BlazeFaces.info('This is an info message.')" /&gt;
+&lt;b:commandButton type="button" value="Warn" onclick="BlazeFaces.warn('This is a warn message.')" /&gt;
+&lt;b:commandButton type="button" value="Debug" onclick="BlazeFaces.debug('This is a debug message.')" /&gt;
+&lt;b:commandButton type="button" value="Error" onclick="BlazeFaces.error('This is an error message.')" /&gt;
 
 &lt;h3&gt;Ajax Request&lt;/h3&gt;
 &lt;h:form id="frm"&gt;
@@ -53,18 +53,18 @@
     &lt;h:panelGrid columns="4" cellpadding="5"&gt;
         &lt;h:outputLabel for="name" value="Name:" style="font-weight:bold"/&gt;
 
-        &lt;p:inputText id="name" value="\#{pprBean.firstname}" /&gt;
+        &lt;b:inputText id="name" value="\#{pprBean.firstname}" /&gt;
 
-        &lt;p:commandButton value="Submit" update="display"/&gt;
+        &lt;b:commandButton value="Submit" update="display"/&gt;
 
         &lt;h:outputText value="\#{pprBean.firstname}" id="display" /&gt;
     &lt;/h:panelGrid&gt;
 
 &lt;/h:form&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-            </p:tabView>
+            </b:tabView>
 				
 		</div>
 				

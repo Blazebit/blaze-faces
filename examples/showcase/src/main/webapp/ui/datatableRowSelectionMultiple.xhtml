@@ -20,103 +20,103 @@
 
             <h:form id="form">
 
-                <p:dataTable id="cars" var="car" value="#{tableBean.carsSmall}" rowKey="#{car.model}"
+                <b:dataTable id="cars" var="car" value="#{tableBean.carsSmall}" rowKey="#{car.model}"
                              selection="#{tableBean.selectedCars}" selectionMode="multiple">
 
                     <f:facet name="header">
                         Click "View" button after selecting multiple to see details
                     </f:facet>
 
-                    <p:column headerText="Model">
+                    <b:column headerText="Model">
                         #{car.model}
-                    </p:column>
+                    </b:column>
 
-                    <p:column headerText="Year">
+                    <b:column headerText="Year">
                         #{car.year}
-                    </p:column>
+                    </b:column>
 
-                    <p:column headerText="Manufacturer" >
+                    <b:column headerText="Manufacturer" >
                         #{car.manufacturer}
-                    </p:column>
+                    </b:column>
 
-                    <p:column headerText="Color">
+                    <b:column headerText="Color">
                         #{car.color}
-                    </p:column>
+                    </b:column>
 
                     <f:facet name="footer">
-                        <p:commandButton value="View" icon="ui-icon-search" update=":form:display" oncomplete="carDialog.show()"/>
+                        <b:commandButton value="View" icon="ui-icon-search" update=":form:display" oncomplete="carDialog.show()"/>
                     </f:facet>
-                </p:dataTable>
+                </b:dataTable>
 
-                <p:dialog header="Car Detail" widgetVar="carDialog"
+                <b:dialog header="Car Detail" widgetVar="carDialog"
                           width="250" showEffect="explode" hideEffect="explode">
 
-                    <p:dataList id="display" value="#{tableBean.selectedCars}" var="selectedCar" type="definition">
+                    <b:dataList id="display" value="#{tableBean.selectedCars}" var="selectedCar" type="definition">
                         Model: #{selectedCar.model}, Year: #{selectedCar.year}
                         <f:facet name="description">
-                            <p:graphicImage value="/images/cars/#{selectedCar.manufacturer}.jpg"/>
+                            <b:graphicImage value="/images/cars/#{selectedCar.manufacturer}.jpg"/>
                         </f:facet>
-                    </p:dataList>
+                    </b:dataList>
                     
-                </p:dialog>
+                </b:dialog>
 
             </h:form>
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="datatableRowSelectionMultiple.xhtml">
+            <b:tabView>
+                <b:tab title="datatableRowSelectionMultiple.xhtml">
 <pre name="code" class="xml">
 &lt;h:form id="form"&gt;
 
-    &lt;p:dataTable id="cars" var="car" value="\#{tableBean.smallCarsModel}" rowKey="\#{car.model}"
+    &lt;b:dataTable id="cars" var="car" value="\#{tableBean.smallCarsModel}" rowKey="\#{car.model}"
                  selection="\#{tableBean.selectedCars}" selectionMode="multiple"&gt;
 
         &lt;f:facet name="header"&gt;
             Click "View" button after selecting multiple to see details
         &lt;/f:facet&gt;
 
-        &lt;p:column headerText="Model"&gt;
+        &lt;b:column headerText="Model"&gt;
             \#{car.model}
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Year"&gt;
+        &lt;b:column headerText="Year"&gt;
             \#{car.year}
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Manufacturer" &gt;
+        &lt;b:column headerText="Manufacturer" &gt;
             \#{car.manufacturer}
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Color"&gt;
+        &lt;b:column headerText="Color"&gt;
             \#{car.color}
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
         &lt;f:facet name="footer"&gt;
-            &lt;p:commandButton value="View" icon="ui-icon-search"
+            &lt;b:commandButton value="View" icon="ui-icon-search"
                         update=":form:display" oncomplete="carDialog.show()"/&gt;
         &lt;/f:facet&gt;
-    &lt;/p:dataTable&gt;
+    &lt;/b:dataTable&gt;
 
-    &lt;p:dialog header="Car Detail" widgetVar="carDialog"
+    &lt;b:dialog header="Car Detail" widgetVar="carDialog"
               width="250" showEffect="explode" hideEffect="explode"&gt;
 
-        &lt;p:dataList id="display"
+        &lt;b:dataList id="display"
             value="\#{tableBean.selectedCars}"
             var="selectedCar" type="definition"&gt;
 
             Model: \#{selectedCar.model}, Year: \#{selectedCar.year}
             &lt;f:facet name="description"&gt;
-                &lt;p:graphicImage value="/images/cars/\#{selectedCar.manufacturer}.jpg"/&gt;
+                &lt;b:graphicImage value="/images/cars/\#{selectedCar.manufacturer}.jpg"/&gt;
             &lt;/f:facet&gt;
-        &lt;/p:dataList&gt;
+        &lt;/b:dataList&gt;
 
-    &lt;/p:dialog&gt;
+    &lt;/b:dialog&gt;
 
 &lt;/h:form&gt;
             </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="TableBean.java">
+                <b:tab title="TableBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -187,9 +187,9 @@ public class TableBean {
     }
 }
                     </pre>
-                </p:tab>
+                </b:tab>
 
-            </p:tabView>
+            </b:tabView>
 
         </div>
 

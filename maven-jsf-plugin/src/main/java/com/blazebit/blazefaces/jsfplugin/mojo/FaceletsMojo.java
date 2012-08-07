@@ -175,8 +175,10 @@ public class FaceletsMojo extends BaseFacesMojo {
             String line = null;
 
             while ((line = reader.readLine()) != null) {
-                writer.write(line);
-                writer.write("\n");
+            	if(!line.contains("<?xml") && !line.contains("<facelet-taglib") && !line.contains("</facelet-taglib")){
+	                writer.write(line);
+	                writer.write("\n");
+            	}
             }
         } catch (FileNotFoundException fileNotFoundException) {
             return;

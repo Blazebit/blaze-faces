@@ -16,82 +16,82 @@
                 <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 
                     <h:outputText value="Horizontal: " />
-                    <p:selectManyCheckbox id="horizontal" value="#{formBean.selectedOptions}">
+                    <b:selectManyCheckbox id="horizontal" value="#{formBean.selectedOptions}">
                         <f:selectItem itemLabel="Option 1" itemValue="Option 1" />
                         <f:selectItem itemLabel="Option 2" itemValue="Option 2" />
                         <f:selectItem itemLabel="Option 3" itemValue="Option 3" />
-                    </p:selectManyCheckbox>
+                    </b:selectManyCheckbox>
 
                     <h:outputText value="Vertical: " />
-                    <p:selectManyCheckbox id="vertical" value="#{formBean.selectedMovies}" layout="pageDirection">
+                    <b:selectManyCheckbox id="vertical" value="#{formBean.selectedMovies}" layout="pageDirection">
                         <f:selectItems value="#{formBean.movies}" />
-                    </p:selectManyCheckbox>
+                    </b:selectManyCheckbox>
 
                 </h:panelGrid>
 
-                <p:separator />
+                <b:separator />
 
-                <p:commandButton id="submit" value="Submit" update="display" oncomplete="dlg.show()" />
+                <b:commandButton id="submit" value="Submit" update="display" oncomplete="dlg.show()" />
 
-                <p:dialog id="dialog" header="Selected Values" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg">
-                    <p:outputPanel id="display">
-                        <p:dataList id="selectedOptions" value="#{formBean.selectedOptions}" var="option">
+                <b:dialog id="dialog" header="Selected Values" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg">
+                    <b:outputPanel id="display">
+                        <b:dataList id="selectedOptions" value="#{formBean.selectedOptions}" var="option">
                             #{option}
-                        </p:dataList>
+                        </b:dataList>
 
-                        <p:dataList id="selectedMovies" value="#{formBean.selectedMovies}" var="movie">
+                        <b:dataList id="selectedMovies" value="#{formBean.selectedMovies}" var="movie">
                             #{movie}
-                        </p:dataList>
-                    </p:outputPanel>
-                </p:dialog>
+                        </b:dataList>
+                    </b:outputPanel>
+                </b:dialog>
 
 			</h:form>
 
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="selectManyCheckbox.xhtml">
+			<b:tabView>
+				<b:tab title="selectManyCheckbox.xhtml">
 					<pre name="code" class="xml">
 &lt;h:form&gt;
 
     &lt;h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5"&gt;
 
         &lt;h:outputText value="Horizontal: " /&gt;
-        &lt;p:selectManyCheckbox value="\#{formBean.selectedOptions}"&gt;
+        &lt;b:selectManyCheckbox value="\#{formBean.selectedOptions}"&gt;
             &lt;f:selectItem itemLabel="Option 1" itemValue="Option 1" /&gt;
             &lt;f:selectItem itemLabel="Option 2" itemValue="Option 2" /&gt;
             &lt;f:selectItem itemLabel="Option 3" itemValue="Option 3" /&gt;
-        &lt;/p:selectManyCheckbox&gt;
+        &lt;/b:selectManyCheckbox&gt;
 
         &lt;h:outputText value="Vertical: " /&gt;
-        &lt;p:selectManyCheckbox value="\#{formBean.selectedMovies}"
+        &lt;b:selectManyCheckbox value="\#{formBean.selectedMovies}"
             layout="pageDirection"&gt;
             &lt;f:selectItems value="\#{formBean.movies}" /&gt;
-        &lt;/p:selectManyCheckbox&gt;
+        &lt;/b:selectManyCheckbox&gt;
 
     &lt;/h:panelGrid&gt;
 
-    &lt;p:separator /&gt;
+    &lt;b:separator /&gt;
 
-    &lt;p:commandButton value="Submit" update="display" oncomplete="dlg.show()" /&gt;
+    &lt;b:commandButton value="Submit" update="display" oncomplete="dlg.show()" /&gt;
 
-    &lt;p:dialog header="Selected Values" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg"&gt;
-        &lt;p:outputPanel id="display"&gt;
-            &lt;p:dataList value="\#{formBean.selectedOptions}" var="option"&gt;
+    &lt;b:dialog header="Selected Values" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg"&gt;
+        &lt;b:outputPanel id="display"&gt;
+            &lt;b:dataList value="\#{formBean.selectedOptions}" var="option"&gt;
                 \#{option}
-            &lt;/p:dataList&gt;
+            &lt;/b:dataList&gt;
 
-            &lt;p:dataList value="\#{formBean.selectedMovies}" var="movie"&gt;
+            &lt;b:dataList value="\#{formBean.selectedMovies}" var="movie"&gt;
                 \#{movie}
-            &lt;/p:dataList&gt;
-        &lt;/p:outputPanel&gt;
-    &lt;/p:dialog&gt;
+            &lt;/b:dataList&gt;
+        &lt;/b:outputPanel&gt;
+    &lt;/b:dialog&gt;
 
 &lt;/h:form&gt;
 					</pre>
 
-                    </p:tab>
+                    </b:tab>
 
-                    <p:tab title="FormBean.java">
+                    <b:tab title="FormBean.java">
                         <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -135,8 +135,8 @@ public class FormBean implements Serializable {
     }
 }
                         </pre>
-                    </p:tab>
-			</p:tabView>
+                    </b:tab>
+			</b:tabView>
 
 		</div>
 

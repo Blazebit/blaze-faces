@@ -21,76 +21,76 @@
             "columnReorder" event is available as an ajax event for optional use.</p>
 
             <h:form>
-                <p:dataTable var="car" value="#{tableBean.carsSmall}" draggableColumns="true">
-                    <p:column id="modelHeader">
+                <b:dataTable var="car" value="#{tableBean.carsSmall}" draggableColumns="true">
+                    <b:column id="modelHeader">
                         <f:facet name="header">
 								Model
                         </f:facet>
                         <h:outputText value="#{car.model}" />
-                    </p:column>
+                    </b:column>
 
-                    <p:column>
+                    <b:column>
                         <f:facet name="header">
 								Year
                         </f:facet>
                         <h:outputText value="#{car.year}" />
-                    </p:column>
+                    </b:column>
 
-                    <p:column>
+                    <b:column>
                         <f:facet name="header">
 								Manufacturer
                         </f:facet>
                         <h:outputText value="#{car.manufacturer}" />
-                    </p:column>
+                    </b:column>
 
-                    <p:column>
+                    <b:column>
                         <f:facet name="header">
 								Color
                         </f:facet>
                         <h:outputText value="#{car.color}" />
-                    </p:column>
-                </p:dataTable>
+                    </b:column>
+                </b:dataTable>
             </h:form>
 
 		<h3>Source</h3>
-		<p:tabView>
-			<p:tab title="datatableReordering.xhtml">
+		<b:tabView>
+			<b:tab title="datatableReordering.xhtml">
 <pre name="code" class="xml">
 &lt;h:form&gt;
-    &lt;p:dataTable var="car" value="\#{tableBean.carsSmall}" draggableColumns="true"&gt;
-        &lt;p:column id="modelHeader"&gt;
+    &lt;b:dataTable var="car" value="\#{tableBean.carsSmall}" draggableColumns="true"&gt;
+        &lt;b:column id="modelHeader"&gt;
             &lt;f:facet name="header"&gt;
                     Model
             &lt;/f:facet&gt;
             &lt;h:outputText value="\#{car.model}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column&gt;
+        &lt;b:column&gt;
             &lt;f:facet name="header"&gt;
                     Year
             &lt;/f:facet&gt;
             &lt;h:outputText value="\#{car.year}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column&gt;
+        &lt;b:column&gt;
             &lt;f:facet name="header"&gt;
                     Manufacturer
             &lt;/f:facet&gt;
             &lt;h:outputText value="\#{car.manufacturer}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column&gt;
+        &lt;b:column&gt;
             &lt;f:facet name="header"&gt;
                     Color
             &lt;/f:facet&gt;
             &lt;h:outputText value="\#{car.color}" /&gt;
-        &lt;/p:column&gt;
-    &lt;/p:dataTable&gt;
+        &lt;/b:column&gt;
+    &lt;/b:dataTable&gt;
 &lt;/h:form&gt;
 				</pre>
-			</p:tab>
+			</b:tab>
 			
-			<p:tab title="TableBean.java">
+			<b:tab title="TableBean.java">
 			<pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -167,8 +167,8 @@ public class TableBean implements Serializable {
 	}
 }
 				</pre>
-			</p:tab>
-		</p:tabView>
+			</b:tab>
+		</b:tabView>
 	       </div>
 				
 	</ui:define>

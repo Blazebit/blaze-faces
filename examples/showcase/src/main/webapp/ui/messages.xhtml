@@ -13,69 +13,69 @@
 					
 			<h3>Messages</h3>	
 			<h:form id="form1">
-                <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+                <b:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
 				
-				<p:commandButton id="infoButton" value="Info" actionListener="#{messagesController.addInfo}"/>
-				<p:commandButton id="warnButton" value="Warn" actionListener="#{messagesController.addWarn}"/>
-				<p:commandButton id="errorButton" value="Error" actionListener="#{messagesController.addError}"/>
-				<p:commandButton id="fatalButton" value="Fatal" actionListener="#{messagesController.addFatal}"/>
+				<b:commandButton id="infoButton" value="Info" actionListener="#{messagesController.addInfo}"/>
+				<b:commandButton id="warnButton" value="Warn" actionListener="#{messagesController.addWarn}"/>
+				<b:commandButton id="errorButton" value="Error" actionListener="#{messagesController.addError}"/>
+				<b:commandButton id="fatalButton" value="Fatal" actionListener="#{messagesController.addFatal}"/>
 			</h:form>
 			
 			<h3>Message</h3>
 			<h:form id="form2">
 				<h:panelGrid id="grid" columns="3">
 					<h:outputText value="Default: *" />
-					<p:inputText id="default" required="true" />
-					<p:message id="defaultMessage" for="default" />
+					<b:inputText id="default" required="true" />
+					<b:message id="defaultMessage" for="default" />
 
                     <h:outputText value="Text Only: *" />
-					<p:inputText id="textOnly" required="true" />
-                    <p:message id="textOnlyMessage" for="textOnly" display="text" />
+					<b:inputText id="textOnly" required="true" />
+                    <b:message id="textOnlyMessage" for="textOnly" display="text" />
 
                     <h:outputText value="Icon Only: *" />
-					<p:inputText id="iconOnly" required="true" />
-					<p:message id="iconOnlyMessage" for="iconOnly" display="icon" />
+					<b:inputText id="iconOnly" required="true" />
+					<b:message id="iconOnlyMessage" for="iconOnly" display="icon" />
 				</h:panelGrid>
 				
-				<p:commandButton id="submitButton" value="Submit" update="grid"/>
+				<b:commandButton id="submitButton" value="Submit" update="grid"/>
 			</h:form>
 
 			<h3>Source</h3>
-            <p:tabView>
-                <p:tab title="messages.xhtml">
+            <b:tabView>
+                <b:tab title="messages.xhtml">
 <pre name="code" class="xml">
 &lt;h3&gt;Messages&lt;/h3&gt;
 &lt;h:form id="form1"&gt;
-    &lt;p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" /&gt;
+    &lt;b:messages id="messages" showDetail="true" autoUpdate="true" closable="true" /&gt;
 
-    &lt;p:commandButton id="infoButton" value="Info" actionListener="\#{messagesController.addInfo}"/&gt;
-    &lt;p:commandButton id="warnButton" value="Warn" actionListener="\#{messagesController.addWarn}"/&gt;
-    &lt;p:commandButton id="errorButton" value="Error" actionListener="\#{messagesController.addError}"/&gt;
-    &lt;p:commandButton id="fatalButton" value="Fatal" actionListener="\#{messagesController.addFatal}"/&gt;
+    &lt;b:commandButton id="infoButton" value="Info" actionListener="\#{messagesController.addInfo}"/&gt;
+    &lt;b:commandButton id="warnButton" value="Warn" actionListener="\#{messagesController.addWarn}"/&gt;
+    &lt;b:commandButton id="errorButton" value="Error" actionListener="\#{messagesController.addError}"/&gt;
+    &lt;b:commandButton id="fatalButton" value="Fatal" actionListener="\#{messagesController.addFatal}"/&gt;
 &lt;/h:form&gt;
 
 &lt;h3&gt;Message&lt;/h3&gt;
 &lt;h:form id="form2"&gt;
     &lt;h:panelGrid id="grid" columns="3"&gt;
         &lt;h:outputText value="Default: *" /&gt;
-        &lt;p:inputText id="default" required="true" /&gt;
-        &lt;p:message id="defaultMessage" for="default" /&gt;
+        &lt;b:inputText id="default" required="true" /&gt;
+        &lt;b:message id="defaultMessage" for="default" /&gt;
 
         &lt;h:outputText value="Text Only: *" /&gt;
-        &lt;p:inputText id="textOnly" required="true" /&gt;
-        &lt;p:message id="textOnlyMessage" for="textOnly" display="text" /&gt;
+        &lt;b:inputText id="textOnly" required="true" /&gt;
+        &lt;b:message id="textOnlyMessage" for="textOnly" display="text" /&gt;
 
         &lt;h:outputText value="Icon Only: *" /&gt;
-        &lt;p:inputText id="iconOnly" required="true" /&gt;
-        &lt;p:message id="iconMessage" for="iconOnly" display="icon" /&gt;
+        &lt;b:inputText id="iconOnly" required="true" /&gt;
+        &lt;b:message id="iconMessage" for="iconOnly" display="icon" /&gt;
     &lt;/h:panelGrid&gt;
 
-    &lt;p:commandButton id="submitButton" value="Submit" update="grid"/&gt;
+    &lt;b:commandButton id="submitButton" value="Submit" update="grid"/&gt;
 &lt;/h:form&gt;
 			</pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="MessagesController.java">
+                <b:tab title="MessagesController.java">
 <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -102,8 +102,8 @@ public class MessagesController {
 	}
 }
 			</pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 
 			
 		</div>

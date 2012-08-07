@@ -13,29 +13,29 @@
 
             <h:form id="form">
 
-                <p:poll interval="3" update="votes" />
+                <b:poll interval="3" update="votes" />
                 
-                <p:pieChart id="votes" value="#{chartBean.livePieModel}" title="Live Chart"
+                <b:pieChart id="votes" value="#{chartBean.livePieModel}" title="Live Chart"
                             legendPosition="nw" style="width:400px;height:300px"/>
 
             </h:form>
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="liveChart.xhtml">
+            <b:tabView>
+                <b:tab title="liveChart.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form id="form"&gt;
 
-    &lt;p:poll interval="3" update="votes" /&gt;
+    &lt;b:poll interval="3" update="votes" /&gt;
 
-    &lt;p:pieChart id="votes" value="\#{chartBean.livePieModel}" title="Live Chart"
+    &lt;b:pieChart id="votes" value="\#{chartBean.livePieModel}" title="Live Chart"
                 legendPosition="nw" style="width:400px;height:300px"/&gt;
 
 &lt;/h:form&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="ChartBean.java">
+                <b:tab title="ChartBean.java">
             <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -69,9 +69,9 @@ public class ChartBean implements Serializable {
     }
 }
             </pre>
-                </p:tab>
+                </b:tab>
 
-            </p:tabView>
+            </b:tabView>
             
 
 

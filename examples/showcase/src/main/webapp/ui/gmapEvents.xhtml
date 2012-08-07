@@ -17,37 +17,37 @@
 			
 			<h:form prependId="false">
 				
-				<p:growl id="messages" showDetail="true" life="2000" />
+				<b:growl id="messages" showDetail="true" life="2000" />
 			
-				<p:gmap id="gmap" center="41.381542, 2.122893" zoom="15" type="ROADMAP" style="width:600px;height:400px">
+				<b:gmap id="gmap" center="41.381542, 2.122893" zoom="15" type="ROADMAP" style="width:600px;height:400px">
 
-                    <p:ajax event="stateChange" listener="#{mapBean.onStateChange}" update="messages" />
-                    <p:ajax event="pointSelect" listener="#{mapBean.onPointSelect}" update="messages" />
+                    <b:ajax event="stateChange" listener="#{mapBean.onStateChange}" update="messages" />
+                    <b:ajax event="pointSelect" listener="#{mapBean.onPointSelect}" update="messages" />
 
-                </p:gmap>
+                </b:gmap>
 				
 			</h:form>
 			
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="gmapEvents.xhtml">
+			<b:tabView>
+				<b:tab title="gmapEvents.xhtml">
 					<pre name="code" class="xml">
 &lt;h:form&gt;
 
-    &lt;p:growl id="messages" showDetail="true" life="2000" /&gt;
+    &lt;b:growl id="messages" showDetail="true" life="2000" /&gt;
 
-    &lt;p:gmap center="41.381542, 2.122893" zoom="15" type="ROADMAP" style="width:600px;height:400px"&gt;
+    &lt;b:gmap center="41.381542, 2.122893" zoom="15" type="ROADMAP" style="width:600px;height:400px"&gt;
 
-        &lt;p:ajax event="stateChange" listener="\#{mapBean.onStateChange}" update="messages" /&gt;
-        &lt;p:ajax event="pointSelect" listener="\#{mapBean.onPointSelect}" update="messages" /&gt;
+        &lt;b:ajax event="stateChange" listener="\#{mapBean.onStateChange}" update="messages" /&gt;
+        &lt;b:ajax event="pointSelect" listener="\#{mapBean.onPointSelect}" update="messages" /&gt;
 
-    &lt;/p:gmap&gt;
+    &lt;/b:gmap&gt;
 
 &lt;/h:form&gt;
 					</pre>
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="MapBean.java">
+				<b:tab title="MapBean.java">
 					<pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -85,8 +85,8 @@ public class MapBean implements Serializable {
 	}
 }
 					</pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 												
 		</div>
 	</ui:define>

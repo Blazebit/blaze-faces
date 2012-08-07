@@ -11,106 +11,106 @@
 			<p>SubTable is a helper component of datatable used for grouping.</p>
 
             <h:form id="form">
-                <p:dataTable id="playersTable" var="player" value="#{tableBean.players}">
+                <b:dataTable id="playersTable" var="player" value="#{tableBean.players}">
 
                     <f:facet name="header">
                         FCB Statistics
                     </f:facet>
 
-                    <p:columnGroup type="header">
-                        <p:row>
-                            <p:column rowspan="2" headerText="Player" sortBy="#{player.name}"/>
-                            <p:column colspan="2" headerText="Stats" />
-                        </p:row>
+                    <b:columnGroup type="header">
+                        <b:row>
+                            <b:column rowspan="2" headerText="Player" sortBy="#{player.name}"/>
+                            <b:column colspan="2" headerText="Stats" />
+                        </b:row>
                         
-                        <p:row>
-                            <p:column headerText="Goals" />
-                            <p:column headerText="Assists" />
-                        </p:row>
-                    </p:columnGroup>
+                        <b:row>
+                            <b:column headerText="Goals" />
+                            <b:column headerText="Assists" />
+                        </b:row>
+                    </b:columnGroup>
 
-                    <p:subTable var="stats" value="#{player.stats}">
+                    <b:subTable var="stats" value="#{player.stats}">
                         <f:facet name="header">
                           #{player.name} 
                         </f:facet>
                         
-                        <p:column>
+                        <b:column>
                             #{stats.season}
-                        </p:column>
+                        </b:column>
                         
-                        <p:column>
+                        <b:column>
                             #{stats.goals}
-                        </p:column>
+                        </b:column>
                         
-                        <p:column>
+                        <b:column>
                             #{stats.assists}
-                        </p:column>
+                        </b:column>
                         
-                        <p:columnGroup type="footer">
-                            <p:row>
-                                <p:column footerText="Totals: " style="text-align:right"/>
-                                <p:column footerText="#{player.allGoals}" />
-                                <p:column footerText="#{player.allAssists}" />
-                            </p:row>
-                        </p:columnGroup>
-                    </p:subTable>
-                </p:dataTable>
+                        <b:columnGroup type="footer">
+                            <b:row>
+                                <b:column footerText="Totals: " style="text-align:right"/>
+                                <b:column footerText="#{player.allGoals}" />
+                                <b:column footerText="#{player.allAssists}" />
+                            </b:row>
+                        </b:columnGroup>
+                    </b:subTable>
+                </b:dataTable>
             </h:form>
 
 		<h3>Source</h3>
-		<p:tabView>
-			<p:tab title="datatableSubTable.xhtml">
+		<b:tabView>
+			<b:tab title="datatableSubTable.xhtml">
                 <pre name="code" class="xml">
 &lt;h:form id="form"&gt;
-    &lt;p:dataTable id="playersTable" var="player" value="\#{tableBean.players}"&gt;
+    &lt;b:dataTable id="playersTable" var="player" value="\#{tableBean.players}"&gt;
 
         &lt;f:facet name="header"&gt;
             FCB Statistics
         &lt;/f:facet&gt;
 
-        &lt;p:columnGroup type="header"&gt;
-            &lt;p:row&gt;
-                &lt;p:column rowspan="2" headerText="Player" sortBy="\#{player.name}"/&gt;
-                &lt;p:column colspan="2" headerText="Stats" /&gt;
-            &lt;/p:row&gt;
+        &lt;b:columnGroup type="header"&gt;
+            &lt;b:row&gt;
+                &lt;b:column rowspan="2" headerText="Player" sortBy="\#{player.name}"/&gt;
+                &lt;b:column colspan="2" headerText="Stats" /&gt;
+            &lt;/b:row&gt;
 
-            &lt;p:row&gt;
-                &lt;p:column headerText="Goals" /&gt;
-                &lt;p:column headerText="Assists" /&gt;
-            &lt;/p:row&gt;
-        &lt;/p:columnGroup&gt;
+            &lt;b:row&gt;
+                &lt;b:column headerText="Goals" /&gt;
+                &lt;b:column headerText="Assists" /&gt;
+            &lt;/b:row&gt;
+        &lt;/b:columnGroup&gt;
 
-        &lt;p:subTable var="stats" value="\#{player.stats}"&gt;
+        &lt;b:subTable var="stats" value="\#{player.stats}"&gt;
             &lt;f:facet name="header"&gt;
               \#{player.name} 
             &lt;/f:facet&gt;
 
-            &lt;p:column&gt;
+            &lt;b:column&gt;
                 \#{stats.season}
-            &lt;/p:column&gt;
+            &lt;/b:column&gt;
 
-            &lt;p:column&gt;
+            &lt;b:column&gt;
                 \#{stats.goals}
-            &lt;/p:column&gt;
+            &lt;/b:column&gt;
 
-            &lt;p:column&gt;
+            &lt;b:column&gt;
                 \#{stats.assists}
-            &lt;/p:column&gt;
+            &lt;/b:column&gt;
 
-            &lt;p:columnGroup type="footer"&gt;
-                &lt;p:row&gt;
-                    &lt;p:column footerText="Totals: " style="text-align:right"/&gt;
-                    &lt;p:column footerText="\#{player.allGoals}" /&gt;
-                    &lt;p:column footerText="\#{player.allAssists}" /&gt;
-                &lt;/p:row&gt;
-            &lt;/p:columnGroup&gt;
-        &lt;/p:subTable&gt;
-    &lt;/p:dataTable&gt;
+            &lt;b:columnGroup type="footer"&gt;
+                &lt;b:row&gt;
+                    &lt;b:column footerText="Totals: " style="text-align:right"/&gt;
+                    &lt;b:column footerText="\#{player.allGoals}" /&gt;
+                    &lt;b:column footerText="\#{player.allAssists}" /&gt;
+                &lt;/b:row&gt;
+            &lt;/b:columnGroup&gt;
+        &lt;/b:subTable&gt;
+    &lt;/b:dataTable&gt;
 &lt;/h:form&gt;
 				</pre>
-			</p:tab>
+			</b:tab>
 
-			<p:tab title="TableBean.java">
+			<b:tab title="TableBean.java">
                 <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -165,8 +165,8 @@ public class TableBean implements Serializable {
     }
 }
 				</pre>
-			</p:tab>
-		</p:tabView>
+			</b:tab>
+		</b:tabView>
 	       </div>
 
 	</ui:define>

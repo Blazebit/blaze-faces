@@ -13,43 +13,43 @@
 
 			<h:form id="form">
                 
-                <p:editor id="editor" widgetVar="editor" value="#{editorBean.value}" width="600"/>
+                <b:editor id="editor" widgetVar="editor" value="#{editorBean.value}" width="600"/>
 
                 <h:panelGrid columns="2" style="margin-top:10px">
-                    <p:commandButton id="submitButton" value="Submit" update="display" oncomplete="dlg.show()" icon="ui-icon-disk" />
-                    <p:commandButton id="clearButton" type="button" value="Clear" onclick="editor.clear()" icon="ui-icon-close" />
+                    <b:commandButton id="submitButton" value="Submit" update="display" oncomplete="dlg.show()" icon="ui-icon-disk" />
+                    <b:commandButton id="clearButton" type="button" value="Clear" onclick="editor.clear()" icon="ui-icon-close" />
                 </h:panelGrid>
 
-                <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade" modal="true">
+                <b:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade" modal="true">
                     <h:outputText id="display" value="#{editorBean.value}" escape="false" />
-                </p:dialog>
+                </b:dialog>
 
             </h:form>
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="editor.xhtml">
+            <b:tabView>
+                <b:tab title="editor.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form id="form"&gt;
 
-    &lt;p:editor id="editor" value="\#{editorBean.value}" width="600"/&gt;
+    &lt;b:editor id="editor" value="\#{editorBean.value}" width="600"/&gt;
 
     &lt;h:panelGrid columns="2" style="margin-top:10px"&gt;
-        &lt;p:commandButton id="submitButton" value="Submit" update="display" oncomplete="dlg.show()"
+        &lt;b:commandButton id="submitButton" value="Submit" update="display" oncomplete="dlg.show()"
                         icon="ui-icon-disk" /&gt;
-        &lt;p:commandButton id="clearButton" type="button" value="Clear" onclick="editor.clear()"
+        &lt;b:commandButton id="clearButton" type="button" value="Clear" onclick="editor.clear()"
                         icon="ui-icon-close" /&gt;
     &lt;/h:panelGrid&gt;
 
-    &lt;p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade" modal="true"&gt;
+    &lt;b:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade" modal="true"&gt;
         &lt;h:outputText id="display" value="\#{editorBean.value}" escape="false" /&gt;
-    &lt;/p:dialog&gt;
+    &lt;/b:dialog&gt;
 
 &lt;/h:form&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="EditorBean.java">
+                <b:tab title="EditorBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -66,8 +66,8 @@ public class EditorBean {
     }
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 					
 		</div>
 	</ui:define>

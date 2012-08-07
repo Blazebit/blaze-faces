@@ -12,42 +12,42 @@
 
             <h:form id="form">
 
-                <p:growl id="growl" showDetail="true"/>
+                <b:growl id="growl" showDetail="true"/>
 
-                <p:dataTable id="cars" var="car" value="#{tableBean.mediumCarsModel}" paginator="true" rows="10"
+                <b:dataTable id="cars" var="car" value="#{tableBean.mediumCarsModel}" paginator="true" rows="10"
                              selection="#{tableBean.selectedCar}" selectionMode="single">
                     
-                    <p:ajax event="rowSelect" listener="#{tableBean.onRowSelect}" update=":form:display :form:growl" oncomplete="carDialog.show()" />
-                    <p:ajax event="rowUnselect" listener="#{tableBean.onRowUnselect}" update=":form:growl"/>
+                    <b:ajax event="rowSelect" listener="#{tableBean.onRowSelect}" update=":form:display :form:growl" oncomplete="carDialog.show()" />
+                    <b:ajax event="rowUnselect" listener="#{tableBean.onRowUnselect}" update=":form:growl"/>
                     
                     <f:facet name="header">
                         Select a row to display a message
                     </f:facet>
 
-                    <p:column headerText="Model">
+                    <b:column headerText="Model">
                         #{car.model}
-                    </p:column>
+                    </b:column>
 
-                    <p:column headerText="Year">
+                    <b:column headerText="Year">
                         #{car.year}
-                    </p:column>
+                    </b:column>
 
-                    <p:column headerText="Manufacturer" >
+                    <b:column headerText="Manufacturer" >
                         #{car.manufacturer}
-                    </p:column>
+                    </b:column>
 
-                    <p:column headerText="Color">
+                    <b:column headerText="Color">
                         #{car.color}
-                    </p:column>
-                </p:dataTable>
+                    </b:column>
+                </b:dataTable>
 
-                <p:dialog id="dialog" header="Car Detail" widgetVar="carDialog" resizable="false"
+                <b:dialog id="dialog" header="Car Detail" widgetVar="carDialog" resizable="false"
                           showEffect="explode" hideEffect="explode">
 
                     <h:panelGrid id="display" columns="2" cellpadding="4">
 
                         <f:facet name="header">
-                            <p:graphicImage value="/images/cars/#{tableBean.selectedCar.manufacturer}.jpg"/>
+                            <b:graphicImage value="/images/cars/#{tableBean.selectedCar.manufacturer}.jpg"/>
                         </f:facet>
 
                         <h:outputText value="Model:" />
@@ -62,53 +62,53 @@
                         <h:outputText value="Color:" />
                         <h:outputText value="#{tableBean.selectedCar.color}" style="font-weight:bold"/>
                     </h:panelGrid>
-                </p:dialog>
+                </b:dialog>
 
             </h:form>
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="datatableRowSelectionInstant.xhtml">
+            <b:tabView>
+                <b:tab title="datatableRowSelectionInstant.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form id="form"&gt;
 
-    &lt;p:growl id="growl" showDetail="true"/&gt;
+    &lt;b:growl id="growl" showDetail="true"/&gt;
 
-    &lt;p:dataTable id="cars" var="car" value="\#{tableBean.mediumCarsModel}" paginator="true" rows="10"
+    &lt;b:dataTable id="cars" var="car" value="\#{tableBean.mediumCarsModel}" paginator="true" rows="10"
                  selection="\#{tableBean.selectedCar}" selectionMode="single"&gt;
 
-        &lt;p:ajax event="rowSelect" listener="\#{tableBean.onRowSelect}" 
+        &lt;b:ajax event="rowSelect" listener="\#{tableBean.onRowSelect}" 
                     update=":form:display :form:growl" oncomplete="carDialog.show()" /&gt;
-        &lt;p:ajax event="rowUnselect" listener="\#{tableBean.onRowUnselect}" update=":form:growl"/&gt;
+        &lt;b:ajax event="rowUnselect" listener="\#{tableBean.onRowUnselect}" update=":form:growl"/&gt;
 
         &lt;f:facet name="header"&gt;
             Select a row to display a message
         &lt;/f:facet&gt;
 
-        &lt;p:column headerText="Model"&gt;
+        &lt;b:column headerText="Model"&gt;
             \#{car.model}
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Year"&gt;
+        &lt;b:column headerText="Year"&gt;
             \#{car.year}
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Manufacturer" &gt;
+        &lt;b:column headerText="Manufacturer" &gt;
             \#{car.manufacturer}
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Color"&gt;
+        &lt;b:column headerText="Color"&gt;
             \#{car.color}
-        &lt;/p:column&gt;
-    &lt;/p:dataTable&gt;
+        &lt;/b:column&gt;
+    &lt;/b:dataTable&gt;
 
-    &lt;p:dialog id="dialog" header="Car Detail" widgetVar="carDialog" resizable="false"
+    &lt;b:dialog id="dialog" header="Car Detail" widgetVar="carDialog" resizable="false"
                 showEffect="explode" hideEffect="explode"&gt;
 
         &lt;h:panelGrid id="display" columns="2" cellpadding="4"&gt;
 
             &lt;f:facet name="header"&gt;
-                &lt;p:graphicImage value="/images/cars/\#{tableBean.selectedCar.manufacturer}.jpg"/&gt;
+                &lt;b:graphicImage value="/images/cars/\#{tableBean.selectedCar.manufacturer}.jpg"/&gt;
             &lt;/f:facet&gt;
 
             &lt;h:outputText value="Model:" /&gt;
@@ -123,13 +123,13 @@
             &lt;h:outputText value="Color:" /&gt;
             &lt;h:outputText value="\#{tableBean.selectedCar.color}" /&gt;
         &lt;/h:panelGrid&gt;
-    &lt;/p:dialog&gt;
+    &lt;/b:dialog&gt;
 
 &lt;/h:form&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="TableBean.java">
+                <b:tab title="TableBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -220,9 +220,9 @@ public class TableBean {
     }
 }
                     </pre>
-                </p:tab>
+                </b:tab>
                 
-                <p:tab title="CarDataModel.java">
+                <b:tab title="CarDataModel.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -260,8 +260,8 @@ public class CarDataModel extends ListDataModel&lt;Car&gt; implements Selectable
     }
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 
         </div>
 

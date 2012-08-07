@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE component SYSTEM "../misc/component.dtd" [
-<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
-<!ENTITY output_component_attributes			SYSTEM "../entities/output_component_attributes.xml">
-<!ENTITY input_component_attributes				SYSTEM "../entities/input_component_attributes.xml">
-]>
-<component>
+<component  xmlns="http://blazebit.com/jsf/component"
+			xmlns:xi="http://www.w3.org/2001/XInclude"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://blazebit.com/jsf/component ../misc/component.xsd">
 	<tag>tab</tag>
 	<componentClass>com.blazebit.blazefaces.component.tabview.Tab</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Tab</componentType>
@@ -12,7 +10,7 @@
 	<parent>javax.faces.component.UIColumn</parent>
     <description>Tab is a generic container component used by other BlazeFaces components such as tabView or accordionPanel.</description>
 	<attributes>
-		&standard_uicomponent_attributes;
+		<xi:include href="./../entities/standard_uicomponent_attributes.xml" parse="text"/>
 		<attribute>
 			<name>title</name>
 			<required>false</required>

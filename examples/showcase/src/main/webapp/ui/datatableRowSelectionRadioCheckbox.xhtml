@@ -23,77 +23,77 @@
 
             <h:form id="form">
 
-                <p:dataTable id="cars" var="car" value="#{tableBean.mediumCarsModel}" paginator="true" rows="10"
+                <b:dataTable id="cars" var="car" value="#{tableBean.mediumCarsModel}" paginator="true" rows="10"
                              selection="#{tableBean.selectedCar}">
 
                     <f:facet name="header">
                         RadioButton Based Selection
                     </f:facet>
 
-                    <p:column selectionMode="single" style="width:18px"/>
+                    <b:column selectionMode="single" style="width:18px"/>
 
-                    <p:column headerText="Model">
+                    <b:column headerText="Model">
                         #{car.model}
-                    </p:column>
+                    </b:column>
 
-                    <p:column headerText="Year">
+                    <b:column headerText="Year">
                         #{car.year}
-                    </p:column>
+                    </b:column>
 
-                    <p:column headerText="Manufacturer" >
+                    <b:column headerText="Manufacturer" >
                         #{car.manufacturer}
-                    </p:column>
+                    </b:column>
 
-                    <p:column headerText="Color">
+                    <b:column headerText="Color">
                         #{car.color}
-                    </p:column>
+                    </b:column>
 
                     <f:facet name="footer">
-                        <p:commandButton id="viewButton" value="View" icon="ui-icon-search"
+                        <b:commandButton id="viewButton" value="View" icon="ui-icon-search"
                                          update=":form:displaySingle" oncomplete="singleCarDialog.show()"/>
                     </f:facet>
-                </p:dataTable>
+                </b:dataTable>
 
                 <br />
 
-                <p:dataTable id="multiCars" var="car" value="#{tableBean.mediumCarsModel}" paginator="true" rows="10"
+                <b:dataTable id="multiCars" var="car" value="#{tableBean.mediumCarsModel}" paginator="true" rows="10"
                              selection="#{tableBean.selectedCars}">
 
                     <f:facet name="header">
                         Checkbox Based Selection
                     </f:facet>
 
-                    <p:column selectionMode="multiple" style="width:18px"/>
+                    <b:column selectionMode="multiple" style="width:18px"/>
 
-                    <p:column headerText="Model">
+                    <b:column headerText="Model">
                         #{car.model}
-                    </p:column>
+                    </b:column>
 
-                    <p:column headerText="Year">
+                    <b:column headerText="Year">
                         #{car.year}
-                    </p:column>
+                    </b:column>
 
-                    <p:column headerText="Manufacturer" >
+                    <b:column headerText="Manufacturer" >
                         #{car.manufacturer}
-                    </p:column>
+                    </b:column>
 
-                    <p:column headerText="Color">
+                    <b:column headerText="Color">
                         #{car.color}
-                    </p:column>
+                    </b:column>
 
                     <f:facet name="footer">
-                        <p:commandButton id="multiViewButton" value="View" icon="ui-icon-search"
+                        <b:commandButton id="multiViewButton" value="View" icon="ui-icon-search"
                                          update=":form:displayMulti" oncomplete="multiCarDialog.show()"/>
                     </f:facet>
-                </p:dataTable>
+                </b:dataTable>
 
-                <p:dialog id="dialog" header="Car Detail" widgetVar="singleCarDialog" resizable="false"
+                <b:dialog id="dialog" header="Car Detail" widgetVar="singleCarDialog" resizable="false"
                           showEffect="fade" hideEffect="explode">
 
                     <h:panelGrid id="displaySingle" columns="2" cellpadding="4">
 
                         <f:facet name="header">
-                            <p:graphicImage value="/images/cars/#{tableBean.selectedCar.manufacturer}.jpg"/>
+                            <b:graphicImage value="/images/cars/#{tableBean.selectedCar.manufacturer}.jpg"/>
                         </f:facet>
 
                         <h:outputText value="Model:" />
@@ -108,94 +108,94 @@
                         <h:outputText value="Color:" />
                         <h:outputText value="#{tableBean.selectedCar.color}" style="font-weight:bold"/>
                     </h:panelGrid>
-                </p:dialog>
+                </b:dialog>
 
-                <p:dialog id="multiDialog" header="Car Detail" widgetVar="multiCarDialog"
+                <b:dialog id="multiDialog" header="Car Detail" widgetVar="multiCarDialog"
                           height="300" showEffect="fade" hideEffect="explode">
 
-                    <p:dataList id="displayMulti" value="#{tableBean.selectedCars}" var="selectedCar">
+                    <b:dataList id="displayMulti" value="#{tableBean.selectedCars}" var="selectedCar">
                         Model: #{selectedCar.model}, Year: #{selectedCar.year}
-                    </p:dataList>
+                    </b:dataList>
 
-                </p:dialog>
+                </b:dialog>
 
             </h:form>
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="datatableRowSelectionRadioCheckbox.xhtml">
+            <b:tabView>
+                <b:tab title="datatableRowSelectionRadioCheckbox.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form id="form"&gt;
 
-    &lt;p:dataTable id="cars" var="car" value="\#{tableBean.mediumCarsModel}" paginator="true" rows="10"
+    &lt;b:dataTable id="cars" var="car" value="\#{tableBean.mediumCarsModel}" paginator="true" rows="10"
                  selection="\#{tableBean.selectedCar}"&gt;
 
         &lt;f:facet name="header"&gt;
             RadioButton Based Selection
         &lt;/f:facet&gt;
 
-        &lt;p:column selectionMode="single" style="width:18px" /&gt;
+        &lt;b:column selectionMode="single" style="width:18px" /&gt;
 
-        &lt;p:column headerText="Model"&gt;
+        &lt;b:column headerText="Model"&gt;
             \#{car.model}
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Year"&gt;
+        &lt;b:column headerText="Year"&gt;
             \#{car.year}
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Manufacturer" &gt;
+        &lt;b:column headerText="Manufacturer" &gt;
             \#{car.manufacturer}
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Color"&gt;
+        &lt;b:column headerText="Color"&gt;
             \#{car.color}
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
         &lt;f:facet name="footer"&gt;
-            &lt;p:commandButton id="viewCommand" value="View" icon="ui-icon-search"
+            &lt;b:commandButton id="viewCommand" value="View" icon="ui-icon-search"
                              update=":form:displaySingle" oncomplete="singleCarDialog.show()"/&gt;
         &lt;/f:facet&gt;
-    &lt;/p:dataTable&gt;
+    &lt;/b:dataTable&gt;
 
-    &lt;p:dataTable id="multiCars" var="car" value="\#{tableBean.mediumCarsModel}" paginator="true" rows="10"
+    &lt;b:dataTable id="multiCars" var="car" value="\#{tableBean.mediumCarsModel}" paginator="true" rows="10"
                  selection="\#{tableBean.selectedCars}"&gt;
 
         &lt;f:facet name="header"&gt;
             Checkbox Based Selection
         &lt;/f:facet&gt;
 
-        &lt;p:column selectionMode="multiple" style="width:18px" /&gt;
+        &lt;b:column selectionMode="multiple" style="width:18px" /&gt;
 
-        &lt;p:column headerText="Model"&gt;
+        &lt;b:column headerText="Model"&gt;
             \#{car.model}
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Year"&gt;
+        &lt;b:column headerText="Year"&gt;
             \#{car.year}
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Manufacturer" &gt;
+        &lt;b:column headerText="Manufacturer" &gt;
             \#{car.manufacturer}
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Color"&gt;
+        &lt;b:column headerText="Color"&gt;
             \#{car.color}
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
         &lt;f:facet name="footer"&gt;
-            &lt;p:commandButton id="multiViewButton" value="View" icon="ui-icon-search"
+            &lt;b:commandButton id="multiViewButton" value="View" icon="ui-icon-search"
                              update=":form:displayMulti" oncomplete="multiCarDialog.show()"/&gt;
         &lt;/f:facet&gt;
-    &lt;/p:dataTable&gt;
+    &lt;/b:dataTable&gt;
 
-    &lt;p:dialog id="dialog" header="Car Detail" widgetVar="singleCarDialog" resizable="false"
+    &lt;b:dialog id="dialog" header="Car Detail" widgetVar="singleCarDialog" resizable="false"
               showEffect="fade" hideEffect="explode"&gt;
 
         &lt;h:panelGrid id="displaySingle" columns="2" cellpadding="4"&gt;
 
             &lt;f:facet name="header"&gt;
-                &lt;p:graphicImage value="/images/cars/\#{tableBean.selectedCar.manufacturer}.jpg"/&gt;
+                &lt;b:graphicImage value="/images/cars/\#{tableBean.selectedCar.manufacturer}.jpg"/&gt;
             &lt;/f:facet&gt;
 
             &lt;h:outputText value="Model:" /&gt;
@@ -210,22 +210,22 @@
             &lt;h:outputText value="Color:" /&gt;
             &lt;h:outputText value="\#{tableBean.selectedCar.color}" /&gt;
         &lt;/h:panelGrid&gt;
-    &lt;/p:dialog&gt;
+    &lt;/b:dialog&gt;
 
-    &lt;p:dialog id="multiDialog" header="Car Detail" widgetVar="multiCarDialog"
+    &lt;b:dialog id="multiDialog" header="Car Detail" widgetVar="multiCarDialog"
               height="300" showEffect="fade" hideEffect="explode"&gt;
 
-        &lt;p:dataList id="displayMulti"
+        &lt;b:dataList id="displayMulti"
                 value="\#{tableBean.selectedCars}" var="selectedCar"&gt;
             Model: \#{selectedCar.model}, Year: \#{selectedCar.year}
-        &lt;/p:dataList&gt;
+        &lt;/b:dataList&gt;
 
-    &lt;/p:dialog&gt;
+    &lt;/b:dialog&gt;
 
 &lt;/h:form&gt;
                     </pre>
-                </p:tab>
-                <p:tab title="TableBean.java">
+                </b:tab>
+                <b:tab title="TableBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -326,9 +326,9 @@ public class TableBean implements Serializable {
     }
 }
                     </pre>
-                </p:tab>
+                </b:tab>
                 
-                <p:tab title="CarDataModel.java">
+                <b:tab title="CarDataModel.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -366,8 +366,8 @@ public class CarDataModel extends ListDataModel&lt;Car&gt; implements Selectable
     }
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 
         </div>
 

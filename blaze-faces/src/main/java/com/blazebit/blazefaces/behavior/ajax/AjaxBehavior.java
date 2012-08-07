@@ -32,9 +32,9 @@ import javax.faces.event.AjaxBehaviorListener;
  * @author Christian Beikov
  */
 @ResourceDependencies({
-    @ResourceDependency(library = "blazefaces", name = "jquery/jquery.js"),
-    @ResourceDependency(library = "blazefaces", name = "core/core.js"),
-    @ResourceDependency(library = "blazefaces", name = "core/ajax.js")})
+	@ResourceDependency(library="blazefaces", name="jquery/jquery.js"),
+	@ResourceDependency(library="blazefaces", name="blazefaces.js")
+})
 public class AjaxBehavior extends ClientBehaviorBase {
  
     private String update;

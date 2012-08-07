@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE component SYSTEM "../misc/component.dtd" [
-<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
-]>
-<component>
+<component  xmlns="http://blazebit.com/jsf/component"
+			xmlns:xi="http://www.w3.org/2001/XInclude"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://blazebit.com/jsf/component ../misc/component.xsd">
 	<tag>summaryRow</tag>
 	<componentClass>com.blazebit.blazefaces.component.summaryrow.SummaryRow</componentClass>
     <componentHandlerClass>com.blazebit.blazefaces.component.summaryrow.SummaryRowHandler</componentHandlerClass>
@@ -13,7 +13,7 @@
 	<parent>javax.faces.component.UIComponentBase</parent>
     <description>SummaryRow is a helper component for data grouping.</description>
 	<attributes>
-		&standard_uicomponent_attributes;
+		<xi:include href="./../entities/standard_uicomponent_attributes.xml" parse="text"/>
         <attribute>
 			<name>listener</name>
 			<required>false</required>

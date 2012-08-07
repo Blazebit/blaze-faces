@@ -13,33 +13,33 @@
 
             <h:form enctype="multipart/form-data">
 
-				<p:fileUpload fileUploadListener="#{fileUploadController.handleFileUpload}" mode="advanced"
+				<b:fileUpload fileUploadListener="#{fileUploadController.handleFileUpload}" mode="advanced"
 						update="messages" multiple="true" sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
 
-                <p:growl id="messages" showDetail="true"/>
+                <b:growl id="messages" showDetail="true"/>
                 
 			</h:form>
 
 			<h3>Source</h3>
-            <p:tabView>
-                <p:tab title="fileUploadMultiple.xhtml">
+            <b:tabView>
+                <b:tab title="fileUploadMultiple.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form enctype="multipart/form-data"&gt;
 
-    &lt;p:fileUpload fileUploadListener="\#{fileUploadController.handleFileUpload}"
+    &lt;b:fileUpload fileUploadListener="\#{fileUploadController.handleFileUpload}"
             mode="advanced"
             update="messages" 
             multiple="true"
             sizeLimit="100000" 
             allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/&gt;
 
-    &lt;p:growl id="messages" showDetail="true"/&gt;
+    &lt;b:growl id="messages" showDetail="true"/&gt;
 
 &lt;/h:form&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="FileUploadController.java">
+                <b:tab title="FileUploadController.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -57,8 +57,8 @@ public class FileUploadController {
 	}
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 
 		</div>
 

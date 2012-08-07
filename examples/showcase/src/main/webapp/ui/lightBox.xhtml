@@ -19,7 +19,7 @@
             <p>LightBox is a modal overlay component to display images, inline content and iframes.</p>    	
 
             <h3>Images</h3>
-            <p:lightBox styleClass="imagebox" id="lighbox1">
+            <b:lightBox styleClass="imagebox" id="lighbox1">
                 <h:outputLink value="../images/sopranos/sopranos1.jpg" title="Sopranos 1">
                     <h:graphicImage value="/images/sopranos/sopranos1_small.jpg" id="sopranos1_small"/>
                 </h:outputLink>
@@ -35,32 +35,32 @@
                 <h:outputLink value="../images/sopranos/sopranos4.jpg" title="Sopranos 4">
                     <h:graphicImage value="/images/sopranos/sopranos4_small.jpg" id="sopranos4_small"/>
                 </h:outputLink>
-            </p:lightBox>
+            </b:lightBox>
 
             <h3>Inline</h3>
-            <p:lightBox id="lighbox2">
+            <b:lightBox id="lighbox2">
                 <h:outputLink value="#" id="lighbox2_link">
                     <h:outputText value="Video Content"/>
                 </h:outputLink>
 
                 <f:facet name="inline">
-                    <p:media value="http://vimeo.com/moogaloop.swf?clip_id=18079550"  width="400" height="225" player="flash"/>
+                    <b:media value="http://vimeo.com/moogaloop.swf?clip_id=18079550"  width="400" height="225" player="flash"/>
                 </f:facet>
-            </p:lightBox>
+            </b:lightBox>
             
             <h3>IFrame</h3>
-            <p:lightBox iframe="true" id="lighbox3">
+            <b:lightBox iframe="true" id="lighbox3">
                 <h:outputLink value="http://www.blazebit.com/faces" title="BlazeFaces HomePage" id="lightboxIframe_link">
                     <h:outputText value="BlazeFaces HomePage"/>
                 </h:outputLink>
-            </p:lightBox>
+            </b:lightBox>
             
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="lightBox.xhtml">
+            <b:tabView>
+                <b:tab title="lightBox.xhtml">
                     <pre name="code" class="xml">
 &lt;h3&gt;Images&lt;/h3&gt;
-&lt;p:lightBox styleClass="imagebox"&gt;
+&lt;b:lightBox styleClass="imagebox"&gt;
     &lt;h:outputLink value="../images/sopranos/sopranos1.jpg" title="Sopranos 1"&gt;
         &lt;h:graphicImage value="/images/sopranos/sopranos1_small.jpg"/&gt;
     &lt;/h:outputLink&gt;
@@ -76,28 +76,28 @@
     &lt;h:outputLink value="../images/sopranos/sopranos4.jpg" title="Sopranos 4"&gt;
         &lt;h:graphicImage value="/images/sopranos/sopranos4_small.jpg"/&gt;
     &lt;/h:outputLink&gt;
-&lt;/p:lightBox&gt;
+&lt;/b:lightBox&gt;
 
 &lt;h3&gt;Inline&lt;/h3&gt;
-&lt;p:lightBox&gt;
+&lt;b:lightBox&gt;
     &lt;h:outputLink value="#"&gt;
         &lt;h:outputText value="Video Content"/&gt;
     &lt;/h:outputLink&gt;
 
     &lt;f:facet name="inline"&gt;
-        &lt;p:media value="http://vimeo.com/moogaloop.swf?clip_id=18079550"  width="400" height="225" player="flash"/&gt;
+        &lt;b:media value="http://vimeo.com/moogaloop.swf?clip_id=18079550"  width="400" height="225" player="flash"/&gt;
     &lt;/f:facet&gt;
-&lt;/p:lightBox&gt;
+&lt;/b:lightBox&gt;
 
 &lt;h3&gt;IFrame&lt;/h3&gt;
-&lt;p:lightBox iframe="true"&gt;
+&lt;b:lightBox iframe="true"&gt;
     &lt;h:outputLink value="http://www.blazebit.com/faces" title="BlazeFaces HomePage"&gt;
         &lt;h:outputText value="BlazeFaces HomePage"/&gt;
     &lt;/h:outputLink&gt;
-&lt;/p:lightBox&gt;
+&lt;/b:lightBox&gt;
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
         </div>
 
     </ui:define>

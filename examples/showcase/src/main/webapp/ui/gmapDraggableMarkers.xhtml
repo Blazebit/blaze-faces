@@ -18,31 +18,31 @@
 		
 			<h:form id="form" prependId="false">
 			
-				<p:growl id="growl" showDetail="true"/>
+				<b:growl id="growl" showDetail="true"/>
 				
-				<p:gmap id="gmap" center="36.890257,30.707417" zoom="13" type="HYBRID"  model="#{mapBean.draggableModel}" style="width:600px;height:400px">
-                    <p:ajax event="markerDrag" listener="#{mapBean.onMarkerDrag}" update="growl" />
-                </p:gmap>
+				<b:gmap id="gmap" center="36.890257,30.707417" zoom="13" type="HYBRID"  model="#{mapBean.draggableModel}" style="width:600px;height:400px">
+                    <b:ajax event="markerDrag" listener="#{mapBean.onMarkerDrag}" update="growl" />
+                </b:gmap>
 
 			</h:form>
 			
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="gmapDraggableMarkers.xhtml">
+			<b:tabView>
+				<b:tab title="gmapDraggableMarkers.xhtml">
 					<pre name="code" class="xml">
 &lt;h:form&gt;
 
-    &lt;p:growl id="growl" showDetail="true"/&gt;
+    &lt;b:growl id="growl" showDetail="true"/&gt;
 
-    &lt;p:gmap center="36.890257,30.707417" zoom="13" type="HYBRID"  model="\#{mapBean.draggableModel}" style="width:600px;height:400px"
-        &lt;p:ajax event="markerDrag" listener="\#{mapBean.onMarkerDrag}" update="growl" /&gt;
-    &lt;/p:gmap&gt;
+    &lt;b:gmap center="36.890257,30.707417" zoom="13" type="HYBRID"  model="\#{mapBean.draggableModel}" style="width:600px;height:400px"
+        &lt;b:ajax event="markerDrag" listener="\#{mapBean.onMarkerDrag}" update="growl" /&gt;
+    &lt;/b:gmap&gt;
 
 &lt;/h:form&gt;
 					</pre>
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="MapBean.java">
+				<b:tab title="MapBean.java">
 					<pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -96,8 +96,8 @@ public class MapBean implements Serializable {
 	}
 }
 					</pre>
-				</p:tab>
-			</p:tabView>									
+				</b:tab>
+			</b:tabView>									
 		</div>
 	</ui:define>
 </ui:composition>

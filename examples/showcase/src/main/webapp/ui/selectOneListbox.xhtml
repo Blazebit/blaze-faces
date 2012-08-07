@@ -25,36 +25,36 @@
                              columnClasses="label, column">
 
                     <h:outputText value="Basic Usage: " />
-                    <p:selectOneListbox id="basic" value="#{buttonBean.number}">
+                    <b:selectOneListbox id="basic" value="#{buttonBean.number}">
                         <f:selectItem itemLabel="Option 1" itemValue="1" />
                         <f:selectItem itemLabel="Option 2" itemValue="2" />
                         <f:selectItem itemLabel="Option 3" itemValue="3" />
-                    </p:selectOneListbox>
+                    </b:selectOneListbox>
 
                     <h:outputText value="Scrollbar: " />
-                    <p:selectOneListbox id="scroll" value="#{autoCompleteBean.selectedPlayer1}" converter="player" style="height:100px">
+                    <b:selectOneListbox id="scroll" value="#{autoCompleteBean.selectedPlayer1}" converter="player" style="height:100px">
                         <f:selectItems value="#{autoCompleteBean.players}" var="player" itemLabel="#{player.name}" itemValue="#{player}" />
-                    </p:selectOneListbox>
+                    </b:selectOneListbox>
 
                 </h:panelGrid>
 
-                <p:separator />
+                <b:separator />
 
-                <p:commandButton id="submitButton" value="Submit" update="display" oncomplete="dlg.show()" />
+                <b:commandButton id="submitButton" value="Submit" update="display" oncomplete="dlg.show()" />
 
-                <p:dialog header="Selected Values" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg">
+                <b:dialog header="Selected Values" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg">
                     <h:panelGrid columns="2" id="display">
                         <h:outputText value="Value 1:" /><h:outputText id="selectedNumber" value="#{buttonBean.number}" />
 
                         <h:outputText value="Value 2:" /><h:outputText id="selectedPlayer" value="#{autoCompleteBean.selectedPlayer1}" />
                     </h:panelGrid>
-                </p:dialog>
+                </b:dialog>
 
 			</h:form>
 
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="selectOneListbox.xhtml">
+			<b:tabView>
+				<b:tab title="selectOneListbox.xhtml">
 					<pre name="code" class="xml">
 &lt;h:form id="form"&gt;
 
@@ -62,37 +62,37 @@
                  columnClasses="label, column"&gt;
 
         &lt;h:outputText value="Basic Usage: " /&gt;
-        &lt;p:selectOneListbox id="basic" value="\#{buttonBean.number}"&gt;
+        &lt;b:selectOneListbox id="basic" value="\#{buttonBean.number}"&gt;
             &lt;f:selectItem itemLabel="Option 1" itemValue="1" /&gt;
             &lt;f:selectItem itemLabel="Option 2" itemValue="2" /&gt;
             &lt;f:selectItem itemLabel="Option 3" itemValue="3" /&gt;
-        &lt;/p:selectOneListbox&gt;
+        &lt;/b:selectOneListbox&gt;
 
         &lt;h:outputText value="Scrollbar: " /&gt;
-        &lt;p:selectOneListbox id="scroll" value="\#{autoCompleteBean.selectedPlayer1}"
+        &lt;b:selectOneListbox id="scroll" value="\#{autoCompleteBean.selectedPlayer1}"
             converter="player" style="height:100px"&gt;
             &lt;f:selectItems value="\#{autoCompleteBean.players}"
                 var="player" itemLabel="\#{player.name}" itemValue="\#{player}" /&gt;
-        &lt;/p:selectOneListbox&gt;
+        &lt;/b:selectOneListbox&gt;
 
     &lt;/h:panelGrid&gt;
 
-    &lt;p:separator /&gt;
+    &lt;b:separator /&gt;
 
-    &lt;p:commandButton id="submitButton" value="Submit" update="display" oncomplete="dlg.show()" /&gt;
+    &lt;b:commandButton id="submitButton" value="Submit" update="display" oncomplete="dlg.show()" /&gt;
 
-    &lt;p:dialog header="Selected Values" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg"&gt;
+    &lt;b:dialog header="Selected Values" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg"&gt;
         &lt;h:panelGrid columns="2" id="display"&gt;
             &lt;h:outputText value="Value 1:" /&gt;&lt;h:outputText id="selectedNumber" value="\#{buttonBean.text}" /&gt;
 
             &lt;h:outputText value="Value 2:" /&gt;&lt;h:outputText id="selectedPlayer" value="\#{autoCompleteBean.selectedPlayer1}" /&gt;
         &lt;/h:panelGrid&gt;
-    &lt;/p:dialog&gt;
+    &lt;/b:dialog&gt;
 
 &lt;/h:form&gt;
 					</pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 
 		</div>
 

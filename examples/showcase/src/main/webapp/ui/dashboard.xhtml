@@ -28,31 +28,31 @@
 		
 			<h:form id="form">
 			
-				<p:growl id="growl" showDetail="true" />
+				<b:growl id="growl" showDetail="true" />
 		
-				<p:dashboard id="board" model="#{dashboardBean.model}">
-                    <p:ajax event="reorder" listener="#{dashboardBean.handleReorder}" update="growl" />
+				<b:dashboard id="board" model="#{dashboardBean.model}">
+                    <b:ajax event="reorder" listener="#{dashboardBean.handleReorder}" update="growl" />
                     
-					<p:panel id="sports" header="Sports">
+					<b:panel id="sports" header="Sports">
 						<h:outputText value="Sports Content" />
-					</p:panel>
+					</b:panel>
 					
-					<p:panel id="finance" header="Finance">
+					<b:panel id="finance" header="Finance">
 						<h:outputText value="Finance Content" />
-					</p:panel>
+					</b:panel>
 
-					<p:panel id="lifestyle" header="Lifestyle">
+					<b:panel id="lifestyle" header="Lifestyle">
                         <h:outputText value="Lifestyle Content"  />
-					</p:panel>
+					</b:panel>
 			
-					<p:panel id="weather" header="Weather">
+					<b:panel id="weather" header="Weather">
 						<h:outputText value="Weather Content" />
-					</p:panel>
+					</b:panel>
 					
-					<p:panel id="politics" header="Politics">
+					<b:panel id="politics" header="Politics">
 						<h:outputText value="Politics Content" />
-					</p:panel>
-				</p:dashboard>
+					</b:panel>
+				</b:dashboard>
 				
 				<div style="clear:both" />
 				
@@ -60,42 +60,42 @@
 			
 			<h3 style="clear:both;">Source</h3>
 			
-			<p:tabView>
-                <p:tab title="dashboard.xhtml">
+			<b:tabView>
+                <b:tab title="dashboard.xhtml">
 				<pre name="code" class="xml">
 &lt;h:form id="form"&gt;
 
-    &lt;p:growl id="growl" showDetail="true" /&gt;
+    &lt;b:growl id="growl" showDetail="true" /&gt;
 
-    &lt;p:dashboard id="board" model="\#{dashboardBean.model}"&gt;
-        &lt;p:ajax event="reorder" listener="\#{dashboardBean.handleReorder}" update="growl" /&gt;
+    &lt;b:dashboard id="board" model="\#{dashboardBean.model}"&gt;
+        &lt;b:ajax event="reorder" listener="\#{dashboardBean.handleReorder}" update="growl" /&gt;
 
-        &lt;p:panel id="sports" header="Sports"&gt;
+        &lt;b:panel id="sports" header="Sports"&gt;
             &lt;h:outputText value="Sports Content" /&gt;
-        &lt;/p:panel&gt;
+        &lt;/b:panel&gt;
 
-        &lt;p:panel id="finance" header="Finance"&gt;
+        &lt;b:panel id="finance" header="Finance"&gt;
             &lt;h:outputText value="Finance Content" /&gt;
-        &lt;/p:panel&gt;
+        &lt;/b:panel&gt;
 
-        &lt;p:panel id="lifestyle" header="Lifestyle"&gt;
+        &lt;b:panel id="lifestyle" header="Lifestyle"&gt;
             &lt;h:outputText value="Lifestyle Content"  /&gt;
-        &lt;/p:panel&gt;
+        &lt;/b:panel&gt;
 
-        &lt;p:panel id="weather" header="Weather"&gt;
+        &lt;b:panel id="weather" header="Weather"&gt;
             &lt;h:outputText value="Weather Content" /&gt;
-        &lt;/p:panel&gt;
+        &lt;/b:panel&gt;
 
-        &lt;p:panel id="politics" header="Politics"&gt;
+        &lt;b:panel id="politics" header="Politics"&gt;
             &lt;h:outputText value="Politics Content" /&gt;
-        &lt;/p:panel&gt;
-    &lt;/p:dashboard&gt;
+        &lt;/b:panel&gt;
+    &lt;/b:dashboard&gt;
 
 &lt;/h:form&gt;
 			</pre>
-				</p:tab>
+				</b:tab>
                 
-				<p:tab title="DashboardBean.java">
+				<b:tab title="DashboardBean.java">
 <pre name="code" class="java">
 public class DashboardBean implements Serializable {
 
@@ -139,10 +139,10 @@ public class DashboardBean implements Serializable {
 	}
 }
 			</pre>
-				</p:tab>
+				</b:tab>
 				
 				
-			</p:tabView>
+			</b:tabView>
 			
 			
 		</div>

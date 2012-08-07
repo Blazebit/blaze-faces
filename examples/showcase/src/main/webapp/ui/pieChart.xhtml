@@ -11,25 +11,25 @@
         <div class="entry">
             <p>PieChart is created with a PieChartModel.</p>
 
-            <p:pieChart id="sample" value="#{chartBean.pieModel}" legendPosition="w"
+            <b:pieChart id="sample" value="#{chartBean.pieModel}" legendPosition="w"
                         title="Sample Pie Chart" style="width:400px;height:300px" />
 
-            <p:pieChart id="custom" value="#{chartBean.pieModel}" legendPosition="e" fill="false" showDataLabels="true"
+            <b:pieChart id="custom" value="#{chartBean.pieModel}" legendPosition="e" fill="false" showDataLabels="true"
                         title="Custom Options" style="width:400px;height:300px" sliceMargin="5" diameter="150" />
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="pieChart.xhtml">
+            <b:tabView>
+                <b:tab title="pieChart.xhtml">
                     <pre name="code" class="xml">
-&lt;p:pieChart id="sample" value="\#{chartBean.pieModel}" legendPosition="w"
+&lt;b:pieChart id="sample" value="\#{chartBean.pieModel}" legendPosition="w"
                 title="Sample Pie Chart" style="width:400px;height:300px" /&gt;
 
-&lt;p:pieChart id="custom" value="\#{chartBean.pieModel}" legendPosition="e" fill="false" showDataLabels="true"
+&lt;b:pieChart id="custom" value="\#{chartBean.pieModel}" legendPosition="e" fill="false" showDataLabels="true"
                 title="Custom Options" style="width:400px;height:300px" sliceMargin="5" diameter="150" /&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="ChartBean.java">
+                <b:tab title="ChartBean.java">
             <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -59,8 +59,8 @@ public class ChartBean implements Serializable {
     }
 }
             </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
            
 
         </div>

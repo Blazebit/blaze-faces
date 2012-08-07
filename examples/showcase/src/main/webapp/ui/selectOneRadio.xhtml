@@ -16,42 +16,42 @@
 				<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 
 					<h:outputText value="Options: " />
-					<p:selectOneRadio id="options" value="#{formBean.number}">
+					<b:selectOneRadio id="options" value="#{formBean.number}">
 						<f:selectItem itemLabel="Option 1" itemValue="1" />
 						<f:selectItem itemLabel="Option 2" itemValue="2" />
 						<f:selectItem itemLabel="Option 3" itemValue="3" />
-					</p:selectOneRadio>
+					</b:selectOneRadio>
 
 				</h:panelGrid>
 
 				<h3>Custom Layout</h3>
-				<p:outputPanel id="customPanel">
-					<p:selectOneRadio id="customRadio" value="#{formBean.option}"
+				<b:outputPanel id="customPanel">
+					<b:selectOneRadio id="customRadio" value="#{formBean.option}"
 						layout="custom">
 						<f:selectItem itemLabel="Option 1" itemValue="1" />
 						<f:selectItem itemLabel="Option 2" itemValue="2" />
 						<f:selectItem itemLabel="Option 3" itemValue="3" />
-					</p:selectOneRadio>
+					</b:selectOneRadio>
 
 					<h:panelGrid columns="3">
-						<p:radioButton id="opt1" for="customRadio" itemIndex="0" />
+						<b:radioButton id="opt1" for="customRadio" itemIndex="0" />
 						<h:outputLabel for="opt1" value="Option 1" />
-						<p:spinner />
+						<b:spinner />
 
-						<p:radioButton id="opt2" for="customRadio" itemIndex="1" />
+						<b:radioButton id="opt2" for="customRadio" itemIndex="1" />
 						<h:outputLabel for="opt2" value="Option 2" />
-						<p:inputText />
+						<b:inputText />
 
-						<p:radioButton id="opt3" for="customRadio" itemIndex="2" />
+						<b:radioButton id="opt3" for="customRadio" itemIndex="2" />
 						<h:outputLabel for="opt3" value="Option 3" />
-						<p:calendar />
+						<b:calendar />
 					</h:panelGrid>
-				</p:outputPanel>
+				</b:outputPanel>
 
 				<br />
 				<br />
 
-				<p:commandButton id="submitButton" value="Submit" update="display" />
+				<b:commandButton id="submitButton" value="Submit" update="display" />
 
 				<br />
 				<br />
@@ -66,46 +66,46 @@
 			</h:form>
 
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="selectOneRadio.xhtml">
+			<b:tabView>
+				<b:tab title="selectOneRadio.xhtml">
 					<pre name="code" class="xml">
 &lt;h:form id="form"&gt;
 
     &lt;h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5"&gt;
 
         &lt;h:outputText value="Options: " /&gt;
-        &lt;p:selectOneRadio id="options" value="\#{formBean.number}"&gt;
+        &lt;b:selectOneRadio id="options" value="\#{formBean.number}"&gt;
             &lt;f:selectItem itemLabel="Option 1" itemValue="1" /&gt;
             &lt;f:selectItem itemLabel="Option 2" itemValue="2" /&gt;
             &lt;f:selectItem itemLabel="Option 3" itemValue="3" /&gt;
-        &lt;/p:selectOneRadio&gt;
+        &lt;/b:selectOneRadio&gt;
 
     &lt;/h:panelGrid&gt;
 
     &lt;h3&gt;Custom Layout&lt;/h3&gt;
-    &lt;p:outputPanel id="customPanel"&gt;
-    &lt;p:selectOneRadio id="customRadio" value="\#{formBean.option}" layout="custom"&gt;
+    &lt;b:outputPanel id="customPanel"&gt;
+    &lt;b:selectOneRadio id="customRadio" value="\#{formBean.option}" layout="custom"&gt;
         &lt;f:selectItem itemLabel="Option 1" itemValue="1" /&gt;
         &lt;f:selectItem itemLabel="Option 2" itemValue="2" /&gt;
         &lt;f:selectItem itemLabel="Option 3" itemValue="3" /&gt;
-    &lt;/p:selectOneRadio&gt;
+    &lt;/b:selectOneRadio&gt;
 
     &lt;h:panelGrid columns="3"&gt;
-        &lt;p:radioButton id="opt1" for="customRadio" itemIndex="0"/&gt;
+        &lt;b:radioButton id="opt1" for="customRadio" itemIndex="0"/&gt;
         &lt;h:outputLabel for="opt1" value="Option 1" /&gt;
-        &lt;p:spinner /&gt;
+        &lt;b:spinner /&gt;
 
-        &lt;p:radioButton id="opt2" for="customRadio" itemIndex="1"/&gt;
+        &lt;b:radioButton id="opt2" for="customRadio" itemIndex="1"/&gt;
         &lt;h:outputLabel for="opt2" value="Option 2" /&gt;
-        &lt;p:inputText /&gt;
+        &lt;b:inputText /&gt;
 
-        &lt;p:radioButton id="opt3" for="customRadio" itemIndex="2"/&gt;
+        &lt;b:radioButton id="opt3" for="customRadio" itemIndex="2"/&gt;
         &lt;h:outputLabel for="opt3" value="Option 3" /&gt;
-        &lt;p:calendar /&gt;
+        &lt;b:calendar /&gt;
     &lt;/h:panelGrid&gt;
-    &lt;/p:outputPanel&gt;
+    &lt;/b:outputPanel&gt;
 
-    &lt;p:commandButton id="submitButton" value="Submit" update="display"/&gt;
+    &lt;b:commandButton id="submitButton" value="Submit" update="display"/&gt;
 
     &lt;h:panelGrid columns="2" id="display"&gt;
         &lt;h:outputText value="Value1:" /&gt;
@@ -116,8 +116,8 @@
 
 &lt;/h:form&gt;
 					</pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 
 		</div>
 

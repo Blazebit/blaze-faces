@@ -11,144 +11,144 @@
                 <p>DataTable has built-in support for pagination and sorting on client side.</p>
                              
                 <h3>Default Paginator</h3>
-				<p:dataTable var="car" value="#{tableBean.cars}" paginator="true" rows="10">
-					<p:column sortBy="#{car.model}">
+				<b:dataTable var="car" value="#{tableBean.cars}" paginator="true" rows="10">
+					<b:column sortBy="#{car.model}">
 						<f:facet name="header">
 							<h:outputText value="Model" />
 						</f:facet>
 						<h:outputText value="#{car.model}" />
-					</p:column>
+					</b:column>
 
-					<p:column sortBy="#{car.year}">
+					<b:column sortBy="#{car.year}">
 						<f:facet name="header">
 							<h:outputText value="Year" />
 						</f:facet>
 						<h:outputText value="#{car.year}" />
-					</p:column>
+					</b:column>
 
-					<p:column sortBy="#{car.manufacturer}">
+					<b:column sortBy="#{car.manufacturer}">
 						<f:facet name="header">
 							<h:outputText value="Manufacturer" />
 						</f:facet>
 						<h:outputText value="#{car.manufacturer}" />
-					</p:column>
+					</b:column>
 
-					<p:column sortBy="#{car.color}">
+					<b:column sortBy="#{car.color}">
 						<f:facet name="header">
 							<h:outputText value="Color" />
 						</f:facet>
 						<h:outputText value="#{car.color}" />
-					</p:column>
-				</p:dataTable>
+					</b:column>
+				</b:dataTable>
 				
 				<h3>Customized Paginator</h3>
-				<p:dataTable var="car" value="#{tableBean.cars}" paginator="true" rows="10"
+				<b:dataTable var="car" value="#{tableBean.cars}" paginator="true" rows="10"
 					paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown} "
 					rowsPerPageTemplate="10,15,20"
 					previousPageLinkLabel="&lt;"  nextPageLinkLabel="&gt;">
 					
-					<p:column sortBy="#{car.model}">
+					<b:column sortBy="#{car.model}">
 						<f:facet name="header">
 							<h:outputText value="Model" />
 						</f:facet>
 						<h:outputText value="#{car.model}" />
-					</p:column>
+					</b:column>
 
-					<p:column sortBy="#{car.year}">
+					<b:column sortBy="#{car.year}">
 						<f:facet name="header">
 							<h:outputText value="Year" />
 						</f:facet>
 						<h:outputText value="#{car.year}" />
-					</p:column>
+					</b:column>
 
-					<p:column sortBy="#{car.manufacturer}">
+					<b:column sortBy="#{car.manufacturer}">
 						<f:facet name="header">
 							<h:outputText value="Manufacturer" />
 						</f:facet>
 						<h:outputText value="#{car.manufacturer}" />
-					</p:column>
+					</b:column>
 
-					<p:column sortBy="#{car.color}">
+					<b:column sortBy="#{car.color}">
 						<f:facet name="header">
 							<h:outputText value="Color" />
 						</f:facet>
 						<h:outputText value="#{car.color}" />
-					</p:column>
-				</p:dataTable>
+					</b:column>
+				</b:dataTable>
 					
 				<h3>Source</h3>
-				<p:tabView>
-					<p:tab title="datatableClient.xhtml">
+				<b:tabView>
+					<b:tab title="datatableClient.xhtml">
 <pre name="code" class="xml">
 &lt;h3&gt;Default Paginator&lt;/h3&gt;
-&lt;p:dataTable var="car" value="\#{tableBean.cars}" paginator="true" rows="10"&gt;
-	&lt;p:column&gt;
+&lt;b:dataTable var="car" value="\#{tableBean.cars}" paginator="true" rows="10"&gt;
+	&lt;b:column&gt;
 		&lt;f:facet name="header"&gt;
 			&lt;h:outputText value="Model" /&gt;
 		&lt;/f:facet&gt;
 		&lt;h:outputText value="\#{car.model}" /&gt;
-	&lt;/p:column&gt;
+	&lt;/b:column&gt;
 
-	&lt;p:column&gt;
+	&lt;b:column&gt;
 		&lt;f:facet name="header"&gt;
 			&lt;h:outputText value="Year" /&gt;
 		&lt;/f:facet&gt;
 		&lt;h:outputText value="\#{car.year}" /&gt;
-	&lt;/p:column&gt;
+	&lt;/b:column&gt;
 
-	&lt;p:column&gt;
+	&lt;b:column&gt;
 		&lt;f:facet name="header"&gt;
 			&lt;h:outputText value="Manufacturer" /&gt;
 		&lt;/f:facet&gt;
 		&lt;h:outputText value="\#{car.manufacturer}" /&gt;
-	&lt;/p:column&gt;
+	&lt;/b:column&gt;
 
-	&lt;p:column&gt;
+	&lt;b:column&gt;
 		&lt;f:facet name="header"&gt;
 			&lt;h:outputText value="Color" /&gt;
 		&lt;/f:facet&gt;
 		&lt;h:outputText value="\#{car.color}" /&gt;
-	&lt;/p:column&gt;
-&lt;/p:dataTable&gt;
+	&lt;/b:column&gt;
+&lt;/b:dataTable&gt;
 
 &lt;h3&gt;Customized Paginator&lt;/h3&gt;
-&lt;p:dataTable var="car" value="\#{tableBean.cars}" paginator="true" rows="10"
+&lt;b:dataTable var="car" value="\#{tableBean.cars}" paginator="true" rows="10"
 	paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown} "
 	rowsPerPageTemplate="10,15,20"
 	previousPageLinkLabel="&amp;lt;"  nextPageLinkLabel="&amp;gt;"&gt;
 	
-	&lt;p:column&gt;
+	&lt;b:column&gt;
 		&lt;f:facet name="header"&gt;
 			&lt;h:outputText value="Model" /&gt;
 		&lt;/f:facet&gt;
 		&lt;h:outputText value="\#{car.model}" /&gt;
-	&lt;/p:column&gt;
+	&lt;/b:column&gt;
 
-	&lt;p:column&gt;
+	&lt;b:column&gt;
 		&lt;f:facet name="header"&gt;
 			&lt;h:outputText value="Year" /&gt;
 		&lt;/f:facet&gt;
 		&lt;h:outputText value="\#{car.year}" /&gt;
-	&lt;/p:column&gt;
+	&lt;/b:column&gt;
 
-	&lt;p:column&gt;
+	&lt;b:column&gt;
 		&lt;f:facet name="header"&gt;
 			&lt;h:outputText value="Manufacturer" /&gt;
 		&lt;/f:facet&gt;
 		&lt;h:outputText value="\#{car.manufacturer}" /&gt;
-	&lt;/p:column&gt;
+	&lt;/b:column&gt;
 
-	&lt;p:column&gt;
+	&lt;b:column&gt;
 		&lt;f:facet name="header"&gt;
 			&lt;h:outputText value="Color" /&gt;
 		&lt;/f:facet&gt;
 		&lt;h:outputText value="\#{car.color}" /&gt;
-	&lt;/p:column&gt;
-&lt;/p:dataTable&gt;
+	&lt;/b:column&gt;
+&lt;/b:dataTable&gt;
 				</pre>
-					</p:tab>
+					</b:tab>
 					
-					<p:tab title="TableBean.java">
+					<b:tab title="TableBean.java">
 <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -221,8 +221,8 @@ public class TableBean implements Serializable {
 	}
 }
 				</pre>
-					</p:tab>
-				</p:tabView>
+					</b:tab>
+				</b:tabView>
 				
            
 </div>

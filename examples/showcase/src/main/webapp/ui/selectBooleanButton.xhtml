@@ -13,68 +13,68 @@
 
 			<h:form id="form">
 
-                <p:growl id="msg" />
+                <b:growl id="msg" />
 
                 <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 
                     <h:outputText value="I accept terms and conditions: " />
-                    <p:selectBooleanButton id="value1" value="#{formBean.value1}" onLabel="Yes" offLabel="No" style="width:60px" />
+                    <b:selectBooleanButton id="value1" value="#{formBean.value1}" onLabel="Yes" offLabel="No" style="width:60px" />
 
                     <h:outputText value="Subscribe me to newsletter: " />
-                    <p:selectBooleanButton id="value2" value="#{formBean.value2}" onLabel="Yes" offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close" style="width:60px">
-                        <p:ajax update="msg" listener="#{formBean.addMessage}"/>
-                    </p:selectBooleanButton>
+                    <b:selectBooleanButton id="value2" value="#{formBean.value2}" onLabel="Yes" offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close" style="width:60px">
+                        <b:ajax update="msg" listener="#{formBean.addMessage}"/>
+                    </b:selectBooleanButton>
 
                 </h:panelGrid>
 
-                <p:commandButton id="submit" value="Submit" update="display" oncomplete="dlg.show()" />
+                <b:commandButton id="submit" value="Submit" update="display" oncomplete="dlg.show()" />
 
-                <p:dialog id="dialog" header="Selected Values" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg">
+                <b:dialog id="dialog" header="Selected Values" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg">
                     <h:panelGrid columns="1" id="display">
                         <h:outputText value="Value 1: #{formBean.value1}" />
 
                         <h:outputText value="Value 2: #{formBean.value2}" />
                     </h:panelGrid>
-                </p:dialog>
+                </b:dialog>
 
 			</h:form>
 
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="selectBooleanButton.xhtml">
+			<b:tabView>
+				<b:tab title="selectBooleanButton.xhtml">
 					<pre name="code" class="xml">
 &lt;h:form&gt;
 
-    &lt;p:growl id="msg" /&gt;
+    &lt;b:growl id="msg" /&gt;
 
     &lt;h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5"&gt;
 
         &lt;h:outputText value="I accept terms and conditions: " /&gt;
-        &lt;p:selectBooleanButton value="\#{formBean.value1}" onLabel="Yes" offLabel="No" /&gt;
+        &lt;b:selectBooleanButton value="\#{formBean.value1}" onLabel="Yes" offLabel="No" /&gt;
 
         &lt;h:outputText value="Subscribe me to newsletter: " /&gt;
-        &lt;p:selectBooleanButton value="\#{formBean.value2}" onLabel="Yes" offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close"&gt;
-            &lt;p:ajax update="msg" listener="\#{formBean.addMessage}"/&gt;
-        &lt;/p:selectBooleanButton&gt;
+        &lt;b:selectBooleanButton value="\#{formBean.value2}" onLabel="Yes" offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close"&gt;
+            &lt;b:ajax update="msg" listener="\#{formBean.addMessage}"/&gt;
+        &lt;/b:selectBooleanButton&gt;
 
     &lt;/h:panelGrid&gt;
 
-    &lt;p:commandButton value="Submit" update="display" oncomplete="dlg.show()" /&gt;
+    &lt;b:commandButton value="Submit" update="display" oncomplete="dlg.show()" /&gt;
 
-    &lt;p:dialog header="Selected Values" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg"&gt;
+    &lt;b:dialog header="Selected Values" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg"&gt;
         &lt;h:panelGrid columns="1" id="display"&gt;
             &lt;h:outputText value="Value 1: \#{formBean.value1}" /&gt;
 
             &lt;h:outputText value="Value 2: \#{formBean.value2}" /&gt;
         &lt;/h:panelGrid&gt;
-    &lt;/p:dialog&gt;
+    &lt;/b:dialog&gt;
 
 &lt;/h:form&gt;
 					</pre>
 
-                    </p:tab>
+                    </b:tab>
 
-                    <p:tab title="FormBean.java">
+                    <b:tab title="FormBean.java">
                         <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -109,8 +109,8 @@ public class FormBean implements Serializable {
     }
 }
                         </pre>
-                    </p:tab>
-			</p:tabView>
+                    </b:tab>
+			</b:tabView>
 
 		</div>
 

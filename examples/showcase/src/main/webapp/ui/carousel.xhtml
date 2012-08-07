@@ -23,12 +23,12 @@
 			<p>Similar to a datatable, Carousel can be used to display a set of data.</p>
 		
 			<h3>Basic Carousel with Header/Footer</h3>
-			<p:carousel id="basicCarousel" value="#{tableBean.carsSmall}" headerText="Cars" var="car" itemStyleClass="carItem">
+			<b:carousel id="basicCarousel" value="#{tableBean.carsSmall}" headerText="Cars" var="car" itemStyleClass="carItem">
 				<f:facet name="header">
                         Cars
                 </f:facet>
                 <h:panelGrid columns="1" style="width:100%" cellpadding="5">
-                    <p:graphicImage value="/images/cars/#{car.manufacturer}.jpg"/> 
+                    <b:graphicImage value="/images/cars/#{car.manufacturer}.jpg"/> 
 					
 					<h:outputText value="Model: #{car.model}" />
 					
@@ -40,12 +40,12 @@
                 <f:facet name="footer">
                         In total there are #{fn:length(tableBean.carsSmall)} cars.
                 </f:facet>
-			</p:carousel>
+			</b:carousel>
 		
 			<h3>Visible Items</h3>
-			<p:carousel id="smallCarousel" value="#{tableBean.carsSmall}" var="car" rows="1" itemStyleClass="carItem">	
+			<b:carousel id="smallCarousel" value="#{tableBean.carsSmall}" var="car" rows="1" itemStyleClass="carItem">	
 				<h:panelGrid columns="1" style="width:100%" cellpadding="5">
-					<p:graphicImage value="/images/cars/#{car.manufacturer}.jpg"/> 
+					<b:graphicImage value="/images/cars/#{car.manufacturer}.jpg"/> 
 					
 					<h:outputText value="Model: #{car.model}" />
 					
@@ -53,19 +53,19 @@
 					
 					<h:outputText value="Color: #{car.color}" />
 				</h:panelGrid>
-			</p:carousel>
+			</b:carousel>
 			
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="carousel.xhtml">
+			<b:tabView>
+				<b:tab title="carousel.xhtml">
 				<pre name="code" class="xml">
 &lt;h3&gt;Basic Carousel with Header/Footer&lt;/h3&gt;
-&lt;p:carousel id="basicCarousel" value="\#{tableBean.carsSmall}" var="car" itemStyleClass="carItem"&gt;
+&lt;b:carousel id="basicCarousel" value="\#{tableBean.carsSmall}" var="car" itemStyleClass="carItem"&gt;
     &lt;f:facet name="header"&gt;
             Cars
     &lt;/f:facet&gt;
 	&lt;h:panelGrid columns="1" style="width:100%" cellpadding="5"&gt;
-		&lt;p:graphicImage value="/images/cars/\#{car.manufacturer}.jpg"/&gt; 
+		&lt;b:graphicImage value="/images/cars/\#{car.manufacturer}.jpg"/&gt; 
 		
 		&lt;h:outputText value="Model: \#{car.model}" /&gt;
 		
@@ -76,13 +76,13 @@
     &lt;f:facet name="footer"&gt;
             In total there are \#{fn:length(tableBean.carsSmall)} cars.
     &lt;/f:facet&gt;
-&lt;/p:carousel&gt;
+&lt;/b:carousel&gt;
 
 &lt;h3&gt;Visible Items&lt;/h3&gt;
-&lt;p:carousel id="smallCarousel" value="\#{tableBean.carsSmall}" var="car" 
+&lt;b:carousel id="smallCarousel" value="\#{tableBean.carsSmall}" var="car" 
 		rows="1" itemStyleClass="carItem"&gt;	
 	&lt;h:panelGrid columns="1" style="width:100%" cellpadding="5" &gt;
-		&lt;p:graphicImage value="/images/cars/\#{car.manufacturer}.jpg"/&gt; 
+		&lt;b:graphicImage value="/images/cars/\#{car.manufacturer}.jpg"/&gt; 
 		
 		&lt;h:outputText value="Model: \#{car.model}" /&gt;
 		
@@ -90,12 +90,12 @@
 		
 		&lt;h:outputText value="Color: \#{car.color}" /&gt;
 	&lt;/h:panelGrid&gt;
-&lt;/p:carousel&gt;
+&lt;/b:carousel&gt;
 
 				</pre>
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="TableBean.java">
+				<b:tab title="TableBean.java">
 				<pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -168,8 +168,8 @@ public class TableBean implements Serializable {
 	}
 }
 				</pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 			
 		</div>
 

@@ -16,26 +16,26 @@
 
             <pm:content>
 
-                <p:dataList type="inset">
+                <b:dataList type="inset">
                     <f:facet name="header">Components</f:facet>
                     <h:outputLink value="#forms">Forms</h:outputLink>
                     <h:outputLink value="#buttons">Buttons</h:outputLink>
                     <h:outputLink value="#lists">Lists</h:outputLink>
                     <h:outputLink value="#navbar">NavBar</h:outputLink>
                     <h:outputLink value="#panels">Panels</h:outputLink>
-                </p:dataList>
+                </b:dataList>
                 
-                <p:dataList type="inset">
+                <b:dataList type="inset">
                     <f:facet name="header">Framework</f:facet>
                     <h:outputLink value="#ajaxStatus">Ajax Status</h:outputLink>
                     <h:outputLink value="#ajaxUpdate">Ajax Updates</h:outputLink>
-                </p:dataList>
+                </b:dataList>
                 
-                <p:dataList type="inset">
+                <b:dataList type="inset">
                     <f:facet name="header">Navigation</f:facet>
                     <h:outputLink value="#navHandler">Navigation Handler</h:outputLink>
                     <h:outputLink value="#transitions">Transitions</h:outputLink>
-                </p:dataList>
+                </b:dataList>
 
             </pm:content>
 
@@ -44,18 +44,18 @@
         <!-- Forms -->
         <pm:view id="forms">
             <pm:header title="Forms">
-                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
+                <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
             </pm:header>
 
             <pm:content>
 
-                <p:inputText label="Input:" />
+                <b:inputText label="Input:" />
                 
-                <p:inputText label="Search:" type="search"/>
+                <b:inputText label="Search:" type="search"/>
                 
-                <p:inputText label="Phone:" type="tel"/>
+                <b:inputText label="Phone:" type="tel"/>
                 
-                <p:inputTextarea id="inputTextarea" label="Textarea:"/>
+                <b:inputTextarea id="inputTextarea" label="Textarea:"/>
                 
                 <pm:field>
                     <h:outputLabel for="selectOneMenu" value="Dropdown: "/>
@@ -71,19 +71,19 @@
 
                 <pm:switch id="switch" onLabel="yes" offLabel="no" label="Switch:" />
                 
-                <p:selectBooleanCheckbox id="booleanCheckbox" value="false" itemLabel="I agree" label="Checkbox"/>
+                <b:selectBooleanCheckbox id="booleanCheckbox" value="false" itemLabel="I agree" label="Checkbox"/>
                
-                <p:selectManyCheckbox id="checkbox" label="Checkboxes: ">
+                <b:selectManyCheckbox id="checkbox" label="Checkboxes: ">
                     <f:selectItem itemLabel="Option 1" itemValue="Option 1" />
                     <f:selectItem itemLabel="Option 2" itemValue="Option 2" />
                     <f:selectItem itemLabel="Option 3" itemValue="Option 3" />
-                </p:selectManyCheckbox>
+                </b:selectManyCheckbox>
                 
-                <p:selectOneRadio id="radio" label="Radios: ">
+                <b:selectOneRadio id="radio" label="Radios: ">
                     <f:selectItem itemLabel="Option 1" itemValue="Option 1" />
                     <f:selectItem itemLabel="Option 2" itemValue="Option 2" />
                     <f:selectItem itemLabel="Option 3" itemValue="Option 3" />
-                </p:selectOneRadio>
+                </b:selectOneRadio>
 
             </pm:content>
 
@@ -93,31 +93,31 @@
         <!-- Buttons -->
         <pm:view id="buttons">
             <pm:header title="Buttons">
-                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
+                <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
             </pm:header>
 
             <pm:content>
 
                 <h3>Basic</h3>
-                <p:commandButton value="Default" type="button"/>
-                <p:commandButton value="With Icon" type="button" icon="check"/>
-                <p:commandButton value="Icon Position" type="button" icon="refresh" iconPos="right"/>
-                <p:commandButton value="Inline" type="button" icon="delete" inline="true" />
+                <b:commandButton value="Default" type="button"/>
+                <b:commandButton value="With Icon" type="button" icon="check"/>
+                <b:commandButton value="Icon Position" type="button" icon="refresh" iconPos="right"/>
+                <b:commandButton value="Inline" type="button" icon="delete" inline="true" />
 
                 <h3>Themes</h3>
-                <p:commandButton value="Default" type="button" swatch="a"/>
-                <p:commandButton value="With Icon" type="button" icon="check" swatch="b"/>
-                <p:commandButton value="Icon Position" type="button" icon="refresh" iconPos="right" swatch="e"/>
+                <b:commandButton value="Default" type="button" swatch="a"/>
+                <b:commandButton value="With Icon" type="button" icon="check" swatch="b"/>
+                <b:commandButton value="Icon Position" type="button" icon="refresh" iconPos="right" swatch="e"/>
 
                 <h3>Grouping</h3>
                 <pm:buttonGroup>
-                    <p:commandButton value="Yes" type="button" icon="check"/>
-                    <p:commandButton value="No" type="button" icon="delete"/>
+                    <b:commandButton value="Yes" type="button" icon="check"/>
+                    <b:commandButton value="No" type="button" icon="delete"/>
                 </pm:buttonGroup>
                 
                 <pm:buttonGroup orientation="horizontal">
-                    <p:commandButton value="Yes" type="button" icon="check" />
-                    <p:commandButton value="No" type="button" icon="delete" />
+                    <b:commandButton value="Yes" type="button" icon="check" />
+                    <b:commandButton value="No" type="button" icon="delete" />
                 </pm:buttonGroup>
 
             </pm:content>
@@ -127,58 +127,58 @@
         <!-- Lists -->
         <pm:view id="lists">
             <pm:header title="Lists">
-                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
+                <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
             </pm:header>
 
             <pm:content>
 
                 <h3>Read-Only</h3>
-                <p:dataList>
+                <b:dataList>
                     <h:outputText value="Item 1" />
                     <h:outputText value="Item 2" />
                     <h:outputText value="Item 3" />
-                </p:dataList>
+                </b:dataList>
 
-                <p:spacer height="10em" />
+                <b:spacer height="10em" />
 
                 <h3>Links</h3>
-                <p:dataList>
+                <b:dataList>
                     <h:outputLink value="#main">Item 1</h:outputLink>
                     <h:outputLink value="#main">Item 2</h:outputLink>
                     <h:outputLink value="#main">Item 3</h:outputLink>
-                    <p:separator>Divider</p:separator>
+                    <b:separator>Divider</b:separator>
                     <h:outputLink value="#main">Item 4</h:outputLink>
                     <h:outputLink value="#main">Item 5</h:outputLink>
                     <h:outputLink value="#main">Item 6</h:outputLink>
-                </p:dataList>
+                </b:dataList>
 
-                <p:spacer height="10em" />
+                <b:spacer height="10em" />
 
                 <h3>Inset</h3>
-                <p:dataList type="inset">
+                <b:dataList type="inset">
                     <h:outputLink value="#main">Item 1</h:outputLink>
                     <h:outputLink value="#main">Item 2</h:outputLink>
                     <h:outputLink value="#main">Item 3</h:outputLink>
-                </p:dataList>
+                </b:dataList>
                 
                 <h3>Filter</h3>
-                <p:dataList>
+                <b:dataList>
                     <f:attribute name="filter" value="true" />
                     <h:outputText value="Barcelona" />
                     <h:outputText value="Istanbul" />
                     <h:outputText value="New York" />
                     <h:outputText value="Paris" />
-                </p:dataList>
+                </b:dataList>
 
-                <p:spacer height="10em" />
+                <b:spacer height="10em" />
 
                 <h3>Custom Content</h3>
-                <p:dataList value="#{ringBean.players}" var="player">
-                    <p:graphicImage value="/images/barca/#{player.photo}" />
+                <b:dataList value="#{ringBean.players}" var="player">
+                    <b:graphicImage value="/images/barca/#{player.photo}" />
                     <h3><h:outputLink value="#main">#{player.name}</h:outputLink></h3>
                     <p>#{player.position}</p>
                     <h:outputText styleClass="ui-li-count" value="#{player.number}" />
-                </p:dataList>
+                </b:dataList>
             </pm:content>
 
         </pm:view>
@@ -186,21 +186,21 @@
         <!-- NavBar -->
         <pm:view id="navbar">
             <pm:header title="NavBar">
-                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
+                <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
                 <pm:navBar>
-                    <p:button value="Home" icon="home" href="#main?reverse=true" styleClass="ui-btn-active"/>
-                    <p:button value="Info" icon="info" href="#main?reverse=true" />
-                    <p:button value="Search" icon="search" href="#main?reverse=true" />
+                    <b:button value="Home" icon="home" href="#main?reverse=true" styleClass="ui-btn-active"/>
+                    <b:button value="Info" icon="info" href="#main?reverse=true" />
+                    <b:button value="Search" icon="search" href="#main?reverse=true" />
                 </pm:navBar>
             </pm:header>
 
             <pm:content>
                 <pm:navBar>
-                    <p:button value="Home" icon="home" href="#main?reverse=true" styleClass="ui-btn-active"/>
-                    <p:button value="Info" icon="info" href="#main?reverse=true" />
-                    <p:button value="Search" icon="search" href="#main?reverse=true" />
-                    <p:button value="Favs" icon="star" href="#main?reverse=true" />
-                    <p:button value="Setup" icon="gear" href="#main?reverse=true" />
+                    <b:button value="Home" icon="home" href="#main?reverse=true" styleClass="ui-btn-active"/>
+                    <b:button value="Info" icon="info" href="#main?reverse=true" />
+                    <b:button value="Search" icon="search" href="#main?reverse=true" />
+                    <b:button value="Favs" icon="star" href="#main?reverse=true" />
+                    <b:button value="Setup" icon="gear" href="#main?reverse=true" />
                 </pm:navBar>
             </pm:content>
         </pm:view>
@@ -208,31 +208,31 @@
         <!-- Panels -->
         <pm:view id="panels">
             <pm:header title="Panels">
-                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
+                <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
             </pm:header>
 
             <pm:content>
                 <h3>Panel</h3>
-                <p:panel header="Expanded">
+                <b:panel header="Expanded">
                     Toggle panel content
-                </p:panel>
+                </b:panel>
 
-                <p:panel header="Collapsed" collapsed="true">
+                <b:panel header="Collapsed" collapsed="true">
                     Initially collapsed content
-                </p:panel>
+                </b:panel>
                 
                 <h3>Accordion Panel</h3>
-                <p:accordionPanel>
-                    <p:tab title="Title 1">
+                <b:accordionPanel>
+                    <b:tab title="Title 1">
                         Content 1
-                    </p:tab>
-                    <p:tab title="Title 2">
+                    </b:tab>
+                    <b:tab title="Title 2">
                         Content 2
-                    </p:tab>
-                    <p:tab title="Title 3">
+                    </b:tab>
+                    <b:tab title="Title 3">
                         Content 3
-                    </p:tab>
-                </p:accordionPanel>
+                    </b:tab>
+                </b:accordionPanel>
 
                 <h3>Grid Layout</h3>
 
@@ -244,9 +244,9 @@
 
                 <h4>3 Column</h4>
                 <h:panelGrid columns="3">
-                    <p:button value="Home" icon="home" href="#main?reverse=true" />
-                    <p:button value="Info" icon="info" href="#main?reverse=true" />
-                    <p:button value="Search" icon="search" href="#main?reverse=true" />
+                    <b:button value="Home" icon="home" href="#main?reverse=true" />
+                    <b:button value="Info" icon="info" href="#main?reverse=true" />
+                    <b:button value="Search" icon="search" href="#main?reverse=true" />
                 </h:panelGrid>
 
                 <h4>4 Column</h4>
@@ -267,7 +267,7 @@
 
         <pm:view id="target">
             <pm:header title="Target">
-                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
+                <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
             </pm:header>
 
             <pm:content>
@@ -279,7 +279,7 @@
         
         <pm:view id="transitionTarget">
             <pm:header title="Transition">
-                <f:facet name="left"><p:button value="Back" icon="back" href="#transitions?reverse=true"/></f:facet>
+                <f:facet name="left"><b:button value="Back" icon="back" href="#transitions?reverse=true"/></f:facet>
             </pm:header>
 
             <pm:content>
@@ -292,7 +292,7 @@
         <!-- Ajax Status -->
         <pm:view id="ajaxStatus">
             <pm:header title="Ajax Status">
-                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
+                <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
             </pm:header>
 
             <pm:content>
@@ -300,7 +300,7 @@
 
                 <h:form>
                     
-                    <p:commandButton value="Count" actionListener="#{counterBean.increment}" update="txt_count" process="@this"/>
+                    <b:commandButton value="Count" actionListener="#{counterBean.increment}" update="txt_count" process="@this"/>
                     <h3><h:outputText id="txt_count" value="Counter: #{counterBean.count}" /></h3>
                     
                 </h:form>
@@ -311,7 +311,7 @@
         <!-- Ajax Update -->
         <pm:view id="ajaxUpdate">
             <pm:header title="TODO">
-                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
+                <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
             </pm:header>
 
             <pm:content>
@@ -327,16 +327,16 @@
                     </pm:field>
 
                     <h:panelGrid columns="2">
-                        <p:commandButton value="BlazeFaces" actionListener="#{showcaseView.add}" update="txt txts" process="@form"/>
+                        <b:commandButton value="BlazeFaces" actionListener="#{showcaseView.add}" update="txt txts" process="@form"/>
                         <h:commandButton value="JSF Impl" actionListener="#{showcaseView.add}">
                             <f:ajax render="txt txts" execute="@form"/>
                         </h:commandButton>
                     </h:panelGrid>
 
-                    <p:dataList id="txts" var="text" value="#{showcaseView.texts}" type="inset">
+                    <b:dataList id="txts" var="text" value="#{showcaseView.texts}" type="inset">
                         <f:facet name="header">Values</f:facet>
                         #{text}
-                    </p:dataList>
+                    </b:dataList>
 
                 </h:form>
             </pm:content>
@@ -345,7 +345,7 @@
         <!-- Navigation Handler -->
         <pm:view id="navHandler">
             <pm:header title="Navigation">
-                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
+                <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
             </pm:header>
 
             <pm:content>
@@ -354,7 +354,7 @@
 
                 <h:form>
                     
-                    <p:commandButton value="Go to Target" action="#{showcaseView.navigate}" />
+                    <b:commandButton value="Go to Target" action="#{showcaseView.navigate}" />
                     
                 </h:form>
 
@@ -364,29 +364,29 @@
         <!-- Transitions -->
         <pm:view id="transitions">
             <pm:header title="Transitions">
-                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
+                <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
             </pm:header>
 
             <pm:content>
                 Various animation types are supported in view navigations.
  
-                <p:button value="Fade" href="#transitionTarget?transition=fade" />
+                <b:button value="Fade" href="#transitionTarget?transition=fade" />
 
-                <p:button value="Pop" href="#transitionTarget?transition=pop" />
+                <b:button value="Pop" href="#transitionTarget?transition=pop" />
                 
-                <p:button value="Flip" href="#transitionTarget?transition=flip" />
+                <b:button value="Flip" href="#transitionTarget?transition=flip" />
                 
-                <p:button value="Turn" href="#transitionTarget?transition=turn" />
+                <b:button value="Turn" href="#transitionTarget?transition=turn" />
                 
-                <p:button value="Flow" href="#transitionTarget?transition=flow" />
+                <b:button value="Flow" href="#transitionTarget?transition=flow" />
                 
-                <p:button value="Slide" href="#transitionTarget?transition=slide" />
+                <b:button value="Slide" href="#transitionTarget?transition=slide" />
                 
-                <p:button value="SlideUp" href="#transitionTarget?transition=slideup" />
+                <b:button value="SlideUp" href="#transitionTarget?transition=slideup" />
                 
-                <p:button value="SlideDown" href="#transitionTarget?transition=slidedown" />
+                <b:button value="SlideDown" href="#transitionTarget?transition=slidedown" />
                 
-                <p:button value="None" href="#transitionTarget?transition=none" />
+                <b:button value="None" href="#transitionTarget?transition=none" />
                     
             </pm:content>
         </pm:view>

@@ -14,120 +14,120 @@
 				</p>
 
 				<h3>Wipe with Manual Controls</h3>
-				<p:commandButton type="button" onclick="switcher.previous();"
+				<b:commandButton type="button" onclick="switcher.previous();"
 					icon="ui-icon-circle-triangle-w" id="prev"/>
-				<p:commandButton type="button" onclick="switcher.next();"
+				<b:commandButton type="button" onclick="switcher.next();"
 					icon="ui-icon-circle-triangle-e" id="next"/>
 
-				<p:imageSwitch effect="wipe" widgetVar="switcher" id="manuelSwitcher"
+				<b:imageSwitch effect="wipe" widgetVar="switcher" id="manuelSwitcher"
 					slideshowAuto="false">
 					<ui:repeat value="#{imageSwitchBean.images}" var="image" id="manuelSwitcherImages">
-						<p:graphicImage value="/images/#{image}" id="image"/>
+						<b:graphicImage value="/images/#{image}" id="image"/>
 					</ui:repeat>
-				</p:imageSwitch>
+				</b:imageSwitch>
 				
 				<h3>Fade</h3>
-				<p:imageSwitch effect="fade" id="fadeEffect">
+				<b:imageSwitch effect="fade" id="fadeEffect">
 					<ui:repeat value="#{imageSwitchBean.images}" var="image" id="fadeEffectImages">
-						<p:graphicImage value="/images/#{image}" id="image" />
+						<b:graphicImage value="/images/#{image}" id="image" />
 					</ui:repeat>
-				</p:imageSwitch>
+				</b:imageSwitch>
 
 				<h3>Zoom</h3>
-				<p:imageSwitch effect="zoom">
+				<b:imageSwitch effect="zoom">
 					<ui:repeat value="#{imageSwitchBean.images}" var="image">
-						<p:graphicImage value="/images/#{image}" />
+						<b:graphicImage value="/images/#{image}" />
 					</ui:repeat>
-				</p:imageSwitch>
+				</b:imageSwitch>
 
 				<h3>TurnDown</h3>
-				<p:imageSwitch effect="turnDown">
+				<b:imageSwitch effect="turnDown">
 					<ui:repeat value="#{imageSwitchBean.images}" var="image">
-						<p:graphicImage value="/images/#{image}" />
+						<b:graphicImage value="/images/#{image}" />
 					</ui:repeat>
-				</p:imageSwitch>
+				</b:imageSwitch>
 
 				<h3>Shuffle</h3>
-				<p:imageSwitch effect="shuffle">
+				<b:imageSwitch effect="shuffle">
 					<ui:repeat value="#{imageSwitchBean.images}" var="image">
-						<p:graphicImage value="/images/#{image}" />
+						<b:graphicImage value="/images/#{image}" />
 					</ui:repeat>
-				</p:imageSwitch>
+				</b:imageSwitch>
 
 				<h3>Dialog Integration</h3>
-				<p:commandButton type="button" value="Show" onclick="dialog.show()" />
+				<b:commandButton type="button" value="Show" onclick="dialog.show()" />
 
-				<p:dialog header="Images" widgetVar="dialog" modal="true"
+				<b:dialog header="Images" widgetVar="dialog" modal="true"
 					draggable="false" resizable="false" width="425" height="250">
 
-					<p:imageSwitch effect="fade">
+					<b:imageSwitch effect="fade">
 						<ui:repeat value="#{imageSwitchBean.images}" var="image">
-							<p:graphicImage value="/images/#{image}" />
+							<b:graphicImage value="/images/#{image}" />
 						</ui:repeat>
-					</p:imageSwitch>
-				</p:dialog>
+					</b:imageSwitch>
+				</b:dialog>
 			</h:form>
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="imageSwitchEffect.xhtml">
+			<b:tabView>
+				<b:tab title="imageSwitchEffect.xhtml">
 					<pre name="code" class="xml">
 					
 &lt;h3&gt;Wipe with Manual Controls&lt;/h3&gt;
-&lt;p:commandButton type="button" onclick="switcher.previous();"
+&lt;b:commandButton type="button" onclick="switcher.previous();"
                 icon="ui-icon-circle-triangle-w"/&gt;
-&lt;p:commandButton type="button" onclick="switcher.next();"
+&lt;b:commandButton type="button" onclick="switcher.next();"
                 icon="ui-icon-circle-triangle-e"/&gt;
 
-&lt;p:imageSwitch effect="wipe" widgetVar="switcher" slideshowAuto="false"&gt;
+&lt;b:imageSwitch effect="wipe" widgetVar="switcher" slideshowAuto="false"&gt;
     &lt;ui:repeat value="\#{imageSwitchBean.images}" var="image"&gt;
-        &lt;p:graphicImage value="/images/\#{image}" /&gt;
+        &lt;b:graphicImage value="/images/\#{image}" /&gt;
     &lt;/ui:repeat&gt;
-&lt;/p:imageSwitch&gt;
+&lt;/b:imageSwitch&gt;
 
 &lt;h3&gt;Fade&lt;/h3&gt;
-&lt;p:imageSwitch effect="fade"&gt;
+&lt;b:imageSwitch effect="fade"&gt;
     &lt;ui:repeat value="\#{imageSwitchBean.images}" var="image"&gt;
-        &lt;p:graphicImage value="/images/\#{image}" /&gt;
+        &lt;b:graphicImage value="/images/\#{image}" /&gt;
     &lt;/ui:repeat&gt;
-&lt;/p:imageSwitch&gt;
+&lt;/b:imageSwitch&gt;
 
 &lt;h3&gt;Zoom&lt;/h3&gt;
-&lt;p:imageSwitch effect="zoom"&gt;
+&lt;b:imageSwitch effect="zoom"&gt;
     &lt;ui:repeat value="\#{imageSwitchBean.images}" var="image"&gt;
-        &lt;p:graphicImage value="/images/\#{image}" /&gt;
+        &lt;b:graphicImage value="/images/\#{image}" /&gt;
     &lt;/ui:repeat&gt;
-&lt;/p:imageSwitch&gt;
+&lt;/b:imageSwitch&gt;
 
 &lt;h3&gt;TurnDown&lt;/h3&gt;
-&lt;p:imageSwitch effect="turnDown"&gt;
+&lt;b:imageSwitch effect="turnDown"&gt;
     &lt;ui:repeat value="\#{imageSwitchBean.images}" var="image"&gt;
-        &lt;p:graphicImage value="/images/\#{image}" /&gt;
+        &lt;b:graphicImage value="/images/\#{image}" /&gt;
     &lt;/ui:repeat&gt;
-&lt;/p:imageSwitch&gt;
+&lt;/b:imageSwitch&gt;
 
 &lt;h3&gt;Shuffle&lt;/h3&gt;
-&lt;p:imageSwitch effect="shuffle"&gt;
+&lt;b:imageSwitch effect="shuffle"&gt;
     &lt;ui:repeat value="\#{imageSwitchBean.images}" var="image"&gt;
-        &lt;p:graphicImage value="/images/\#{image}" /&gt;
+        &lt;b:graphicImage value="/images/\#{image}" /&gt;
     &lt;/ui:repeat&gt;
-&lt;/p:imageSwitch&gt;
+&lt;/b:imageSwitch&gt;
 
 &lt;h3&gt;Dialog Integration&lt;/h3&gt;
-&lt;p:commandButton type="button" value="Show" onclick="dialog.show()" /&gt;
+&lt;b:commandButton type="button" value="Show" onclick="dialog.show()" /&gt;
 
-&lt;p:dialog header="Images" widgetVar="dialog" modal="true" draggable="false" resizable="false"
+&lt;b:dialog header="Images" widgetVar="dialog" modal="true" draggable="false" resizable="false"
     width="425" height="250"&gt;
 
-    &lt;p:imageSwitch effect="fade"&gt;
+    &lt;b:imageSwitch effect="fade"&gt;
         &lt;ui:repeat value="\#{imageSwitchBean.images}" var="image"&gt;
-            &lt;p:graphicImage value="/images/\#{image}" /&gt;
+            &lt;b:graphicImage value="/images/\#{image}" /&gt;
         &lt;/ui:repeat&gt;
-    &lt;/p:imageSwitch&gt;
-&lt;/p:dialog&gt;
+    &lt;/b:imageSwitch&gt;
+&lt;/b:dialog&gt;
                     </pre>
-				</p:tab>
+				</b:tab>
 
-				<p:tab title="ImageSwitchBean.java">
+				<b:tab title="ImageSwitchBean.java">
 					<pre name="code" class="xml">
 package com.blazebit.blazefaces.examples.view;
 
@@ -151,8 +151,8 @@ public class ImageSwitchBean {
     }
 }
                     </pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 
 		</div>
 

@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE component SYSTEM "../misc/component.dtd" [
-<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
-]>
-<component>
+<component  xmlns="http://blazebit.com/jsf/component" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://blazebit.com/jsf/component ../misc/component.xsd">
 	<tag>effect</tag>
 	<componentClass>com.blazebit.blazefaces.component.effect.Effect</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Effect</componentType>
@@ -17,8 +14,8 @@
 		</interface>
 	</interfaces>
 	<attributes>
-		&standard_uicomponent_attributes;
-        &widget_var_attribute;
+		<xi:include href="./../entities/standard_uicomponent_attributes.xml" parse="text"/>
+        <xi:include href="./../entities/widget_var_attribute.xml" parse="text"/>
 		<attribute>
 			<name>event</name>
 			<required>true</required>
@@ -40,15 +37,15 @@
 		<attribute>
 			<name>speed</name>
 			<required>false</required>
-			<defaultValue>1000</defaultValue>
 			<type>java.lang.Integer</type>
+			<defaultValue>1000</defaultValue>
             <description>Speed of the animation in ms. Default is 1000.</description>
 		</attribute>
         <attribute>
 			<name>delay</name>
 			<required>false</required>
-			<defaultValue>0</defaultValue>
 			<type>java.lang.Integer</type>
+			<defaultValue>0</defaultValue>
             <description>Startup delay on firing animation.</description>
 		</attribute>
 	</attributes>

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE component SYSTEM "../misc/component.dtd" [
-<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
-<!ENTITY output_component_attributes			SYSTEM "../entities/output_component_attributes.xml">
-<!ENTITY widget_var_attribute					SYSTEM "../entities/widget_var_attribute.xml">
-]>
-<component>
+<component  xmlns="http://blazebit.com/jsf/component"
+			xmlns:xi="http://www.w3.org/2001/XInclude"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://blazebit.com/jsf/component ../misc/component.xsd">
 	<tag>slider</tag>
-    <componentHandlerClass>com.blazebit.blazefaces.component.slider.SliderHandler</componentHandlerClass>
 	<componentClass>com.blazebit.blazefaces.component.slider.Slider</componentClass>
+    <componentHandlerClass>com.blazebit.blazefaces.component.slider.SliderHandler</componentHandlerClass>
 	<componentType>com.blazebit.blazefaces.component.Slider</componentType>
 	<componentFamily>com.blazebit.blazefaces.component</componentFamily>
 	<rendererType>com.blazebit.blazefaces.component.SliderRenderer</rendererType>
@@ -23,8 +21,8 @@
 		</interface>
 	</interfaces>
 	<attributes>
-		&standard_uicomponent_attributes;
-		&widget_var_attribute;
+		<xi:include href="./../entities/standard_uicomponent_attributes.xml" parse="text"/>
+		<xi:include href="./../entities/widget_var_attribute.xml" parse="text"/>
 		<attribute>
 			<name>for</name>
 			<required>false</required>

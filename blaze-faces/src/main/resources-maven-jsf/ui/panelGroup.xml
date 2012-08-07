@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE component SYSTEM "../misc/component.dtd" [
-<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
-<!ENTITY widget_var_attribute					SYSTEM "../entities/widget_var_attribute.xml">
-<!ENTITY html5_data_attributes					SYSTEM "../entities/html5_data_attributes.xml">
-]>
-<component>
+<component  xmlns="http://blazebit.com/jsf/component" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://blazebit.com/jsf/component ../misc/component.xsd">
     <tag>panelGroup</tag>
     <componentClass>com.blazebit.blazefaces.component.panelgroup.PanelGroup</componentClass>
     <componentType>com.blazebit.blazefaces.component.PanelGroup</componentType>
@@ -22,10 +17,13 @@
 		</interface>
 	</interfaces>
     <attributes>
-        &standard_uicomponent_attributes;
-        &widget_var_attribute;
-		&html5_data_attributes;
+        <xi:include href="./../entities/standard_uicomponent_attributes.xml" parse="text"/>
+        <xi:include href="./../entities/widget_var_attribute.xml" parse="text"/>
+		<xi:include href="./../entities/html5_data_attributes.xml" parse="text"/>
         <attribute>
+            <name>type</name>
+            <required>false</required>
+            <type>java.lang.String</type>
             <description><![CDATA[The type of the panel that should be rendered.
             Valid values are:
             <ul>
@@ -48,9 +46,6 @@
                 <li>summary</li>
             </ul>]]>
             </description>
-            <name>type</name>
-            <required>false</required>
-            <type>java.lang.String</type>
         </attribute>
         <attribute>
             <name>style</name>

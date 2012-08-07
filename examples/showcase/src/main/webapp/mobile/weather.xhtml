@@ -12,7 +12,7 @@
         <pm:view id="main">
             <pm:header title="Weather">
                 <f:facet name="right">
-                    <p:button value="Settings" icon="gear" href="#settings" />
+                    <b:button value="Settings" icon="gear" href="#settings" />
                 </f:facet>
             </pm:header>
 
@@ -23,13 +23,13 @@
                         <f:selectItems value="#{weatherController.cities}" />
                     </h:selectOneMenu>
                    
-                    <p:separator />
+                    <b:separator />
 
-                    <p:commandButton value="Get Forecast" update="display" actionListener="#{weatherController.retrieveConditions}"/>
+                    <b:commandButton value="Get Forecast" update="display" actionListener="#{weatherController.retrieveConditions}"/>
 
-                    <p:outputPanel layout="block" style="text-align:center">
+                    <b:outputPanel layout="block" style="text-align:center">
                         <h:outputText id="display" value="#{weatherController.conditions}" escape="false" />
-                    </p:outputPanel>
+                    </b:outputPanel>
                 </h:form>
             </pm:content>
         </pm:view>
@@ -37,7 +37,7 @@
         <!-- Settings View -->
         <pm:view id="settings">
             <pm:header title="Weather">
-                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
+                <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
             </pm:header>
 
             <pm:content>
@@ -49,9 +49,9 @@
                         <f:selectItem itemLabel="Fahrenheit" itemValue="f" />
                     </h:selectOneMenu>
 
-                    <p:separator />
+                    <b:separator />
 
-                    <p:commandButton value="Save" actionListener="#{weatherController.saveSettings}" update=":mainForm:display"
+                    <b:commandButton value="Save" actionListener="#{weatherController.saveSettings}" update=":mainForm:display"
                                       action="pm:main"/>
                     
                 </h:form>

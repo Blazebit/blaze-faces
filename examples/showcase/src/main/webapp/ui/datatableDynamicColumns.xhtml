@@ -17,54 +17,54 @@
                 
                 <h:panelGrid id="grid" columns="3" style="margin-bottom:10px">
                     <h:outputLabel for="template" value="Template:" style="font-weight:bold"/>
-                    <p:inputText id="template" value="#{tableBean.columnTemplate}" size="50"/>
-                    <p:commandButton id="btn" update="cars" actionListener="#{tableBean.updateColumns}" value="Update" process="@parent"
+                    <b:inputText id="template" value="#{tableBean.columnTemplate}" size="50"/>
+                    <b:commandButton id="btn" update="cars" actionListener="#{tableBean.updateColumns}" value="Update" process="@parent"
                                      onclick="carsTable.clearFilters()"/>
                 </h:panelGrid>
 
-                <p:dataTable id="cars" var="car" value="#{tableBean.carsSmall}" widgetVar="carsTable" filteredValue="#{tableBean.filteredCars}">                    
-                    <p:columns value="#{tableBean.columns}" var="column" columnIndexVar="colIndex" 
+                <b:dataTable id="cars" var="car" value="#{tableBean.carsSmall}" widgetVar="carsTable" filteredValue="#{tableBean.filteredCars}">                    
+                    <b:columns value="#{tableBean.columns}" var="column" columnIndexVar="colIndex" 
                                 sortBy="#{car[column.property]}" filterBy="#{car[column.property]}">
                         <f:facet name="header">
                             #{column.header}
                         </f:facet>
 
                         #{car[column.property]}
-                    </p:columns>
+                    </b:columns>
 
-                </p:dataTable>
+                </b:dataTable>
 
             </h:form>
 
 		<h3>Source</h3>
-		<p:tabView>
-			<p:tab title="datatableDynamicColumns.xhtml">
+		<b:tabView>
+			<b:tab title="datatableDynamicColumns.xhtml">
                 <pre name="code" class="xml">
 &lt;h:form id="form"&gt;
                 
     &lt;h:panelGrid id="grid" columns="3" style="margin-bottom:10px"&gt;
         &lt;h:outputLabel for="template" value="Template:" style="font-weight:bold"/&gt;
-        &lt;p:inputText id="template" value="\#{tableBean.columnTemplate}" size="50"/&gt;
-        &lt;p:commandButton id="btn" update="cars" actionListener="\#{tableBean.updateColumns}" value="Update" process="@parent"/&gt;
+        &lt;b:inputText id="template" value="\#{tableBean.columnTemplate}" size="50"/&gt;
+        &lt;b:commandButton id="btn" update="cars" actionListener="\#{tableBean.updateColumns}" value="Update" process="@parent"/&gt;
     &lt;/h:panelGrid&gt;
 
-    &lt;p:dataTable id="cars" var="car" value="\#{tableBean.carsSmall}" filteredValue="\#{tableBean.filteredCars}"&gt;                    
-        &lt;p:columns value="\#{tableBean.columns}" var="column" columnIndexVar="colIndex" 
+    &lt;b:dataTable id="cars" var="car" value="\#{tableBean.carsSmall}" filteredValue="\#{tableBean.filteredCars}"&gt;                    
+        &lt;b:columns value="\#{tableBean.columns}" var="column" columnIndexVar="colIndex" 
                     sortBy="\#{car[column.property]}" filterBy="\#{car[column.property]}"&gt;
             &lt;f:facet name="header"&gt;
                 \#{column.header}
             &lt;/f:facet&gt;
 
             \#{car[column.property]}
-        &lt;/p:columns&gt;
+        &lt;/b:columns&gt;
 
-    &lt;/p:dataTable&gt;
+    &lt;/b:dataTable&gt;
 
 &lt;/h:form&gt;
 				</pre>
-			</p:tab>
+			</b:tab>
 
-			<p:tab title="TableBean.java">
+			<b:tab title="TableBean.java">
                 <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -225,8 +225,8 @@ public class TableBean implements Serializable {
     }
 }
 				</pre>
-			</p:tab>
-		</p:tabView>
+			</b:tab>
+		</b:tabView>
 	       </div>
 
 	</ui:define>

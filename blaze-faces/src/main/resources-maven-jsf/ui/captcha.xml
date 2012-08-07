@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE component SYSTEM "../misc/component.dtd" [
-<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
-<!ENTITY output_component_attributes			SYSTEM "../entities/output_component_attributes.xml">
-<!ENTITY input_component_attributes				SYSTEM "../entities/input_component_attributes.xml">
-]>
-<component>
+<component  xmlns="http://blazebit.com/jsf/component" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://blazebit.com/jsf/component ../misc/component.xsd">
 	<tag>captcha</tag>
 	<componentClass>com.blazebit.blazefaces.component.captcha.Captcha</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Captcha</componentType>
@@ -14,7 +9,7 @@
 	<parent>javax.faces.component.UIInput</parent>
     <description>Captcha is a form validation component based on Recaptcha API.</description>
 	<attributes>
-		&input_component_attributes;
+		<xi:include href="./../entities/input_component_attributes.xml" parse="text"/>
 		<attribute>
 			<name>theme</name>
 			<required>false</required>

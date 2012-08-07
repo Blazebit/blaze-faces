@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE component SYSTEM "../misc/component.dtd" [
-<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
-<!ENTITY widget_var_attribute					SYSTEM "../entities/widget_var_attribute.xml">
-]>
-<component>
+<component  xmlns="http://blazebit.com/jsf/component" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://blazebit.com/jsf/component ../misc/component.xsd">
 	<tag>footer</tag>
 	<componentClass>com.blazebit.blazefaces.mobile.component.footer.Footer</componentClass>
 	<componentType>com.blazebit.blazefaces.mobile.Footer</componentType>
@@ -12,7 +8,7 @@
 	<rendererClass>com.blazebit.blazefaces.mobile.component.footer.FooterRenderer</rendererClass>
 	<parent>javax.faces.component.UIPanel</parent>
 	<attributes>
-		&standard_uicomponent_attributes;
+		<xi:include href="../entities/standard_uicomponent_attributes.xml" xpointer="xpointer(/component/attribute)"/>
         <attribute>
 			<name>fixed</name>
 			<required>false</required>

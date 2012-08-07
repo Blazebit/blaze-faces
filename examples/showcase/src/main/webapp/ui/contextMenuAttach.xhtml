@@ -13,40 +13,40 @@
 			Right-click on imageSwitcher to see the available options.</p>
 			
 			<h3>ImageSwitcher with ContextMenu</h3>
-			<p:imageSwitch id="images" effect="fade" widgetVar="gallery" slideshowAuto="false"
+			<b:imageSwitch id="images" effect="fade" widgetVar="gallery" slideshowAuto="false"
 				style="width:400px">
-				<p:graphicImage value="/images/nature1.jpg" />
-				<p:graphicImage value="/images/nature2.jpg" />
-				<p:graphicImage value="/images/nature3.jpg" />
-				<p:graphicImage value="/images/nature4.jpg" />
-			</p:imageSwitch>
+				<b:graphicImage value="/images/nature1.jpg" />
+				<b:graphicImage value="/images/nature2.jpg" />
+				<b:graphicImage value="/images/nature3.jpg" />
+				<b:graphicImage value="/images/nature4.jpg" />
+			</b:imageSwitch>
 		
-			<p:contextMenu id="contextMenuId" for="images" style="z-index:50">
-				<p:menuitem value="Previous" url="javascript:void(0)" onclick="gallery.previous()" icon="ui-icon-triangle-1-w" />
-				<p:menuitem value="Next" url="javascript:void(0)" onclick="gallery.next()" icon="ui-icon-triangle-1-e" />
-				<p:menuitem value="Remove All" url="javascript:void(0)" onclick="$('#images').fadeOut()" icon="ui-icon-close"/>
-			</p:contextMenu>
+			<b:contextMenu id="contextMenuId" for="images" style="z-index:50">
+				<b:menuitem value="Previous" url="javascript:void(0)" onclick="gallery.previous()" icon="ui-icon-triangle-1-w" />
+				<b:menuitem value="Next" url="javascript:void(0)" onclick="gallery.next()" icon="ui-icon-triangle-1-e" />
+				<b:menuitem value="Remove All" url="javascript:void(0)" onclick="$('#images').fadeOut()" icon="ui-icon-close"/>
+			</b:contextMenu>
 						
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="contextMenuAttach.xhtml">
+			<b:tabView>
+				<b:tab title="contextMenuAttach.xhtml">
 	<pre name="code" class="xml">
-&lt;p:imageSwitch id="images" effect="fade" widgetVar="gallery" slideshowAuto="false"
+&lt;b:imageSwitch id="images" effect="fade" widgetVar="gallery" slideshowAuto="false"
     style="width:400px"&gt;
-    &lt;p:graphicImage value="/images/nature1.jpg" /&gt;
-    &lt;p:graphicImage value="/images/nature2.jpg" /&gt;
-    &lt;p:graphicImage value="/images/nature3.jpg" /&gt;
-    &lt;p:graphicImage value="/images/nature4.jpg" /&gt;
-&lt;/p:imageSwitch&gt;
+    &lt;b:graphicImage value="/images/nature1.jpg" /&gt;
+    &lt;b:graphicImage value="/images/nature2.jpg" /&gt;
+    &lt;b:graphicImage value="/images/nature3.jpg" /&gt;
+    &lt;b:graphicImage value="/images/nature4.jpg" /&gt;
+&lt;/b:imageSwitch&gt;
 
-&lt;p:contextMenu for="images" style="z-index:50"&gt;
-    &lt;p:menuitem value="Previous" url="javascript:void(0)" onclick="gallery.previous()" icon="ui-icon-triangle-1-w" /&gt;
-    &lt;p:menuitem value="Next" url="javascript:void(0)" onclick="gallery.next()" icon="ui-icon-triangle-1-e" /&gt;
-    &lt;p:menuitem value="Remove All" url="javascript:void(0)" onclick="$('\#images').fadeOut()" icon="ui-icon-close"/&gt;
-&lt;/p:contextMenu&gt;
+&lt;b:contextMenu for="images" style="z-index:50"&gt;
+    &lt;b:menuitem value="Previous" url="javascript:void(0)" onclick="gallery.previous()" icon="ui-icon-triangle-1-w" /&gt;
+    &lt;b:menuitem value="Next" url="javascript:void(0)" onclick="gallery.next()" icon="ui-icon-triangle-1-e" /&gt;
+    &lt;b:menuitem value="Remove All" url="javascript:void(0)" onclick="$('\#images').fadeOut()" icon="ui-icon-close"/&gt;
+&lt;/b:contextMenu&gt;
 </pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 
 						
 					</div>

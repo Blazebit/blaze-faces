@@ -13,80 +13,80 @@
 			
 			<h:form id="form">
                 
-                <p:growl id="messages" showDetail="true" />
+                <b:growl id="messages" showDetail="true" />
 	
-				<p:treeTable value="#{documentsController.root}" var="document" id="singleSelect"
+				<b:treeTable value="#{documentsController.root}" var="document" id="singleSelect"
                              selection="#{documentsController.selectedNode}" selectionMode="single">
 
                     <f:facet name="header">
                         Single Selection
                     </f:facet>
                     
-					<p:column style="width:150px">
+					<b:column style="width:150px">
 						<f:facet name="header">
 							Name
 						</f:facet>
 						<h:outputText value="#{document.name}" />
-					</p:column>
+					</b:column>
 					
-					<p:column style="width:100px">
+					<b:column style="width:100px">
 						<f:facet name="header">
 							Size
 						</f:facet>
 						<h:outputText value="#{document.size}" />
-					</p:column>
+					</b:column>
 					
-					<p:column style="width:100px">
+					<b:column style="width:100px">
 						<f:facet name="header">
 							Type
 						</f:facet>
 						<h:outputText value="#{document.type}" />
-					</p:column>
+					</b:column>
                     
                     <f:facet name="footer">
-                        <p:commandButton id="singleBtn" value="View" icon="ui-icon-search"
+                        <b:commandButton id="singleBtn" value="View" icon="ui-icon-search"
                                 update=":form:documentPanel" oncomplete="documentDialog.show()"/>
                     </f:facet>
-				</p:treeTable>
+				</b:treeTable>
                 
                 <br />
                 
-                <p:treeTable value="#{documentsController.root}" var="document" id="multiSelect"
+                <b:treeTable value="#{documentsController.root}" var="document" id="multiSelect"
                              selection="#{documentsController.selectedNodes}" selectionMode="multiple">
 
                     <f:facet name="header">
                         Multiple Selection
                     </f:facet>
                     
-					<p:column style="width:150px">
+					<b:column style="width:150px">
 						<f:facet name="header">
 							Name
 						</f:facet>
 						<h:outputText value="#{document.name}" />
-					</p:column>
+					</b:column>
 					
-					<p:column style="width:100px">
+					<b:column style="width:100px">
 						<f:facet name="header">
 							Size
 						</f:facet>
 						<h:outputText value="#{document.size}" />
-					</p:column>
+					</b:column>
 					
-					<p:column style="width:100px">
+					<b:column style="width:100px">
 						<f:facet name="header">
 							Type
 						</f:facet>
 						<h:outputText value="#{document.type}" />
-					</p:column>
+					</b:column>
                     
                     <f:facet name="footer">
-                        <p:commandButton value="View" icon="ui-icon-search"
+                        <b:commandButton value="View" icon="ui-icon-search"
                                 update=":form:documentPanel" oncomplete="documentDialog.show()"/>
                     </f:facet>
-				</p:treeTable>
+				</b:treeTable>
 				
-				<p:dialog id="dialog" header="Document Detail" showEffect="fade" widgetVar="documentDialog" modal="true">
-					<p:outputPanel id="documentPanel">
+				<b:dialog id="dialog" header="Document Detail" showEffect="fade" widgetVar="documentDialog" modal="true">
+					<b:outputPanel id="documentPanel">
                         <h:panelGrid  columns="2" cellpadding="5" rendered="#{not empty documentsController.selectedNode}">
 							<h:outputLabel for="name" value="Name: " />
 							<h:outputText id="name" value="#{documentsController.selectedNode.data.name}" style="font-weight:bold" />
@@ -98,96 +98,96 @@
 							<h:outputText id="type" value="#{documentsController.selectedNode.data.type}" style="font-weight:bold" />
 						</h:panelGrid>
                         
-                        <p:dataList value="#{documentsController.selectedNodes}" var="selectedNode" rendered="#{not empty documentsController.selectedNodes}">
+                        <b:dataList value="#{documentsController.selectedNodes}" var="selectedNode" rendered="#{not empty documentsController.selectedNodes}">
                             #{selectedNode.data.name}
-                        </p:dataList>
-					</p:outputPanel>
-				</p:dialog>
+                        </b:dataList>
+					</b:outputPanel>
+				</b:dialog>
 				
 			</h:form>
 			
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="treeTableSelection.xhtml">
+			<b:tabView>
+				<b:tab title="treeTableSelection.xhtml">
 					<pre name="code" class="xml">
 &lt;h:form id="form"&gt;
                 
-    &lt;p:growl id="messages" showDetail="true" /&gt;
+    &lt;b:growl id="messages" showDetail="true" /&gt;
 
-    &lt;p:treeTable value="\#{documentsController.root}" var="document"
+    &lt;b:treeTable value="\#{documentsController.root}" var="document"
                  selection="\#{documentsController.selectedNode}" selectionMode="single"&gt;
 
         &lt;f:facet name="header"&gt;
             Single Selection
         &lt;/f:facet&gt;
 
-        &lt;p:column style="width:150px"&gt;
+        &lt;b:column style="width:150px"&gt;
             &lt;f:facet name="header"&gt;
                 Name
             &lt;/f:facet&gt;
             &lt;h:outputText value="\#{document.name}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column style="width:100px"&gt;
+        &lt;b:column style="width:100px"&gt;
             &lt;f:facet name="header"&gt;
                 Size
             &lt;/f:facet&gt;
             &lt;h:outputText value="\#{document.size}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column style="width:100px"&gt;
+        &lt;b:column style="width:100px"&gt;
             &lt;f:facet name="header"&gt;
                 Type
             &lt;/f:facet&gt;
             &lt;h:outputText value="\#{document.type}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
         &lt;f:facet name="footer"&gt;
-            &lt;p:commandButton value="View" icon="ui-icon-search"
+            &lt;b:commandButton value="View" icon="ui-icon-search"
                     update=":form:documentPanel" oncomplete="documentDialog.show()"/&gt;
         &lt;/f:facet&gt;
-    &lt;/p:treeTable&gt;
+    &lt;/b:treeTable&gt;
 
 
 
-    &lt;p:treeTable value="\#{documentsController.root}" var="document"
+    &lt;b:treeTable value="\#{documentsController.root}" var="document"
                  selection="\#{documentsController.selectedNodes}" selectionMode="multiple"&gt;
 
         &lt;f:facet name="header"&gt;
             Multiple Selection
         &lt;/f:facet&gt;
 
-        &lt;p:column style="width:150px"&gt;
+        &lt;b:column style="width:150px"&gt;
             &lt;f:facet name="header"&gt;
                 Name
             &lt;/f:facet&gt;
             &lt;h:outputText value="\#{document.name}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column style="width:100px"&gt;
+        &lt;b:column style="width:100px"&gt;
             &lt;f:facet name="header"&gt;
                 Size
             &lt;/f:facet&gt;
             &lt;h:outputText value="\#{document.size}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column style="width:100px"&gt;
+        &lt;b:column style="width:100px"&gt;
             &lt;f:facet name="header"&gt;
                 Type
             &lt;/f:facet&gt;
             &lt;h:outputText value="\#{document.type}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
         &lt;f:facet name="footer"&gt;
-            &lt;p:commandButton value="View" icon="ui-icon-search"
+            &lt;b:commandButton value="View" icon="ui-icon-search"
                     update=":form:documentPanel" oncomplete="documentDialog.show()"/&gt;
         &lt;/f:facet&gt;
-    &lt;/p:treeTable&gt;
+    &lt;/b:treeTable&gt;
 
 
 
-    &lt;p:dialog header="Document Detail" showEffect="fade" widgetVar="documentDialog" modal="true"&gt;
-        &lt;p:outputPanel id="documentPanel"&gt;
+    &lt;b:dialog header="Document Detail" showEffect="fade" widgetVar="documentDialog" modal="true"&gt;
+        &lt;b:outputPanel id="documentPanel"&gt;
             &lt;h:panelGrid  columns="2" cellpadding="5" rendered="\#{not empty documentsController.selectedNode}"&gt;
                 &lt;h:outputLabel for="name" value="Name: " /&gt;
                 &lt;h:outputText id="name" value="\#{documentsController.selectedNode.data.name}" style="font-weight:bold" /&gt;
@@ -199,18 +199,18 @@
                 &lt;h:outputText id="type" value="\#{documentsController.selectedNode.data.type}" style="font-weight:bold" /&gt;
             &lt;/h:panelGrid&gt;
 
-            &lt;p:dataList value="\#{documentsController.selectedNodes}" 
+            &lt;b:dataList value="\#{documentsController.selectedNodes}" 
                         var="selectedNode" rendered="\#{not empty documentsController.selectedNodes}"&gt;
                 \#{selectedNode.data.name}
-            &lt;/p:dataList&gt;
-        &lt;/p:outputPanel&gt;
-    &lt;/p:dialog&gt;
+            &lt;/b:dataList&gt;
+        &lt;/b:outputPanel&gt;
+    &lt;/b:dialog&gt;
 
 &lt;/h:form&gt;
 					</pre> 
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="DocumentsController.java">
+				<b:tab title="DocumentsController.java">
 					<pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -287,8 +287,8 @@ public class DocumentsController implements Serializable {
     }
 }
 					</pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 		</div>
 
 	</ui:define>

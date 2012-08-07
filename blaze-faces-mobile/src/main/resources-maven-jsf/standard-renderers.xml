@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<render-kit>
         <renderer>
             <component-family>com.blazebit.blazefaces.component</component-family>
             <renderer-type>com.blazebit.blazefaces.component.CommandButtonRenderer</renderer-type>
@@ -69,3 +71,4 @@
             <renderer-type>com.blazebit.blazefaces.component.SelectOneRadioRenderer</renderer-type>
             <renderer-class>com.blazebit.blazefaces.mobile.renderkit.SelectOneRadioRenderer</renderer-class>
         </renderer>
+</render-kit>

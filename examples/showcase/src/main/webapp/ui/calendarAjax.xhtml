@@ -12,31 +12,31 @@
             
 			<h:form id="form">
 				
-				<p:growl id="growl" showDetail="true" />
+				<b:growl id="growl" showDetail="true" />
 				
-				<p:calendar value="#{calendarBean.date1}" mode="inline" id="inlineCal">
-                    <p:ajax event="dateSelect" listener="#{calendarBean.handleDateSelect}" update="growl" />
-                </p:calendar>
+				<b:calendar value="#{calendarBean.date1}" mode="inline" id="inlineCal">
+                    <b:ajax event="dateSelect" listener="#{calendarBean.handleDateSelect}" update="growl" />
+                </b:calendar>
 			
 			</h:form>
 	
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="calendarAjax.html">
+			<b:tabView>
+				<b:tab title="calendarAjax.html">
 <pre name="code" class="xml">
 &lt;h:form id="form" &gt;
 
-    &lt;p:growl id="growl" showDetail="true"/&gt;
+    &lt;b:growl id="growl" showDetail="true"/&gt;
 
-    &lt;p:calendar value="\#{calendarBean.date1}" mode="inline" id="inlineCal"&gt;
-        &lt;p:ajax event="dateSelect" listener="\#{calendarBean.handleDateSelect}" update="growl" /&gt;
-    &lt;/p:calendar&gt;
+    &lt;b:calendar value="\#{calendarBean.date1}" mode="inline" id="inlineCal"&gt;
+        &lt;b:ajax event="dateSelect" listener="\#{calendarBean.handleDateSelect}" update="growl" /&gt;
+    &lt;/b:calendar&gt;
 
 &lt;/h:form&gt;
 </pre>
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="CalendarBean.java">
+				<b:tab title="CalendarBean.java">
 <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -67,8 +67,8 @@ public class CalendarBean {
 	}
 }
 	</pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 				
 			
 			

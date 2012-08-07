@@ -11,139 +11,139 @@
 			<p>DataTable column headers and footers can be grouped for complex display.</p>
 
             <h:form id="form">
-                <p:dataTable id="salesTable" var="sale" value="#{tableBean.sales}">
+                <b:dataTable id="salesTable" var="sale" value="#{tableBean.sales}">
 
                     <f:facet name="header">
                         Sales/Profits of Manufacturers
                     </f:facet>
 
-                    <p:columnGroup type="header">
-                        <p:row>
-                            <p:column rowspan="3" headerText="Manufacturer" />
-                            <p:column colspan="4" headerText="Sales" />
-                        </p:row>
+                    <b:columnGroup type="header">
+                        <b:row>
+                            <b:column rowspan="3" headerText="Manufacturer" />
+                            <b:column colspan="4" headerText="Sales" />
+                        </b:row>
 
-                        <p:row>
-                            <p:column colspan="2" headerText="Sales Count" />
-                            <p:column colspan="2" headerText="Profit" />
-                        </p:row>
+                        <b:row>
+                            <b:column colspan="2" headerText="Sales Count" />
+                            <b:column colspan="2" headerText="Profit" />
+                        </b:row>
 
-                        <p:row>
-                            <p:column headerText="Last Year" />
-                            <p:column headerText="This Year" />
-                            <p:column headerText="Last Year" />
-                            <p:column headerText="This Year" />
-                        </p:row>
-                    </p:columnGroup>
+                        <b:row>
+                            <b:column headerText="Last Year" />
+                            <b:column headerText="This Year" />
+                            <b:column headerText="Last Year" />
+                            <b:column headerText="This Year" />
+                        </b:row>
+                    </b:columnGroup>
 
-                    <p:column>
+                    <b:column>
                         #{sale.manufacturer}
-                    </p:column>
+                    </b:column>
 
-                    <p:column>
+                    <b:column>
                         #{sale.lastYearProfit}%
-                    </p:column>
+                    </b:column>
 
-                    <p:column>
+                    <b:column>
                         #{sale.thisYearProfit}%
-                    </p:column>
+                    </b:column>
 
-                    <p:column>
+                    <b:column>
                         #{sale.lastYearSale}$
-                    </p:column>
+                    </b:column>
 
-                    <p:column>
+                    <b:column>
                         #{sale.thisYearSale}$
-                    </p:column>
+                    </b:column>
 
-                    <p:columnGroup type="footer">
-                        <p:row>
-                            <p:column colspan="3" style="text-align:right" footerText="Totals:" />
+                    <b:columnGroup type="footer">
+                        <b:row>
+                            <b:column colspan="3" style="text-align:right" footerText="Totals:" />
 
-                            <p:column footerText="#{tableBean.lastYearTotal}$" />
+                            <b:column footerText="#{tableBean.lastYearTotal}$" />
 
-                            <p:column footerText="#{tableBean.thisYearTotal}$" />
-                        </p:row>
-                    </p:columnGroup>
+                            <b:column footerText="#{tableBean.thisYearTotal}$" />
+                        </b:row>
+                    </b:columnGroup>
 
                     <f:facet name="footer">
                         Use a bicycle instead of a car
                     </f:facet>
                    
-                </p:dataTable>
+                </b:dataTable>
             </h:form>
 
 		<h3>Source</h3>
-		<p:tabView>
-			<p:tab title="basicDataTable.xhtml">
+		<b:tabView>
+			<b:tab title="basicDataTable.xhtml">
                 <pre name="code" class="xml">
 &lt;h:form id="form"&gt;
-    &lt;p:dataTable id="salesTable" var="sale" value="\#{tableBean.sales}"&gt;
+    &lt;b:dataTable id="salesTable" var="sale" value="\#{tableBean.sales}"&gt;
 
         &lt;f:facet name="header"&gt;
             Sales/Profits of Manufacturers
         &lt;/f:facet&gt;
 
-        &lt;p:columnGroup type="header"&gt;
-            &lt;p:row&gt;
-                &lt;p:column rowspan="3" headerText="Manufacturer" /&gt;
-                &lt;p:column colspan="4" headerText="Sales" /&gt;
-            &lt;/p:row&gt;
+        &lt;b:columnGroup type="header"&gt;
+            &lt;b:row&gt;
+                &lt;b:column rowspan="3" headerText="Manufacturer" /&gt;
+                &lt;b:column colspan="4" headerText="Sales" /&gt;
+            &lt;/b:row&gt;
 
-            &lt;p:row&gt;
-                &lt;p:column colspan="2" headerText="Sales Count" /&gt;
-                &lt;p:column colspan="2" headerText="Profit" /&gt;
-            &lt;/p:row&gt;
+            &lt;b:row&gt;
+                &lt;b:column colspan="2" headerText="Sales Count" /&gt;
+                &lt;b:column colspan="2" headerText="Profit" /&gt;
+            &lt;/b:row&gt;
 
-            &lt;p:row&gt;
-                &lt;p:column headerText="Last Year" /&gt;
-                &lt;p:column headerText="This Year" /&gt;
-                &lt;p:column headerText="Last Year" /&gt;
-                &lt;p:column headerText="This Year" /&gt;
-            &lt;/p:row&gt;
-        &lt;/p:columnGroup&gt;
+            &lt;b:row&gt;
+                &lt;b:column headerText="Last Year" /&gt;
+                &lt;b:column headerText="This Year" /&gt;
+                &lt;b:column headerText="Last Year" /&gt;
+                &lt;b:column headerText="This Year" /&gt;
+            &lt;/b:row&gt;
+        &lt;/b:columnGroup&gt;
 
-        &lt;p:column&gt;
+        &lt;b:column&gt;
             \#{sale.manufacturer}
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column&gt;
+        &lt;b:column&gt;
             \#{sale.lastYearProfit}%
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column&gt;
+        &lt;b:column&gt;
             \#{sale.thisYearProfit}%
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column&gt;
+        &lt;b:column&gt;
             \#{sale.lastYearSale}$
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column&gt;
+        &lt;b:column&gt;
             \#{sale.thisYearSale}$
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:columnGroup type="footer"&gt;
-            &lt;p:row&gt;
-                &lt;p:column colspan="3" footerText="Totals:"
+        &lt;b:columnGroup type="footer"&gt;
+            &lt;b:row&gt;
+                &lt;b:column colspan="3" footerText="Totals:"
                                 style="text-align:right"  /&gt;
 
-                &lt;p:column footerText="\#{tableBean.lastYearTotal}$" /&gt;
+                &lt;b:column footerText="\#{tableBean.lastYearTotal}$" /&gt;
 
-                &lt;p:column footerText="\#{tableBean.thisYearTotal}$" /&gt;
-            &lt;/p:row&gt;
-        &lt;/p:columnGroup&gt;
+                &lt;b:column footerText="\#{tableBean.thisYearTotal}$" /&gt;
+            &lt;/b:row&gt;
+        &lt;/b:columnGroup&gt;
 
         &lt;f:facet name="footer"&gt;
             Use a bicycle instead of a car
         &lt;/f:facet&gt;
 
-    &lt;/p:dataTable&gt;
+    &lt;/b:dataTable&gt;
 &lt;/h:form&gt;
 				</pre>
-			</p:tab>
+			</b:tab>
 
-			<p:tab title="TableBean.java">
+			<b:tab title="TableBean.java">
 			<pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -218,8 +218,8 @@ public class TableBean implements Serializable {
     }
 }
 				</pre>
-			</p:tab>
-		</p:tabView>
+			</b:tab>
+		</b:tabView>
 	       </div>
 
 	</ui:define>

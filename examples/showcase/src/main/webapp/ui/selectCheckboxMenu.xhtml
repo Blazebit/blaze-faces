@@ -13,48 +13,48 @@
 
 			<h:form id="form">
 
-                <p:selectCheckboxMenu id="menu" value="#{formBean.selectedMovies}" label="Movies" filter="true" filterText="Filter">
+                <b:selectCheckboxMenu id="menu" value="#{formBean.selectedMovies}" label="Movies" filter="true" filterText="Filter">
                     <f:selectItems value="#{formBean.movies}" />
-                </p:selectCheckboxMenu>
+                </b:selectCheckboxMenu>
 
-                <p:separator style="margin-bottom:10px"/>
+                <b:separator style="margin-bottom:10px"/>
                 
-                <p:commandButton id="submit" value="Submit" update="display" oncomplete="dlg.show()" />
+                <b:commandButton id="submit" value="Submit" update="display" oncomplete="dlg.show()" />
 
-                <p:dialog id="dialog" header="Selected Movies" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg" resizabled="false">
-                    <p:dataList id="display" value="#{formBean.selectedMovies}" var="movie">
+                <b:dialog id="dialog" header="Selected Movies" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg" resizabled="false">
+                    <b:dataList id="display" value="#{formBean.selectedMovies}" var="movie">
                         #{movie}
-                    </p:dataList>
-                </p:dialog>
+                    </b:dataList>
+                </b:dialog>
 
 			</h:form>
 
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="selectCheckboxMenu.xhtml">
+			<b:tabView>
+				<b:tab title="selectCheckboxMenu.xhtml">
 					<pre name="code" class="xml">
 &lt;h:form&gt;
 
-    &lt;p:selectCheckboxMenu value="\#{formBean.selectedMovies}" label="Movies" filter="true" filterText="Filter"&gt;
+    &lt;b:selectCheckboxMenu value="\#{formBean.selectedMovies}" label="Movies" filter="true" filterText="Filter"&gt;
         &lt;f:selectItems value="\#{formBean.movies}" /&gt;
-    &lt;/p:selectCheckboxMenu&gt;
+    &lt;/b:selectCheckboxMenu&gt;
 
-    &lt;p:separator style="margin-bottom:10px"/&gt;
+    &lt;b:separator style="margin-bottom:10px"/&gt;
 
-    &lt;p:commandButton value="Submit" update="display" oncomplete="dlg.show()" /&gt;
+    &lt;b:commandButton value="Submit" update="display" oncomplete="dlg.show()" /&gt;
 
-    &lt;p:dialog header="Selected Movies" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg" resizabled="false"&gt;
-        &lt;p:dataList id="display" value="\#{formBean.selectedMovies}" var="movie"&gt;
+    &lt;b:dialog header="Selected Movies" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg" resizabled="false"&gt;
+        &lt;b:dataList id="display" value="\#{formBean.selectedMovies}" var="movie"&gt;
             \#{movie}
-        &lt;/p:dataList&gt;
-    &lt;/p:dialog&gt;
+        &lt;/b:dataList&gt;
+    &lt;/b:dialog&gt;
 
 &lt;/h:form&gt;
 					</pre>
 
-                    </p:tab>
+                    </b:tab>
 
-                    <p:tab title="FormBean.java">
+                    <b:tab title="FormBean.java">
                         <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -89,8 +89,8 @@ public class FormBean implements Serializable {
     }
 }
                         </pre>
-                    </p:tab>
-			</p:tabView>
+                    </b:tab>
+			</b:tabView>
 
 		</div>
 

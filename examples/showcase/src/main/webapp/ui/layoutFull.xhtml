@@ -19,64 +19,64 @@
 
         <h:body>
 
-            <p:layout fullPage="true">
+            <b:layout fullPage="true">
 
-                <p:layoutUnit position="north" size="100" header="Top" resizable="true" closable="true" collapsible="true">
+                <b:layoutUnit position="north" size="100" header="Top" resizable="true" closable="true" collapsible="true">
                     <h:outputText value="Top unit content." />
-                </p:layoutUnit>
+                </b:layoutUnit>
 
-                <p:layoutUnit position="south" size="100" header="Bottom" resizable="true" closable="true" collapsible="true">
+                <b:layoutUnit position="south" size="100" header="Bottom" resizable="true" closable="true" collapsible="true">
                     <h:outputText value="South unit content." />
-                </p:layoutUnit>
+                </b:layoutUnit>
 
-                <p:layoutUnit position="west" size="200" header="Left" resizable="true" closable="true" collapsible="true">
+                <b:layoutUnit position="west" size="200" header="Left" resizable="true" closable="true" collapsible="true">
                     <h:form style="text-align: center">
                         <ui:include src="../templates/themeMenu.xhtml" />
                     </h:form>		
-                </p:layoutUnit>
+                </b:layoutUnit>
 
-                <p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop">
+                <b:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop">
                     <h:outputText value="Right unit content." />
-                </p:layoutUnit>
+                </b:layoutUnit>
 
-                <p:layoutUnit position="center">
+                <b:layoutUnit position="center">
                     <h:form>
 			This fullPage layout consists of five different layoutUnits which are resizable and closable by default.
 
                         <pre name="code" class="xml">
-&lt;p:layout fullPage="true"&gt;
+&lt;b:layout fullPage="true"&gt;
 
-    &lt;p:layoutUnit position="north" size="100" header="Top" resizable="true" closable="true" collapsible="true"&gt;
+    &lt;b:layoutUnit position="north" size="100" header="Top" resizable="true" closable="true" collapsible="true"&gt;
         &lt;h:outputText value="Top unit content." /&gt;
-    &lt;/p:layoutUnit&gt;
+    &lt;/b:layoutUnit&gt;
 
-    &lt;p:layoutUnit position="south" size="100" header="Bottom" resizable="true" closable="true" collapsible="true"&gt;
+    &lt;b:layoutUnit position="south" size="100" header="Bottom" resizable="true" closable="true" collapsible="true"&gt;
         &lt;h:outputText value="South unit content." /&gt;
-    &lt;/p:layoutUnit&gt;
+    &lt;/b:layoutUnit&gt;
 
-    &lt;p:layoutUnit position="west" size="200" header="Left" resizable="true" closable="true" collapsible="true"&gt;
+    &lt;b:layoutUnit position="west" size="200" header="Left" resizable="true" closable="true" collapsible="true"&gt;
         &lt;h:form&gt;
             &lt;ui:include src="../templates/themeMenu.xhtml" /&gt;
         &lt;/h:form&gt;
-    &lt;/p:layoutUnit&gt;
+    &lt;/b:layoutUnit&gt;
 
-    &lt;p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop"&gt;
+    &lt;b:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop"&gt;
         &lt;h:outputText value="Right unit content." /&gt;
-    &lt;/p:layoutUnit&gt;
+    &lt;/b:layoutUnit&gt;
 
-    &lt;p:layoutUnit position="center"&gt;
+    &lt;b:layoutUnit position="center"&gt;
         &lt;h:form&gt;
             This fullPage layout consists of five different layoutUnits which are resizable and closable by default.
 
         &lt;/h:form&gt;
-    &lt;/p:layoutUnit&gt;
+    &lt;/b:layoutUnit&gt;
 
-&lt;/p:layout&gt;
+&lt;/b:layout&gt;
                         </pre>
                     </h:form>
-                </p:layoutUnit>
+                </b:layoutUnit>
 
-            </p:layout>
+            </b:layout>
 
         </h:body>
 

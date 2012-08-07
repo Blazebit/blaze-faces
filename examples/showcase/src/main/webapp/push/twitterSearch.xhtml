@@ -65,35 +65,35 @@ setTimeout(function() {
   
             <h:form>
                 
-                <p:dataList widgetVar="tweetList" styleClass="ui-tweet-list">
+                <b:dataList widgetVar="tweetList" styleClass="ui-tweet-list">
                     <f:facet name="header">
                         Twitter Search for "I"
                     </f:facet>
-                </p:dataList>
+                </b:dataList>
                 
-                <p:remoteCommand name="init" actionListener="#{twitterSearchView.start}" global="false"/>
+                <b:remoteCommand name="init" actionListener="#{twitterSearchView.start}" global="false"/>
             </h:form>
                 
-            <p:socket onMessage="handleMessage" channel="/twitter" />
+            <b:socket onMessage="handleMessage" channel="/twitter" />
             
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="twitterSearch.xhtml">
+            <b:tabView>
+                <b:tab title="twitterSearch.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form&gt;
                 
     &lt;img url="http://a0.twimg.com/profile_images/2337148726/vPLz00IG_normal.jpeg" alt="" /&gt;
-    &lt;p:dataList widgetVar="tweetList" styleClass="ui-tweet-list"&gt;
+    &lt;b:dataList widgetVar="tweetList" styleClass="ui-tweet-list"&gt;
         &lt;f:facet name="header"&gt;
             Twitter Search for "I"
         &lt;/f:facet&gt;
-    &lt;/p:dataList&gt;
+    &lt;/b:dataList&gt;
 
-    &lt;p:remoteCommand name="init" actionListener="\#{twitterSearchView.start}" global="false"/&gt;
+    &lt;b:remoteCommand name="init" actionListener="\#{twitterSearchView.start}" global="false"/&gt;
 
 &lt;/h:form&gt;
 
-&lt;p:socket onMessage="handleMessage" channel="/twitter" /&gt;
+&lt;b:socket onMessage="handleMessage" channel="/twitter" /&gt;
 
 function handleMessage(data) {
     var tweets = data.results;
@@ -111,9 +111,9 @@ function handleMessage(data) {
     }
 }
                     </pre>
-                </p:tab>
+                </b:tab>
                 
-                <p:tab title="TwitterSearchView.java">
+                <b:tab title="TwitterSearchView.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -184,8 +184,8 @@ public class TwitterSearchView {
     }
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 		
 		</div>
 	</ui:define>

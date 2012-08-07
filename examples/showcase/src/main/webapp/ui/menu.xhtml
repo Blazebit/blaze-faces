@@ -12,91 +12,91 @@
 			
 			<h:form>
 			
-				<p:growl id="messages"/>
+				<b:growl id="messages"/>
                                 
 				<h3>Plain Menu</h3>
-				<p:menu>
-					<p:submenu label="Ajax Menuitems">
-						<p:menuitem value="Save" actionListener="#{buttonBean.save}" update="messages" icon="ui-icon-disk" />
-						<p:menuitem value="Update" actionListener="#{buttonBean.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
-					</p:submenu>
-					<p:submenu label="Non-Ajax Menuitem">
-						<p:menuitem value="Delete" actionListener="#{buttonBean.delete}" update="messages" ajax="false" icon="ui-icon-close"/>
-					</p:submenu>
-					<p:submenu label="Navigations">
-						<p:menuitem value="Home" url="http://www.blazebit.com/faces" icon="ui-icon-home"/>
-						<p:menuitem value="TouchFaces" url="/touch" icon="ui-icon-star"/>
-					</p:submenu>
-				</p:menu>
+				<b:menu>
+					<b:submenu label="Ajax Menuitems">
+						<b:menuitem value="Save" actionListener="#{buttonBean.save}" update="messages" icon="ui-icon-disk" />
+						<b:menuitem value="Update" actionListener="#{buttonBean.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+					</b:submenu>
+					<b:submenu label="Non-Ajax Menuitem">
+						<b:menuitem value="Delete" actionListener="#{buttonBean.delete}" update="messages" ajax="false" icon="ui-icon-close"/>
+					</b:submenu>
+					<b:submenu label="Navigations">
+						<b:menuitem value="Home" url="http://www.blazebit.com/faces" icon="ui-icon-home"/>
+						<b:menuitem value="TouchFaces" url="/touch" icon="ui-icon-star"/>
+					</b:submenu>
+				</b:menu>
 
                 <h3>Overlay</h3>
-				<p:commandButton id="dynaButton" value="Show" type="button"/>
-                <p:menu overlay="true" trigger="dynaButton" my="left top" at="left bottom">
-					<p:submenu label="Ajax Menuitems">
-						<p:menuitem value="Save" actionListener="#{buttonBean.save}" update="messages" icon="ui-icon-disk"/>
-						<p:menuitem value="Update" actionListener="#{buttonBean.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
-					</p:submenu>
-					<p:submenu label="Non-Ajax Menuitem">
-						<p:menuitem value="Delete" actionListener="#{buttonBean.delete}" update="messages" ajax="false" icon="ui-icon-close"/>
-					</p:submenu>
-					<p:submenu label="Navigations">
-						<p:menuitem value="Home" url="http://www.blazebit.com/faces" icon="ui-icon-home"/>
-						<p:menuitem value="TouchFaces" url="/touch" icon="ui-icon-star"/>
-					</p:submenu>
-				</p:menu>
+				<b:commandButton id="dynaButton" value="Show" type="button"/>
+                <b:menu overlay="true" trigger="dynaButton" my="left top" at="left bottom">
+					<b:submenu label="Ajax Menuitems">
+						<b:menuitem value="Save" actionListener="#{buttonBean.save}" update="messages" icon="ui-icon-disk"/>
+						<b:menuitem value="Update" actionListener="#{buttonBean.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+					</b:submenu>
+					<b:submenu label="Non-Ajax Menuitem">
+						<b:menuitem value="Delete" actionListener="#{buttonBean.delete}" update="messages" ajax="false" icon="ui-icon-close"/>
+					</b:submenu>
+					<b:submenu label="Navigations">
+						<b:menuitem value="Home" url="http://www.blazebit.com/faces" icon="ui-icon-home"/>
+						<b:menuitem value="TouchFaces" url="/touch" icon="ui-icon-star"/>
+					</b:submenu>
+				</b:menu>
                 
                 <h3>Programmatic Menu</h3>
-				<p:menu model="#{menuBean.model}"/>
+				<b:menu model="#{menuBean.model}"/>
 
 			</h:form>
 			
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="menu.xhtml">
+			<b:tabView>
+				<b:tab title="menu.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form&gt;
 
-    &lt;p:growl id="messages"/&gt;
+    &lt;b:growl id="messages"/&gt;
 
     &lt;h3&gt;Plain Menu&lt;/h3&gt;
-    &lt;p:menu&gt;
-        &lt;p:submenu label="Ajax Menuitems"&gt;
-            &lt;p:menuitem value="Save" actionListener="\#{buttonBean.save}" update="messages" icon="ui-icon-disk"/&gt;
-            &lt;p:menuitem value="Update" actionListener="\#{buttonBean.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/&gt;
-        &lt;/p:submenu&gt;
-        &lt;p:submenu label="Non-Ajax Menuitem"&gt;
-            &lt;p:menuitem value="Delete" actionListener="\#{buttonBean.delete}" update="messages" ajax="false" icon="ui-icon-close"/&gt;
-        &lt;/p:submenu&gt;
-        &lt;p:submenu label="Navigations"&gt;
-            &lt;p:menuitem value="Home" url="http://www.blazebit.com/faces" icon="ui-icon-home"/&gt;
-            &lt;p:menuitem value="TouchFaces" url="/touch" icon="ui-icon-star"/&gt;
-        &lt;/p:submenu&gt;
-    &lt;/p:menu&gt;
+    &lt;b:menu&gt;
+        &lt;b:submenu label="Ajax Menuitems"&gt;
+            &lt;b:menuitem value="Save" actionListener="\#{buttonBean.save}" update="messages" icon="ui-icon-disk"/&gt;
+            &lt;b:menuitem value="Update" actionListener="\#{buttonBean.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/&gt;
+        &lt;/b:submenu&gt;
+        &lt;b:submenu label="Non-Ajax Menuitem"&gt;
+            &lt;b:menuitem value="Delete" actionListener="\#{buttonBean.delete}" update="messages" ajax="false" icon="ui-icon-close"/&gt;
+        &lt;/b:submenu&gt;
+        &lt;b:submenu label="Navigations"&gt;
+            &lt;b:menuitem value="Home" url="http://www.blazebit.com/faces" icon="ui-icon-home"/&gt;
+            &lt;b:menuitem value="TouchFaces" url="/touch" icon="ui-icon-star"/&gt;
+        &lt;/b:submenu&gt;
+    &lt;/b:menu&gt;
 
     &lt;h3&gt;Overlay&lt;/h3&gt;
-    &lt;p:commandButton id="dynaButton" value="Show" type="button"/&gt;
-    &lt;p:menu overlay="true" trigger="dynaButton" my="left top" at="left bottom"&gt;
-        &lt;p:submenu label="Ajax Menuitems"&gt;
-            &lt;p:menuitem value="Save" actionListener="\#{buttonBean.save}" update="messages" icon="ui-icon-disk"/&gt;
-            &lt;p:menuitem value="Update" actionListener="\#{buttonBean.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/&gt;
-        &lt;/p:submenu&gt;
-        &lt;p:submenu label="Non-Ajax Menuitem"&gt;
-            &lt;p:menuitem value="Delete" actionListener="\#{buttonBean.delete}" update="messages" ajax="false" icon="ui-icon-close"/&gt;
-        &lt;/p:submenu&gt;
-        &lt;p:submenu label="Navigations"&gt;
-            &lt;p:menuitem value="Home" url="http://www.blazebit.com/faces" icon="ui-icon-home"/&gt;
-            &lt;p:menuitem value="TouchFaces" url="/touch" icon="ui-icon-star"/&gt;
-        &lt;/p:submenu&gt;
-    &lt;/p:menu&gt;
+    &lt;b:commandButton id="dynaButton" value="Show" type="button"/&gt;
+    &lt;b:menu overlay="true" trigger="dynaButton" my="left top" at="left bottom"&gt;
+        &lt;b:submenu label="Ajax Menuitems"&gt;
+            &lt;b:menuitem value="Save" actionListener="\#{buttonBean.save}" update="messages" icon="ui-icon-disk"/&gt;
+            &lt;b:menuitem value="Update" actionListener="\#{buttonBean.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/&gt;
+        &lt;/b:submenu&gt;
+        &lt;b:submenu label="Non-Ajax Menuitem"&gt;
+            &lt;b:menuitem value="Delete" actionListener="\#{buttonBean.delete}" update="messages" ajax="false" icon="ui-icon-close"/&gt;
+        &lt;/b:submenu&gt;
+        &lt;b:submenu label="Navigations"&gt;
+            &lt;b:menuitem value="Home" url="http://www.blazebit.com/faces" icon="ui-icon-home"/&gt;
+            &lt;b:menuitem value="TouchFaces" url="/touch" icon="ui-icon-star"/&gt;
+        &lt;/b:submenu&gt;
+    &lt;/b:menu&gt;
 
     &lt;h3&gt;Programmatic Menu&lt;/h3&gt;
-    &lt;p:menu model="\#{menuBean.model}"/&gt;
+    &lt;b:menu model="\#{menuBean.model}"/&gt;
 
 &lt;/h:form&gt;
                     </pre>
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="MenuBean.java">
+				<b:tab title="MenuBean.java">
 <pre name="code" class="java">
 public class MenuBean {
 
@@ -138,8 +138,8 @@ public class MenuBean {
 	}	
 }
 			</pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
       	</div>
  
 </ui:define>

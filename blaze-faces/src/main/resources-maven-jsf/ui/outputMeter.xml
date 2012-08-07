@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE component SYSTEM "../misc/component.dtd" [
-<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
-<!ENTITY output_component_attributes		SYSTEM "../entities/output_component_attributes.xml">
-<!ENTITY widget_var_attribute					SYSTEM "../entities/widget_var_attribute.xml">
-]>
-<component>
+<component  xmlns="http://blazebit.com/jsf/component" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://blazebit.com/jsf/component ../misc/component.xsd">
     <tag>outputMeter</tag>
     <componentClass>com.blazebit.blazefaces.component.outputmeter.OutputMeter</componentClass>
     <componentType>com.blazebit.blazefaces.component.OutputMeter</componentType>
@@ -22,42 +17,41 @@
 		</interface>
 	</interfaces>
     <attributes>
-        &output_component_attributes;
-        &widget_var_attribute;
+        <xi:include href="./../entities/output_component_attributes.xml" parse="text"/>
+        <xi:include href="./../entities/widget_var_attribute.xml" parse="text"/>
         <attribute>
-            <description><![CDATA[The minimum allowed value. The default value is 0.]]>
-            </description>
             <name>min</name>
             <required>false</required>
             <type>java.lang.Double</type>
+            <description>The minimum allowed value. The default value is 0.</description>
         </attribute>
         <attribute>
-            <description><![CDATA[The maximum allowed value. If the maximum value is less than the minimum value, then the minimum value is used as the max. If it is not specified then the value is 1.]]>
-            </description>
             <name>max</name>
             <required>false</required>
             <type>java.lang.Double</type>
+            <description><![CDATA[The maximum allowed value. If the maximum value is less than the minimum value, then the minimum value is used as the max. If it is not specified then the value is 1.]]>
+            </description>
         </attribute>
         <attribute>
-            <description><![CDATA[This is considered to be the low part of the value range. It must be less than or equal to the value of the high attribute. Also, if the low value is less than the min value, then the low value is the same as the min value.]]>
-            </description>
             <name>low</name>
             <required>false</required>
             <type>java.lang.Double</type>
+            <description><![CDATA[This is considered to be the low part of the value range. It must be less than or equal to the value of the high attribute. Also, if the low value is less than the min value, then the low value is the same as the min value.]]>
+            </description>
         </attribute>
         <attribute>
-            <description><![CDATA[This is considered to be the high part of the value range. If the high value is less than the low boundary, then the high value is the same as the low value. Also, if the high value is greater than the max value, then the high value is the same as the max value.]]>
-            </description>
             <name>high</name>
             <required>false</required>
             <type>java.lang.Double</type>
+            <description><![CDATA[This is considered to be the high part of the value range. If the high value is less than the low boundary, then the high value is the same as the low value. Also, if the high value is greater than the max value, then the high value is the same as the max value.]]>
+            </description>
         </attribute>
         <attribute>
-            <description><![CDATA[This is considered to be the optimum value and needs to be somewhere between min and max. It can be greater than the high attribute]]>
-            </description>
             <name>optimum</name>
             <required>false</required>
             <type>java.lang.Double</type>
+            <description><![CDATA[This is considered to be the optimum value and needs to be somewhere between min and max. It can be greater than the high attribute]]>
+            </description>
         </attribute>
         <attribute>
             <name>style</name>

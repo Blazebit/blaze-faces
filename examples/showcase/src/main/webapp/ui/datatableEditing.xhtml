@@ -13,102 +13,102 @@
 
             <h:form id="form">
 
-                <p:growl id="messages" showDetail="true"/>
+                <b:growl id="messages" showDetail="true"/>
 
-                <p:dataTable var="car" value="#{tableBean.carsSmall}" id="carList" editable="true">
+                <b:dataTable var="car" value="#{tableBean.carsSmall}" id="carList" editable="true">
 
                     <f:facet name="header">
                         In-Cell Editing
                     </f:facet>
                     
-                    <p:ajax event="rowEdit" listener="#{tableBean.onEdit}" update=":form:messages" />
-                    <p:ajax event="rowEditCancel" listener="#{tableBean.onCancel}" update=":form:messages" />
+                    <b:ajax event="rowEdit" listener="#{tableBean.onEdit}" update=":form:messages" />
+                    <b:ajax event="rowEditCancel" listener="#{tableBean.onCancel}" update=":form:messages" />
                     
-                    <p:column headerText="Model" style="width:125px">
-                        <p:cellEditor>
+                    <b:column headerText="Model" style="width:125px">
+                        <b:cellEditor>
                             <f:facet name="output"><h:outputText value="#{car.model}" /></f:facet>
-                            <f:facet name="input"><p:inputText id="modelInput" value="#{car.model}" style="width:100%"/></f:facet>
-                        </p:cellEditor>
-                    </p:column>
+                            <f:facet name="input"><b:inputText id="modelInput" value="#{car.model}" style="width:100%"/></f:facet>
+                        </b:cellEditor>
+                    </b:column>
 
-                    <p:column headerText="Year" style="width:125px">
-                        <p:cellEditor>
+                    <b:column headerText="Year" style="width:125px">
+                        <b:cellEditor>
                             <f:facet name="output"><h:outputText value="#{car.year}" /></f:facet>
-                            <f:facet name="input"><p:inputText value="#{car.year}" style="width:100%" label="Year"/></f:facet>
-                        </p:cellEditor>
-                    </p:column>
+                            <f:facet name="input"><b:inputText value="#{car.year}" style="width:100%" label="Year"/></f:facet>
+                        </b:cellEditor>
+                    </b:column>
 
-                    <p:column headerText="Manufacturer" style="width:125px">
-                        <p:cellEditor>
+                    <b:column headerText="Manufacturer" style="width:125px">
+                        <b:cellEditor>
                             <f:facet name="output"><h:outputText value="#{car.manufacturer}" /></f:facet>
                             <f:facet name="input">
                                 <h:selectOneMenu value="#{car.manufacturer}" style="width:100%">
                                     <f:selectItems value="#{tableBean.manufacturers}" var="man" itemLabel="#{man}" itemValue="#{man}" />
                                 </h:selectOneMenu>
                             </f:facet>
-                        </p:cellEditor>
-                    </p:column>
+                        </b:cellEditor>
+                    </b:column>
 
-                    <p:column headerText="Color" style="width:125px">
-                        <p:cellEditor>
+                    <b:column headerText="Color" style="width:125px">
+                        <b:cellEditor>
                             <f:facet name="output"><h:outputText value="#{car.color}" /></f:facet>
                             <f:facet name="input">
                                 <h:selectOneMenu value="#{car.color}" style="width:100%">
                                     <f:selectItems value="#{tableBean.colors}" var="color" itemLabel="#{color}" itemValue="#{color}" />
                                 </h:selectOneMenu>
                             </f:facet>
-                        </p:cellEditor>
-                    </p:column>
+                        </b:cellEditor>
+                    </b:column>
 
-                    <p:column headerText="Options" style="width:50px">
-                        <p:rowEditor />
-                    </p:column>
+                    <b:column headerText="Options" style="width:50px">
+                        <b:rowEditor />
+                    </b:column>
 
-                </p:dataTable>
+                </b:dataTable>
 
             </h:form>
 
 		<h3>Source</h3>
-		<p:tabView>
-			<p:tab title="datatableEditing.xhtml">
+		<b:tabView>
+			<b:tab title="datatableEditing.xhtml">
                 <pre name="code" class="xml">
 &lt;h:form id="form"&gt;
 
-    &lt;p:growl id="messages" showDetail="true"/&gt;
+    &lt;b:growl id="messages" showDetail="true"/&gt;
 
-    &lt;p:dataTable var="car" value="\#{tableBean.carsSmall}" id="carList" editable="true"&gt;
+    &lt;b:dataTable var="car" value="\#{tableBean.carsSmall}" id="carList" editable="true"&gt;
 
         &lt;f:facet name="header"&gt;
             In-Cell Editing
         &lt;/f:facet&gt;
 
-        &lt;p:ajax event="rowEdit" listener="\#{tableBean.onEdit}" update=":form:messages" /&gt;
-        &lt;p:ajax event="rowEditCancel" listener="\#{tableBean.onCancel}" update=":form:messages" /&gt;
+        &lt;b:ajax event="rowEdit" listener="\#{tableBean.onEdit}" update=":form:messages" /&gt;
+        &lt;b:ajax event="rowEditCancel" listener="\#{tableBean.onCancel}" update=":form:messages" /&gt;
 
-        &lt;p:column headerText="Model" style="width:125px"&gt;
-            &lt;p:cellEditor&gt;
+        &lt;b:column headerText="Model" style="width:125px"&gt;
+            &lt;b:cellEditor&gt;
                 &lt;f:facet name="output"&gt;
                     &lt;h:outputText value="\#{car.model}" /&gt;
                 &lt;/f:facet&gt;
                 &lt;f:facet name="input"&gt;
-                    &lt;p:inputText value="\#{car.model}" style="width:100%"/&gt;
+                    &lt;b:inputText value="\#{car.model}" style="width:100%"/&gt;
                 &lt;/f:facet&gt;
-            &lt;/p:cellEditor&gt;
-        &lt;/p:column&gt;
+            &lt;/b:cellEditor&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Year" style="width:125px"&gt;
-            &lt;p:cellEditor&gt;
+        &lt;b:column headerText="Year" style="width:125px"&gt;
+            &lt;b:cellEditor&gt;
                 &lt;f:facet name="output"&gt;
                     &lt;h:outputText value="\#{car.year}" /&gt;
                 &lt;/f:facet&gt;
                 &lt;f:facet name="input"&gt;
-                    &lt;p:inputText value="\#{car.year}" style="width:100%" label="Year"/&gt;
+                    &lt;b:inputText value="\#{car.year}" style="width:100%" label="Year"/&gt;
                 &lt;/f:facet&gt;
-            &lt;/p:cellEditor&gt;
-        &lt;/p:column&gt;
+            &lt;/b:cellEditor&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Manufacturer" style="width:125px"&gt;
-            &lt;p:cellEditor&gt;
+        &lt;b:column headerText="Manufacturer" style="width:125px"&gt;
+            &lt;b:cellEditor&gt;
                 &lt;f:facet name="output"&gt;
                     &lt;h:outputText value="\#{car.manufacturer}" /&gt;
                 &lt;/f:facet&gt;
@@ -120,11 +120,11 @@
                             itemValue="\#{man}" /&gt;
                     &lt;/h:selectOneMenu&gt;
                 &lt;/f:facet&gt;
-            &lt;/p:cellEditor&gt;
-        &lt;/p:column&gt;
+            &lt;/b:cellEditor&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Color" style="width:125px"&gt;
-            &lt;p:cellEditor&gt;
+        &lt;b:column headerText="Color" style="width:125px"&gt;
+            &lt;b:cellEditor&gt;
                 &lt;f:facet name="output"&gt;
                     &lt;h:outputText value="\#{car.color}" /&gt;
                 &lt;/f:facet&gt;
@@ -136,20 +136,20 @@
                             itemValue="\#{color}" /&gt;
                     &lt;/h:selectOneMenu&gt;
                 &lt;/f:facet&gt;
-            &lt;/p:cellEditor&gt;
-        &lt;/p:column&gt;
+            &lt;/b:cellEditor&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Options" style="width:50px"&gt;
-            &lt;p:rowEditor /&gt;
-        &lt;/p:column&gt;
+        &lt;b:column headerText="Options" style="width:50px"&gt;
+            &lt;b:rowEditor /&gt;
+        &lt;/b:column&gt;
 
-    &lt;/p:dataTable&gt;
+    &lt;/b:dataTable&gt;
 
 &lt;/h:form&gt;
 				</pre>
-			</p:tab>
+			</b:tab>
 
-			<p:tab title="TableBean.java">
+			<b:tab title="TableBean.java">
                 <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -248,8 +248,8 @@ public class TableBean implements Serializable {
     }
 }
 				</pre>
-			</p:tab>
-		</p:tabView>
+			</b:tab>
+		</b:tabView>
 	       </div>
 
 	</ui:define>

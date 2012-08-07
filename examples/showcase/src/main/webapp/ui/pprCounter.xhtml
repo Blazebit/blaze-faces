@@ -16,12 +16,12 @@
 					<h:outputText id="txt_count" value="#{counterBean.count}" />
 				</h:panelGrid>
 
-                <p:commandButton id="btn" value="Count" actionListener="#{counterBean.increment}" update="txt_count"/>
+                <b:commandButton id="btn" value="Count" actionListener="#{counterBean.increment}" update="txt_count"/>
 			</h:form>
 			
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="pprCounter.xhtml">
+			<b:tabView>
+				<b:tab title="pprCounter.xhtml">
 <pre name="code" class="xml">
 &lt;h:form&gt;
 	&lt;h:panelGrid columns="2" cellpadding="5"&gt;
@@ -29,13 +29,13 @@
 		&lt;h:outputText id="txt_count" value="\#{counterBean.count}" /&gt;		
 	&lt;/h:panelGrid&gt;
 
-    &lt;p:commandButton value="Count"
+    &lt;b:commandButton value="Count"
 				actionListener="\#{counterBean.increment}" update="txt_count"/&gt;
 &lt;/h:form&gt;
 </pre>	
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="CounterBean.java">
+				<b:tab title="CounterBean.java">
 <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -58,8 +58,8 @@ public class CounterBean implements Serializable{
 	}
 }
 </pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
     	</div>
                     
 	</ui:define>

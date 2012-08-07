@@ -23,26 +23,26 @@
 			<p>As carousel is a data component, a column is necessary to process selection properly.</p>
 		
 			<h:form id="form">
-				<p:carousel id="carousel" value="#{tableBean.carsSmall}" var="car" itemStyleClass="carItem" headerText="Cars">
-					<p:column>
-						<p:graphicImage id="image" value="/images/cars/#{car.manufacturer}.jpg"/> 
+				<b:carousel id="carousel" value="#{tableBean.carsSmall}" var="car" itemStyleClass="carItem" headerText="Cars">
+					<b:column>
+						<b:graphicImage id="image" value="/images/cars/#{car.manufacturer}.jpg"/> 
 							
 						<h:panelGrid columns="1" style="width:100%" cellpadding="5">
 							<h:outputText value="Model: " /><h:outputText id="model" value="#{car.model}" />
 						</h:panelGrid>
 							
-						<p:commandLink id="view" update=":form:carDetail" oncomplete="carDialog.show()" title="View Detail">
+						<b:commandLink id="view" update=":form:carDetail" oncomplete="carDialog.show()" title="View Detail">
 							<h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
 							<f:setPropertyActionListener value="#{car}" target="#{tableBean.selectedCar}" />
-						</p:commandLink>
-					</p:column>
-				</p:carousel>
+						</b:commandLink>
+					</b:column>
+				</b:carousel>
 				
-				<p:dialog id="dialog" header="Car Detail" showEffect="fade" hideEffect="fade" modal="true"
+				<b:dialog id="dialog" header="Car Detail" showEffect="fade" hideEffect="fade" modal="true"
 					widgetVar="carDialog">
 					
-					<p:outputPanel id="carDetail" style="text-align:center;" layout="block">
-						<p:graphicImage id="carImage" value="/images/cars/#{tableBean.selectedCar.manufacturer}.jpg"/>
+					<b:outputPanel id="carDetail" style="text-align:center;" layout="block">
+						<b:graphicImage id="carImage" value="/images/cars/#{tableBean.selectedCar.manufacturer}.jpg"/>
 						
 						<h:panelGrid  columns="2" cellpadding="5">
 							<h:outputLabel for="modelNo" value="Model No: " />
@@ -54,38 +54,38 @@
 							<h:outputLabel for="color" value="Color: " />
 							<h:outputText id="color" value="#{tableBean.selectedCar.color}" />
 						</h:panelGrid>
-					</p:outputPanel>
+					</b:outputPanel>
 					
-				</p:dialog>
+				</b:dialog>
 				
 			</h:form>
 			
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="carouselSelect.xhtml">
+			<b:tabView>
+				<b:tab title="carouselSelect.xhtml">
 				<pre name="code" class="xml">
 &lt;h:form id="form"&gt;
-	&lt;p:carousel id="carousel" value="\#{tableBean.carsSmall}" var="car" itemStyleClass="carItem" headerText="Cars"&gt;
-		&lt;p:column&gt;
-			&lt;p:graphicImage id="image" value="/images/cars/\#{car.manufacturer}.jpg"/&gt; 
+	&lt;b:carousel id="carousel" value="\#{tableBean.carsSmall}" var="car" itemStyleClass="carItem" headerText="Cars"&gt;
+		&lt;b:column&gt;
+			&lt;b:graphicImage id="image" value="/images/cars/\#{car.manufacturer}.jpg"/&gt; 
 				
 			&lt;h:panelGrid columns="2" style="width:100%" cellpadding="5"&gt;
 				&lt;h:outputText value="Model: " /&gt;&lt;h:outputText id="model" value="\#{car.model}" /&gt;
 			&lt;/h:panelGrid&gt;
 				
-			&lt;p:commandLink id="view" update=":form:carDetail" oncomplete="carDialog.show()" title="View Detail"&gt;
+			&lt;b:commandLink id="view" update=":form:carDetail" oncomplete="carDialog.show()" title="View Detail"&gt;
 				&lt;h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" /&gt; 
 				&lt;f:setPropertyActionListener value="\#{car}" 
 						target="\#{tableBean.selectedCar}" /&gt;
-			&lt;/p:commandLink&gt;
-		&lt;/p:column&gt;
-	&lt;/p:carousel&gt;
+			&lt;/b:commandLink&gt;
+		&lt;/b:column&gt;
+	&lt;/b:carousel&gt;
 
-	&lt;p:dialog header="Car Detail" showEffect="fade" hideEffect="fade" modal="true"
+	&lt;b:dialog header="Car Detail" showEffect="fade" hideEffect="fade" modal="true"
 		widgetVar="carDialog"&gt;
 		
-		&lt;p:outputPanel id="carDetail" style="text-align:center;" layout="block"&gt;
-			&lt;p:graphicImage id="carImage" value="/images/cars/\#{tableBean.selectedCar.manufacturer}.jpg"/&gt;
+		&lt;b:outputPanel id="carDetail" style="text-align:center;" layout="block"&gt;
+			&lt;b:graphicImage id="carImage" value="/images/cars/\#{tableBean.selectedCar.manufacturer}.jpg"/&gt;
 			
 			&lt;h:panelGrid  columns="2" cellpadding="5"&gt;
 				&lt;h:outputLabel for="modelNo" value="Model No: " /&gt;
@@ -101,15 +101,15 @@
 						alue="\#{tableBean.selectedCar.color}" 
 						style="color:\#{tableBean.selectedCar.color}"/&gt;
 			&lt;/h:panelGrid&gt;
-		&lt;/p:outputPanel&gt;
+		&lt;/b:outputPanel&gt;
 		
-	&lt;/p:dialog&gt;
+	&lt;/b:dialog&gt;
 	
 &lt;/h:form&gt;
 				</pre>
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="TableBean.java">
+				<b:tab title="TableBean.java">
 				<pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -148,8 +148,8 @@ public class TableBean {
 	}
 }
 				</pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 			
 		</div>
 

@@ -41,133 +41,133 @@
 
         <h:body>
 
-            <p:layout fullPage="true">
+            <b:layout fullPage="true">
 
-                <p:layoutUnit position="north" size="40">
-                    <p:commandButton value="Compose" onclick="composeDlg.show()" type="button" icon="ui-icon-document"/>
-                </p:layoutUnit>
+                <b:layoutUnit position="north" size="40">
+                    <b:commandButton value="Compose" onclick="composeDlg.show()" type="button" icon="ui-icon-document"/>
+                </b:layoutUnit>
 
-                <p:layoutUnit position="west" size="200" resizable="true" collapsible="true" header="MAILBOXES">
+                <b:layoutUnit position="west" size="200" resizable="true" collapsible="true" header="MAILBOXES">
                     <h:form>
-                        <p:tree value="#{mailbox.mailboxes}" var="box" selectionMode="single" selection="#{mailbox.mailbox}" style="width:170px">
-                            <p:treeNode icon="ui-icon-mail-closed">
+                        <b:tree value="#{mailbox.mailboxes}" var="box" selectionMode="single" selection="#{mailbox.mailbox}" style="width:170px">
+                            <b:treeNode icon="ui-icon-mail-closed">
                                 <h:outputText value="#{box}"/>
-                            </p:treeNode>
+                            </b:treeNode>
 
-                            <p:treeNode type="i" icon="ui-icon-mail-closed">
+                            <b:treeNode type="i" icon="ui-icon-mail-closed">
                                 <h:outputText value="#{box}"/>
-                            </p:treeNode>
+                            </b:treeNode>
 
-                            <p:treeNode type="s" icon="ui-icon-transfer-e-w">
+                            <b:treeNode type="s" icon="ui-icon-transfer-e-w">
                                 <h:outputText value="#{box}"/>
-                            </p:treeNode>
+                            </b:treeNode>
 
-                            <p:treeNode type="t" icon="ui-icon-trash">
+                            <b:treeNode type="t" icon="ui-icon-trash">
                                 <h:outputText value="#{box}"/>
-                            </p:treeNode>
+                            </b:treeNode>
 
-                            <p:treeNode type="j" icon="ui-icon-alert">
+                            <b:treeNode type="j" icon="ui-icon-alert">
                                 <h:outputText value="#{box}"/>
-                            </p:treeNode>
-                        </p:tree>
+                            </b:treeNode>
+                        </b:tree>
                     </h:form>
-                </p:layoutUnit>
+                </b:layoutUnit>
 
-                <p:layoutUnit position="center">
+                <b:layoutUnit position="center">
 
-                    <p:layout>
+                    <b:layout>
 
-                        <p:layoutUnit position="north" size="50%" resizable="true" styleClass="nestedUnit">
+                        <b:layoutUnit position="north" size="50%" resizable="true" styleClass="nestedUnit">
 
-                            <p:tabView>
+                            <b:tabView>
 
-                                <p:tab title="Gmail">
+                                <b:tab title="Gmail">
 
                                     <h:form>
 
-                                        <p:dataTable var="mail" value="#{mailbox.mails}">
+                                        <b:dataTable var="mail" value="#{mailbox.mails}">
 
-                                            <p:column headerText="From" sortBy="#{mail.from}">
+                                            <b:column headerText="From" sortBy="#{mail.from}">
                                                 #{mail.from}
-                                            </p:column>
+                                            </b:column>
 
-                                            <p:column headerText="Subject" sortBy="#{mail.subject}">
+                                            <b:column headerText="Subject" sortBy="#{mail.subject}">
                                                 #{mail.subject}
-                                            </p:column>
+                                            </b:column>
 
-                                            <p:column headerText="Date" sortBy="#{mail.date}">
+                                            <b:column headerText="Date" sortBy="#{mail.date}">
                                                 #{mail.date}
-                                            </p:column>
+                                            </b:column>
 
-                                            <p:column>
-                                                <p:commandButton update=":mailViewer" icon="ui-icon-search" title="View">
+                                            <b:column>
+                                                <b:commandButton update=":mailViewer" icon="ui-icon-search" title="View">
                                                     <f:setPropertyActionListener value="#{mail }" target="#{mailbox.mail}" />
-                                                </p:commandButton>
-                                            </p:column>
+                                                </b:commandButton>
+                                            </b:column>
 
-                                        </p:dataTable>
+                                        </b:dataTable>
 
                                     </h:form>
 
-                                </p:tab>
+                                </b:tab>
 
-                            </p:tabView>
+                            </b:tabView>
 
-                        </p:layoutUnit>
+                        </b:layoutUnit>
 
-                        <p:layoutUnit position="center" styleClass="nestedUnit">
+                        <b:layoutUnit position="center" styleClass="nestedUnit">
 
-                            <p:outputPanel id="mailViewer">
+                            <b:outputPanel id="mailViewer">
                                 <h:outputText value="#{mailbox.mail.body}" rendered="#{not empty mailbox.mail}" />
-                            </p:outputPanel>
+                            </b:outputPanel>
 
-                        </p:layoutUnit>
+                        </b:layoutUnit>
 
-                    </p:layout>
+                    </b:layout>
 
-                </p:layoutUnit>
+                </b:layoutUnit>
 
-            </p:layout>
+            </b:layout>
 
-            <p:ajaxStatus style="width:32px;height:32px;display:block;position:fixed;right:0;top:0;z-index:100">
+            <b:ajaxStatus style="width:32px;height:32px;display:block;position:fixed;right:0;top:0;z-index:100">
                 <f:facet name="start">
-                    <p:graphicImage value="/images/loading.gif" />
+                    <b:graphicImage value="/images/loading.gif" />
                 </f:facet>
 
                 <f:facet name="complete">
                     <h:outputText value="" />
                 </f:facet>
-            </p:ajaxStatus>
+            </b:ajaxStatus>
 
-            <p:dialog widgetVar="composeDlg" modal="true" header="New Email" width="530" showEffect="fade" hideEffect="fade">
+            <b:dialog widgetVar="composeDlg" modal="true" header="New Email" width="530" showEffect="fade" hideEffect="fade">
 
                 <h:form>
 
                     <h:panelGrid columns="2" cellspacing="5">
                         <h:outputLabel for="to" value="To: " />
-                        <p:inputText id="to"/>
+                        <b:inputText id="to"/>
 
                         <h:outputLabel for="cc" value="CC: " />
-                        <p:inputText id="cc"/>
+                        <b:inputText id="cc"/>
 
                         <h:outputLabel for="subject" value="To: " />
-                        <p:inputText id="subject" size="50"/>
+                        <b:inputText id="subject" size="50"/>
                     </h:panelGrid>
 
-                    <p:separator />
+                    <b:separator />
 
-                    <p:editor widgetVar="editor" />
+                    <b:editor widgetVar="editor" />
 
-                    <p:separator />
+                    <b:separator />
 
-                    <p:commandButton value="Send" onclick="composeDlg.hide()" actionListener="#{mailbox.send}" update=":msg" process="@this"/>
-                    <p:commandButton value="Cancel" onclick="composeDlg.hide()" type="button"/>
+                    <b:commandButton value="Send" onclick="composeDlg.hide()" actionListener="#{mailbox.send}" update=":msg" process="@this"/>
+                    <b:commandButton value="Cancel" onclick="composeDlg.hide()" type="button"/>
 
                 </h:form>
 
-            </p:dialog>
+            </b:dialog>
 
-            <p:growl id="msg" />
+            <b:growl id="msg" />
 
         </h:body>
 

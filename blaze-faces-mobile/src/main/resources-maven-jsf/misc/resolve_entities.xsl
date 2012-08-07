@@ -7,7 +7,8 @@
   - Based on a stylesheet by John Mongan.
   -->
 <xsl:stylesheet version="1.1"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:xi="http://www.w3.org/2001/XInclude">
 
     <xsl:output method="xml"
                 encoding="ISO-8859-1"/>
@@ -28,6 +29,10 @@
           <xsl:value-of select="$indent"/>
         </xsl:if>
       </xsl:copy>
+    </xsl:template>
+    
+    <xsl:template match="xi:include">
+    	<xsl:copy-of select="document(current()/@href)/component/*"/>
     </xsl:template>
 
    <xsl:template match="comment()|processing-instruction()">

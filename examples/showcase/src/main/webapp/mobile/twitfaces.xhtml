@@ -16,16 +16,16 @@
 
             <pm:content>
                 <h:form id="twitForm">
-                    <p:inputText value="#{twitterController.username}" label="Account: "/>
+                    <b:inputText value="#{twitterController.username}" label="Account: "/>
 
-                    <p:separator />
+                    <b:separator />
 
-                    <p:commandButton value="Get Tweets" icon="refresh" update="tweetList"
+                    <b:commandButton value="Get Tweets" icon="refresh" update="tweetList"
                                       actionListener="#{twitterController.loadTweets}" />
 
-                    <p:dataList id="tweetList" value="#{twitterController.tweets}" var="tweet" style="margin-top:1em">
+                    <b:dataList id="tweetList" value="#{twitterController.tweets}" var="tweet" style="margin-top:1em">
                         #{tweet}
-                    </p:dataList>
+                    </b:dataList>
                 </h:form>
             </pm:content>
 

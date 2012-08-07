@@ -13,52 +13,52 @@
 
 			<h:form id="form">
 
-                <p:selectManyButton id="menu" value="#{formBean.selectedOptions}">
+                <b:selectManyButton id="menu" value="#{formBean.selectedOptions}">
                     <f:selectItem itemLabel="B" itemValue="Bold" />
                     <f:selectItem itemLabel="I" itemValue="Italic" />
                     <f:selectItem itemLabel="U" itemValue="Underline" />
-                </p:selectManyButton>
+                </b:selectManyButton>
                 
-                <p:separator style="margin-bottom:20px"/>
+                <b:separator style="margin-bottom:20px"/>
 
-                <p:commandButton id="submit" value="Submit" oncomplete="dlg.show()" update="display" />
+                <b:commandButton id="submit" value="Submit" oncomplete="dlg.show()" update="display" />
 
-                <p:dialog id="dialog" header="Selected Values" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg">
-                    <p:dataList id="display" value="#{formBean.selectedOptions}" var="option">
+                <b:dialog id="dialog" header="Selected Values" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg">
+                    <b:dataList id="display" value="#{formBean.selectedOptions}" var="option">
                         #{option}
-                    </p:dataList>
-                </p:dialog>
+                    </b:dataList>
+                </b:dialog>
 
 			</h:form>
             
             <h3>Source</h3>
-			<p:tabView>
-				<p:tab title="selectManyButton.xhtml">
+			<b:tabView>
+				<b:tab title="selectManyButton.xhtml">
 					<pre name="code" class="xml">
 &lt;h:form&gt;
 
-    &lt;p:selectManyButton value="\#{formBean.selectedOptions}"&gt;
+    &lt;b:selectManyButton value="\#{formBean.selectedOptions}"&gt;
         &lt;f:selectItem itemLabel="B" itemValue="Bold" /&gt;
         &lt;f:selectItem itemLabel="I" itemValue="Italic" /&gt;
         &lt;f:selectItem itemLabel="U" itemValue="Underline" /&gt;
-    &lt;/p:selectManyButton&gt;
+    &lt;/b:selectManyButton&gt;
 
-    &lt;p:separator style="margin-bottom:20px"/&gt;
+    &lt;b:separator style="margin-bottom:20px"/&gt;
 
-    &lt;p:commandButton value="Submit" oncomplete="dlg.show()" update="display" /&gt;
+    &lt;b:commandButton value="Submit" oncomplete="dlg.show()" update="display" /&gt;
 
-    &lt;p:dialog header="Selected Values" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg"&gt;
-        &lt;p:dataList id="display" value="\#{formBean.selectedOptions}" var="option"&gt;
+    &lt;b:dialog header="Selected Values" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg"&gt;
+        &lt;b:dataList id="display" value="\#{formBean.selectedOptions}" var="option"&gt;
             \#{option}
-        &lt;/p:dataList&gt;
-    &lt;/p:dialog&gt;
+        &lt;/b:dataList&gt;
+    &lt;/b:dialog&gt;
 
 &lt;/h:form&gt;
 					</pre>
 
-                    </p:tab>
+                    </b:tab>
 
-                    <p:tab title="FormBean.java">
+                    <b:tab title="FormBean.java">
                         <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -79,8 +79,8 @@ public class FormBean implements Serializable {
     }
 }
                         </pre>
-                    </p:tab>
-			</p:tabView>
+                    </b:tab>
+			</b:tabView>
 		</div>
 
 	</ui:define>

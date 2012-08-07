@@ -16,13 +16,13 @@
 
                 <h:panelGrid columns="1">
 
-                    <p:calendar value="#{calendarBean.dates}" mode="inline" selection="multiple" close="false"/>
+                    <b:calendar value="#{calendarBean.dates}" mode="inline" selection="multiple" close="false"/>
 
                     <br />
 
-                    <p:commandButton value="Submit" update="datesDisplay"/>
+                    <b:commandButton value="Submit" update="datesDisplay"/>
 
-                    <p:outputPanel id="datesDisplay">
+                    <b:outputPanel id="datesDisplay">
                         <h:outputText value="Selected Dates:" />
 
                         <ui:repeat var="date" value="#{calendarBean.selectedDates}">
@@ -32,13 +32,13 @@
                             </h:outputText>
                         </ui:repeat>
 
-                    </p:outputPanel>
+                    </b:outputPanel>
 
                 </h:panelGrid>
 
                 <h3>Source</h3>
                 <pre name="code" class="xml">
-						&lt;p:calendar value="\#{calendarBean.dates}" mode="inline" selection="multiple" close="false"/&gt;
+						&lt;b:calendar value="\#{calendarBean.dates}" mode="inline" selection="multiple" close="false"/&gt;
                 </pre>
 
             </h:form>

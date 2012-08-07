@@ -23,30 +23,30 @@
             <p>This example demonstrates dialog integration.</p>
 
             <h:form id="form">
-                <p:graphicImage id="terminalImage" value="/images/terminal.png" onclick="dlg.show();term.focus();" style="cursor:pointer"/>
+                <b:graphicImage id="terminalImage" value="/images/terminal.png" onclick="dlg.show();term.focus();" style="cursor:pointer"/>
 
-                <p:dialog id="terminalDialog" widgetVar="dlg" height="400" header="Terminal" resizable="false" modal="true">
-                    <p:terminal id="terminal" widgetVar="term" commandHandler="#{terminalController.handleCommand}" width="590px"
+                <b:dialog id="terminalDialog" widgetVar="dlg" height="400" header="Terminal" resizable="false" modal="true">
+                    <b:terminal id="terminal" widgetVar="term" commandHandler="#{terminalController.handleCommand}" width="590px"
                                 welcomeMessage="Welcome to BlazeFaces Terminal, how are you today?"/>
-                </p:dialog>
+                </b:dialog>
             </h:form>
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="terminal.xhtml">
+            <b:tabView>
+                <b:tab title="terminal.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form&gt;
-    &lt;p:graphicImage value="/images/terminal.png" onclick="dlg.show();term.focus();" style="cursor:pointer"/&gt;
+    &lt;b:graphicImage value="/images/terminal.png" onclick="dlg.show();term.focus();" style="cursor:pointer"/&gt;
 
-    &lt;p:dialog widgetVar="dlg" height="400" header="Terminal" resizable="false" modal="true"&gt;
-        &lt;p:terminal widgetVar="term" commandHandler="\#{terminalController.handleCommand}" width="590px"
+    &lt;b:dialog widgetVar="dlg" height="400" header="Terminal" resizable="false" modal="true"&gt;
+        &lt;b:terminal widgetVar="term" commandHandler="\#{terminalController.handleCommand}" width="590px"
                     welcomeMessage="Welcome to BlazeFaces Terminal, how are you today?"/&gt;
-    &lt;/p:dialog&gt;
+    &lt;/b:dialog&gt;
 &lt;/h:form&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="TerminalController.java">
+                <b:tab title="TerminalController.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -64,8 +64,8 @@ public class TerminalController {
 	}
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
         </div>
 
 

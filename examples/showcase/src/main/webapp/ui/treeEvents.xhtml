@@ -12,50 +12,50 @@
 
 			<h:form id="form">
 
-                <p:growl id="messages" showDetail="true" />
+                <b:growl id="messages" showDetail="true" />
 
-				<p:tree value="#{treeBean.root}" var="node" dynamic="true" cache="false"
+				<b:tree value="#{treeBean.root}" var="node" dynamic="true" cache="false"
 						selectionMode="single"  selection="#{treeBean.selectedNode}" id="tree">
                         
-                    <p:ajax event="expand" update=":form:messages" listener="#{treeBean.onNodeExpand}" />
-                    <p:ajax event="collapse" update=":form:messages" listener="#{treeBean.onNodeCollapse}" />
-                    <p:ajax event="select" update=":form:messages" listener="#{treeBean.onNodeSelect}" />
-                    <p:ajax event="unselect" update=":form:messages" listener="#{treeBean.onNodeUnselect}" />
+                    <b:ajax event="expand" update=":form:messages" listener="#{treeBean.onNodeExpand}" />
+                    <b:ajax event="collapse" update=":form:messages" listener="#{treeBean.onNodeCollapse}" />
+                    <b:ajax event="select" update=":form:messages" listener="#{treeBean.onNodeSelect}" />
+                    <b:ajax event="unselect" update=":form:messages" listener="#{treeBean.onNodeUnselect}" />
 
-					<p:treeNode>
+					<b:treeNode>
 						<h:outputText value="#{node}" />
-					</p:treeNode>
-				</p:tree>
+					</b:treeNode>
+				</b:tree>
 
 			</h:form>
 
 		<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="treeEvents.xhtml">
+			<b:tabView>
+				<b:tab title="treeEvents.xhtml">
 					<pre name="code" class="xml">
 &lt;h:form id="form"&gt;
 
-    &lt;p:growl id="messages" showDetail="true" /&gt;
+    &lt;b:growl id="messages" showDetail="true" /&gt;
 
-    &lt;p:tree value="\#{treeBean.root}" var="node" dynamic="true" cache="false"
+    &lt;b:tree value="\#{treeBean.root}" var="node" dynamic="true" cache="false"
             selectionMode="single"  selection="\#{treeBean.selectedNode}" id="tree"&gt;
 
-        &lt;p:ajax event="expand" update=":form:messages" listener="\#{treeBean.onNodeExpand}" /&gt;
-        &lt;p:ajax event="collapse" update=":form:messages" listener="\#{treeBean.onNodeCollapse}" /&gt;
-        &lt;p:ajax event="select" update=":form:messages" listener="\#{treeBean.onNodeSelect}" /&gt;
-        &lt;p:ajax event="unselect" update=":form:messages" listener="\#{treeBean.onNodeUnselect}" /&gt;
+        &lt;b:ajax event="expand" update=":form:messages" listener="\#{treeBean.onNodeExpand}" /&gt;
+        &lt;b:ajax event="collapse" update=":form:messages" listener="\#{treeBean.onNodeCollapse}" /&gt;
+        &lt;b:ajax event="select" update=":form:messages" listener="\#{treeBean.onNodeSelect}" /&gt;
+        &lt;b:ajax event="unselect" update=":form:messages" listener="\#{treeBean.onNodeUnselect}" /&gt;
 
-        &lt;p:treeNode&gt;
+        &lt;b:treeNode&gt;
             &lt;h:outputText value="\#{node}" /&gt;
-        &lt;/p:treeNode&gt;
-    &lt;/p:tree&gt;
+        &lt;/b:treeNode&gt;
+    &lt;/b:tree&gt;
 
 &lt;/h:form&gt;
 
 					</pre>
-				</p:tab>
+				</b:tab>
 
-				<p:tab title="TreeBean.java">
+				<b:tab title="TreeBean.java">
 					<pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -133,8 +133,8 @@ public class TreeBean implements Serializable {
 	}
 }
 					</pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
             </div>
 	</ui:define>
 </ui:composition>

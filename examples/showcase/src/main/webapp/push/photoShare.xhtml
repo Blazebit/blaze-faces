@@ -23,31 +23,31 @@
             
             <h:form>
                 
-                <p:photoCam widgetVar="pc" listener="#{photoShare.share}" />
+                <b:photoCam widgetVar="pc" listener="#{photoShare.share}" />
                     
-                <p:commandButton type="button" value="Share" onclick="pc.capture()" style="margin:20px 0px;"/>
+                <b:commandButton type="button" value="Share" onclick="pc.capture()" style="margin:20px 0px;"/>
                 
             </h:form>
             
-            <p:outputPanel id="photos" layout="block" styleClass="ui-widget-content ui-helper-clearfix" />
+            <b:outputPanel id="photos" layout="block" styleClass="ui-widget-content ui-helper-clearfix" />
             
-            <p:socket onMessage="handleShare" channel="/photoshare" />
+            <b:socket onMessage="handleShare" channel="/photoshare" />
             
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="photoShare.xhtml">
+            <b:tabView>
+                <b:tab title="photoShare.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form&gt;
                 
-    &lt;p:photoCam widgetVar="pc" listener="\#{photoShare.share}" /&gt;
+    &lt;b:photoCam widgetVar="pc" listener="\#{photoShare.share}" /&gt;
 
-    &lt;p:commandButton type="button" value="Share" onclick="pc.capture()" style="margin:20px 0px;"/&gt;
+    &lt;b:commandButton type="button" value="Share" onclick="pc.capture()" style="margin:20px 0px;"/&gt;
 
 &lt;/h:form&gt;
 
-&lt;p:outputPanel id="photos" layout="block" styleClass="ui-widget-content ui-helper-clearfix" /&gt;
+&lt;b:outputPanel id="photos" layout="block" styleClass="ui-widget-content ui-helper-clearfix" /&gt;
 
-&lt;p:socket onMessage="handleShare" channel="/photoshare" /&gt;
+&lt;b:socket onMessage="handleShare" channel="/photoshare" /&gt;
 
 &lt;script type="text/javascript"&gt;
     //<![CDATA[
@@ -57,9 +57,9 @@
     //]]> 
 &lt;/script&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
                 
-                <p:tab title="PhotoShareBean.java">
+                <b:tab title="PhotoShareBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -100,8 +100,8 @@ public class PhotoShare {
     }
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 
         </div>
 

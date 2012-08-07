@@ -13,21 +13,21 @@
 		
 			<h:form id="form">
 			
-				<p:panel header="Colors">
+				<b:panel header="Colors">
 					<h:panelGrid columns="2" cellpadding="10">
 						<h:outputText value="Inline: " />
-						<p:colorPicker id="inlineCP" value="#{colorBean.color1}" mode="inline" />
+						<b:colorPicker id="inlineCP" value="#{colorBean.color1}" mode="inline" />
 
                         <h:outputText value="Popup: " />
-						<p:colorPicker id="popupCP" value="#{colorBean.color2}" widgetVar="picker"/>
+						<b:colorPicker id="popupCP" value="#{colorBean.color2}" widgetVar="picker"/>
 					</h:panelGrid>
 
-                    <p:separator />
+                    <b:separator />
 
-                    <p:commandButton id="btn" value="Submit" oncomplete="dlg.show()" update="grid" />
-				</p:panel>
+                    <b:commandButton id="btn" value="Submit" oncomplete="dlg.show()" update="grid" />
+				</b:panel>
 
-                <p:dialog modal="true" widgetVar="dlg" showEffect="fade" hideEffect="fade" header="Selected Colors" resizable="false">
+                <b:dialog modal="true" widgetVar="dlg" showEffect="fade" hideEffect="fade" header="Selected Colors" resizable="false">
                     <h:panelGrid columns="2" id="grid">
                         <h:outputText value="Color 1: " />
                         <h:outputText id="inlineCPColor" value="#{colorBean.color1}" style="background-color:\##{colorBean.color1}"/>
@@ -35,31 +35,31 @@
                         <h:outputText value="Color 2: " />
                         <h:outputText value="#{colorBean.color2}" style="background-color:\##{colorBean.color2}"/>
                     </h:panelGrid>
-                </p:dialog>
+                </b:dialog>
 				
 			</h:form>
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="colorPicker.xhtml">
+            <b:tabView>
+                <b:tab title="colorPicker.xhtml">
                 <pre name="code" class="xml">
 &lt;h:form id="form"&gt;
 
-    &lt;p:panel header="Colors"&gt;
+    &lt;b:panel header="Colors"&gt;
         &lt;h:panelGrid columns="2" cellpadding="10"&gt;
             &lt;h:outputText value="Inline: " /&gt;
-            &lt;p:colorPicker id="inlineCP" value="\#{colorBean.color1}" mode="inline" /&gt;
+            &lt;b:colorPicker id="inlineCP" value="\#{colorBean.color1}" mode="inline" /&gt;
 
             &lt;h:outputText value="Popup: " /&gt;
-            &lt;p:colorPicker id="popupCP" value="\#{colorBean.color2}" widgetVar="picker"/&gt;
+            &lt;b:colorPicker id="popupCP" value="\#{colorBean.color2}" widgetVar="picker"/&gt;
         &lt;/h:panelGrid&gt;
 
-        &lt;p:separator /&gt;
+        &lt;b:separator /&gt;
 
-        &lt;p:commandButton value="Submit" oncomplete="dlg.show()" update="grid @parent" /&gt;
-    &lt;/p:panel&gt;
+        &lt;b:commandButton value="Submit" oncomplete="dlg.show()" update="grid @parent" /&gt;
+    &lt;/b:panel&gt;
 
-    &lt;p:dialog modal="true" widgetVar="dlg" showEffect="fade" hideEffect="fade" header="Selected Colors" resizable="false"&gt;
+    &lt;b:dialog modal="true" widgetVar="dlg" showEffect="fade" hideEffect="fade" header="Selected Colors" resizable="false"&gt;
         &lt;h:panelGrid columns="2" id="grid"&gt;
             &lt;h:outputText value="Color 1: " /&gt;
             &lt;h:outputText value="\#{colorBean.color1}" style="background-color:\\#\#{colorBean.color1}"/&gt;
@@ -67,13 +67,13 @@
             &lt;h:outputText value="Color 2: " /&gt;
             &lt;h:outputText value="\#{colorBean.color2}" style="background-color:\\#\#{colorBean.color2}"/&gt;
         &lt;/h:panelGrid&gt;
-    &lt;/p:dialog&gt;
+    &lt;/b:dialog&gt;
 
 &lt;/h:form&gt;
                 </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="ColorBean.java">
+                <b:tab title="ColorBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -110,9 +110,9 @@ public class ColorBean {
     }
 }
                     </pre>
-                </p:tab>
+                </b:tab>
 
-            </p:tabView>
+            </b:tabView>
 
 		</div>
 

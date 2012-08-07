@@ -14,104 +14,104 @@
 
 			<h:form id="form">
                 
-                <p:commandButton id="chartBtn" value="Basic" type="button" />
+                <b:commandButton id="chartBtn" value="Basic" type="button" />
                 
-                <p:overlayPanel id="chartPanel" for="chartBtn" hideEffect="fade">
-                    <p:pieChart id="chart" value="#{chartBean.pieModel}" legendPosition="w"
+                <b:overlayPanel id="chartPanel" for="chartBtn" hideEffect="fade">
+                    <b:pieChart id="chart" value="#{chartBean.pieModel}" legendPosition="w"
                         title="Sample Pie Chart" style="width:300px;height:200px" />
-                </p:overlayPanel>
+                </b:overlayPanel>
                 
                 <br /><br />
                 
-                <p:commandButton id="carBtn" value="Dynamic" type="button" />
+                <b:commandButton id="carBtn" value="Dynamic" type="button" />
 
-                <p:overlayPanel id="carPanel" for="carBtn" hideEffect="fade" dynamic="true">
-                    <p:dataTable id="table" var="car" value="#{tableBean.cars}" rows="10" paginator="true">
-                        <p:column headerText="Model">
+                <b:overlayPanel id="carPanel" for="carBtn" hideEffect="fade" dynamic="true">
+                    <b:dataTable id="table" var="car" value="#{tableBean.cars}" rows="10" paginator="true">
+                        <b:column headerText="Model">
                             <h:outputText value="#{car.model}" />
-                        </p:column>
+                        </b:column>
 
-                        <p:column headerText="Year">
+                        <b:column headerText="Year">
                             <h:outputText value="#{car.year}" />
-                        </p:column>
+                        </b:column>
 
-                        <p:column headerText="Manufacturer">
+                        <b:column headerText="Manufacturer">
                             <h:outputText value="#{car.manufacturer}" />
-                        </p:column>
+                        </b:column>
 
-                        <p:column headerText="Color">
+                        <b:column headerText="Color">
                             <h:outputText value="#{car.color}" />
-                        </p:column>
-                    </p:dataTable>
-                </p:overlayPanel>
+                        </b:column>
+                    </b:dataTable>
+                </b:overlayPanel>
 
                 <br /><br />
 				
-                <p:graphicImage id="img" value="../images/images.png" style="cursor:pointer"/>
+                <b:graphicImage id="img" value="../images/images.png" style="cursor:pointer"/>
                 
-                <p:overlayPanel id="imgPanel" for="img" showEffect="blind" hideEffect="explode" showEvent="mouseover" hideEvent="mousedown"
+                <b:overlayPanel id="imgPanel" for="img" showEffect="blind" hideEffect="explode" showEvent="mouseover" hideEvent="mousedown"
                                 styleClass="ui-helper-clearfix">
-                    <p:imageSwitch id="imgSwitch" effect="fade">
+                    <b:imageSwitch id="imgSwitch" effect="fade">
                         <ui:repeat value="#{imageSwitchBean.images}" var="image">
-                            <p:graphicImage value="/images/#{image}" width="300"/>
+                            <b:graphicImage value="/images/#{image}" width="300"/>
                         </ui:repeat>
-                    </p:imageSwitch>
-                </p:overlayPanel>
+                    </b:imageSwitch>
+                </b:overlayPanel>
 			</h:form>
 	
 		<h3>Source</h3>
-        <p:tabView>
-            <p:tab title="overlayPanel.xhtml">
+        <b:tabView>
+            <b:tab title="overlayPanel.xhtml">
                 <pre name="code" class="xml">
 &lt;h:form id="form"&gt;
                 
-    &lt;p:commandButton id="chartBtn" value="Basic" type="button" /&gt;
+    &lt;b:commandButton id="chartBtn" value="Basic" type="button" /&gt;
 
-    &lt;p:overlayPanel id="chartPanel" for="chartBtn" hideEffect="fade"&gt;
-        &lt;p:pieChart id="chart" value="\#{chartBean.pieModel}" legendPosition="w"
+    &lt;b:overlayPanel id="chartPanel" for="chartBtn" hideEffect="fade"&gt;
+        &lt;b:pieChart id="chart" value="\#{chartBean.pieModel}" legendPosition="w"
             title="Sample Pie Chart" style="width:300px;height:200px" /&gt;
-    &lt;/p:overlayPanel&gt;
+    &lt;/b:overlayPanel&gt;
 
     &lt;br /&gt;&lt;br /&gt;
 
-    &lt;p:commandButton id="carBtn" value="Dynamic" type="button" /&gt;
+    &lt;b:commandButton id="carBtn" value="Dynamic" type="button" /&gt;
 
-    &lt;p:overlayPanel id="carPanel" for="carBtn" hideEffect="fade" dynamic="true"&gt;
-        &lt;p:dataTable id="table" var="car" value="\#{tableBean.cars}" rows="10" paginator="true"&gt;
-            &lt;p:column headerText="Model"&gt;
+    &lt;b:overlayPanel id="carPanel" for="carBtn" hideEffect="fade" dynamic="true"&gt;
+        &lt;b:dataTable id="table" var="car" value="\#{tableBean.cars}" rows="10" paginator="true"&gt;
+            &lt;b:column headerText="Model"&gt;
                 &lt;h:outputText value="\#{car.model}" /&gt;
-            &lt;/p:column&gt;
+            &lt;/b:column&gt;
 
-            &lt;p:column headerText="Year"&gt;
+            &lt;b:column headerText="Year"&gt;
                 &lt;h:outputText value="\#{car.year}" /&gt;
-            &lt;/p:column&gt;
+            &lt;/b:column&gt;
 
-            &lt;p:column headerText="Manufacturer"&gt;
+            &lt;b:column headerText="Manufacturer"&gt;
                 &lt;h:outputText value="\#{car.manufacturer}" /&gt;
-            &lt;/p:column&gt;
+            &lt;/b:column&gt;
 
-            &lt;p:column headerText="Color"&gt;
+            &lt;b:column headerText="Color"&gt;
                 &lt;h:outputText value="\#{car.color}" /&gt;
-            &lt;/p:column&gt;
-        &lt;/p:dataTable&gt;
-    &lt;/p:overlayPanel&gt;
+            &lt;/b:column&gt;
+        &lt;/b:dataTable&gt;
+    &lt;/b:overlayPanel&gt;
 
     &lt;br /&gt;&lt;br /&gt;
 
-    &lt;p:graphicImage id="img" value="../images/images.png" style="cursor:pointer"/&gt;
+    &lt;b:graphicImage id="img" value="../images/images.png" style="cursor:pointer"/&gt;
 
-    &lt;p:overlayPanel id="imgPanel" for="img" showEffect="blind" hideEffect="explode" showEvent="mouseover" hideEvent="mousedown"
+    &lt;b:overlayPanel id="imgPanel" for="img" showEffect="blind" hideEffect="explode" showEvent="mouseover" hideEvent="mousedown"
             styleClass="ui-helper-clearfix"&gt;
-        &lt;p:imageSwitch id="imgSwitch" effect="fade"&gt;
+        &lt;b:imageSwitch id="imgSwitch" effect="fade"&gt;
             &lt;ui:repeat value="\#{imageSwitchBean.images}" var="image"&gt;
-                &lt;p:graphicImage value="/images/\#{image}" width="300"/&gt;
+                &lt;b:graphicImage value="/images/\#{image}" width="300"/&gt;
             &lt;/ui:repeat&gt;
-        &lt;/p:imageSwitch&gt;
-    &lt;/p:overlayPanel&gt;
+        &lt;/b:imageSwitch&gt;
+    &lt;/b:overlayPanel&gt;
 &lt;/h:form&gt;
                 </pre>
-            </p:tab>
-        </p:tabView>
+            </b:tab>
+        </b:tabView>
 
 		</div>
 

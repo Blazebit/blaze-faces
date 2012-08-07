@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE component SYSTEM "../misc/component.dtd" [
-<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
-]>
-<component>
+<component  xmlns="http://blazebit.com/jsf/component"
+			xmlns:xi="http://www.w3.org/2001/XInclude"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://blazebit.com/jsf/component ../misc/component.xsd">
 	<tag>separator</tag>
 	<componentClass>com.blazebit.blazefaces.component.separator.Separator</componentClass>
 	<componentType>com.blazebit.blazefaces.component.Separator</componentType>
@@ -12,7 +12,7 @@
 	<parent>javax.faces.component.UIComponentBase</parent>
     <description>Seperator displays a horizontal line to separate content.</description>
 	<attributes>
-		&standard_uicomponent_attributes;
+		<xi:include href="./../entities/standard_uicomponent_attributes.xml" parse="text"/>
 		<attribute>
 			<name>title</name>
 			<required>false</required>

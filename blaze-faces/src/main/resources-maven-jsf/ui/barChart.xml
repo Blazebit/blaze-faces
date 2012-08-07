@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE component SYSTEM "../misc/component.dtd" [
-<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
-<!ENTITY widget_var_attribute					SYSTEM "../entities/widget_var_attribute.xml">
-]>
-<component>
+<component  xmlns="http://blazebit.com/jsf/component" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://blazebit.com/jsf/component ../misc/component.xsd">
 	<tag>barChart</tag>
 	<componentClass>com.blazebit.blazefaces.component.chart.bar.BarChart</componentClass>
 	<componentType>com.blazebit.blazefaces.component.chart.BarChart</componentType>
@@ -17,8 +13,8 @@
 		</interface>
 	</interfaces>
 	<attributes>
-		&standard_uicomponent_attributes;
-		&widget_var_attribute;
+		<xi:include href="./../entities/standard_uicomponent_attributes.xml" parse="text"/>
+		<xi:include href="./../entities/widget_var_attribute.xml" parse="text"/>
 		<attribute>
 			<name>value</name>
 			<required>false</required>
@@ -138,15 +134,15 @@
 			<name>legendCols</name>
 			<required>false</required>
 			<type>java.lang.Integer</type>
-            <description>Defines visible column count of chart legend.</description>
             <ignoreInComponent>true</ignoreInComponent>
+            <description>Defines visible column count of chart legend.</description>
 		</attribute>
         <attribute>
 			<name>legendRows</name>
 			<required>false</required>
 			<type>java.lang.Integer</type>
-            <description>Defines visible row count of chart legend.</description>
             <ignoreInComponent>true</ignoreInComponent>
+            <description>Defines visible row count of chart legend.</description>
 		</attribute>
         <attribute>
 			<name>zoom</name>
@@ -159,8 +155,8 @@
 			<name>extender</name>
 			<required>false</required>
 			<type>java.lang.Integer</type>
-            <description>Javascript function to extend the chart with low level jqplot options.</description>
             <ignoreInComponent>true</ignoreInComponent>
+            <description>Javascript function to extend the chart with low level jqplot options.</description>
 		</attribute>
         <attribute>
 			<name>animate</name>

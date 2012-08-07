@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE component SYSTEM "../misc/component.dtd" [
-<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
-]>
-<component>
+<component  xmlns="http://blazebit.com/jsf/component"
+			xmlns:xi="http://www.w3.org/2001/XInclude"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://blazebit.com/jsf/component ../misc/component.xsd">
 	<tag>treeNode</tag>
 	<componentClass>com.blazebit.blazefaces.component.tree.UITreeNode</componentClass>
 	<componentType>com.blazebit.blazefaces.component.UITreeNode</componentType>
@@ -10,7 +10,7 @@
 	<parent>javax.faces.component.UIColumn</parent>
     <description>TreeNode is used with Tree component to represent a node in tree.</description>
 	<attributes>
-		&standard_uicomponent_attributes;
+		<xi:include href="./../entities/standard_uicomponent_attributes.xml" parse="text"/>
 		<attribute>
 			<name>type</name>
 			<required>false</required>
@@ -33,8 +33,8 @@
         <attribute>
 			<name>expandedIcon</name>
 			<required>false</required>
-            <description></description>
 			<type>java.lang.String</type>
+            <description></description>
 		</attribute>
         <attribute>
 			<name>collapsedIcon</name>

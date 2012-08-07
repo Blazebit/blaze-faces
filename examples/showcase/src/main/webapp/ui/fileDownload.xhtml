@@ -30,32 +30,32 @@ function stop() {
 			is used by attaching it to any JSF command component like button or a link. Additionally presentation
 			of download can be configured with the contentDisposition attribute that takes either "attachment" or "inline" as a value.</p>
 			
-            <p:dialog modal="true" widgetVar="statusDialog" header="Status" draggable="false" closable="false" resizable="false">
-				<p:graphicImage value="/design/ajaxloadingbar.gif" />
-			</p:dialog>
+            <b:dialog modal="true" widgetVar="statusDialog" header="Status" draggable="false" closable="false" resizable="false">
+				<b:graphicImage value="/design/ajaxloadingbar.gif" />
+			</b:dialog>
             
 			<h:form id="form">
 			
-				<p:commandButton id="downloadLink" value="Download" ajax="false" onclick="BlazeFaces.monitorDownload(start, stop)" icon="ui-icon-arrowthick-1-s">
-					<p:fileDownload value="#{fileDownloadController.file}" />
-				</p:commandButton>
+				<b:commandButton id="downloadLink" value="Download" ajax="false" onclick="BlazeFaces.monitorDownload(start, stop)" icon="ui-icon-arrowthick-1-s">
+					<b:fileDownload value="#{fileDownloadController.file}" />
+				</b:commandButton>
 			
 			</h:form>
 						
 			<h3>Source</h3>
-            <p:tabView>
-                <p:tab title="fileDownload.xhtml">
+            <b:tabView>
+                <b:tab title="fileDownload.xhtml">
                     <pre name="code" class="xml">
-&lt;p:dialog modal="true" widgetVar="statusDialog" header="Status" draggable="false" closable="false" resizable="false"&gt;
-    &lt;p:graphicImage value="/design/ajaxloadingbar.gif" /&gt;
-&lt;/p:dialog&gt;
+&lt;b:dialog modal="true" widgetVar="statusDialog" header="Status" draggable="false" closable="false" resizable="false"&gt;
+    &lt;b:graphicImage value="/design/ajaxloadingbar.gif" /&gt;
+&lt;/b:dialog&gt;
 
 &lt;h:form id="form"&gt;
 
-&lt;p:commandButton id="downloadLink" value="Download" ajax="false" onclick="BlazeFaces.monitorDownload(start, stop)" 
+&lt;b:commandButton id="downloadLink" value="Download" ajax="false" onclick="BlazeFaces.monitorDownload(start, stop)" 
         icon="ui-icon-arrowthichk-s"&gt;
-    &lt;p:fileDownload value="\#{fileDownloadController.file}" /&gt;
-&lt;/p:commandButton&gt;
+    &lt;b:fileDownload value="\#{fileDownloadController.file}" /&gt;
+&lt;/b:commandButton&gt;
 
 &lt;/h:form&gt;
 
@@ -69,9 +69,9 @@ function stop() {
 }
         &lt;/script&gt;
                     </pre>  
-                </p:tab>
+                </b:tab>
                 
-                <p:tab title="FileDownloadController.java">
+                <b:tab title="FileDownloadController.java">
                     <pre name="code" class="java">						
 package com.blazebit.blazefaces.examples.view;
 
@@ -96,8 +96,8 @@ public class FileDownloadController {
     }  
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 
 		</div>
 

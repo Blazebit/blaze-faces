@@ -13,28 +13,28 @@
 			<h:form>
  
 				<h3>DateTime</h3>
-				<p:calendar value="#{calendarBean.date1}" pattern="MM/dd/yyyy HH:mm" id="dateTimeCal"/>
+				<b:calendar value="#{calendarBean.date1}" pattern="MM/dd/yyyy HH:mm" id="dateTimeCal"/>
 
                 <h3>TimeOnly</h3>
-				<p:calendar value="#{calendarBean.date2}" pattern="HH:mm" timeOnly="true" id="timeOnlyCal" />
+				<b:calendar value="#{calendarBean.date2}" pattern="HH:mm" timeOnly="true" id="timeOnlyCal" />
 
 				<h3>AM/PM</h3>
-				<p:calendar value="#{calendarBean.date3}" pattern="MM/dd/yyyy hh:mm a" id="amPmCal"/>
+				<b:calendar value="#{calendarBean.date3}" pattern="MM/dd/yyyy hh:mm a" id="amPmCal"/>
 
 				<h3>Seconds</h3>
-				<p:calendar value="#{calendarBean.date4}" pattern="MM/dd/yyyy HH:mm:ss" id="secondsCal"/>
+				<b:calendar value="#{calendarBean.date4}" pattern="MM/dd/yyyy HH:mm:ss" id="secondsCal"/>
 
                 <h3>Steps</h3>
-				<p:calendar value="#{calendarBean.date5}" pattern="MM/dd/yyyy HH:mm:ss" stepHour="2" stepMinute="10" stepSecond="10" id="stepsCal"/>
+				<b:calendar value="#{calendarBean.date5}" pattern="MM/dd/yyyy HH:mm:ss" stepHour="2" stepMinute="10" stepSecond="10" id="stepsCal"/>
 
                 <h3>Min/Max</h3>
-				<p:calendar value="#{calendarBean.date6}" pattern="MM/dd/yyyy HH:mm" minHour="9" maxHour="18" id="minMaxCal"/>
+				<b:calendar value="#{calendarBean.date6}" pattern="MM/dd/yyyy HH:mm" minHour="9" maxHour="18" id="minMaxCal"/>
 
                 <br />
 
-                <p:commandButton value="Submit" update="display" oncomplete="dialog.show()" style="margin-top:10px"/>
+                <b:commandButton value="Submit" update="display" oncomplete="dialog.show()" style="margin-top:10px"/>
 
-				<p:dialog header="Selected Dates" widgetVar="dialog"
+				<b:dialog header="Selected Dates" widgetVar="dialog"
 							showEffect="fold" hideEffect="fold"
 							height="225">
 
@@ -71,39 +71,39 @@
 						</h:outputText>
                         
 					</h:panelGrid>
-                </p:dialog>
+                </b:dialog>
 
 			</h:form>
 
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="calendarBasic.xhtml">
+			<b:tabView>
+				<b:tab title="calendarBasic.xhtml">
 					<pre name="code" class="xml">
 &lt;h:form&gt;
 
     &lt;h3&gt;DateTime&lt;/h3&gt;
-    &lt;p:calendar value="\#{calendarBean.date1}" pattern="MM/dd/yyyy HH:mm" /&gt;
+    &lt;b:calendar value="\#{calendarBean.date1}" pattern="MM/dd/yyyy HH:mm" /&gt;
 
     &lt;h3&gt;TimeOnly&lt;/h3&gt;
-    &lt;p:calendar value="\#{calendarBean.date2}" pattern="HH:mm" timeOnly="true" /&gt;
+    &lt;b:calendar value="\#{calendarBean.date2}" pattern="HH:mm" timeOnly="true" /&gt;
 
     &lt;h3&gt;AM/PM&lt;/h3&gt;
-    &lt;p:calendar value="\#{calendarBean.date3}" pattern="MM/dd/yyyy hh:mm a"/&gt;
+    &lt;b:calendar value="\#{calendarBean.date3}" pattern="MM/dd/yyyy hh:mm a"/&gt;
 
     &lt;h3&gt;Seconds&lt;/h3&gt;
-    &lt;p:calendar value="\#{calendarBean.date4}" pattern="MM/dd/yyyy HH:mm:ss" /&gt;
+    &lt;b:calendar value="\#{calendarBean.date4}" pattern="MM/dd/yyyy HH:mm:ss" /&gt;
 
     &lt;h3&gt;Steps&lt;/h3&gt;
-    &lt;p:calendar value="\#{calendarBean.date5}" pattern="MM/dd/yyyy HH:mm:ss"
+    &lt;b:calendar value="\#{calendarBean.date5}" pattern="MM/dd/yyyy HH:mm:ss"
                 stepHour="2" stepMinute="10" stepSecond="10"/&gt;
 
     &lt;h3&gt;Min/Max&lt;/h3&gt;
-    &lt;p:calendar value="\#{calendarBean.date6}" pattern="MM/dd/yyyy HH:mm"
+    &lt;b:calendar value="\#{calendarBean.date6}" pattern="MM/dd/yyyy HH:mm"
                 minHour="9" maxHour="18"/&gt;
 
-    &lt;p:commandButton value="Submit" update="display" oncomplete="dialog.show()" /&gt;
+    &lt;b:commandButton value="Submit" update="display" oncomplete="dialog.show()" /&gt;
 
-    &lt;p:dialog header="Selected Dates" widgetVar="dialog"
+    &lt;b:dialog header="Selected Dates" widgetVar="dialog"
                 showEffect="fold" hideEffect="fold"
                 height="225"&gt;
 
@@ -140,13 +140,13 @@
             &lt;/h:outputText&gt;
 
         &lt;/h:panelGrid&gt;
-    &lt;/p:dialog&gt;
+    &lt;/b:dialog&gt;
 
 &lt;/h:form&gt;
 					</pre>
-				</p:tab>
+				</b:tab>
 
-				<p:tab title="CalendarBean.java">
+				<b:tab title="CalendarBean.java">
 					<pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -171,8 +171,8 @@ public class CalendarBean {
 	//getters and setters
 }
 					</pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 
          </div>
 

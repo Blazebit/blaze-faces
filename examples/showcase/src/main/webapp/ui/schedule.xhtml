@@ -14,88 +14,88 @@
 		
 			<h:form id="form">
 
-				<p:growl id="messages" showDetail="true" />
+				<b:growl id="messages" showDetail="true" />
 			
-				<p:schedule id="schedule" value="#{scheduleController.eventModel}" widgetVar="myschedule">
+				<b:schedule id="schedule" value="#{scheduleController.eventModel}" widgetVar="myschedule">
 
-                    <p:ajax event="dateSelect" listener="#{scheduleController.onDateSelect}" update="eventDetails" oncomplete="eventDialog.show()" />
-                    <p:ajax event="eventSelect" listener="#{scheduleController.onEventSelect}" update="eventDetails" oncomplete="eventDialog.show()" />
-                    <p:ajax event="eventMove" listener="#{scheduleController.onEventMove}" update="messages" />
-                    <p:ajax event="eventResize" listener="#{scheduleController.onEventResize}" update="messages" />
+                    <b:ajax event="dateSelect" listener="#{scheduleController.onDateSelect}" update="eventDetails" oncomplete="eventDialog.show()" />
+                    <b:ajax event="eventSelect" listener="#{scheduleController.onEventSelect}" update="eventDetails" oncomplete="eventDialog.show()" />
+                    <b:ajax event="eventMove" listener="#{scheduleController.onEventMove}" update="messages" />
+                    <b:ajax event="eventResize" listener="#{scheduleController.onEventResize}" update="messages" />
 
-				</p:schedule>
+				</b:schedule>
 
-                <p:dialog widgetVar="eventDialog" header="Event Details" showEffect="clip" hideEffect="clip">
+                <b:dialog widgetVar="eventDialog" header="Event Details" showEffect="clip" hideEffect="clip">
                     <h:panelGrid id="eventDetails" columns="2">
                         <h:outputLabel for="title" value="Title:" />
-                        <p:inputText id="title" value="#{scheduleController.event.title}" required="true"/>
+                        <b:inputText id="title" value="#{scheduleController.event.title}" required="true"/>
 
                         <h:outputLabel for="from" value="From:" />
-                        <p:inputMask id="from" value="#{scheduleController.event.startDate}" mask="99/99/9999">
+                        <b:inputMask id="from" value="#{scheduleController.event.startDate}" mask="99/99/9999">
                             <f:convertDateTime pattern="dd/MM/yyyy" />
-                        </p:inputMask>
+                        </b:inputMask>
 
                         <h:outputLabel for="to" value="To:" />
-                        <p:inputMask id="to" value="#{scheduleController.event.endDate}" mask="99/99/9999">
+                        <b:inputMask id="to" value="#{scheduleController.event.endDate}" mask="99/99/9999">
                             <f:convertDateTime pattern="dd/MM/yyyy" />
-                        </p:inputMask>
+                        </b:inputMask>
 
                         <h:outputLabel for="allDay" value="All Day:" />
                         <h:selectBooleanCheckbox id="allDay" value="#{scheduleController.event.allDay}" />
 
-                        <p:commandButton type="reset" value="Reset" />
-                        <p:commandButton id="addButton" value="Save" actionListener="#{scheduleController.addEvent}" oncomplete="myschedule.update();eventDialog.hide();"/>
+                        <b:commandButton type="reset" value="Reset" />
+                        <b:commandButton id="addButton" value="Save" actionListener="#{scheduleController.addEvent}" oncomplete="myschedule.update();eventDialog.hide();"/>
                     </h:panelGrid>
-                </p:dialog>
+                </b:dialog>
 
 			</h:form>
 			
 			<h3>Source</h3>
 			
-			<p:tabView>
-				<p:tab title="schedule.xhtml">
+			<b:tabView>
+				<b:tab title="schedule.xhtml">
 <pre name="code" class="xml">
 &lt;h:form&gt;
 
-    &lt;p:growl id="messages" showDetail="true" /&gt;
+    &lt;b:growl id="messages" showDetail="true" /&gt;
 
-    &lt;p:schedule value="\#{scheduleController.eventModel}" widgetVar="myschedule"&gt;
+    &lt;b:schedule value="\#{scheduleController.eventModel}" widgetVar="myschedule"&gt;
 
-        &lt;p:ajax event="dateSelect" listener="\#{scheduleController.onDateSelect}" update="eventDetails" oncomplete="eventDialog.show()" /&gt;
-        &lt;p:ajax event="eventSelect" listener="\#{scheduleController.onEventSelect}" update="eventDetails" oncomplete="eventDialog.show()" /&gt;
-        &lt;p:ajax event="eventMove" listener="\#{scheduleController.onEventMove}" update="messages" /&gt;
-        &lt;p:ajax event="eventResize" listener="\#{scheduleController.onEventResize}" update="messages" /&gt;
+        &lt;b:ajax event="dateSelect" listener="\#{scheduleController.onDateSelect}" update="eventDetails" oncomplete="eventDialog.show()" /&gt;
+        &lt;b:ajax event="eventSelect" listener="\#{scheduleController.onEventSelect}" update="eventDetails" oncomplete="eventDialog.show()" /&gt;
+        &lt;b:ajax event="eventMove" listener="\#{scheduleController.onEventMove}" update="messages" /&gt;
+        &lt;b:ajax event="eventResize" listener="\#{scheduleController.onEventResize}" update="messages" /&gt;
 
-    &lt;/p:schedule&gt;
+    &lt;/b:schedule&gt;
 
-    &lt;p:dialog widgetVar="eventDialog" header="Event Details" showEffect="clip" hideEffect="clip"&gt;
+    &lt;b:dialog widgetVar="eventDialog" header="Event Details" showEffect="clip" hideEffect="clip"&gt;
         &lt;h:panelGrid id="eventDetails" columns="2"&gt;
             &lt;h:outputLabel for="title" value="Title:" /&gt;
-            &lt;p:inputText id="title" value="\#{scheduleController.event.title}" required="true"/&gt;
+            &lt;b:inputText id="title" value="\#{scheduleController.event.title}" required="true"/&gt;
 
             &lt;h:outputLabel for="from" value="From:" /&gt;
-            &lt;p:inputMask id="from" value="\#{scheduleController.event.startDate}" mask="99/99/9999"&gt;
+            &lt;b:inputMask id="from" value="\#{scheduleController.event.startDate}" mask="99/99/9999"&gt;
                 &lt;f:convertDateTime pattern="dd/MM/yyyy" /&gt;
-            &lt;/p:inputMask&gt;
+            &lt;/b:inputMask&gt;
 
             &lt;h:outputLabel for="to" value="To:" /&gt;
-            &lt;p:inputMask id="to" value="\#{scheduleController.event.endDate}" mask="99/99/9999"&gt;
+            &lt;b:inputMask id="to" value="\#{scheduleController.event.endDate}" mask="99/99/9999"&gt;
                 &lt;f:convertDateTime pattern="dd/MM/yyyy" /&gt;
-            &lt;/p:inputMask&gt;
+            &lt;/b:inputMask&gt;
 
             &lt;h:outputLabel for="allDay" value="All Day:" /&gt;
             &lt;h:selectBooleanCheckbox id="allDay" value="\#{scheduleController.event.allDay}" /&gt;
 
-            &lt;p:commandButton type="reset" value="Reset" /&gt;
-            &lt;p:commandButton value="Save" actionListener="\#{scheduleController.addEvent}" oncomplete="myschedule.update();eventDialog.hide();"/&gt;
+            &lt;b:commandButton type="reset" value="Reset" /&gt;
+            &lt;b:commandButton value="Save" actionListener="\#{scheduleController.addEvent}" oncomplete="myschedule.update();eventDialog.hide();"/&gt;
         &lt;/h:panelGrid&gt;
-    &lt;/p:dialog&gt;
+    &lt;/b:dialog&gt;
 
 &lt;/h:form&gt;
 </pre>
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="ScheduleController.java">
+				<b:tab title="ScheduleController.java">
 <pre name="code" class="java">
 public class ScheduleController {
 
@@ -165,8 +165,8 @@ public class ScheduleController {
 	//Getters and Setters
 }
 </pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 
 		</div>
 		

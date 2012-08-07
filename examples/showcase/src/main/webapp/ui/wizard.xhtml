@@ -46,76 +46,76 @@
             
             <h:form>
                 
-                <p:growl id="growl" sticky="true" showDetail="true"/>
+                <b:growl id="growl" sticky="true" showDetail="true"/>
 
-                <p:wizard widgetVar="wiz" flowListener="#{userWizard.onFlowProcess}">
+                <b:wizard widgetVar="wiz" flowListener="#{userWizard.onFlowProcess}">
 
-                    <p:tab id="personal" title="Personal">
+                    <b:tab id="personal" title="Personal">
 
-                        <p:panel header="Personal Details">
+                        <b:panel header="Personal Details">
 
-                            <p:messages />
+                            <b:messages />
 
                             <h:panelGrid columns="2" columnClasses="label, value">
                                 <h:outputText value="Firstname: *" />
-                                <p:inputText value="#{userWizard.user.firstname}" required="true" label="Firstname"/>
+                                <b:inputText value="#{userWizard.user.firstname}" required="true" label="Firstname"/>
 
                                 <h:outputText value="Lastname: *" />
-                                <p:inputText value="#{userWizard.user.lastname}" required="true" label="Lastname"/>
+                                <b:inputText value="#{userWizard.user.lastname}" required="true" label="Lastname"/>
 
                                 <h:outputText value="Age: " />
-                                <p:inputText value="#{userWizard.user.age}" />
+                                <b:inputText value="#{userWizard.user.age}" />
 
                                 <h:outputText value="Skip to last: " />
                                 <h:selectBooleanCheckbox value="#{userWizard.skip}" />
                             </h:panelGrid>
-                        </p:panel>
-                    </p:tab>
+                        </b:panel>
+                    </b:tab>
 
-                    <p:tab id="address" title="Address">
-                        <p:panel header="Address Details">
+                    <b:tab id="address" title="Address">
+                        <b:panel header="Address Details">
 
-                            <p:messages />
+                            <b:messages />
 
                             <h:panelGrid columns="2" columnClasses="label, value">
                                 <h:outputText value="Street: " />
-                                <p:inputText value="#{userWizard.user.street}" />
+                                <b:inputText value="#{userWizard.user.street}" />
 
                                 <h:outputText value="Postal Code: " />
-                                <p:inputText value="#{userWizard.user.postalCode}" />
+                                <b:inputText value="#{userWizard.user.postalCode}" />
 
                                 <h:outputText value="City: " />
-                                <p:inputText value="#{userWizard.user.city}" />
+                                <b:inputText value="#{userWizard.user.city}" />
 
                                 <h:outputText value="Skip to last: " />
                                 <h:selectBooleanCheckbox value="#{userWizard.skip}" />
 
                             </h:panelGrid>
-                        </p:panel>
-                    </p:tab>
+                        </b:panel>
+                    </b:tab>
 
-                    <p:tab id="contact" title="Contact">
-                        <p:panel header="Contact Information">
+                    <b:tab id="contact" title="Contact">
+                        <b:panel header="Contact Information">
 
-                            <p:messages />
+                            <b:messages />
 
                             <h:panelGrid columns="2" columnClasses="label, value">
                                 <h:outputText value="Email: *" />
-                                <p:inputText value="#{userWizard.user.email}" required="true" label="Email"/>
+                                <b:inputText value="#{userWizard.user.email}" required="true" label="Email"/>
 
                                 <h:outputText value="Phone: " />
-                                <p:inputText value="#{userWizard.user.phone}"/>
+                                <b:inputText value="#{userWizard.user.phone}"/>
 
                                 <h:outputText value="Additional Info: " />
-                                <p:inputText value="#{userWizard.user.info}"/>
+                                <b:inputText value="#{userWizard.user.info}"/>
 
                             </h:panelGrid>
 
-                        </p:panel>
-                    </p:tab>
+                        </b:panel>
+                    </b:tab>
 
-                    <p:tab id="confirm" title="Confirmation">
-                        <p:panel header="Confirmation">
+                    <b:tab id="confirm" title="Confirmation">
+                        <b:panel header="Confirmation">
 
                             <h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
                                 <h:panelGrid columns="2" columnClasses="label, value">
@@ -155,92 +155,92 @@
                                 </h:panelGrid>
                             </h:panelGrid>
 
-                            <p:commandButton value="Submit" actionListener="#{userWizard.save}" update="growl" process="@this"/>
+                            <b:commandButton value="Submit" actionListener="#{userWizard.save}" update="growl" process="@this"/>
 
-                        </p:panel>
-                    </p:tab>
+                        </b:panel>
+                    </b:tab>
 
-                </p:wizard>
+                </b:wizard>
 
             </h:form>
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="wizard.xhtml">
+            <b:tabView>
+                <b:tab title="wizard.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form&gt;
 
-    &lt;p:growl id="growl" sticky="true" showDetail="true"/&gt;
+    &lt;b:growl id="growl" sticky="true" showDetail="true"/&gt;
 
-	&lt;p:wizard widgetVar="wiz"
+	&lt;b:wizard widgetVar="wiz"
 			flowListener="\#{userWizard.onFlowProcess}"&gt;
 	
-		&lt;p:tab id="personal" title="Personal"&gt;
+		&lt;b:tab id="personal" title="Personal"&gt;
 
-			&lt;p:panel header="Personal Details"&gt;
+			&lt;b:panel header="Personal Details"&gt;
 			
 				&lt;h:messages errorClass="error"/&gt;
 				
 				&lt;h:panelGrid columns="2" columnClasses="label, value" styleClass="grid"&gt;
 					&lt;h:outputText value="Firstname: *" /&gt;
-					&lt;p:inputText required="true" label="Firstname"
+					&lt;b:inputText required="true" label="Firstname"
 							value="\#{userWizard.user.firstname}" /&gt;
 					
 					&lt;h:outputText value="Lastname: *" /&gt;
-					&lt;p:inputText required="true" label="Lastname"
+					&lt;b:inputText required="true" label="Lastname"
 							value="\#{userWizard.user.lastname}" /&gt;
 					
 					&lt;h:outputText value="Age: " /&gt;
-					&lt;p:inputText value="\#{userWizard.user.age}" /&gt;
+					&lt;b:inputText value="\#{userWizard.user.age}" /&gt;
 					
 					&lt;h:outputText value="Skip to last: " /&gt;
 					&lt;h:selectBooleanCheckbox value="\#{userWizard.skip}" /&gt;
 				&lt;/h:panelGrid&gt;
-			&lt;/p:panel&gt;
-		&lt;/p:tab&gt;
+			&lt;/b:panel&gt;
+		&lt;/b:tab&gt;
 			
-		&lt;p:tab id="address" title="Address"&gt;
-			&lt;p:panel header="Adress Details"&gt;
+		&lt;b:tab id="address" title="Address"&gt;
+			&lt;b:panel header="Adress Details"&gt;
 			
 				&lt;h:messages errorClass="error"/&gt;
 				
 				&lt;h:panelGrid columns="2" columnClasses="label, value"&gt;
 					&lt;h:outputText value="Street: " /&gt;
-					&lt;p:inputText value="\#{userWizard.user.street}" /&gt;
+					&lt;b:inputText value="\#{userWizard.user.street}" /&gt;
 					
 					&lt;h:outputText value="Postal Code: " /&gt;
-					&lt;p:inputText value="\#{userWizard.user.postalCode}" /&gt;
+					&lt;b:inputText value="\#{userWizard.user.postalCode}" /&gt;
 					
 					&lt;h:outputText value="City: " /&gt;
-					&lt;p:inputText value="\#{userWizard.user.city}" /&gt;
+					&lt;b:inputText value="\#{userWizard.user.city}" /&gt;
 					
 					&lt;h:outputText value="Skip to last: " /&gt;
 					&lt;h:selectBooleanCheckbox value="\#{userWizard.skip}" /&gt;
 				&lt;/h:panelGrid&gt;
-			&lt;/p:panel&gt;
-		&lt;/p:tab&gt;
+			&lt;/b:panel&gt;
+		&lt;/b:tab&gt;
 			
-		&lt;p:tab id="contact" title="Contact"&gt;
-			&lt;p:panel header="Contact Information"&gt;
+		&lt;b:tab id="contact" title="Contact"&gt;
+			&lt;b:panel header="Contact Information"&gt;
 				
 				&lt;h:messages errorClass="error"/&gt;
 			
 				&lt;h:panelGrid columns="2" columnClasses="label, value"&gt;
 					&lt;h:outputText value="Email: *" /&gt;
-					&lt;p:inputText required="true" label="Email"
+					&lt;b:inputText required="true" label="Email"
 							value="\#{userWizard.user.email}" /&gt;
 					
 					&lt;h:outputText value="Phone: " /&gt;
-					&lt;p:inputText value="\#{userWizard.user.phone}"/&gt;
+					&lt;b:inputText value="\#{userWizard.user.phone}"/&gt;
 					
 					&lt;h:outputText value="Additional Info: " /&gt;
-					&lt;p:inputText value="\#{userWizard.user.info}"/&gt;
+					&lt;b:inputText value="\#{userWizard.user.info}"/&gt;
 				&lt;/h:panelGrid&gt;
-			&lt;/p:panel&gt;
-		&lt;/p:tab&gt;
+			&lt;/b:panel&gt;
+		&lt;/b:tab&gt;
 			
-		&lt;p:tab id="confirm" title="Confirmation"&gt;
-			&lt;p:panel header="Confirmation"&gt;
+		&lt;b:tab id="confirm" title="Confirmation"&gt;
+			&lt;b:panel header="Confirmation"&gt;
 			
 				&lt;h:panelGrid id="confirmation" columns="6"&gt;
 					&lt;h:outputText value="Firstname: " /&gt;
@@ -283,19 +283,19 @@
 					&lt;h:outputText /&gt;
 				&lt;/h:panelGrid&gt;
 				
-				&lt;p:commandButton value="Submit" update="growl" 
+				&lt;b:commandButton value="Submit" update="growl" 
 							actionListener="\#{userWizard.save}"/&gt;
 			
-			&lt;/p:panel&gt;
-		&lt;/p:tab&gt;
+			&lt;/b:panel&gt;
+		&lt;/b:tab&gt;
 		
-	&lt;/p:wizard&gt;
+	&lt;/b:wizard&gt;
 	
 &lt;/h:form&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="UserWizard.java">
+                <b:tab title="UserWizard.java">
                     <pre name="code" class="java">
 public class UserWizard {
 
@@ -343,8 +343,8 @@ public class UserWizard {
 }
                     </pre>
 
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 
         </div>
 

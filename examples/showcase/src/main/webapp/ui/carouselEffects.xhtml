@@ -21,10 +21,10 @@
 		<p>Carousel supports various slide effects out of the box.</p>
 
 			<h3>Custom Easing</h3>
-			<p:carousel value="#{tableBean.carsSmall}" var="car" itemStyleClass="carItem"
+			<b:carousel value="#{tableBean.carsSmall}" var="car" itemStyleClass="carItem"
 						easing="easeOutBounce">
 				<h:panelGrid columns="1" style="width:100%" cellpadding="5">
-					<p:graphicImage value="/images/cars/#{car.manufacturer}.jpg"/> 
+					<b:graphicImage value="/images/cars/#{car.manufacturer}.jpg"/> 
 					
 					<h:outputText value="Model: #{car.model}" />
 					
@@ -32,13 +32,13 @@
 					
 					<h:outputText value="Color: #{car.color}" />
 				</h:panelGrid>
-			</p:carousel>
+			</b:carousel>
 			
 			<h3>Fade</h3>
-			<p:carousel value="#{tableBean.carsSmall}" var="car" itemStyleClass="carItem"
+			<b:carousel value="#{tableBean.carsSmall}" var="car" itemStyleClass="carItem"
 						effect="fade">
 				<h:panelGrid columns="1" style="width:100%" cellpadding="5">
-					<p:graphicImage value="/images/cars/#{car.manufacturer}.jpg"/> 
+					<b:graphicImage value="/images/cars/#{car.manufacturer}.jpg"/> 
 					
 					<h:outputText value="Model: #{car.model}" />
 					
@@ -46,17 +46,17 @@
 					
 					<h:outputText value="Color: #{car.color}" />
 				</h:panelGrid>
-			</p:carousel>
+			</b:carousel>
 			
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="carouselEffects.xhtml">
+			<b:tabView>
+				<b:tab title="carouselEffects.xhtml">
 				<pre name="code" class="xml">
 &lt;h3&gt;Custom Easing&lt;/h3&gt;
-&lt;p:carousel value="\#{tableBean.carsSmall}" var="car" itemStyleClass="carItem"
+&lt;b:carousel value="\#{tableBean.carsSmall}" var="car" itemStyleClass="carItem"
 			easing="easeOutBounce"&gt;
 	&lt;h:panelGrid columns="1" style="width:100%" cellpadding="5"&gt;
-		&lt;p:graphicImage value="/images/cars/\#{car.manufacturer}.jpg"/&gt; 
+		&lt;b:graphicImage value="/images/cars/\#{car.manufacturer}.jpg"/&gt; 
 		
 		&lt;h:outputText value="Model: \#{car.model}" /&gt;
 		
@@ -64,13 +64,13 @@
 		
 		&lt;h:outputText value="Color: \#{car.color}" /&gt;
 	&lt;/h:panelGrid&gt;
-&lt;/p:carousel&gt;
+&lt;/b:carousel&gt;
 
 &lt;h3&gt;Fade&lt;/h3&gt;
-&lt;p:carousel value="\#{tableBean.carsSmall}" var="car" itemStyleClass="carItem"
+&lt;b:carousel value="\#{tableBean.carsSmall}" var="car" itemStyleClass="carItem"
 			effect="fade"&gt;
 	&lt;h:panelGrid columns="1" style="width:100%" cellpadding="5"&gt;
-		&lt;p:graphicImage value="/images/cars/\#{car.manufacturer}.jpg"/&gt; 
+		&lt;b:graphicImage value="/images/cars/\#{car.manufacturer}.jpg"/&gt; 
 		
 		&lt;h:outputText value="Model: \#{car.model}" /&gt;
 		
@@ -78,11 +78,11 @@
 		
 		&lt;h:outputText value="Color: \#{car.color}" /&gt;
 	&lt;/h:panelGrid&gt;
-&lt;/p:carousel&gt;
+&lt;/b:carousel&gt;
 				</pre>
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="TableBean.java">
+				<b:tab title="TableBean.java">
 				<pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -155,8 +155,8 @@ public class TableBean implements Serializable {
 	}
 }
 				</pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 		</div>
 		
 	</ui:define>

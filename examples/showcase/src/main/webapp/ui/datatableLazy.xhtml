@@ -14,36 +14,36 @@
 
             <h:form id="form">
 
-                <p:dataTable var="car" value="#{tableBean.lazyModel}" paginator="true" rows="10"
+                <b:dataTable var="car" value="#{tableBean.lazyModel}" paginator="true" rows="10"
                              paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
                              rowsPerPageTemplate="5,10,15" selectionMode="single" selection="#{tableBean.selectedCar}" id="carTable" lazy="true">
 
-                    <p:ajax event="rowSelect" listener="#{tableBean.onRowSelect}" update=":form:display" oncomplete="carDialog.show()" />
+                    <b:ajax event="rowSelect" listener="#{tableBean.onRowSelect}" update=":form:display" oncomplete="carDialog.show()" />
                     
-                    <p:column headerText="Model" sortBy="#{car.model}" filterBy="#{car.model}">
+                    <b:column headerText="Model" sortBy="#{car.model}" filterBy="#{car.model}">
                         <h:outputText value="#{car.model}" />
-                    </p:column>
+                    </b:column>
 
-                    <p:column headerText="Year" sortBy="#{car.year}" filterBy="#{car.year}">
+                    <b:column headerText="Year" sortBy="#{car.year}" filterBy="#{car.year}">
                         <h:outputText value="#{car.year}" />
-                    </p:column>
+                    </b:column>
 
-                    <p:column headerText="Manufacturer" sortBy="#{car.manufacturer}" filterBy="#{car.manufacturer}">
+                    <b:column headerText="Manufacturer" sortBy="#{car.manufacturer}" filterBy="#{car.manufacturer}">
                         <h:outputText value="#{car.manufacturer}" />
-                    </p:column>
+                    </b:column>
 
-                    <p:column headerText="Color" sortBy="#{car.color}" filterBy="#{car.color}">
+                    <b:column headerText="Color" sortBy="#{car.color}" filterBy="#{car.color}">
                         <h:outputText value="#{car.color}" />
-                    </p:column>
-                </p:dataTable>
+                    </b:column>
+                </b:dataTable>
 
-                <p:dialog header="Car Detail" widgetVar="carDialog" resizable="false"
+                <b:dialog header="Car Detail" widgetVar="carDialog" resizable="false"
                           showEffect="explode" hideEffect="explode">
 
                     <h:panelGrid id="display" columns="2" cellpadding="4">
 
                         <f:facet name="header">
-                            <p:graphicImage value="/images/cars/#{tableBean.selectedCar.manufacturer}.jpg"/>
+                            <b:graphicImage value="/images/cars/#{tableBean.selectedCar.manufacturer}.jpg"/>
                         </f:facet>
 
                         <h:outputText value="Model:" />
@@ -58,46 +58,46 @@
                         <h:outputText value="Color:" />
                         <h:outputText value="#{tableBean.selectedCar.color}" style="font-weight:bold"/>
                     </h:panelGrid>
-                </p:dialog>
+                </b:dialog>
 
             </h:form>
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="datatableLazy.xhtml">
+            <b:tabView>
+                <b:tab title="datatableLazy.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form id="form"&gt;
 
-    &lt;p:dataTable var="car" value="\#{tableBean.lazyModel}" paginator="true" rows="10"
+    &lt;b:dataTable var="car" value="\#{tableBean.lazyModel}" paginator="true" rows="10"
                  paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
                  rowsPerPageTemplate="5,10,15" selectionMode="single" selection="\#{tableBean.selectedCar}" id="carTable" lazy="true"&gt;
 
-        &lt;p:ajax event="rowSelect" listener="\#{tableBean.onRowSelect}" update=":form:display" oncomplete="carDialog.show()" /&gt;
+        &lt;b:ajax event="rowSelect" listener="\#{tableBean.onRowSelect}" update=":form:display" oncomplete="carDialog.show()" /&gt;
 
-        &lt;p:column headerText="Model" sortBy="\#{car.model}" filterBy="\#{car.model}"&gt;
+        &lt;b:column headerText="Model" sortBy="\#{car.model}" filterBy="\#{car.model}"&gt;
             &lt;h:outputText value="\#{car.model}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Year" sortBy="\#{car.year}" filterBy="\#{car.year}"&gt;
+        &lt;b:column headerText="Year" sortBy="\#{car.year}" filterBy="\#{car.year}"&gt;
             &lt;h:outputText value="\#{car.year}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Manufacturer" sortBy="\#{car.manufacturer}" filterBy="\#{car.manufacturer}"&gt;
+        &lt;b:column headerText="Manufacturer" sortBy="\#{car.manufacturer}" filterBy="\#{car.manufacturer}"&gt;
             &lt;h:outputText value="\#{car.manufacturer}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column headerText="Color" sortBy="\#{car.color}" filterBy="\#{car.color}"&gt;
+        &lt;b:column headerText="Color" sortBy="\#{car.color}" filterBy="\#{car.color}"&gt;
             &lt;h:outputText value="\#{car.color}" /&gt;
-        &lt;/p:column&gt;
-    &lt;/p:dataTable&gt;
+        &lt;/b:column&gt;
+    &lt;/b:dataTable&gt;
 
-    &lt;p:dialog header="Car Detail" widgetVar="carDialog" resizable="false"
+    &lt;b:dialog header="Car Detail" widgetVar="carDialog" resizable="false"
               showEffect="explode" hideEffect="explode"&gt;
 
         &lt;h:panelGrid id="display" columns="2" cellpadding="4"&gt;
 
             &lt;f:facet name="header"&gt;
-                &lt;p:graphicImage value="/images/cars/\#{tableBean.selectedCar.manufacturer}.jpg"/&gt;
+                &lt;b:graphicImage value="/images/cars/\#{tableBean.selectedCar.manufacturer}.jpg"/&gt;
             &lt;/f:facet&gt;
 
             &lt;h:outputText value="Model:" /&gt;
@@ -112,13 +112,13 @@
             &lt;h:outputText value="Color:" /&gt;
             &lt;h:outputText value="\#{tableBean.selectedCar.color}" style="font-weight:bold"/&gt;
         &lt;/h:panelGrid&gt;
-    &lt;/p:dialog&gt;
+    &lt;/b:dialog&gt;
 
 &lt;/h:form&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="TableBean.java">
+                <b:tab title="TableBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -203,9 +203,9 @@ public class TableBean {
 	}
 }
                     </pre>
-                </p:tab>
+                </b:tab>
                 
-                <p:tab title="LazyCarDataModel.java">
+                <b:tab title="LazyCarDataModel.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -299,8 +299,8 @@ public class LazyCarDataModel extends LazyDataModel&lt;Car&gt; {
     }
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 
 
 

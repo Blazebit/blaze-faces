@@ -17,59 +17,59 @@
 			
 			<h:form prependId="false">
 			
-				<p:gmap id="gmap" center="36.890257,30.707417" zoom="13" type="HYBRID" model="#{mapBean.advancedModel}" style="width:600px;height:400px">
+				<b:gmap id="gmap" center="36.890257,30.707417" zoom="13" type="HYBRID" model="#{mapBean.advancedModel}" style="width:600px;height:400px">
 
-                    <p:ajax event="overlaySelect" listener="#{mapBean.onMarkerSelect}" />
+                    <b:ajax event="overlaySelect" listener="#{mapBean.onMarkerSelect}" />
 					
-					<p:gmapInfoWindow id="infoWindow">
-						<p:outputPanel style="text-align:center;display:block;margin:auto:">
+					<b:gmapInfoWindow id="infoWindow">
+						<b:outputPanel style="text-align:center;display:block;margin:auto:">
 							
-								<p:graphicImage value="/images/antalya/#{mapBean.marker.data}" height="150"/>
+								<b:graphicImage value="/images/antalya/#{mapBean.marker.data}" height="150"/>
 								<br />
 								<h:outputText value="#{mapBean.marker.title}" />
 								
-						</p:outputPanel>
+						</b:outputPanel>
 						
-					</p:gmapInfoWindow>
-				</p:gmap>
+					</b:gmapInfoWindow>
+				</b:gmap>
 
 				<!-- Preload for demo -->
-				<p:outputPanel style="display:none">
-					<p:graphicImage value="/images/antalya/konyaalti.png" />
-					<p:graphicImage value="/images/antalya/ataturkparki.png" />
-					<p:graphicImage value="/images/antalya/kaleici.png" />
-					<p:graphicImage value="/images/antalya/karaalioglu.png" />
-				</p:outputPanel>
+				<b:outputPanel style="display:none">
+					<b:graphicImage value="/images/antalya/konyaalti.png" />
+					<b:graphicImage value="/images/antalya/ataturkparki.png" />
+					<b:graphicImage value="/images/antalya/kaleici.png" />
+					<b:graphicImage value="/images/antalya/karaalioglu.png" />
+				</b:outputPanel>
 			
 			</h:form>
 			
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="gmapInfoWindow.xhtml">
+			<b:tabView>
+				<b:tab title="gmapInfoWindow.xhtml">
 					<pre name="code" class="xml">
 &lt;h:form&gt;
 
-    &lt;p:gmap center="36.890257,30.707417" zoom="13" type="HYBRID" model="\#{mapBean.advancedModel}" style="width:600px;height:400px"&gt;
+    &lt;b:gmap center="36.890257,30.707417" zoom="13" type="HYBRID" model="\#{mapBean.advancedModel}" style="width:600px;height:400px"&gt;
 
-        &lt;p:ajax event="overlaySelect" listener="\#{mapBean.onMarkerSelect}" /&gt;
+        &lt;b:ajax event="overlaySelect" listener="\#{mapBean.onMarkerSelect}" /&gt;
 
-        &lt;p:gmapInfoWindow&gt;
-            &lt;p:outputPanel style="text-align:center;display:block;margin:auto:"&gt;
+        &lt;b:gmapInfoWindow&gt;
+            &lt;b:outputPanel style="text-align:center;display:block;margin:auto:"&gt;
 
-                    &lt;p:graphicImage value="/images/antalya/\#{mapBean.marker.data}" height="150"/&gt;
+                    &lt;b:graphicImage value="/images/antalya/\#{mapBean.marker.data}" height="150"/&gt;
                     &lt;br /&gt;
                     &lt;h:outputText value="\#{mapBean.marker.title}" /&gt;
 
-            &lt;/p:outputPanel&gt;
+            &lt;/b:outputPanel&gt;
 
-        &lt;/p:gmapInfoWindow&gt;
-    &lt;/p:gmap&gt;
+        &lt;/b:gmapInfoWindow&gt;
+    &lt;/b:gmap&gt;
 
 &lt;/h:form&gt;
 					</pre>
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="MapBean.java">
+				<b:tab title="MapBean.java">
 					<pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -116,8 +116,8 @@ public class MapBean implements Serializable {
 	}
 }
 					</pre>
-				</p:tab>
-			</p:tabView>									
+				</b:tab>
+			</b:tabView>									
 		</div>
 	</ui:define>
 </ui:composition>

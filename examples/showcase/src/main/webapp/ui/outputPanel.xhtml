@@ -12,33 +12,33 @@
                 which doesn't exist on page initially and rendered based on a condition.</p>
 
 			<h:form id="form">
-				<p:commandButton id="showButton" value="Show">
+				<b:commandButton id="showButton" value="Show">
 					<f:setPropertyActionListener value="true" target="#{requestScope.renderCampNou}" />
-				</p:commandButton>
+				</b:commandButton>
 				
 				<br /><br />
 				
-                <p:outputPanel id="panel" autoUpdate="true">
-					<p:graphicImage value="/images/barca/camp_nou.jpg" rendered="#{requestScope.renderCampNou}"/>
-				</p:outputPanel>
+                <b:outputPanel id="panel" autoUpdate="true">
+					<b:graphicImage value="/images/barca/camp_nou.jpg" rendered="#{requestScope.renderCampNou}"/>
+				</b:outputPanel>
 			</h:form>
 	
 		<h3>Source</h3>
-        <p:tabView>
-            <p:tab title="outputPanel.xhtml">
+        <b:tabView>
+            <b:tab title="outputPanel.xhtml">
                 <pre name="code" class="xml">
 &lt;h:form&gt;
-	&lt;p:commandButton id="showButton" value="Show"&gt;
+	&lt;b:commandButton id="showButton" value="Show"&gt;
 		&lt;f:setPropertyActionListener value="\#{true}" target="\#{requestScope.renderCampNou}" /&gt;
-	&lt;/p:commandButton&gt;
+	&lt;/b:commandButton&gt;
 	
-	&lt;p:outputPanel id="panel" autoUpdate="true"&gt;
-		&lt;p:graphicImage value="/images/barca/camp_nou.jpg" rendered="\#{requestScope.renderCampNou}"/&gt;
-	&lt;/p:outputPanel&gt;
+	&lt;b:outputPanel id="panel" autoUpdate="true"&gt;
+		&lt;b:graphicImage value="/images/barca/camp_nou.jpg" rendered="\#{requestScope.renderCampNou}"/&gt;
+	&lt;/b:outputPanel&gt;
 &lt;/h:form&gt;
                 </pre>
-            </p:tab>
-        </p:tabView>
+            </b:tab>
+        </b:tabView>
 
 		</div>
 

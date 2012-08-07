@@ -10,25 +10,25 @@
         <h1 class="title ui-widget-header ui-corner-all">MeterGauge Chart</h1>
         <div class="entry">
             <p>MeterGaugeChart is created with a MeterGaugeChartModel.</p>
-            <p:growl id="growl" showDetail="true" />
+            <b:growl id="growl" showDetail="true" />
 
-            <p:meterGaugeChart id="sample" value="#{chartBean.meterGaugeModel}" style="width:400px;height:250px" title="Simple MeterGauge" label="km/h"/>
+            <b:meterGaugeChart id="sample" value="#{chartBean.meterGaugeModel}" style="width:400px;height:250px" title="Simple MeterGauge" label="km/h"/>
 
-            <p:meterGaugeChart id="custom" value="#{chartBean.meterGaugeModel}" showTickLabels="false" labelHeightAdjust="110" intervalOuterRadius="130" 
+            <b:meterGaugeChart id="custom" value="#{chartBean.meterGaugeModel}" showTickLabels="false" labelHeightAdjust="110" intervalOuterRadius="130" 
                                seriesColors="66cc66, 93b75f, E7E658, cc6666" style="width:400px;height:250px" title="Custom Options" label="km/h"/>
             
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="meterGaugeChart.xhtml">
+            <b:tabView>
+                <b:tab title="meterGaugeChart.xhtml">
                     <pre name="code" class="xml">
-&lt;p:meterGaugeChart id="sample" value="\#{chartBean.meterGaugeModel}" style="width:400px;height:250px" title="Simple MeterGauge" label="km/h"/&gt;
+&lt;b:meterGaugeChart id="sample" value="\#{chartBean.meterGaugeModel}" style="width:400px;height:250px" title="Simple MeterGauge" label="km/h"/&gt;
 
-&lt;p:meterGaugeChart id="custom" value="\#{chartBean.meterGaugeModel}" showTickLabels="false" labelHeightAdjust="110" intervalOuterRadius="130" 
+&lt;b:meterGaugeChart id="custom" value="\#{chartBean.meterGaugeModel}" showTickLabels="false" labelHeightAdjust="110" intervalOuterRadius="130" 
                                seriesColors="66cc66, 93b75f, E7E658, cc6666" style="width:400px;height:250px" title="Custom Options" label="km/h"/&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="ChartBean.java">
+                <b:tab title="ChartBean.java">
             <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -57,8 +57,8 @@ public class ChartBean implements Serializable {
     }
 }
             </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
         </div>
     </ui:define>
 </ui:composition>

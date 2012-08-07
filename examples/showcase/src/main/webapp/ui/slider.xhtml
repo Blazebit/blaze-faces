@@ -12,12 +12,12 @@
 			
 			<h:form id="form">
 
-                <p:growl id="growl" showDetail="true" />
+                <b:growl id="growl" showDetail="true" />
 
 				<h3>Input Text Slider</h3>
 				<h:panelGrid columns="1" style="margin-bottom:10px">
-					<p:inputText id="txt1" value="#{sliderBean.number1}" />
-					<p:slider for="txt1" />
+					<b:inputText id="txt1" value="#{sliderBean.number1}" />
+					<b:slider for="txt1" />
 				</h:panelGrid>
 				
 				<h3>Hidden Input Slider with Display Value</h3>
@@ -28,32 +28,32 @@
 					</h:panelGroup> 
 					
 					<h:inputHidden id="txt2" value="#{sliderBean.number2}" />
-					<p:slider for="txt2" display="output" style="width:200px" />
+					<b:slider for="txt2" display="output" style="width:200px" />
 				</h:panelGrid>
 				
 				<h3>Slider with Step Factor</h3>
 				<h:panelGrid columns="1" style="margin-bottom:10px">
-					<p:inputText id="txt3" value="#{sliderBean.number3}"/>
-					<p:slider for="txt3" step="10"/>
+					<b:inputText id="txt3" value="#{sliderBean.number3}"/>
+					<b:slider for="txt3" step="10"/>
 				</h:panelGrid>
 				
 				<h3>Vertical Slider</h3>
 				<h:panelGrid columns="1" style="margin-bottom:10px">
-					<p:inputText id="txt4" value="#{sliderBean.number4}"/>
-					<p:slider for="txt4" type="vertical" />
+					<b:inputText id="txt4" value="#{sliderBean.number4}"/>
+					<b:slider for="txt4" type="vertical" />
 				</h:panelGrid>
 
                 <h3>Ajax Slider</h3>
                 <h:panelGrid columns="1" style="margin-bottom:10px">
-					<p:inputText id="txt5" value="#{sliderBean.number5}" />
-                    <p:slider for="txt5">
-                        <p:ajax event="slideEnd" listener="#{sliderBean.onSlideEnd}" update="growl" />
-                    </p:slider>
+					<b:inputText id="txt5" value="#{sliderBean.number5}" />
+                    <b:slider for="txt5">
+                        <b:ajax event="slideEnd" listener="#{sliderBean.onSlideEnd}" update="growl" />
+                    </b:slider>
 				</h:panelGrid>
 
-                <p:commandButton value="Submit" update="display" oncomplete="dialog.show()" />
+                <b:commandButton value="Submit" update="display" oncomplete="dialog.show()" />
 				
-				<p:dialog header="Slider Values" widgetVar="dialog" 
+				<b:dialog header="Slider Values" widgetVar="dialog" 
                           showEffect="bounce" hideEffect="fade" width="200">
 					
 					<h:panelGrid id="display" columns="1" cellpadding="5">
@@ -68,22 +68,22 @@
                         <h:outputText value="Number 5: #{sliderBean.number5}" />
 					</h:panelGrid>
 					
-				</p:dialog>
+				</b:dialog>
 				
 			</h:form>
 		
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="slider.xhtml">
+			<b:tabView>
+				<b:tab title="slider.xhtml">
 					<pre name="code" class="xml">
 &lt;h:form id="form"&gt;
 
-    &lt;p:growl id="growl" showDetail="true" /&gt;
+    &lt;b:growl id="growl" showDetail="true" /&gt;
 
 	&lt;h3&gt;Input Text Slider&lt;/h3&gt;
 	&lt;h:panelGrid columns="1" style="margin-bottom:10px"&gt;
-		&lt;p:inputText id="txt1" value="\#{sliderBean.number1}" /&gt;
-		&lt;p:slider for="txt1"/&gt;
+		&lt;b:inputText id="txt1" value="\#{sliderBean.number1}" /&gt;
+		&lt;b:slider for="txt1"/&gt;
 	&lt;/h:panelGrid&gt;
 	
 	&lt;h3&gt;Hidden Input Slider with Display Value&lt;/h3&gt;
@@ -94,32 +94,32 @@
 		&lt;/h:panelGroup&gt; 
 		
 		&lt;h:inputHidden id="txt2" value="\#{sliderBean.number2}" /&gt;
-		&lt;p:slider for="txt2" display="output" style="width:200px" /&gt;
+		&lt;b:slider for="txt2" display="output" style="width:200px" /&gt;
 	&lt;/h:panelGrid&gt;
 	
 	&lt;h3&gt;Slider with Step Factor&lt;/h3&gt;
 	&lt;h:panelGrid columns="1" style="margin-bottom:10px"&gt;
-		&lt;p:inputText id="txt3" value="\#{sliderBean.number3}"/&gt;
-		&lt;p:slider for="txt3" step="10"/&gt;
+		&lt;b:inputText id="txt3" value="\#{sliderBean.number3}"/&gt;
+		&lt;b:slider for="txt3" step="10"/&gt;
 	&lt;/h:panelGrid&gt;
 	
 	&lt;h3&gt;Vertical Slider&lt;/h3&gt;
 	&lt;h:panelGrid columns="1" style="margin-bottom:10px"&gt;
-		&lt;p:inputText id="txt4" value="\#{sliderBean.number4}"/&gt;
-		&lt;p:slider for="txt4" type="vertical" /&gt;
+		&lt;b:inputText id="txt4" value="\#{sliderBean.number4}"/&gt;
+		&lt;b:slider for="txt4" type="vertical" /&gt;
 	&lt;/h:panelGrid&gt;
 
     &lt;h3&gt;Ajax Slider&lt;/h3&gt;
     &lt;h:panelGrid columns="1" style="margin-bottom:10px"&gt;
-        &lt;p:inputText id="txt5" value="\#{sliderBean.number5}" /&gt;
-        &lt;p:slider for="txt5"&gt;
-            &lt;p:ajax event="slideEnd" listener="\#{sliderBean.onSlideEnd}" update="growl" /&gt;
-        &lt;/p:slider&gt;
+        &lt;b:inputText id="txt5" value="\#{sliderBean.number5}" /&gt;
+        &lt;b:slider for="txt5"&gt;
+            &lt;b:ajax event="slideEnd" listener="\#{sliderBean.onSlideEnd}" update="growl" /&gt;
+        &lt;/b:slider&gt;
     &lt;/h:panelGrid&gt;
 
-    &lt;p:commandButton value="Submit" update="display" oncomplete="dialog.show()" /&gt;
+    &lt;b:commandButton value="Submit" update="display" oncomplete="dialog.show()" /&gt;
 	
-	&lt;p:dialog header="Slider Values" widgetVar="dialog" 
+	&lt;b:dialog header="Slider Values" widgetVar="dialog" 
 		showEffect="bounce" hideEffect="fade" width="200"&gt;
 		
 		&lt;h:panelGrid id="display" columns="1" cellpadding="5"&gt;
@@ -134,13 +134,13 @@
             &lt;h:outputText value="Number 5: \#{sliderBean.number5}" /&gt;
 		&lt;/h:panelGrid&gt;
 		
-	&lt;/p:dialog&gt;	
+	&lt;/b:dialog&gt;	
 	
 &lt;/h:form&gt;
 					</pre>
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="SliderBean.java">
+				<b:tab title="SliderBean.java">
 			<pre name="code" class="java">
 public class SliderBean {
 
@@ -200,8 +200,8 @@ public class SliderBean {
     }
 }
 					</pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 
          </div>
         

@@ -13,33 +13,33 @@
 
             <h:form id="form">
 
-                <p:panel header="Masks" id="masks">
+                <b:panel header="Masks" id="masks">
                     <h:panelGrid columns="2" cellpadding="5">
                         <h:outputText value="Date: " />
-                        <p:inputMask id="date" value="#{maskController.date}" mask="99/99/9999"/>
+                        <b:inputMask id="date" value="#{maskController.date}" mask="99/99/9999"/>
 
                         <h:outputText value="Phone: " />
-                        <p:inputMask id="phone" value="#{maskController.phone}" mask="(999) 999-9999"/>
+                        <b:inputMask id="phone" value="#{maskController.phone}" mask="(999) 999-9999"/>
 
                         <h:outputText value="Phone with Ext: " />
-                        <p:inputMask id="phoneWithExt" value="#{maskController.phoneExt}" mask="(999) 999-9999? x99999"/>
+                        <b:inputMask id="phoneWithExt" value="#{maskController.phoneExt}" mask="(999) 999-9999? x99999"/>
 
                         <h:outputText value="taxId: " />
-                        <p:inputMask id="taxId" value="#{maskController.taxId}" mask="99-9999999"/>
+                        <b:inputMask id="taxId" value="#{maskController.taxId}" mask="99-9999999"/>
 
                         <h:outputText value="SSN: " />
-                        <p:inputMask id="ssn" value="#{maskController.ssn}" mask="999-99-9999"/>
+                        <b:inputMask id="ssn" value="#{maskController.ssn}" mask="999-99-9999"/>
 
                         <h:outputText value="Product Key: " />
-                        <p:inputMask id="key" value="#{maskController.productKey}" mask="a*-999-a999"/>
+                        <b:inputMask id="key" value="#{maskController.productKey}" mask="a*-999-a999"/>
 
-                        <p:commandButton value="Reset" type="reset" />
-                        <p:commandButton value="Submit" id="submit" update="display" oncomplete="dialog.show()"/>
+                        <b:commandButton value="Reset" type="reset" />
+                        <b:commandButton value="Submit" id="submit" update="display" oncomplete="dialog.show()"/>
 
                     </h:panelGrid>
-                </p:panel>
+                </b:panel>
 
-                <p:dialog widgetVar="dialog" id="modalDialog" modal="true">
+                <b:dialog widgetVar="dialog" id="modalDialog" modal="true">
                     <h:panelGrid id="display" columns="2" cellpadding="5">
 
                         <h:outputText value="Date: " />
@@ -61,45 +61,45 @@
                         <h:outputText id="keyValue" value="#{maskController.productKey}" />
 
                     </h:panelGrid>
-                </p:dialog>
+                </b:dialog>
 
             </h:form>
 
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="inputMask.xhtml">
+            <b:tabView>
+                <b:tab title="inputMask.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form&gt;
 
-	&lt;p:panel header="Masks"&gt;
+	&lt;b:panel header="Masks"&gt;
 		&lt;h:panelGrid columns="2" cellpadding="5"&gt;
 			&lt;h:outputText value="Date: " /&gt;
-			&lt;p:inputMask value="\#{maskController.date}" mask="99/99/9999"/&gt;
+			&lt;b:inputMask value="\#{maskController.date}" mask="99/99/9999"/&gt;
 			
 			&lt;h:outputText value="Phone: " /&gt;
-			&lt;p:inputMask value="\#{maskController.phone}" mask="(999) 999-9999"/&gt;
+			&lt;b:inputMask value="\#{maskController.phone}" mask="(999) 999-9999"/&gt;
 			
 			&lt;h:outputText value="Phone with Ext: " /&gt;
-			&lt;p:inputMask value="\#{maskController.phoneExt}" 
+			&lt;b:inputMask value="\#{maskController.phoneExt}" 
 						mask="(999) 999-9999? x99999"/&gt;
 			
 			&lt;h:outputText value="taxId: " /&gt;
-			&lt;p:inputMask value="\#{maskController.taxId}" mask="99-9999999"/&gt;
+			&lt;b:inputMask value="\#{maskController.taxId}" mask="99-9999999"/&gt;
 			
 			&lt;h:outputText value="SSN: " /&gt;
-			&lt;p:inputMask value="\#{maskController.ssn}" mask="999-99-9999"/&gt;
+			&lt;b:inputMask value="\#{maskController.ssn}" mask="999-99-9999"/&gt;
 			
 			&lt;h:outputText value="Product Key: " /&gt;
-			&lt;p:inputMask value="\#{maskController.productKey}" mask="a*-999-a999"/&gt;
+			&lt;b:inputMask value="\#{maskController.productKey}" mask="a*-999-a999"/&gt;
 		
-			&lt;p:commandButton value="Reset" type="reset" /&gt;
-			&lt;p:commandButton value="Submit" update="display" oncomplete="dialog.show()"/&gt;
+			&lt;b:commandButton value="Reset" type="reset" /&gt;
+			&lt;b:commandButton value="Submit" update="display" oncomplete="dialog.show()"/&gt;
 
 		&lt;/h:panelGrid&gt;
-	&lt;/p:panel&gt;
+	&lt;/b:panel&gt;
 	
-	&lt;p:dialog widgetVar="dialog" modal="true"&gt;
+	&lt;b:dialog widgetVar="dialog" modal="true"&gt;
 		&lt;h:panelGrid id="display" columns="2" cellpadding="5"&gt;
 	
 			&lt;h:outputText value="Date: " /&gt;
@@ -121,13 +121,13 @@
 			&lt;h:outputText value="\#{maskController.productKey}" /&gt;
 	
 		&lt;/h:panelGrid&gt;
-	&lt;/p:dialog&gt;
+	&lt;/b:dialog&gt;
 	
 &lt;/h:form&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="MaskController.java">
+                <b:tab title="MaskController.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -195,8 +195,8 @@ public class MaskController {
 }
 
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 
         </div>
 

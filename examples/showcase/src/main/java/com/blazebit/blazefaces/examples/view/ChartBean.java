@@ -163,7 +163,7 @@ public class ChartBean implements Serializable {
     private void createOhlcModel2(){
         ohlcModel2 = new OhlcChartModel();
         for( int i=1 ; i < 41 ; i++)
-            ohlcModel2.addRecord(new OhlcChartSeries(i, Math.random() * 80 + 80, Math.random() * 50 + 110, Math.random() * 20 + 80, Math.random() * 80 + 80));
+            ohlcModel2.add(new OhlcChartSeries(i, Math.random() * 80 + 80, Math.random() * 50 + 110, Math.random() * 20 + 80, Math.random() * 80 + 80));
     }
     
     private void createBubbleModel(){

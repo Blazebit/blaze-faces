@@ -12,36 +12,36 @@
         <div class="entry">
             <p>Galleria can be customized with various options such as dimensions, overlays, captions, effects and more.</p>
 
-            <p:galleria value="#{galleriaBean.images}" var="image" effect="slide" effectSpeed="1000"
+            <b:galleria value="#{galleriaBean.images}" var="image" effect="slide" effectSpeed="1000"
                         panelWidth="500" panelHeight="250" frameWidth="160" frameHeight="70"
                         filmstripPosition="top" showCaptions="true" showOverlays="true">
 
-                <p:graphicImage value="/images/galleria/#{image}" title="#{image}"/>
-                <p:galleriaOverlay title="#{image}">
+                <b:graphicImage value="/images/galleria/#{image}" title="#{image}"/>
+                <b:galleriaOverlay title="#{image}">
                     Description for #{image} goes here
-                </p:galleriaOverlay>
+                </b:galleriaOverlay>
                 
-            </p:galleria>
+            </b:galleria>
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="galleriaCustom.xhtml">
+            <b:tabView>
+                <b:tab title="galleriaCustom.xhtml">
                     <pre name="code" class="xml">
-&lt;p:galleria value="\#{galleriaBean.images}"
+&lt;b:galleria value="\#{galleriaBean.images}"
             var="image" effect="slide" effectSpeed="1000"
             panelWidth="500" panelHeight="250" frameWidth="160" frameHeight="70"
             filmstripPosition="top" showCaptions="true" showOverlays="true"&gt;
 
-    &lt;p:graphicImage value="/images/galleria/\#{image}" title="\#{image}"/&gt;
-    &lt;p:galleriaOverlay title="\#{image}"&gt;
+    &lt;b:graphicImage value="/images/galleria/\#{image}" title="\#{image}"/&gt;
+    &lt;b:galleriaOverlay title="\#{image}"&gt;
         Description for \#{image} goes here
-    &lt;/p:galleriaOverlay&gt;
+    &lt;/b:galleriaOverlay&gt;
 
-&lt;/p:galleria&gt;
+&lt;/b:galleria&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="GalleriaBean.java">
+                <b:tab title="GalleriaBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -67,8 +67,8 @@ public class GalleriaBean {
     }
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 
         </div>
     </ui:define>

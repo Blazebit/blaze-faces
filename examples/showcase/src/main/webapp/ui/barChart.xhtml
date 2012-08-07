@@ -11,31 +11,31 @@
         <div class="entry">
             <p>BarChart displays a CartesianChartModel.</p>
 
-            <p:barChart id="basic" value="#{chartBean.categoryModel}" legendPosition="ne"
+            <b:barChart id="basic" value="#{chartBean.categoryModel}" legendPosition="ne"
                         title="Basic Bar Chart" min="0" max="200" style="height:300px"/>
 
-            <p:barChart id="horizontal" value="#{chartBean.categoryModel}" legendPosition="se" style="height:300px;margin-top:20px"
+            <b:barChart id="horizontal" value="#{chartBean.categoryModel}" legendPosition="se" style="height:300px;margin-top:20px"
                         title="Horizontal Bar Chart" orientation="horizontal" min="0" max="200"/>
 
-            <p:barChart id="stacked" value="#{chartBean.categoryModel}" legendPosition="ne" style="height:300px;margin-top:20px"
+            <b:barChart id="stacked" value="#{chartBean.categoryModel}" legendPosition="ne" style="height:300px;margin-top:20px"
                         title="Stacked Bar Chart" stacked="true" barMargin="50" min="0" max="300"/>
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="barChart.xhtml">
+            <b:tabView>
+                <b:tab title="barChart.xhtml">
                     <pre name="code" class="xml">
-&lt;p:barChart id="basic" value="\#{chartBean.categoryModel}" legendPosition="ne"
+&lt;b:barChart id="basic" value="\#{chartBean.categoryModel}" legendPosition="ne"
             title="Basic Bar Chart" min="0" max="200" style="height:300px"/&gt;
 
-&lt;p:barChart id="horizontal" value="\#{chartBean.categoryModel}" legendPosition="se" style="height:300px"
+&lt;b:barChart id="horizontal" value="\#{chartBean.categoryModel}" legendPosition="se" style="height:300px"
             title="Horizontal Bar Chart" orientation="horizontal" min="0" max="200"/&gt;
 
-&lt;p:barChart id="stacked" value="\#{chartBean.categoryModel}" legendPosition="ne" style="height:300px"
+&lt;b:barChart id="stacked" value="\#{chartBean.categoryModel}" legendPosition="ne" style="height:300px"
             title="Stacked Bar Chart" stacked="true" barMargin="50" min="0" max="300"/&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="ChartBean.java">
+                <b:tab title="ChartBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -82,8 +82,8 @@ public class ChartBean implements Serializable {
     }
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 
         </div>
 

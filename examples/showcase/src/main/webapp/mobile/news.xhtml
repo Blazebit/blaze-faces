@@ -15,13 +15,13 @@
             <pm:content>
                 <h:form id="groupsForm">
 
-                    <p:dataList  value="#{newsController.groups}" var="group">
-                        <p:column>
-                            <p:commandLink value="#{group.title}" update=":entriesForm:entries" action="pm:summaries">
+                    <b:dataList  value="#{newsController.groups}" var="group">
+                        <b:column>
+                            <b:commandLink value="#{group.title}" update=":entriesForm:entries" action="pm:summaries">
                                 <f:setPropertyActionListener value="#{group}" target="#{newsController.selectedGroup}" />
-                            </p:commandLink>
-                        </p:column>
-                    </p:dataList>
+                            </b:commandLink>
+                        </b:column>
+                    </b:dataList>
 
                 </h:form>
 
@@ -31,19 +31,19 @@
         <!-- Summaries -->
         <pm:view id="summaries" swatch="c">
             <pm:header title="News">
-                <f:facet name="left"><p:button value="Back" icon="back" href="#groups?reverse=true"/></f:facet>
+                <f:facet name="left"><b:button value="Back" icon="back" href="#groups?reverse=true"/></f:facet>
             </pm:header>
 
             <pm:content>
                 <h:form id="entriesForm">
 
-                    <p:dataList id="entries" value="#{newsController.selectedGroup.entries}" var="entry">
-                        <p:column>
-                            <p:commandLink value="#{entry.title}" update=":content" action="pm:details">
+                    <b:dataList id="entries" value="#{newsController.selectedGroup.entries}" var="entry">
+                        <b:column>
+                            <b:commandLink value="#{entry.title}" update=":content" action="pm:details">
                                 <f:setPropertyActionListener value="#{entry}" target="#{newsController.selectedEntry}" />
-                            </p:commandLink>
-                        </p:column>
-                    </p:dataList>
+                            </b:commandLink>
+                        </b:column>
+                    </b:dataList>
                     
                 </h:form>
             </pm:content>
@@ -52,7 +52,7 @@
         <!-- Details -->
         <pm:view id="details" swatch="c">
             <pm:header title="News">
-                <f:facet name="left"><p:button value="Back" icon="back" href="#summaries?reverse=true"/></f:facet>
+                <f:facet name="left"><b:button value="Back" icon="back" href="#summaries?reverse=true"/></f:facet>
             </pm:header>
 
             <pm:content>

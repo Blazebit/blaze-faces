@@ -23,43 +23,43 @@
 			<p>This example presents data in unordered format.</p>
 		
 			<h3>Disc</h3>
-			<p:dataList id="disc" value="#{tableBean.carsSmall}" var="car" itemType="disc">
+			<b:dataList id="disc" value="#{tableBean.carsSmall}" var="car" itemType="disc">
 				#{car.manufacturer}, #{car.year}
-			</p:dataList>
+			</b:dataList>
 			
 			<h3>Circle</h3>
-			<p:dataList id="circle" value="#{tableBean.carsSmall}" var="car" itemType="circle">
+			<b:dataList id="circle" value="#{tableBean.carsSmall}" var="car" itemType="circle">
 				#{car.manufacturer}, #{car.year}
-			</p:dataList>
+			</b:dataList>
 			
 			<h3>Square</h3>
-			<p:dataList id="square" value="#{tableBean.carsSmall}" var="car" itemType="square">
+			<b:dataList id="square" value="#{tableBean.carsSmall}" var="car" itemType="square">
 				#{car.manufacturer}, #{car.year}
-			</p:dataList>
+			</b:dataList>
 		
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="datagrid.xhtml">
+			<b:tabView>
+				<b:tab title="datagrid.xhtml">
 					<pre name="code" class="xml">
 &lt;h3&gt;Disc&lt;/h3&gt;
-&lt;p:dataList value="\#{tableBean.carsSmall}" var="car" itemType="disc"&gt;
+&lt;b:dataList value="\#{tableBean.carsSmall}" var="car" itemType="disc"&gt;
 	\#{car.manufacturer}, \#{car.year}
-&lt;/p:dataList&gt;
+&lt;/b:dataList&gt;
 
 &lt;h3&gt;Circle&lt;/h3&gt;
-&lt;p:dataList value="\#{tableBean.carsSmall}" var="car" itemType="circle"&gt;
+&lt;b:dataList value="\#{tableBean.carsSmall}" var="car" itemType="circle"&gt;
 	\#{car.manufacturer}, \#{car.year}
-&lt;/p:dataList&gt;
+&lt;/b:dataList&gt;
 
 &lt;h3&gt;Square&lt;/h3&gt;
-&lt;p:dataList value="\#{tableBean.carsSmall}" var="car" itemType="square"&gt;
+&lt;b:dataList value="\#{tableBean.carsSmall}" var="car" itemType="square"&gt;
 	\#{car.manufacturer}, \#{car.year}
-&lt;/p:dataList&gt;
+&lt;/b:dataList&gt;
 			
 					</pre>
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="TableBean.java">
+				<b:tab title="TableBean.java">
 					<pre name="code" class="java">
 public class TableBean implements Serializable {
 	
@@ -129,8 +129,8 @@ public class TableBean implements Serializable {
 	}
 }
 					</pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 		
 		</div>
 				

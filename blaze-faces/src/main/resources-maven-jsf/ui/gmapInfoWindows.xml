@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE component SYSTEM "../misc/component.dtd" [
-<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
-]>
-<component>
+<component  xmlns="http://blazebit.com/jsf/component" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://blazebit.com/jsf/component ../misc/component.xsd">
 	<tag>gmapInfoWindow</tag>
 	<componentClass>com.blazebit.blazefaces.component.gmap.GMapInfoWindow</componentClass>
 	<componentType>com.blazebit.blazefaces.component.GMapInfoWindow</componentType>
@@ -10,7 +7,7 @@
 	<parent>javax.faces.component.UIComponentBase</parent>
     <description>GMapInfoWindow is used with GMap component to open a window on map when an overlay is selected.</description>
 	<attributes>
-		&standard_uicomponent_attributes;
+		<xi:include href="./../entities/standard_uicomponent_attributes.xml" parse="text"/>
 		<attribute>
 			<name>maxWidth</name>
 			<required>false</required>

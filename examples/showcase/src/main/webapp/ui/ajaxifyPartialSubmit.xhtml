@@ -14,47 +14,47 @@
 
             <h:form id="form">
 
-                <p:panel header="New Person">
+                <b:panel header="New Person">
                     <h:panelGrid columns="3">
                         <h:outputLabel for="firstname" value="Required Firstname *:" />
-                        <p:inputText id="firstname" value="#{pprBean.firstname}" required="true" />
+                        <b:inputText id="firstname" value="#{pprBean.firstname}" required="true" />
                         <h:outputText />
 
                         <h:outputLabel for="surname" value="Surname (request on blur): " />
-                        <p:inputText id="surname" value="#{pprBean.surname}">
-                            <p:ajax event="blur" update="out2" process="@this"/>
-                        </p:inputText>
+                        <b:inputText id="surname" value="#{pprBean.surname}">
+                            <b:ajax event="blur" update="out2" process="@this"/>
+                        </b:inputText>
                         <h:outputText id="out2" value="#{pprBean.surname}" />
                     </h:panelGrid>
-                </p:panel>
+                </b:panel>
 
             </h:form>
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="ajaxifyPartialSubmit.xhtml">
+            <b:tabView>
+                <b:tab title="ajaxifyPartialSubmit.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form id="form"&gt;
 
-	&lt;p:panel header="New Person"&gt;
+	&lt;b:panel header="New Person"&gt;
 		&lt;h:panelGrid columns="3"&gt;
 			&lt;h:outputLabel for="firstname" value="Required Firstname *:" /&gt;
-			&lt;p:inputText id="firstname" value="\#{pprBean.firstname}" required="true" /&gt;
+			&lt;b:inputText id="firstname" value="\#{pprBean.firstname}" required="true" /&gt;
 			&lt;h:outputText /&gt;
 			
 			&lt;h:outputLabel for="surname" value="Surname (request on blur): " /&gt;
-			&lt;p:inputText id="surname" value="\#{pprBean.surname}"&gt;
-				&lt;p:ajax event="blur" update="out2" process="@this"/&gt;
-			&lt;/p:inputText&gt;
+			&lt;b:inputText id="surname" value="\#{pprBean.surname}"&gt;
+				&lt;b:ajax event="blur" update="out2" process="@this"/&gt;
+			&lt;/b:inputText&gt;
 			&lt;h:outputText id="out2" value="\#{pprBean.surname}" /&gt;
 		&lt;/h:panelGrid&gt;
-	&lt;/p:panel&gt;
+	&lt;/b:panel&gt;
 	
 &lt;/h:form&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="PersonBean.java">
+                <b:tab title="PersonBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -87,8 +87,8 @@ public class PersonBean {
 	}
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 
         </div>
 

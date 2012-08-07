@@ -19,69 +19,69 @@
 
         <h:body>
 
-            <p:growl id="msg" showDetail="true"/>
+            <b:growl id="msg" showDetail="true"/>
 
-            <p:layout fullPage="true">
+            <b:layout fullPage="true">
 
-                <p:ajax event="toggle" listener="#{layoutBean.handleToggle}" update="msg" />
-                <p:ajax event="close" listener="#{layoutBean.handleClose}" update="msg" />
+                <b:ajax event="toggle" listener="#{layoutBean.handleToggle}" update="msg" />
+                <b:ajax event="close" listener="#{layoutBean.handleClose}" update="msg" />
 
-                <p:layoutUnit position="north" size="100" header="Top" resizable="true" closable="true" collapsible="true">
+                <b:layoutUnit position="north" size="100" header="Top" resizable="true" closable="true" collapsible="true">
                     <h:outputText value="Top unit content." />
-                </p:layoutUnit>
+                </b:layoutUnit>
 
-                <p:layoutUnit position="south" size="100" header="Bottom" resizable="true" closable="true" collapsible="true">
+                <b:layoutUnit position="south" size="100" header="Bottom" resizable="true" closable="true" collapsible="true">
                     <h:outputText value="South unit content." />
-                </p:layoutUnit>
+                </b:layoutUnit>
 
-                <p:layoutUnit position="west" size="200" header="Left" resizable="true" closable="true" collapsible="true">
+                <b:layoutUnit position="west" size="200" header="Left" resizable="true" closable="true" collapsible="true">
                     <h:form style="text-align: center">
                         <ui:include src="../templates/themeMenu.xhtml" />
                     </h:form>
-                </p:layoutUnit>
+                </b:layoutUnit>
 
-                <p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true">
+                <b:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true">
                     <h:outputText value="Right unit content." />
-                </p:layoutUnit>
+                </b:layoutUnit>
 
-                <p:layoutUnit position="center">
+                <b:layoutUnit position="center">
                     Layout responds to toggle, close and resize events by invoking server side listeners.
 
-                    <p:tabView style="margin-top:10px">
-                        <p:tab title="layoutElement.xhtml">
+                    <b:tabView style="margin-top:10px">
+                        <b:tab title="layoutElement.xhtml">
                             <pre name="code" class="xml">
-&lt;p:layout fullPage="true"&gt;
+&lt;b:layout fullPage="true"&gt;
 
-    &lt;p:ajax event="toggle" listener="\#{layoutBean.handleToggle}" update="msg" /&gt;
-    &lt;p:ajax event="close" listener="\#{layoutBean.handleClose}" update="msg" /&gt;
+    &lt;b:ajax event="toggle" listener="\#{layoutBean.handleToggle}" update="msg" /&gt;
+    &lt;b:ajax event="close" listener="\#{layoutBean.handleClose}" update="msg" /&gt;
 
-    &lt;p:layoutUnit position="north" size="100" header="Top" resizable="true" closable="true" collapsible="true"&gt;
+    &lt;b:layoutUnit position="north" size="100" header="Top" resizable="true" closable="true" collapsible="true"&gt;
         &lt;h:outputText value="Top unit content." /&gt;
-    &lt;/p:layoutUnit&gt;
+    &lt;/b:layoutUnit&gt;
 
-    &lt;p:layoutUnit position="south" size="100" header="Bottom" resizable="true" closable="true" collapsible="true"&gt;
+    &lt;b:layoutUnit position="south" size="100" header="Bottom" resizable="true" closable="true" collapsible="true"&gt;
         &lt;h:outputText value="South unit content." /&gt;
-    &lt;/p:layoutUnit&gt;
+    &lt;/b:layoutUnit&gt;
 
-    &lt;p:layoutUnit position="west" size="200" header="Left" resizable="true" closable="true" collapsible="true"&gt;
+    &lt;b:layoutUnit position="west" size="200" header="Left" resizable="true" closable="true" collapsible="true"&gt;
         &lt;h:form style="text-align: center"&gt;
             &lt;ui:include src="../templates/themeMenu.xhtml" /&gt;
         &lt;/h:form&gt;
-    &lt;/p:layoutUnit&gt;
+    &lt;/b:layoutUnit&gt;
 
-    &lt;p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true"&gt;
+    &lt;b:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true"&gt;
         &lt;h:outputText value="Right unit content." /&gt;
-    &lt;/p:layoutUnit&gt;
+    &lt;/b:layoutUnit&gt;
 
-    &lt;p:layoutUnit position="center"&gt;
+    &lt;b:layoutUnit position="center"&gt;
         //content
-    &lt;/p:layoutUnit&gt;
+    &lt;/b:layoutUnit&gt;
 
-&lt;/p:layout&gt;
+&lt;/b:layout&gt;
                             </pre>
-                        </p:tab>
+                        </b:tab>
 
-                        <p:tab title="LayoutBean.java">
+                        <b:tab title="LayoutBean.java">
                             <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -111,11 +111,11 @@ public class LayoutBean {
 	}
 }
                             </pre>
-                        </p:tab>
-                    </p:tabView>
-                </p:layoutUnit>
+                        </b:tab>
+                    </b:tabView>
+                </b:layoutUnit>
 
-            </p:layout>
+            </b:layout>
 
         </h:body>
 

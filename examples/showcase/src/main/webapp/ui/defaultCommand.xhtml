@@ -15,65 +15,65 @@
 
 			<h:form id="form">
                 
-                <p:growl autoUpdate="true"/>
+                <b:growl autoUpdate="true"/>
 				
                 <h:panelGrid columns="2">
                     <h:outputLabel for="btnSelect" value="Default Button:" />
-                    <p:selectOneMenu id="btnSelect" value="#{defaultCommandBean.btn}" onchange="$('#form').submit()">
+                    <b:selectOneMenu id="btnSelect" value="#{defaultCommandBean.btn}" onchange="$('#form').submit()">
                         <f:selectItems value="#{defaultCommandBean.buttons}" />
-                    </p:selectOneMenu>
+                    </b:selectOneMenu>
                 </h:panelGrid>
                 
-                <p:separator />
+                <b:separator />
                 
 				<h:panelGrid columns="3" cellpadding="5">
 					<h:outputLabel for="name" value="Name:" style="font-weight:bold"/>
-					<p:inputText id="name" value="#{defaultCommandBean.text}" />
+					<b:inputText id="name" value="#{defaultCommandBean.text}" />
                     <h:outputText value="#{defaultCommandBean.text}" id="display" />
 				</h:panelGrid>
                 
-                <p:commandButton value="Button1" id="btn1" actionListener="#{defaultCommandBean.btn1Submit}" ajax="false"/>
-                <p:commandButton value="Button2" id="btn2" actionListener="#{defaultCommandBean.btn2Submit}" />
+                <b:commandButton value="Button1" id="btn1" actionListener="#{defaultCommandBean.btn1Submit}" ajax="false"/>
+                <b:commandButton value="Button2" id="btn2" actionListener="#{defaultCommandBean.btn2Submit}" />
                 <h:commandButton value="Button3" id="btn3" actionListener="#{defaultCommandBean.btn3Submit}" />
                 
-                <p:defaultCommand target="#{defaultCommandBean.btn}" />
+                <b:defaultCommand target="#{defaultCommandBean.btn}" />
 
 			</h:form>
 			
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="defaultCommand.xhtml">
+			<b:tabView>
+				<b:tab title="defaultCommand.xhtml">
 <pre name="code" class="xml">
 &lt;h:form id="form"&gt;
                 
-    &lt;p:growl autoUpdate="true"/&gt;
+    &lt;b:growl autoUpdate="true"/&gt;
 
     &lt;h:panelGrid columns="2"&gt;
         &lt;h:outputLabel for="btnSelect" value="Default Button:" /&gt;
-        &lt;p:selectOneMenu id="btnSelect" value="\#{defaultCommandBean.btn}" onchange="$('\#form').submit()"&gt;
+        &lt;b:selectOneMenu id="btnSelect" value="\#{defaultCommandBean.btn}" onchange="$('\#form').submit()"&gt;
             &lt;f:selectItems value="\#{defaultCommandBean.buttons}" /&gt;
-        &lt;/p:selectOneMenu&gt;
+        &lt;/b:selectOneMenu&gt;
     &lt;/h:panelGrid&gt;
 
-    &lt;p:separator /&gt;
+    &lt;b:separator /&gt;
 
     &lt;h:panelGrid columns="3" cellpadding="5"&gt;
         &lt;h:outputLabel for="name" value="Name:" style="font-weight:bold"/&gt;
-        &lt;p:inputText id="name" value="\#{defaultCommandBean.text}" /&gt;
+        &lt;b:inputText id="name" value="\#{defaultCommandBean.text}" /&gt;
         &lt;h:outputText value="\#{defaultCommandBean.text}" id="display" /&gt;
     &lt;/h:panelGrid&gt;
 
-    &lt;p:commandButton value="Button1" id="btn1" actionListener="\#{defaultCommandBean.btn1Submit}" ajax="false"/&gt;
-    &lt;p:commandButton value="Button2" id="btn2" actionListener="\#{defaultCommandBean.btn2Submit}" /&gt;
+    &lt;b:commandButton value="Button1" id="btn1" actionListener="\#{defaultCommandBean.btn1Submit}" ajax="false"/&gt;
+    &lt;b:commandButton value="Button2" id="btn2" actionListener="\#{defaultCommandBean.btn2Submit}" /&gt;
     &lt;h:commandButton value="Button3" id="btn3" actionListener="\#{defaultCommandBean.btn3Submit}" /&gt;
 
-    &lt;p:defaultCommand target="\#{defaultCommandBean.btn}" /&gt;
+    &lt;b:defaultCommand target="\#{defaultCommandBean.btn}" /&gt;
 
 &lt;/h:form&gt;
 						</pre>
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="DefaultCommandBean.java">
+				<b:tab title="DefaultCommandBean.java">
 <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -138,8 +138,8 @@ public class DefaultCommandBean {
     }
 }
 </pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 			
 		</div>
 				

@@ -21,81 +21,81 @@
 
             <h:form id="form">
                 
-                <p:dataTable id="dataTable" var="car" value="#{tableBean.carsSmall}" widgetVar="carsTable"
+                <b:dataTable id="dataTable" var="car" value="#{tableBean.carsSmall}" widgetVar="carsTable"
                              emptyMessage="No cars found with given criteria" filteredValue="#{tableBean.filteredCars}">
 
                     <f:facet name="header">
-                        <p:outputPanel>
+                        <b:outputPanel>
                             <h:outputText value="Search all fields:" />
-                            <p:inputText id="globalFilter" onkeyup="carsTable.filter()" style="width:150px" />
-                        </p:outputPanel>
+                            <b:inputText id="globalFilter" onkeyup="carsTable.filter()" style="width:150px" />
+                        </b:outputPanel>
                     </f:facet>
 
-                    <p:column id="modelColumn" filterBy="#{car.model}" headerText="Model" footerText="contains" filterMatchMode="contains">
+                    <b:column id="modelColumn" filterBy="#{car.model}" headerText="Model" footerText="contains" filterMatchMode="contains">
                         <h:outputText value="#{car.model}" />
-                    </p:column>
+                    </b:column>
 
-                    <p:column id="yearColumn" filterBy="#{car.year}" headerText="Year" footerText="startsWith">
+                    <b:column id="yearColumn" filterBy="#{car.year}" headerText="Year" footerText="startsWith">
                         <h:outputText value="#{car.year}" />
-                    </p:column>
+                    </b:column>
 
-                    <p:column id="manufacturerColumn" filterBy="#{car.manufacturer}" headerText="Manufacturer" footerText="exact" filterOptions="#{tableBean.manufacturerOptions}" filterMatchMode="exact">
+                    <b:column id="manufacturerColumn" filterBy="#{car.manufacturer}" headerText="Manufacturer" footerText="exact" filterOptions="#{tableBean.manufacturerOptions}" filterMatchMode="exact">
                         <h:outputText value="#{car.manufacturer}" />
-                    </p:column>
+                    </b:column>
 
-                    <p:column id="colorColumn" filterBy="#{car.color}" headerText="Color" footerText="endsWith" filterMatchMode="endsWith">
+                    <b:column id="colorColumn" filterBy="#{car.color}" headerText="Color" footerText="endsWith" filterMatchMode="endsWith">
                         <h:outputText value="#{car.color}" />
-                    </p:column>
+                    </b:column>
 
-                </p:dataTable>
+                </b:dataTable>
 
             </h:form>
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="datatableFiltering.xhtml">
+            <b:tabView>
+                <b:tab title="datatableFiltering.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form&gt;
 
-    &lt;p:dataTable id="dataTable" var="car" value="\#{tableBean.carsSmall}" widgetVar="carsTable" 
+    &lt;b:dataTable id="dataTable" var="car" value="\#{tableBean.carsSmall}" widgetVar="carsTable" 
             emptyMessage="No cars found with given criteria" filteredValue="\#{tableBean.filteredCars}"&gt;
 
          &lt;f:facet name="header"&gt;
-            &lt;p:outputPanel&gt;
+            &lt;b:outputPanel&gt;
                 &lt;h:outputText value="Search all fields:" /&gt;
-                &lt;p:inputText id="globalFilter" onkeyup="carsTable.filter()" style="width:150px" /&gt;
-            &lt;/p:outputPanel&gt;
+                &lt;b:inputText id="globalFilter" onkeyup="carsTable.filter()" style="width:150px" /&gt;
+            &lt;/b:outputPanel&gt;
         &lt;/f:facet&gt;
 
-        &lt;p:column id="modelColumn" filterBy="\#{car.model}" 
+        &lt;b:column id="modelColumn" filterBy="\#{car.model}" 
                 headerText="Model" footerText="contains"
                 filterMatchMode="contains"&gt;
             &lt;h:outputText value="\#{car.model}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column id="yearColumn" filterBy="\#{car.year}"
+        &lt;b:column id="yearColumn" filterBy="\#{car.year}"
                 headerText="Year" footerText="startsWith"&gt;
             &lt;h:outputText value="\#{car.year}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column id="manufacturerColumn" filterBy="\#{car.manufacturer}" 
+        &lt;b:column id="manufacturerColumn" filterBy="\#{car.manufacturer}" 
                 headerText="Manufacturer" footerText="exact"
                 filterOptions="\#{tableBean.manufacturerOptions}"
                 filterMatchMode="exact"&gt;
             &lt;h:outputText value="\#{car.manufacturer}" /&gt;
-        &lt;/p:column&gt;
+        &lt;/b:column&gt;
 
-        &lt;p:column id="colorColumn" filterBy="\#{car.color}"
+        &lt;b:column id="colorColumn" filterBy="\#{car.color}"
                 headerText="Color" footerText="endsWith" filterMatchMode="endsWith"&gt;
             &lt;h:outputText value="\#{car.color}" /&gt;
-        &lt;/p:column&gt;
-    &lt;/p:dataTable&gt;
+        &lt;/b:column&gt;
+    &lt;/b:dataTable&gt;
     
 &lt;/h:form&gt;
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="TableBean.java">
+                <b:tab title="TableBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -200,8 +200,8 @@ public class TableBean implements Serializable {
     }
 }
                     </pre>
-                </p:tab>
-            </p:tabView>
+                </b:tab>
+            </b:tabView>
 
         </div>
 

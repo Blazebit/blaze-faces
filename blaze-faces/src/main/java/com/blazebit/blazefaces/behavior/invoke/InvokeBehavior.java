@@ -12,8 +12,9 @@ import javax.faces.component.behavior.ClientBehaviorBase;
  * @author Christian Beikov
  */
 @ResourceDependencies({
-    @ResourceDependency(library = "blazefaces", name = "jquery/jquery.js"),
-    @ResourceDependency(library = "blazefaces", name = "core/core.js")})
+	@ResourceDependency(library="blazefaces", name="jquery/jquery.js"),
+	@ResourceDependency(library="blazefaces", name="blazefaces.js")
+})
 public class InvokeBehavior extends ClientBehaviorBase {
 
     public static final String BEHAVIOR_ID = "com.blazebit.blazefaces.behavior.InvokeBehavior";

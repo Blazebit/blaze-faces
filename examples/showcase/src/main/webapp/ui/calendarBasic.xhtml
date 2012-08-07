@@ -13,19 +13,19 @@
 			<h:form id="form">
 			
 				<h3>Inline</h3>
-				<p:calendar value="#{calendarBean.date1}" mode="inline" id="inlineCal"/>	
+				<b:calendar value="#{calendarBean.date1}" mode="inline" id="inlineCal"/>	
 				
 				<h3>Popup</h3>
-				<p:calendar value="#{calendarBean.date2}" id="popupCal" />
+				<b:calendar value="#{calendarBean.date2}" id="popupCal" />
 				
 				<h3>Popup Button</h3>
-				<p:calendar value="#{calendarBean.date3}" showOn="button" id="popupButtonCal" />
+				<b:calendar value="#{calendarBean.date3}" showOn="button" id="popupButtonCal" />
 
                 <br />
 				
-                <p:commandButton value="Submit" id="submitButton" update="display" oncomplete="dialog.show()" style="margin-top:10px"/>
+                <b:commandButton value="Submit" id="submitButton" update="display" oncomplete="dialog.show()" style="margin-top:10px"/>
 				
-				<p:dialog header="Selected Dates" widgetVar="dialog" 
+				<b:dialog header="Selected Dates" widgetVar="dialog" 
 							showEffect="fade" hideEffect="fade">
 				
                 	<h:panelGrid id="display" columns="2" cellpadding="5">
@@ -46,28 +46,28 @@
 						</h:outputText>
 						
 					</h:panelGrid>
-                </p:dialog>
+                </b:dialog>
 				
 			</h:form>
 	
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="calendarBasic.xhtml">
+			<b:tabView>
+				<b:tab title="calendarBasic.xhtml">
 					<pre name="code" class="xml">
 &lt;h:form id="form"&gt;
 			
 	&lt;h3&gt;Inline&lt;/h3&gt;
-	&lt;p:calendar value="\#{calendarBean.date1}" mode="inline" id="inlineCal"/&gt;	
+	&lt;b:calendar value="\#{calendarBean.date1}" mode="inline" id="inlineCal"/&gt;	
 	
 	&lt;h3&gt;Popup&lt;/h3&gt;
-	&lt;p:calendar value="\#{calendarBean.date2}" id="popupCal" /&gt;
+	&lt;b:calendar value="\#{calendarBean.date2}" id="popupCal" /&gt;
 	
 	&lt;h3&gt;Popup Button&lt;/h3&gt;
-	&lt;p:calendar value="\#{calendarBean.date3}" id="popupButtonCal" showOn="button" /&gt;
+	&lt;b:calendar value="\#{calendarBean.date3}" id="popupButtonCal" showOn="button" /&gt;
 
-    &lt;p:commandButton value="Submit" update="display" oncomplete="dialog.show()" /&gt;
+    &lt;b:commandButton value="Submit" update="display" oncomplete="dialog.show()" /&gt;
 	
-	&lt;p:dialog header="Selected Dates" widgetVar="dialog" 
+	&lt;b:dialog header="Selected Dates" widgetVar="dialog" 
 			showEffect="fade" hideEffect="fade"&gt;
 	
 		&lt;h:panelGrid id="display" columns="2" cellpadding="5"&gt;
@@ -89,13 +89,13 @@
 			
 		&lt;/h:panelGrid&gt;
 		
-	&lt;/p:dialog&gt;
+	&lt;/b:dialog&gt;
 	
 &lt;/h:form&gt;
 					</pre>
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="CalendarBean.java">
+				<b:tab title="CalendarBean.java">
 					<pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -136,8 +136,8 @@ public class CalendarBean {
 	}
 }
 					</pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 			
          </div>
         

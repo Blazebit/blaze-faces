@@ -11,26 +11,26 @@
 		<div class="entry">
 			<p>IdleMonitor on this page is set to 10 seconds for demonstration purposes. Stay idle for 10 seconds and idleMonitor will warn you.</p>
 	
-			<p:idleMonitor timeout="10000" onidle="idleDialog.show()" onactive="idleDialog.hide()"/>
+			<b:idleMonitor timeout="10000" onidle="idleDialog.show()" onactive="idleDialog.hide()"/>
 			
-			<p:dialog header="What's happening?" widgetVar="idleDialog" modal="true" width="400" resizable="false">
+			<b:dialog header="What's happening?" widgetVar="idleDialog" modal="true" width="400" resizable="false">
 				<h:outputText value="Dude, are you there?" />
-			</p:dialog>
+			</b:dialog>
 			
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="idleMonitor.xhtml">
+			<b:tabView>
+				<b:tab title="idleMonitor.xhtml">
 								<pre name="code" class="xml">
-&lt;p:idleMonitor timeout="10000" 
+&lt;b:idleMonitor timeout="10000" 
 			onidle="idleDialog.show()" onactive="idleDialog.hide()"/&gt;
 			
-&lt;p:dialog header="What's happening?" resizable="false"
+&lt;b:dialog header="What's happening?" resizable="false"
 			widgetVar="idleDialog" modal="true" width="400"&gt;
 	&lt;h:outputText value="Dude, are you there?" /&gt;
-&lt;/p:dialog&gt;
+&lt;/b:dialog&gt;
 			</pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 
 			
 		</div>

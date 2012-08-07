@@ -13,152 +13,152 @@
 			
 			<h:form>
 				
-				<p:growl id="messages"/>
+				<b:growl id="messages"/>
 				
                 <h3>Default Menubar</h3>
-                <p:menubar>
-					<p:submenu label="File" icon="ui-icon-document">
-						<p:submenu label="New" icon="ui-icon-contact">
-							<p:menuitem value="Project" url="#" />
-							<p:menuitem value="Other" url="#" />
-						</p:submenu>
-						<p:menuitem value="Open" url="#" />
-                        <p:separator />
-						<p:menuitem value="Quit" url="#" />
-					</p:submenu>
+                <b:menubar>
+					<b:submenu label="File" icon="ui-icon-document">
+						<b:submenu label="New" icon="ui-icon-contact">
+							<b:menuitem value="Project" url="#" />
+							<b:menuitem value="Other" url="#" />
+						</b:submenu>
+						<b:menuitem value="Open" url="#" />
+                        <b:separator />
+						<b:menuitem value="Quit" url="#" />
+					</b:submenu>
 					
-					<p:submenu label="Edit" icon="ui-icon-pencil">
-						<p:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />
-						<p:menuitem value="Redo" url="#" icon="ui-icon-arrowreturnthick-1-e" />
-					</p:submenu>
+					<b:submenu label="Edit" icon="ui-icon-pencil">
+						<b:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />
+						<b:menuitem value="Redo" url="#" icon="ui-icon-arrowreturnthick-1-e" />
+					</b:submenu>
 					
-					<p:submenu label="Help" icon="ui-icon-help">
-						<p:menuitem value="Contents" url="#" />
-						<p:submenu label="Search" icon="ui-icon-search">
-							<p:submenu label="Text">
-								<p:menuitem value="Workspace" url="#" />
-							</p:submenu>
-							<p:menuitem value="File" url="#" />
-						</p:submenu>
-					</p:submenu>
+					<b:submenu label="Help" icon="ui-icon-help">
+						<b:menuitem value="Contents" url="#" />
+						<b:submenu label="Search" icon="ui-icon-search">
+							<b:submenu label="Text">
+								<b:menuitem value="Workspace" url="#" />
+							</b:submenu>
+							<b:menuitem value="File" url="#" />
+						</b:submenu>
+					</b:submenu>
 					
-					<p:submenu label="Actions" icon="ui-icon-gear">
-						<p:submenu label="Ajax" icon="ui-icon-refresh">
-							<p:menuitem value="Save" actionListener="#{buttonBean.save}" icon="ui-icon-disk" update="messages"/>
-							<p:menuitem value="Update" actionListener="#{buttonBean.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/>
-						</p:submenu>
-						<p:submenu label="Non-Ajax" icon="ui-icon-newwin">
-							<p:menuitem value="Delete" actionListener="#{buttonBean.delete}" icon="ui-icon-close" update="messages" ajax="false"/>
-						</p:submenu>
-					</p:submenu>
+					<b:submenu label="Actions" icon="ui-icon-gear">
+						<b:submenu label="Ajax" icon="ui-icon-refresh">
+							<b:menuitem value="Save" actionListener="#{buttonBean.save}" icon="ui-icon-disk" update="messages"/>
+							<b:menuitem value="Update" actionListener="#{buttonBean.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/>
+						</b:submenu>
+						<b:submenu label="Non-Ajax" icon="ui-icon-newwin">
+							<b:menuitem value="Delete" actionListener="#{buttonBean.delete}" icon="ui-icon-close" update="messages" ajax="false"/>
+						</b:submenu>
+					</b:submenu>
 
-                    <p:menuitem value="Quit" url="http://www.blazebit.com/faces" icon="ui-icon-close" />
-				</p:menubar>
+                    <b:menuitem value="Quit" url="http://www.blazebit.com/faces" icon="ui-icon-close" />
+				</b:menubar>
                 
                 <br /><br />
                 
                 <h3>Click Trigger</h3>
-                <p:menubar autoDisplay="false" showEffect="slide">
-					<p:submenu label="File" icon="ui-icon-document">
-						<p:submenu label="New" icon="ui-icon-contact">
-							<p:menuitem value="Project" url="#" />
-							<p:menuitem value="Other" url="#" />
-						</p:submenu>
-						<p:menuitem value="Open" url="#" />
-                        <p:separator />
-						<p:menuitem value="Quit" url="#" />
-					</p:submenu>
+                <b:menubar autoDisplay="false" showEffect="slide">
+					<b:submenu label="File" icon="ui-icon-document">
+						<b:submenu label="New" icon="ui-icon-contact">
+							<b:menuitem value="Project" url="#" />
+							<b:menuitem value="Other" url="#" />
+						</b:submenu>
+						<b:menuitem value="Open" url="#" />
+                        <b:separator />
+						<b:menuitem value="Quit" url="#" />
+					</b:submenu>
 					
-					<p:submenu label="Edit" icon="ui-icon-pencil">
-						<p:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />
-						<p:menuitem value="Redo" url="#" icon="ui-icon-arrowreturnthick-1-e" />
-					</p:submenu>
+					<b:submenu label="Edit" icon="ui-icon-pencil">
+						<b:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />
+						<b:menuitem value="Redo" url="#" icon="ui-icon-arrowreturnthick-1-e" />
+					</b:submenu>
 					
-					<p:submenu label="Help" icon="ui-icon-help">
-						<p:menuitem value="Contents" url="#" />
-						<p:submenu label="Search" icon="ui-icon-search">
-							<p:submenu label="Text">
-								<p:menuitem value="Workspace" url="#" />
-							</p:submenu>
-							<p:menuitem value="File" url="#" />
-						</p:submenu>
-					</p:submenu>
+					<b:submenu label="Help" icon="ui-icon-help">
+						<b:menuitem value="Contents" url="#" />
+						<b:submenu label="Search" icon="ui-icon-search">
+							<b:submenu label="Text">
+								<b:menuitem value="Workspace" url="#" />
+							</b:submenu>
+							<b:menuitem value="File" url="#" />
+						</b:submenu>
+					</b:submenu>
 					
-					<p:submenu label="Actions" icon="ui-icon-gear">
-						<p:submenu label="Ajax" icon="ui-icon-refresh">
-							<p:menuitem value="Save" actionListener="#{buttonBean.save}" icon="ui-icon-disk" update="messages"/>
-							<p:menuitem value="Update" actionListener="#{buttonBean.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/>
-						</p:submenu>
-						<p:submenu label="Non-Ajax" icon="ui-icon-newwin">
-							<p:menuitem value="Delete" actionListener="#{buttonBean.delete}" icon="ui-icon-close" update="messages" ajax="false"/>
-						</p:submenu>
-					</p:submenu>
+					<b:submenu label="Actions" icon="ui-icon-gear">
+						<b:submenu label="Ajax" icon="ui-icon-refresh">
+							<b:menuitem value="Save" actionListener="#{buttonBean.save}" icon="ui-icon-disk" update="messages"/>
+							<b:menuitem value="Update" actionListener="#{buttonBean.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/>
+						</b:submenu>
+						<b:submenu label="Non-Ajax" icon="ui-icon-newwin">
+							<b:menuitem value="Delete" actionListener="#{buttonBean.delete}" icon="ui-icon-close" update="messages" ajax="false"/>
+						</b:submenu>
+					</b:submenu>
 
-                    <p:menuitem value="Quit" url="http://www.blazebit.com/faces" icon="ui-icon-close" />
-				</p:menubar>
+                    <b:menuitem value="Quit" url="http://www.blazebit.com/faces" icon="ui-icon-close" />
+				</b:menubar>
                 
                 <br /><br />
 				
 			</h:form>
 		
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="menubar.xhtml">
+			<b:tabView>
+				<b:tab title="menubar.xhtml">
 <pre name="code" class="xml">
 &lt;h:form&gt;
 
-    &lt;p:growl id="messages"/&gt;
+    &lt;b:growl id="messages"/&gt;
 
     &lt;h3&gt;Default Menubar&lt;/h3&gt;
-    &lt;p:menubar&gt;
-        &lt;p:submenu label="File" icon="ui-icon-document"&gt;
-            &lt;p:submenu label="New" icon="ui-icon-contact"&gt;
-                &lt;p:menuitem value="Project" url="\#" /&gt;
-                &lt;p:menuitem value="Other" url="\#" /&gt;
-            &lt;/p:submenu&gt;
-            &lt;p:menuitem value="Open" url="\#" /&gt;
-            &lt;p:separator /&gt;
-            &lt;p:menuitem value="Quit" url="\#" /&gt;
-        &lt;/p:submenu&gt;
+    &lt;b:menubar&gt;
+        &lt;b:submenu label="File" icon="ui-icon-document"&gt;
+            &lt;b:submenu label="New" icon="ui-icon-contact"&gt;
+                &lt;b:menuitem value="Project" url="\#" /&gt;
+                &lt;b:menuitem value="Other" url="\#" /&gt;
+            &lt;/b:submenu&gt;
+            &lt;b:menuitem value="Open" url="\#" /&gt;
+            &lt;b:separator /&gt;
+            &lt;b:menuitem value="Quit" url="\#" /&gt;
+        &lt;/b:submenu&gt;
 
-        &lt;p:submenu label="Edit" icon="ui-icon-pencil"&gt;
-            &lt;p:menuitem value="Undo" url="\#" icon="ui-icon-arrowreturnthick-1-w" /&gt;
-            &lt;p:menuitem value="Redo" url="\#" icon="ui-icon-arrowreturnthick-1-e" /&gt;
-        &lt;/p:submenu&gt;
+        &lt;b:submenu label="Edit" icon="ui-icon-pencil"&gt;
+            &lt;b:menuitem value="Undo" url="\#" icon="ui-icon-arrowreturnthick-1-w" /&gt;
+            &lt;b:menuitem value="Redo" url="\#" icon="ui-icon-arrowreturnthick-1-e" /&gt;
+        &lt;/b:submenu&gt;
 
-        &lt;p:submenu label="Help" icon="ui-icon-help"&gt;
-            &lt;p:menuitem value="Contents" url="\#" /&gt;
-            &lt;p:submenu label="Search" icon="ui-icon-search"&gt;
-                &lt;p:submenu label="Text"&gt;
-                    &lt;p:menuitem value="Workspace" url="\#" /&gt;
-                &lt;/p:submenu&gt;
-                &lt;p:menuitem value="File" url="\#" /&gt;
-            &lt;/p:submenu&gt;
-        &lt;/p:submenu&gt;
+        &lt;b:submenu label="Help" icon="ui-icon-help"&gt;
+            &lt;b:menuitem value="Contents" url="\#" /&gt;
+            &lt;b:submenu label="Search" icon="ui-icon-search"&gt;
+                &lt;b:submenu label="Text"&gt;
+                    &lt;b:menuitem value="Workspace" url="\#" /&gt;
+                &lt;/b:submenu&gt;
+                &lt;b:menuitem value="File" url="\#" /&gt;
+            &lt;/b:submenu&gt;
+        &lt;/b:submenu&gt;
 
-        &lt;p:submenu label="Actions" icon="ui-icon-gear"&gt;
-            &lt;p:submenu label="Ajax" icon="ui-icon-refresh"&gt;
-                &lt;p:menuitem value="Save" actionListener="\#{buttonBean.save}" icon="ui-icon-disk" update="messages"/&gt;
-                &lt;p:menuitem value="Update" actionListener="\#{buttonBean.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/&gt;
-            &lt;/p:submenu&gt;
-            &lt;p:submenu label="Non-Ajax" icon="ui-icon-newwin"&gt;
-                &lt;p:menuitem value="Delete" actionListener="\#{buttonBean.delete}" icon="ui-icon-close" update="messages" ajax="false"/&gt;
-            &lt;/p:submenu&gt;
-        &lt;/p:submenu&gt;
+        &lt;b:submenu label="Actions" icon="ui-icon-gear"&gt;
+            &lt;b:submenu label="Ajax" icon="ui-icon-refresh"&gt;
+                &lt;b:menuitem value="Save" actionListener="\#{buttonBean.save}" icon="ui-icon-disk" update="messages"/&gt;
+                &lt;b:menuitem value="Update" actionListener="\#{buttonBean.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/&gt;
+            &lt;/b:submenu&gt;
+            &lt;b:submenu label="Non-Ajax" icon="ui-icon-newwin"&gt;
+                &lt;b:menuitem value="Delete" actionListener="\#{buttonBean.delete}" icon="ui-icon-close" update="messages" ajax="false"/&gt;
+            &lt;/b:submenu&gt;
+        &lt;/b:submenu&gt;
 
-        &lt;p:menuitem value="Quit" url="http://www.blazebit.com/faces" icon="ui-icon-close" /&gt;
-    &lt;/p:menubar&gt;
+        &lt;b:menuitem value="Quit" url="http://www.blazebit.com/faces" icon="ui-icon-close" /&gt;
+    &lt;/b:menubar&gt;
 
     &lt;h3&gt;Click Trigger&lt;/h3&gt;
-    &lt;p:menubar autoDisplay="false"&gt;
+    &lt;b:menubar autoDisplay="false"&gt;
         //same content as default menubar
-    &lt;/p:menubar&gt;
+    &lt;/b:menubar&gt;
 
 &lt;/h:form&gt;
 			</pre>
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="MenuBean.java">
+				<b:tab title="MenuBean.java">
 <pre name="code" class="xml">
 package com.blazebit.blazefaces.examples.view;
 
@@ -187,8 +187,8 @@ public class MenuBean {
 }
 
 			</pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
 			
 		
 		</div>

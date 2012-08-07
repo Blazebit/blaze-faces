@@ -12,52 +12,52 @@
 			<p>Dialog visibility is managed by using show() and hide() methods of the client side api.</p>
 				
 				<h:panelGrid columns="1" cellpadding="5">
-					<p:commandButton id="basic" value="Basic" onclick="dlg1.show();" type="button" />
+					<b:commandButton id="basic" value="Basic" onclick="dlg1.show();" type="button" />
 					
-					<p:commandButton id="modalDialogButton" value="Modal" onclick="dlg2.show();" type="button"/>
+					<b:commandButton id="modalDialogButton" value="Modal" onclick="dlg2.show();" type="button"/>
 
-                    <p:commandButton id="effectsDialogButton" value="Effects" onclick="dlg3.show();" type="button" />
+                    <b:commandButton id="effectsDialogButton" value="Effects" onclick="dlg3.show();" type="button" />
 				</h:panelGrid>
 				
 								
-				<p:dialog id="basicDialog" header="Basic Dialog" widgetVar="dlg1" minHeight="40">
+				<b:dialog id="basicDialog" header="Basic Dialog" widgetVar="dlg1" minHeight="40">
 					<h:outputText value="Resistance to BlazeFaces is futile!" />
-				</p:dialog>	
+				</b:dialog>	
 				
-				<p:dialog id="modalDialog" header="Modal Dialog" widgetVar="dlg2" modal="true" height="100">
+				<b:dialog id="modalDialog" header="Modal Dialog" widgetVar="dlg2" modal="true" height="100">
 					<h:outputText value="This is a Modal Dialog." />
-				</p:dialog>	
+				</b:dialog>	
 				
-				<p:dialog header="Effects" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="100">
+				<b:dialog header="Effects" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="100">
 					<h:outputText value="This dialog has nice effects." />
-				</p:dialog>
+				</b:dialog>
 				
 				<h3>Source</h3>
-				<p:tabView>
-					<p:tab title="dialog.xhtml">
+				<b:tabView>
+					<b:tab title="dialog.xhtml">
 				<pre name="code" class="xml">	
 &lt;h:panelGrid columns="1" cellpadding="5"&gt;
-    &lt;p:commandButton id="basic" value="Basic" onclick="dlg1.show();" type="button" /&gt;
+    &lt;b:commandButton id="basic" value="Basic" onclick="dlg1.show();" type="button" /&gt;
 
-    &lt;p:commandButton id="modalDialogButton" value="Modal" onclick="dlg2.show();" type="button"/&gt;
+    &lt;b:commandButton id="modalDialogButton" value="Modal" onclick="dlg2.show();" type="button"/&gt;
 
-    &lt;p:commandButton id="effectsDialogButton" value="Effects" onclick="dlg3.show();" type="button" /&gt;
+    &lt;b:commandButton id="effectsDialogButton" value="Effects" onclick="dlg3.show();" type="button" /&gt;
 &lt;/h:panelGrid&gt;
 
-&lt;p:dialog id="basicDialog" header="Basic Dialog" widgetVar="dlg1"&gt;
+&lt;b:dialog id="basicDialog" header="Basic Dialog" widgetVar="dlg1"&gt;
     &lt;h:outputText value="Resistance to BlazeFaces is futile!" /&gt;
-&lt;/p:dialog&gt;
+&lt;/b:dialog&gt;
 
-&lt;p:dialog id="modalDialog" header="Modal Dialog" widgetVar="dlg2" modal="true" height="100"&gt;
+&lt;b:dialog id="modalDialog" header="Modal Dialog" widgetVar="dlg2" modal="true" height="100"&gt;
     &lt;h:outputText value="This is a Modal Dialog." /&gt;
-&lt;/p:dialog&gt;
+&lt;/b:dialog&gt;
 
-&lt;p:dialog header="Effects" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="100"&gt;
+&lt;b:dialog header="Effects" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="100"&gt;
     &lt;h:outputText value="This dialog has nice effects." /&gt;
-&lt;/p:dialog&gt;
+&lt;/b:dialog&gt;
 				</pre>
-					</p:tab>
-				</p:tabView>
+					</b:tab>
+				</b:tabView>
 		</div>
 
 	</ui:define>

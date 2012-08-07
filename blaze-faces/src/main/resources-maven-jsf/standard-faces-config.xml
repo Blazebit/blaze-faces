@@ -1,4 +1,5 @@
-    
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config>
     <name>blazefaces</name>
     
     <factory>
@@ -55,4 +56,4 @@
         <component-type>com.blazebit.blazefaces.behavior.handler.EventHandler</component-type>
         <component-class>com.blazebit.blazefaces.behavior.handler.EventHandler</component-class>
     </component>
-    
+</faces-config>

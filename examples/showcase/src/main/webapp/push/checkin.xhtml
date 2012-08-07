@@ -58,19 +58,19 @@
 
             <h:form id="form">
 
-                <p:fieldset legend="Check-In">
+                <b:fieldset legend="Check-In">
                     <h:panelGrid columns="2">
-                        <p:outputLabel for="title" value="Title: " />
-                        <p:inputText id="title" value="#{mapBean.title}" />
+                        <b:outputLabel for="title" value="Title: " />
+                        <b:inputText id="title" value="#{mapBean.title}" />
 
-                        <p:spacer />
-                        <p:commandButton value="Check-In" actionListener="#{mapBean.checkin}" />
+                        <b:spacer />
+                        <b:commandButton value="Check-In" actionListener="#{mapBean.checkin}" />
                     </h:panelGrid>
-                </p:fieldset>
+                </b:fieldset>
 
                 <br />
 
-                <p:gmap id="gmap" center="36.890257,30.707417" zoom="13" type="HYBRID" style="width:600px;height:400px"
+                <b:gmap id="gmap" center="36.890257,30.707417" zoom="13" type="HYBRID" style="width:600px;height:400px"
                     model="#{mapBean.emptyModel}" widgetVar="map" />
 
                 <h:inputHidden id="lat" value="#{mapBean.lat}" />
@@ -78,27 +78,27 @@
 
             </h:form>
 
-            <p:socket onMessage="handleMessage" channel="/check-in" />
+            <b:socket onMessage="handleMessage" channel="/check-in" />
 
             <h3>Source</h3>
-            <p:tabView>
-                <p:tab title="checkin.xhtml">
+            <b:tabView>
+                <b:tab title="checkin.xhtml">
                     <pre name="code" class="xml">
 &lt;h:form id="form"&gt;
 
-    &lt;p:fieldset legend="Check-In"&gt;
+    &lt;b:fieldset legend="Check-In"&gt;
         &lt;h:panelGrid columns="2"&gt;
-            &lt;p:outputLabel for="name" value="Name" /&gt;
-            &lt;p:inputText id="name" value="\#{mapBean.name}" /&gt;
+            &lt;b:outputLabel for="name" value="Name" /&gt;
+            &lt;b:inputText id="name" value="\#{mapBean.name}" /&gt;
 
-            &lt;p:spacer /&gt;
-            &lt;p:commandButton value="Check-In" actionListener="\#{mapBean.checkin}" /&gt;
+            &lt;b:spacer /&gt;
+            &lt;b:commandButton value="Check-In" actionListener="\#{mapBean.checkin}" /&gt;
         &lt;/h:panelGrid&gt;
-    &lt;/p:fieldset&gt;
+    &lt;/b:fieldset&gt;
 
     &lt;br /&gt;
 
-    &lt;p:gmap id="gmap" center="36.890257,30.707417" zoom="13" type="HYBRID" style="width:600px;height:400px"
+    &lt;b:gmap id="gmap" center="36.890257,30.707417" zoom="13" type="HYBRID" style="width:600px;height:400px"
         model="#{mapBean.emptyModel}" widgetVar="map" /&gt;
 
     &lt;h:inputHidden id="lat" value="#{mapBean.lat}" /&gt;
@@ -106,7 +106,7 @@
 
 &lt;/h:form&gt;
 
-&lt;p:socket onMessage="handleMessage" channel="/check-in" /&gt;
+&lt;b:socket onMessage="handleMessage" channel="/check-in" /&gt;
 
 function handleMessage(data) {
     var coords = new google.maps.LatLng(data.lat, data.lng);
@@ -140,9 +140,9 @@ $(function() {
         });
 });
                     </pre>
-                </p:tab>
+                </b:tab>
 
-                <p:tab title="MapBean.java">
+                <b:tab title="MapBean.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
@@ -213,9 +213,9 @@ public class MapBean implements Serializable {
     }
 }
                     </pre>
-                </p:tab>
+                </b:tab>
                 
-                <p:tab title="CheckIn.java">
+                <b:tab title="CheckIn.java">
                     <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.domain;
 
@@ -260,9 +260,9 @@ public class CheckIn {
     }
 }
                     </pre>
-                </p:tab>
+                </b:tab>
                 
-            </p:tabView>
+            </b:tabView>
 		
 		</div>
 	</ui:define>

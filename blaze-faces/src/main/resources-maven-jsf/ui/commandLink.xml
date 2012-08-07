@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE component SYSTEM "../misc/component.dtd" [
-<!ENTITY standard_uicomponent_attributes		SYSTEM "../entities/standard_uicomponent_attributes.xml">
-<!ENTITY output_component_attributes			SYSTEM "../entities/output_component_attributes.xml">
-<!ENTITY input_component_attributes				SYSTEM "../entities/input_component_attributes.xml">
-<!ENTITY command_component_attributes			SYSTEM "../entities/command_component_attributes.xml">
-<!ENTITY widget_var_attribute					SYSTEM "../entities/widget_var_attribute.xml">
-<!ENTITY html_command_button_attributes			SYSTEM "../entities/html_command_button_attributes.xml">
-]>
-<component>
+<component  xmlns="http://blazebit.com/jsf/component" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://blazebit.com/jsf/component ../misc/component.xsd">
 	<tag>commandLink</tag>
 	<componentClass>com.blazebit.blazefaces.component.commandlink.CommandLink</componentClass>
 	<componentType>com.blazebit.blazefaces.component.CommandLink</componentType>
@@ -22,7 +14,7 @@
 		</interface>
 	</interfaces>
 	<attributes>
-		&command_component_attributes;
+		<xi:include href="./../entities/command_component_attributes.xml" parse="text"/>
 		<attribute>
 			<name>ajax</name>
 			<required>false</required>
@@ -119,8 +111,8 @@
 		<attribute>
 			<name>disabled</name>
 			<required>false</required>
-			<defaultValue>false</defaultValue>
 			<type>java.lang.Boolean</type>
+			<defaultValue>false</defaultValue>
 			<ignoreInComponent>true</ignoreInComponent>
             <description>Disables the link.</description>
 		</attribute>

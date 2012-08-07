@@ -13,23 +13,23 @@
 
             <h:form>
 			
-                <p:growl id="growl" showDetail="true"/>
+                <b:growl id="growl" showDetail="true"/>
 
                 <h3>Simple Panel</h3>
-                <p:panel header="F.C. Barcelona" footer="Visca el Barca!">
+                <b:panel header="F.C. Barcelona" footer="Visca el Barca!">
                     <h:outputText value="FC Barcelona is one of only three clubs never to have been relegated from La Liga and is the most successful club in Spanish football along with Real Madrid,
                     having won twenty La Liga titles, a record twenty-five Spanish Cups, eight Spanish Super Cups, four Eva Duarte Cups and two League Cups.
                     They are also one of the most successful clubs  in European football having won fourteen official major trophies in total,
                     including ten UEFA competitions. They have won three UEFA Champions League titles, a record four UEFA Cup Winners' Cups,
                     a record three InterCities Fairs Cups (the forerunner to the UEFA Europa League), three UEFA Super Cups and one FIFA Club World Cup.
                     The club is also the only European side to have played continental football in every season since its inception in 1955." />
-                </p:panel>
+                </b:panel>
 
                 <h3>Advanced Panel</h3>
-                <p:panel id="pnl" header="About Barca" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="2000" widgetVar="panel">
+                <b:panel id="pnl" header="About Barca" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="2000" widgetVar="panel">
 
-                    <p:ajax event="close" listener="#{panelBean.handleClose}" update="growl" />
-                    <p:ajax event="toggle" listener="#{panelBean.handleToggle}" update="growl" />
+                    <b:ajax event="close" listener="#{panelBean.handleClose}" update="growl" />
+                    <b:ajax event="toggle" listener="#{panelBean.handleToggle}" update="growl" />
 
                     <h:outputText value="FC Barcelona is one of only three clubs never to have been relegated from La Liga and is the most successful club in Spanish football along with Real Madrid,
                             having won twenty La Liga titles, a record twenty-five Spanish Cups, eight Spanish Super Cups, four Eva Duarte Cups and two League Cups.
@@ -39,40 +39,40 @@
                             The club is also the only European side to have played continental football in every season since its inception in 1955." />
 
                     <f:facet name="options">
-                        <p:menu>
-                            <p:submenu label="Settings">
-                                <p:menuitem value="Toggle" url="#" icon="ui-icon-newwin" onclick="panel.toggle()"/>
-                                <p:menuitem value="Remove" url="#" icon="ui-icon-close" onclick="panel.close()"/>
-                            </p:submenu>
-                        </p:menu>
+                        <b:menu>
+                            <b:submenu label="Settings">
+                                <b:menuitem value="Toggle" url="#" icon="ui-icon-newwin" onclick="panel.toggle()"/>
+                                <b:menuitem value="Remove" url="#" icon="ui-icon-close" onclick="panel.close()"/>
+                            </b:submenu>
+                        </b:menu>
                     </f:facet>
-                </p:panel>
+                </b:panel>
 
             </h:form>
 		
 			<h3>Source</h3>
-			<p:tabView>
-				<p:tab title="panel.xhtml">
+			<b:tabView>
+				<b:tab title="panel.xhtml">
 					<pre name="code" class="xml">
 &lt;h:form&gt;
 
-    &lt;p:growl id="growl" showDetail="true"/&gt;
+    &lt;b:growl id="growl" showDetail="true"/&gt;
 
     &lt;h3&gt;Simple Panel&lt;/h3&gt;
-    &lt;p:panel header="F.C. Barcelona" footer="Visca el Barca!"&gt;
+    &lt;b:panel header="F.C. Barcelona" footer="Visca el Barca!"&gt;
         &lt;h:outputText value="FC Barcelona is one of only three clubs never to have been relegated from La Liga and is the most successful club in Spanish football along with Real Madrid,
         having won twenty La Liga titles, a record twenty-five Spanish Cups, eight Spanish Super Cups, four Eva Duarte Cups and two League Cups.
         They are also one of the most successful clubs  in European football having won fourteen official major trophies in total,
         including ten UEFA competitions. They have won three UEFA Champions League titles, a record four UEFA Cup Winners' Cups,
         a record three InterCities Fairs Cups (the forerunner to the UEFA Europa League), three UEFA Super Cups and one FIFA Club World Cup.
         The club is also the only European side to have played continental football in every season since its inception in 1955." /&gt;
-    &lt;/p:panel&gt;
+    &lt;/b:panel&gt;
 
     &lt;h3&gt;Advanced Panel&lt;/h3&gt;
-    &lt;p:panel id="pnl" header="About Barca" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="2000" widgetVar="panel"&gt;
+    &lt;b:panel id="pnl" header="About Barca" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="2000" widgetVar="panel"&gt;
 
-        &lt;p:ajax event="close" listener="\#{panelBean.handleClose}" update="growl" /&gt;
-        &lt;p:ajax event="toggle" listener="\#{panelBean.handleToggle}" update="growl" /&gt;
+        &lt;b:ajax event="close" listener="\#{panelBean.handleClose}" update="growl" /&gt;
+        &lt;b:ajax event="toggle" listener="\#{panelBean.handleToggle}" update="growl" /&gt;
 
         &lt;h:outputText value="FC Barcelona is one of only three clubs never to have been relegated from La Liga and is the most successful club in Spanish football along with Real Madrid,
                 having won twenty La Liga titles, a record twenty-five Spanish Cups, eight Spanish Super Cups, four Eva Duarte Cups and two League Cups.
@@ -82,20 +82,20 @@
                 The club is also the only European side to have played continental football in every season since its inception in 1955." /&gt;
 
         &lt;f:facet name="options"&gt;
-            &lt;p:menu&gt;
-                &lt;p:submenu label="Settings"&gt;
-                    &lt;p:menuitem value="Toggle" url="\#" icon="ui-icon-newwin" onclick="panel.toggle()"/&gt;
-                    &lt;p:menuitem value="Remove" url="\#" icon="ui-icon-close" onclick="panel.close()"/&gt;
-                &lt;/p:submenu&gt;
-            &lt;/p:menu&gt;
+            &lt;b:menu&gt;
+                &lt;b:submenu label="Settings"&gt;
+                    &lt;b:menuitem value="Toggle" url="\#" icon="ui-icon-newwin" onclick="panel.toggle()"/&gt;
+                    &lt;b:menuitem value="Remove" url="\#" icon="ui-icon-close" onclick="panel.close()"/&gt;
+                &lt;/b:submenu&gt;
+            &lt;/b:menu&gt;
         &lt;/f:facet&gt;
-    &lt;/p:panel&gt;
+    &lt;/b:panel&gt;
 
 &lt;/h:form&gt;
 			</pre>
-				</p:tab>
+				</b:tab>
 				
-				<p:tab title="PanelBean.java">
+				<b:tab title="PanelBean.java">
 				<pre name="code" class="java">
 public class PanelBean {
 
@@ -116,8 +116,8 @@ public class PanelBean {
 	}
 }
 			</pre>
-				</p:tab>
-			</p:tabView>
+				</b:tab>
+			</b:tabView>
          </div>
         
 	</ui:define>
