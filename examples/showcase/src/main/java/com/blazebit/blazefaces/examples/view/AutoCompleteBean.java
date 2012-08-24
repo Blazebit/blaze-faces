@@ -18,123 +18,129 @@ package com.blazebit.blazefaces.examples.view;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
 import com.blazebit.blazefaces.event.SelectEvent;
 import com.blazebit.blazefaces.event.UnselectEvent;
+import com.blazebit.blazefaces.examples.converter.PlayerConverter;
 import com.blazebit.blazefaces.examples.domain.Player;
 
+@Named
+@RequestScoped
 public class AutoCompleteBean {
 
 	private String txt1;
-	
+
 	private String txt2;
-	
+
 	private String txt3;
-	
+
 	private String txt4;
-	
+
 	private String txt5;
-    
-    private String txt6;
-    
-    private String txt7;
+
+	private String txt6;
+
+	private String txt7;
 
 	private Player selectedPlayer1;
-    
-    private Player selectedPlayer2;
+
+	private Player selectedPlayer2;
 
 	private List<Player> players;
 
-    private List<Player> selectedPlayers;
-    
-    private List<String> selectedTexts;
-	
+	private List<Player> selectedPlayers;
+
+	private List<String> selectedTexts;
+
 	public AutoCompleteBean() {
 		players = PlayerConverter.playerDB;
-        selectedTexts = new ArrayList<String>();
+		selectedTexts = new ArrayList<String>();
 	}
 
-    public Player getSelectedPlayer1() {
-        return selectedPlayer1;
-    }
+	public Player getSelectedPlayer1() {
+		return selectedPlayer1;
+	}
 
-    public void setSelectedPlayer1(Player selectedPlayer1) {
-        this.selectedPlayer1 = selectedPlayer1;
-    }
+	public void setSelectedPlayer1(Player selectedPlayer1) {
+		this.selectedPlayer1 = selectedPlayer1;
+	}
 
-    public Player getSelectedPlayer2() {
-        return selectedPlayer2;
-    }
+	public Player getSelectedPlayer2() {
+		return selectedPlayer2;
+	}
 
-    public void setSelectedPlayer2(Player selectedPlayer2) {
-        this.selectedPlayer2 = selectedPlayer2;
-    }
+	public void setSelectedPlayer2(Player selectedPlayer2) {
+		this.selectedPlayer2 = selectedPlayer2;
+	}
 
 	public List<String> complete(String query) {
 		List<String> results = new ArrayList<String>();
-		
-		for(int i = 0; i < 10; i++) {
+
+		for (int i = 0; i < 10; i++) {
 			results.add(query + i);
 		}
-		
+
 		return results;
 	}
-	
+
 	public List<Player> completePlayer(String query) {
 		List<Player> suggestions = new ArrayList<Player>();
-		
-		for(Player p : players) {
-			if(p.getName().startsWith(query))
+
+		for (Player p : players) {
+			if (p.getName().startsWith(query))
 				suggestions.add(p);
 		}
-		
+
 		return suggestions;
 	}
-    
-    public List<String> completeArea(String query) {
+
+	public List<String> completeArea(String query) {
 		List<String> results = new ArrayList<String>();
-		
-		if(query.equals("BlazeFaces")) {
-            results.add("BlazeFaces Rocks!!!");
-            results.add("BlazeFaces has 100+ components.");
-            results.add("BlazeFaces is lightweight.");
-            results.add("BlazeFaces is easy to use.");
-            results.add("BlazeFaces is developed with passion!");
-        }
-        else {
-            for(int i = 0; i < 10; i++) {
-            	results.add(query + i);
-            }
-        }
-		
+
+		if (query.equals("BlazeFaces")) {
+			results.add("BlazeFaces Rocks!!!");
+			results.add("BlazeFaces has 100+ components.");
+			results.add("BlazeFaces is lightweight.");
+			results.add("BlazeFaces is easy to use.");
+			results.add("BlazeFaces is developed with passion!");
+		} else {
+			for (int i = 0; i < 10; i++) {
+				results.add(query + i);
+			}
+		}
+
 		return results;
 	}
-	
+
 	public void handleSelect(SelectEvent event) {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Selected:" + event.getObject().toString(), null);
-		
-		FacesContext.getCurrentInstance().addMessage(null, message);
-	}
-    
-    public void handleUnselect(UnselectEvent event) {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Unselected:" + event.getObject().toString(), null);
-		
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
+				"Selected:" + event.getObject().toString(), null);
+
 		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
 
-    public List<Player> getPlayers() {
-        return players;
-    }
+	public void handleUnselect(UnselectEvent event) {
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
+				"Unselected:" + event.getObject().toString(), null);
 
-    public List<Player> getSelectedPlayers() {
-        return selectedPlayers;
-    }
+		FacesContext.getCurrentInstance().addMessage(null, message);
+	}
 
-    public void setSelectedPlayers(List<Player> selectedPlayers) {
-        this.selectedPlayers = selectedPlayers;
-    }
+	public List<Player> getPlayers() {
+		return players;
+	}
+
+	public List<Player> getSelectedPlayers() {
+		return selectedPlayers;
+	}
+
+	public void setSelectedPlayers(List<Player> selectedPlayers) {
+		this.selectedPlayers = selectedPlayers;
+	}
 
 	public String getTxt1() {
 		return txt1;
@@ -159,7 +165,7 @@ public class AutoCompleteBean {
 	public void setTxt3(String txt3) {
 		this.txt3 = txt3;
 	}
-	
+
 	public String getTxt4() {
 		return txt4;
 	}
@@ -176,26 +182,27 @@ public class AutoCompleteBean {
 		this.txt5 = txt5;
 	}
 
-    public String getTxt6() {
-        return txt6;
-    }
+	public String getTxt6() {
+		return txt6;
+	}
 
-    public void setTxt6(String txt6) {
-        this.txt6 = txt6;
-    }
+	public void setTxt6(String txt6) {
+		this.txt6 = txt6;
+	}
 
-    public String getTxt7() {
-        return txt7;
-    }
+	public String getTxt7() {
+		return txt7;
+	}
 
-    public void setTxt7(String txt7) {
-        this.txt7 = txt7;
-    }
+	public void setTxt7(String txt7) {
+		this.txt7 = txt7;
+	}
 
-    public List<String> getSelectedTexts() {
-        return selectedTexts;
-    }
-    public void setSelectedTexts(List<String> selectedTexts) {
-        this.selectedTexts = selectedTexts;
-    }
+	public List<String> getSelectedTexts() {
+		return selectedTexts;
+	}
+
+	public void setSelectedTexts(List<String> selectedTexts) {
+		this.selectedTexts = selectedTexts;
+	}
 }

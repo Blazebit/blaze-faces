@@ -17,15 +17,23 @@ package com.blazebit.blazefaces.examples.view;
 
 import java.io.Serializable;
 
+import javax.inject.Named;
+
+import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
+
+@Named
+@ViewAccessScoped
 public class InplaceBean implements Serializable {
 
-    private String text = "BlazeFaces";
+	private static final long serialVersionUID = 1L;
 
-    public String getText() {
-        return text;
-    }
+	private String text = "BlazeFaces";
 
-    public void setText(String text) {
-        this.text = text;
-    }
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
 }

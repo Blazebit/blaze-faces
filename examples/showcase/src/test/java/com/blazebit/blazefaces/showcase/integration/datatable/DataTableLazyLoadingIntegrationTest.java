@@ -15,7 +15,8 @@ import com.blazebit.blazefaces.showcase.integration.SeleniumActionHelper;
 public class DataTableLazyLoadingIntegrationTest extends
 		AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("datatableLazy.jsf");
+	private String testUrl = toShowcaseUrl("datatableLazy.xhtml");
+	@SuppressWarnings("unused")
 	private SeleniumActionHelper action;
 
 	@Before

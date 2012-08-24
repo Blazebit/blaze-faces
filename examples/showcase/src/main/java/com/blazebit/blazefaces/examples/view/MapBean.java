@@ -20,6 +20,9 @@ import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.inject.Named;
+
+import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
 
 import com.blazebit.blazefaces.event.map.MarkerDragEvent;
 import com.blazebit.blazefaces.event.map.OverlaySelectEvent;
@@ -38,30 +41,34 @@ import com.blazebit.blazefaces.model.map.Rectangle;
 import com.blazebit.blazefaces.push.PushContext;
 import com.blazebit.blazefaces.push.PushContextFactory;
 
+@Named
+@ViewAccessScoped
 public class MapBean implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private MapModel emptyModel;
 
 	private MapModel simpleModel;
-	
+
 	private MapModel advancedModel;
-	
+
 	private MapModel polylineModel;
-	
+
 	private MapModel polygonModel;
-        
+
 	private MapModel circleModel;
-	
-    private MapModel rectangleModel;
-	
+
+	private MapModel rectangleModel;
+
 	private MapModel draggableModel;
 
 	private Marker marker;
-	
+
 	private String title;
-	
+
 	private double lat;
-	
+
 	private double lng;
 
 	public MapBean() {
@@ -73,49 +80,55 @@ public class MapBean implements Serializable {
 		circleModel = new DefaultMapModel();
 		rectangleModel = new DefaultMapModel();
 		draggableModel = new DefaultMapModel();
-		
-		//Shared coordinates
+
+		// Shared coordinates
 		LatLng coord1 = new LatLng(36.879466, 30.667648);
 		LatLng coord2 = new LatLng(36.883707, 30.689216);
 		LatLng coord3 = new LatLng(36.879703, 30.706707);
 		LatLng coord4 = new LatLng(36.885233, 30.702323);
-		
-		//Basic marker
+
+		// Basic marker
 		simpleModel.addOverlay(new Marker(coord1, "Konyaalti"));
 		simpleModel.addOverlay(new Marker(coord2, "Ataturk Parki"));
 		simpleModel.addOverlay(new Marker(coord3, "Karaalioglu Parki"));
 		simpleModel.addOverlay(new Marker(coord4, "Kaleici"));
-		
-		//Icons and Data
-		advancedModel.addOverlay(new Marker(coord1, "Konyaalti", "konyaalti.png", "http://maps.google.com/mapfiles/ms/micons/blue-dot.png"));
-		advancedModel.addOverlay(new Marker(coord2, "Ataturk Parki", "ataturkparki.png"));
-		advancedModel.addOverlay(new Marker(coord4, "Kaleici", "kaleici.png", "http://maps.google.com/mapfiles/ms/micons/pink-dot.png"));
-		advancedModel.addOverlay(new Marker(coord3, "Karaalioglu Parki", "karaalioglu.png", "http://maps.google.com/mapfiles/ms/micons/yellow-dot.png"));
-		
-		//Draggable
+
+		// Icons and Data
+		advancedModel.addOverlay(new Marker(coord1, "Konyaalti",
+				"konyaalti.png",
+				"http://maps.google.com/mapfiles/ms/micons/blue-dot.png"));
+		advancedModel.addOverlay(new Marker(coord2, "Ataturk Parki",
+				"ataturkparki.png"));
+		advancedModel.addOverlay(new Marker(coord4, "Kaleici", "kaleici.png",
+				"http://maps.google.com/mapfiles/ms/micons/pink-dot.png"));
+		advancedModel.addOverlay(new Marker(coord3, "Karaalioglu Parki",
+				"karaalioglu.png",
+				"http://maps.google.com/mapfiles/ms/micons/yellow-dot.png"));
+
+		// Draggable
 		draggableModel.addOverlay(new Marker(coord1, "Konyaalti"));
 		draggableModel.addOverlay(new Marker(coord2, "Ataturk Parki"));
 		draggableModel.addOverlay(new Marker(coord3, "Karaalioglu Parki"));
 		draggableModel.addOverlay(new Marker(coord4, "Kaleici"));
-		
-		for(Marker marker : draggableModel.getMarkers()) {
+
+		for (Marker marker : draggableModel.getMarkers()) {
 			marker.setDraggable(true);
 		}
-		
-		//Polyline
+
+		// Polyline
 		Polyline polyline = new Polyline();
 		polyline.getPaths().add(coord1);
 		polyline.getPaths().add(coord2);
 		polyline.getPaths().add(coord3);
 		polyline.getPaths().add(coord4);
-		
+
 		polyline.setStrokeWeight(10);
 		polyline.setStrokeColor("#FF9900");
 		polyline.setStrokeOpacity(0.7);
-		
+
 		polylineModel.addOverlay(polyline);
-		
-		//Polygon
+
+		// Polygon
 		Polygon polygon = new Polygon();
 		polygon.getPaths().add(coord1);
 		polygon.getPaths().add(coord2);
@@ -125,116 +138,129 @@ public class MapBean implements Serializable {
 		polygon.setFillColor("#FF9900");
 		polygon.setStrokeOpacity(0.7);
 		polygon.setFillOpacity(0.7);
-		
+
 		polygonModel.addOverlay(polygon);
-                
-                //Circle
-                Circle circle1 = new Circle(coord1, 500);
-                circle1.setStrokeColor("#d93c3c");
+
+		// Circle
+		Circle circle1 = new Circle(coord1, 500);
+		circle1.setStrokeColor("#d93c3c");
 		circle1.setFillColor("#d93c3c");
 		circle1.setFillOpacity(0.5);
-                
-                Circle circle2 = new Circle(coord4, 300);
-                circle2.setStrokeColor("#00ff00");
+
+		Circle circle2 = new Circle(coord4, 300);
+		circle2.setStrokeColor("#00ff00");
 		circle2.setFillColor("#00ff00");
 		circle2.setStrokeOpacity(0.7);
 		circle2.setFillOpacity(0.7);
-                
-                circleModel.addOverlay(circle1);
-                circleModel.addOverlay(circle2);
-                
-                //Rectangle
-                Rectangle rect = new Rectangle(new LatLngBounds(coord1, coord4));
-                rect.setStrokeColor("#d93c3c");
+
+		circleModel.addOverlay(circle1);
+		circleModel.addOverlay(circle2);
+
+		// Rectangle
+		Rectangle rect = new Rectangle(new LatLngBounds(coord1, coord4));
+		rect.setStrokeColor("#d93c3c");
 		rect.setFillColor("#d93c3c");
 		rect.setFillOpacity(0.5);
-                rectangleModel.addOverlay(rect);
+		rectangleModel.addOverlay(rect);
 	}
 
 	public MapModel getAdvancedModel() {
 		return advancedModel;
 	}
-	
+
 	public MapModel getSimpleModel() {
 		return simpleModel;
 	}
-	
+
 	public MapModel getPolylineModel() {
 		return polylineModel;
 	}
-	
+
 	public MapModel getPolygonModel() {
 		return polygonModel;
 	}
-	
-        public MapModel getCircleModel() {
+
+	public MapModel getCircleModel() {
 		return circleModel;
 	}
-	
-        public MapModel getRectangleModel() {
+
+	public MapModel getRectangleModel() {
 		return rectangleModel;
 	}
-	
+
 	public MapModel getEmptyModel() {
 		return emptyModel;
 	}
-	
+
 	public MapModel getDraggableModel() {
 		return draggableModel;
 	}
-	
+
 	public void onMarkerSelect(OverlaySelectEvent event) {
 		marker = (Marker) event.getOverlay();
-		
-		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO, "Marker Selected", marker.getTitle()));
+
+		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO,
+				"Marker Selected", marker.getTitle()));
 	}
-	
+
 	public void onPolylineSelect(OverlaySelectEvent event) {
-		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO, "Polyline Selected", null));
+		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO,
+				"Polyline Selected", null));
 	}
-	
+
 	public void onPolygonSelect(OverlaySelectEvent event) {
-		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO, "Polygon Selected", null));
+		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO,
+				"Polygon Selected", null));
 	}
-	
-        public void onCircleSelect(OverlaySelectEvent event) {
-		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO, "Circle Selected", null));
+
+	public void onCircleSelect(OverlaySelectEvent event) {
+		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO,
+				"Circle Selected", null));
 	}
-	
-        public void onRectangleSelect(OverlaySelectEvent event) {
-		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO, "Rectangle Selected", null));
+
+	public void onRectangleSelect(OverlaySelectEvent event) {
+		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO,
+				"Rectangle Selected", null));
 	}
-	
+
 	public void onMarkerDrag(MarkerDragEvent event) {
 		marker = event.getMarker();
-		
-		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO, "Marker Dragged", "Lat:" + marker.getLatlng().getLat() + ", Lng:" + marker.getLatlng().getLng()));
+
+		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO,
+				"Marker Dragged", "Lat:" + marker.getLatlng().getLat()
+						+ ", Lng:" + marker.getLatlng().getLng()));
 	}
-	
+
 	public void onStateChange(StateChangeEvent event) {
 		LatLngBounds bounds = event.getBounds();
 		int zoomLevel = event.getZoomLevel();
-		
-		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO, "Zoom Level", String.valueOf(zoomLevel)));
-		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO, "Center", event.getCenter().toString()));
-		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO, "NorthEast", bounds.getNorthEast().toString()));
-		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO, "SouthWest", bounds.getSouthWest().toString()));
+
+		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO, "Zoom Level",
+				String.valueOf(zoomLevel)));
+		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO, "Center", event
+				.getCenter().toString()));
+		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO, "NorthEast",
+				bounds.getNorthEast().toString()));
+		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO, "SouthWest",
+				bounds.getSouthWest().toString()));
 	}
-	
+
 	public void onPointSelect(PointSelectEvent event) {
 		LatLng latlng = event.getLatLng();
-		
-		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO, "Point Selected", "Lat:" + latlng.getLat() + ", Lng:" + latlng.getLng()));
+
+		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO,
+				"Point Selected", "Lat:" + latlng.getLat() + ", Lng:"
+						+ latlng.getLng()));
 	}
-	
+
 	public Marker getMarker() {
 		return marker;
 	}
-	
+
 	public void addMessage(FacesMessage message) {
 		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
-	
+
 	public String getTitle() {
 		return title;
 	}
@@ -258,17 +284,19 @@ public class MapBean implements Serializable {
 	public void setLng(double lng) {
 		this.lng = lng;
 	}
-	
+
 	public void addMarker(ActionEvent actionEvent) {
 		Marker marker = new Marker(new LatLng(lat, lng), title);
 		emptyModel.addOverlay(marker);
-		
-		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO, "Marker Added", "Lat:" + lat + ", Lng:" + lng));
+
+		addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO, "Marker Added",
+				"Lat:" + lat + ", Lng:" + lng));
 	}
-    
-    public void checkin() {
-        PushContext pushContext = PushContextFactory.getDefault().getPushContext();        
-        
-        pushContext.push("/check-in", new CheckIn(title, lat, lng));
-    }
+
+	public void checkin() {
+		PushContext pushContext = PushContextFactory.getDefault()
+				.getPushContext();
+
+		pushContext.push("/check-in", new CheckIn(title, lat, lng));
+	}
 }

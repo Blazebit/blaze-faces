@@ -1,5 +1,7 @@
 package com.blazebit.blazefaces.showcase.integration.imageswitch;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
@@ -7,11 +9,10 @@ import org.openqa.selenium.WebElement;
 import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 import com.blazebit.blazefaces.showcase.integration.SeleniumActionHelper;
 
-import static org.junit.Assert.assertTrue;
-
 public class ImageSwitchIntegrationTest extends AbstractIntegrationTest {
 
-	protected static final String TEST_URL = BLAZE_SHOWCASE_UI + "imageSwitch.jsf";
+	protected static final String TEST_URL = BLAZE_SHOWCASE_UI
+			+ "imageSwitch.xhtml";
 
 	protected static SeleniumActionHelper action;
 
@@ -42,24 +43,27 @@ public class ImageSwitchIntegrationTest extends AbstractIntegrationTest {
 	private void shouldRender(String component, int render) {
 		for (int index = 0; index < 4; index++) {
 			if (index == render)
-				assertTrue(findElementById(component + index + ":image").isDisplayed());
+				assertTrue(findElementById(component + index + ":image")
+						.isDisplayed());
 			else
-				assertTrue(!findElementById(component + index + ":image").isDisplayed());
+				assertTrue(!findElementById(component + index + ":image")
+						.isDisplayed());
 		}
 
 	}
 
 	@Test
-	public void shouldSwitchImagesWithManuelControl() throws InterruptedException {
+	public void shouldSwitchImagesWithManuelControl()
+			throws InterruptedException {
 
 		WebElement nextButton = findElementById("form:next");
 		WebElement prevButton = findElementById("form:prev");
-		
+
 		shouldRender("form:manuelSwitcherImages:", 0);
 
 		nextButton.click();
 		Thread.sleep(2000l);
-		
+
 		shouldRender("form:manuelSwitcherImages:", 1);
 
 		nextButton.click();
@@ -69,7 +73,6 @@ public class ImageSwitchIntegrationTest extends AbstractIntegrationTest {
 		prevButton.click();
 		Thread.sleep(2000l);
 		shouldRender("form:manuelSwitcherImages:", 1);
-	
 
 		nextButton.click();
 		Thread.sleep(2000l);

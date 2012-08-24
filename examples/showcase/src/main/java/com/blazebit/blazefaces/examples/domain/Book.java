@@ -19,6 +19,8 @@ import java.io.Serializable;
 
 public class Book implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
 	private String title;
 
 	private String author;
@@ -60,23 +62,24 @@ public class Book implements Serializable {
 	}
 
 	public boolean equals(Object obj) {
-		if(!(obj instanceof Book))
+		if (!(obj instanceof Book))
 			return false;
-		
+
 		Book book = (Book) obj;
-		
-		return (book.getTitle() != null && book.getTitle().equals(title)) && (book.getAuthor() != null && book.getAuthor().equals(author));
+
+		return (book.getTitle() != null && book.getTitle().equals(title))
+				&& (book.getAuthor() != null && book.getAuthor().equals(author));
 	}
 
 	public int hashCode() {
 		int hash = 1;
-		if(title != null)
+		if (title != null)
 			hash = hash * 31 + title.hashCode();
-		
-		if(author != null)
+
+		if (author != null)
 			hash = hash * 29 + author.hashCode();
 
 		return hash;
 	}
-	
+
 }

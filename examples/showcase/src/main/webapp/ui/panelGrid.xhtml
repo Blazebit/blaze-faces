@@ -17,10 +17,10 @@
                 </f:facet>
                 
                 <h:outputLabel for="firstname" value="Firstname: *" />
-                <b:inputText id="firstname" value="#{pprBean.firstname}" label="Firstname" />
+                <b:inputText id="firstname" value="#{partialProcessRequestBean.firstname}" label="Firstname" />
 
                 <h:outputLabel for="surname" value="Surname: *" />
-                <b:inputText id="surname" value="#{pprBean.surname}" required="true" label="Surname"/>
+                <b:inputText id="surname" value="#{partialProcessRequestBean.surname}" required="true" label="Surname"/>
                                 
                 <f:facet name="footer">
                     <b:commandButton type="button" value="Save" icon="ui-icon-check" style="margin:0"/>
@@ -153,10 +153,10 @@
     &lt;/f:facet&gt;
 
     &lt;h:outputLabel for="firstname" value="Firstname: *" /&gt;
-    &lt;b:inputText id="firstname" value="#{pprBean.firstname}" label="Firstname" /&gt;
+    &lt;b:inputText id="firstname" value="#{partialProcessRequestBean.firstname}" label="Firstname" /&gt;
 
     &lt;h:outputLabel for="surname" value="Surname: *" /&gt;
-    &lt;b:inputText id="surname" value="#{pprBean.surname}" required="true" label="Surname"/&gt;
+    &lt;b:inputText id="surname" value="#{partialProcessRequestBean.surname}" required="true" label="Surname"/&gt;
 
     &lt;f:facet name="footer"&gt;
         &lt;b:commandButton type="button" value="Save" icon="ui-icon-check" style="margin:0"/&gt;

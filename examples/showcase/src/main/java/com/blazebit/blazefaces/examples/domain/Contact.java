@@ -17,69 +17,71 @@ package com.blazebit.blazefaces.examples.domain;
 
 import java.io.Serializable;
 
-public class Contact implements Serializable{
+public class Contact implements Serializable {
 
-    private String firstname;
-    private String surname;
-    private String phone;
-    private String address;
-    private String mail;
-    private Integer age;
-    private String gender;
+	private static final long serialVersionUID = 1L;
 
-    public String getFirstname() {
-        return firstname;
-    }
+	private String firstname;
+	private String surname;
+	private String phone;
+	private String address;
+	private String mail;
+	private Integer age;
+	private String gender;
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
+	public String getFirstname() {
+		return firstname;
+	}
 
-    public String getSurname() {
-        return surname;
-    }
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
+	public String getSurname() {
+		return surname;
+	}
 
-    public String getGender() {
-        return gender;
-    }
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+	public String getGender() {
+		return gender;
+	}
 
-    public Integer getAge() {
-        return age;
-    }
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
+	public Integer getAge() {
+		return age;
+	}
 
-    public String getMail() {
-        return mail;
-    }
+	public void setAge(Integer age) {
+		this.age = age;
+	}
 
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
+	public String getMail() {
+		return mail;
+	}
 
-    public String getPhone() {
-        return phone;
-    }
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-    
-    public String getAddress() {
-        return address;
-    }
-    
-    public void setAddress(String address) {
-        this.address = address;
-    }
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
 }

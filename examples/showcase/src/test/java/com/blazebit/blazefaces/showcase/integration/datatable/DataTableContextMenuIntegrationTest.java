@@ -15,7 +15,7 @@ import com.blazebit.blazefaces.showcase.integration.SeleniumActionHelper;
 public class DataTableContextMenuIntegrationTest extends
 		AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("datatableContextMenu.jsf");
+	private String testUrl = toShowcaseUrl("datatableContextMenu.xhtml");
 	private SeleniumActionHelper action;
 
 	@Before

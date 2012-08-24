@@ -13,7 +13,7 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
 public class PPRAjaxValidationsIntegrationTest extends AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("pprAjaxValidations.jsf");
+	private String testUrl = toShowcaseUrl("pprAjaxValidations.xhtml");
 	private final String firstName = "Omer";
 	private final String surname = "GOK";
 	private final String msgFormat = "Welcome %s %s!";

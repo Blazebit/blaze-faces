@@ -4,23 +4,24 @@
  */
 package com.blazebit.blazefaces.showcase.integration.autocomplete;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.WebElement;
-
 import static junit.framework.Assert.assertTrue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.WebElement;
 
 /**
  * 
  * @author yigitdarcin
  */
-public class AutoCompleteListenerIntegrationTest extends AbstractAutoCompleteTest {
+public class AutoCompleteListenerIntegrationTest extends
+		AbstractAutoCompleteTest {
 
 	@Before
 	public void before() {
-		String testUrl = toShowcaseUrl("autoCompleteSelect.jsf");
+		String testUrl = toShowcaseUrl("autoCompleteSelect.xhtml");
 		driver.get(testUrl);
 	}
 

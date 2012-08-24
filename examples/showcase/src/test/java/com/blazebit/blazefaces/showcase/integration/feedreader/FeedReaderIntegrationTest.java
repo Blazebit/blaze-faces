@@ -1,7 +1,5 @@
 package com.blazebit.blazefaces.showcase.integration.feedreader;
 
-import static junit.framework.Assert.assertTrue;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +17,7 @@ import com.sun.syndication.io.XmlReader;
 public class FeedReaderIntegrationTest extends AbstractIntegrationTest {
 
 	private final String url = "http://rss.news.yahoo.com/rss/sports";
-	private String testUrl = toShowcaseUrl("feedReader.jsf");
+	private String testUrl = toShowcaseUrl("feedReader.xhtml");
 	private List<SyndEntryImpl> entries;
 
 	@SuppressWarnings("unchecked")
@@ -31,6 +29,7 @@ public class FeedReaderIntegrationTest extends AbstractIntegrationTest {
 		driver.get(testUrl);
 	}
 
+	@SuppressWarnings("unused")
 	@Test
 	public void shoulShowEntries() {
 		List<WebElement> titleList = findElementsById("title");
@@ -38,22 +37,22 @@ public class FeedReaderIntegrationTest extends AbstractIntegrationTest {
 
 		int i = 0;
 
-//webelement texts and feed values could deffer
+		// webelement texts and feed values could deffer
 		for (SyndEntryImpl entry : entries) {
-//			assertTrue(titleList
-//					.get(i)
-//					.getText()
-//					.equals(entry.getTitle().replace("\n", "")
-//							.replace("  ", "")));
-//
-//			assertTrue(entry
-//					.getDescription()
-//					.getValue()
-//					.replace("\n", "")
-//					.replace(" ", "")
-//					.contains(
-//							valueList.get(i).getText().replace("\n", "")
-//									.replace(" ", "")));
+			// assertTrue(titleList
+			// .get(i)
+			// .getText()
+			// .equals(entry.getTitle().replace("\n", "")
+			// .replace("  ", "")));
+			//
+			// assertTrue(entry
+			// .getDescription()
+			// .getValue()
+			// .replace("\n", "")
+			// .replace(" ", "")
+			// .contains(
+			// valueList.get(i).getText().replace("\n", "")
+			// .replace(" ", "")));
 			i++;
 		}
 	}

@@ -7,14 +7,14 @@
 	contentType="text/html"
     renderKitId="BLAZEFACES_MOBILE">
 
-    <pm:page title="Components">
+    <bm:page title="Components">
 
         <!-- Main View -->
-        <pm:view id="main">
-            <pm:header title="Mobile" swatch="b">
-            </pm:header>
+        <bm:view id="main">
+            <bm:header title="Mobile" swatch="b">
+            </bm:header>
 
-            <pm:content>
+            <bm:content>
 
                 <b:dataList type="inset">
                     <f:facet name="header">Components</f:facet>
@@ -37,17 +37,17 @@
                     <h:outputLink value="#transitions">Transitions</h:outputLink>
                 </b:dataList>
 
-            </pm:content>
+            </bm:content>
 
-        </pm:view>
+        </bm:view>
 
         <!-- Forms -->
-        <pm:view id="forms">
-            <pm:header title="Forms">
+        <bm:view id="forms">
+            <bm:header title="Forms">
                 <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
-            </pm:header>
+            </bm:header>
 
-            <pm:content>
+            <bm:content>
 
                 <b:inputText label="Input:" />
                 
@@ -57,7 +57,7 @@
                 
                 <b:inputTextarea id="inputTextarea" label="Textarea:"/>
                 
-                <pm:field>
+                <bm:field>
                     <h:outputLabel for="selectOneMenu" value="Dropdown: "/>
                     <h:selectOneMenu id="selectOneMenu">
                         <f:selectItem itemLabel="Select One" itemValue="" />
@@ -65,11 +65,11 @@
                         <f:selectItem itemLabel="Option 2" itemValue="Option 2" />
                         <f:selectItem itemLabel="Option 3" itemValue="Option 3" />
                     </h:selectOneMenu>
-                </pm:field>
+                </bm:field>
 
-                <pm:inputRange id="range" minValue="0" maxValue="100" label="Range:" />
+                <bm:inputRange id="range" minValue="0" maxValue="100" label="Range:" />
 
-                <pm:switch id="switch" onLabel="yes" offLabel="no" label="Switch:" />
+                <bm:switch id="switch" onLabel="yes" offLabel="no" label="Switch:" />
                 
                 <b:selectBooleanCheckbox id="booleanCheckbox" value="false" itemLabel="I agree" label="Checkbox"/>
                
@@ -85,18 +85,18 @@
                     <f:selectItem itemLabel="Option 3" itemValue="Option 3" />
                 </b:selectOneRadio>
 
-            </pm:content>
+            </bm:content>
 
-        </pm:view>
+        </bm:view>
 
 
         <!-- Buttons -->
-        <pm:view id="buttons">
-            <pm:header title="Buttons">
+        <bm:view id="buttons">
+            <bm:header title="Buttons">
                 <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
-            </pm:header>
+            </bm:header>
 
-            <pm:content>
+            <bm:content>
 
                 <h3>Basic</h3>
                 <b:commandButton value="Default" type="button"/>
@@ -110,27 +110,27 @@
                 <b:commandButton value="Icon Position" type="button" icon="refresh" iconPos="right" swatch="e"/>
 
                 <h3>Grouping</h3>
-                <pm:buttonGroup>
+                <bm:buttonGroup>
                     <b:commandButton value="Yes" type="button" icon="check"/>
                     <b:commandButton value="No" type="button" icon="delete"/>
-                </pm:buttonGroup>
+                </bm:buttonGroup>
                 
-                <pm:buttonGroup orientation="horizontal">
+                <bm:buttonGroup orientation="horizontal">
                     <b:commandButton value="Yes" type="button" icon="check" />
                     <b:commandButton value="No" type="button" icon="delete" />
-                </pm:buttonGroup>
+                </bm:buttonGroup>
 
-            </pm:content>
+            </bm:content>
 
-        </pm:view>
+        </bm:view>
 
         <!-- Lists -->
-        <pm:view id="lists">
-            <pm:header title="Lists">
+        <bm:view id="lists">
+            <bm:header title="Lists">
                 <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
-            </pm:header>
+            </bm:header>
 
-            <pm:content>
+            <bm:content>
 
                 <h3>Read-Only</h3>
                 <b:dataList>
@@ -179,39 +179,39 @@
                     <p>#{player.position}</p>
                     <h:outputText styleClass="ui-li-count" value="#{player.number}" />
                 </b:dataList>
-            </pm:content>
+            </bm:content>
 
-        </pm:view>
+        </bm:view>
 
         <!-- NavBar -->
-        <pm:view id="navbar">
-            <pm:header title="NavBar">
+        <bm:view id="navbar">
+            <bm:header title="NavBar">
                 <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
-                <pm:navBar>
+                <bm:navBar>
                     <b:button value="Home" icon="home" href="#main?reverse=true" styleClass="ui-btn-active"/>
                     <b:button value="Info" icon="info" href="#main?reverse=true" />
                     <b:button value="Search" icon="search" href="#main?reverse=true" />
-                </pm:navBar>
-            </pm:header>
+                </bm:navBar>
+            </bm:header>
 
-            <pm:content>
-                <pm:navBar>
+            <bm:content>
+                <bm:navBar>
                     <b:button value="Home" icon="home" href="#main?reverse=true" styleClass="ui-btn-active"/>
                     <b:button value="Info" icon="info" href="#main?reverse=true" />
                     <b:button value="Search" icon="search" href="#main?reverse=true" />
                     <b:button value="Favs" icon="star" href="#main?reverse=true" />
                     <b:button value="Setup" icon="gear" href="#main?reverse=true" />
-                </pm:navBar>
-            </pm:content>
-        </pm:view>
+                </bm:navBar>
+            </bm:content>
+        </bm:view>
 
         <!-- Panels -->
-        <pm:view id="panels">
-            <pm:header title="Panels">
+        <bm:view id="panels">
+            <bm:header title="Panels">
                 <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
-            </pm:header>
+            </bm:header>
 
-            <pm:content>
+            <bm:content>
                 <h3>Panel</h3>
                 <b:panel header="Expanded">
                     Toggle panel content
@@ -262,40 +262,40 @@
                     <h:outputText value="Cell 8" />
                 </h:panelGrid>
                 
-            </pm:content>
-        </pm:view>
+            </bm:content>
+        </bm:view>
 
-        <pm:view id="target">
-            <pm:header title="Target">
+        <bm:view id="target">
+            <bm:header title="Target">
                 <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
-            </pm:header>
+            </bm:header>
 
-            <pm:content>
+            <bm:content>
 
                 <h1>Target View</h1>
 
-            </pm:content>
-        </pm:view>
+            </bm:content>
+        </bm:view>
         
-        <pm:view id="transitionTarget">
-            <pm:header title="Transition">
+        <bm:view id="transitionTarget">
+            <bm:header title="Transition">
                 <f:facet name="left"><b:button value="Back" icon="back" href="#transitions?reverse=true"/></f:facet>
-            </pm:header>
+            </bm:header>
 
-            <pm:content>
+            <bm:content>
 
                 <h1>Displayed with a transition.</h1>
 
-            </pm:content>
-        </pm:view>
+            </bm:content>
+        </bm:view>
 
         <!-- Ajax Status -->
-        <pm:view id="ajaxStatus">
-            <pm:header title="Ajax Status">
+        <bm:view id="ajaxStatus">
+            <bm:header title="Ajax Status">
                 <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
-            </pm:header>
+            </bm:header>
 
-            <pm:content>
+            <bm:content>
                 Core BlazeFaces Ajax implementation is integrated with jQuery Mobile's built-in ajax loading dialog indicator.
 
                 <h:form>
@@ -305,26 +305,26 @@
                     
                 </h:form>
 
-            </pm:content>
-        </pm:view>
+            </bm:content>
+        </bm:view>
 
         <!-- Ajax Update -->
-        <pm:view id="ajaxUpdate">
-            <pm:header title="TODO">
+        <bm:view id="ajaxUpdate">
+            <bm:header title="TODO">
                 <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
-            </pm:header>
+            </bm:header>
 
-            <pm:content>
+            <bm:content>
                 jQuery Mobile uses progressive enhancement on page elements to optimize them for mobile environment. This happens
                 on page load and elements lose styles/behaviors attached after an ajax update. BlazeFaces fixes this mismatch
                 by providing extensions whereas client side ajax of a JSF implementation causes various problems.
 
                 <h:form>
 
-                    <pm:field>
+                    <bm:field>
                         <h:outputLabel for="txt" value="Text:" />
                         <h:inputText id="txt" value="#{showcaseView.text}" />
-                    </pm:field>
+                    </bm:field>
 
                     <h:panelGrid columns="2">
                         <b:commandButton value="BlazeFaces" actionListener="#{showcaseView.add}" update="txt txts" process="@form"/>
@@ -339,17 +339,17 @@
                     </b:dataList>
 
                 </h:form>
-            </pm:content>
-        </pm:view>
+            </bm:content>
+        </bm:view>
         
         <!-- Navigation Handler -->
-        <pm:view id="navHandler">
-            <pm:header title="Navigation">
+        <bm:view id="navHandler">
+            <bm:header title="Navigation">
                 <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
-            </pm:header>
+            </bm:header>
 
-            <pm:content>
-                View Navigation is integrated with JSF Navigation Model. Prepending the action outcome with "pm:" enables
+            <bm:content>
+                View Navigation is integrated with JSF Navigation Model. Prepending the action outcome with "bm:" enables
                 mobile view-to-view navigations.
 
                 <h:form>
@@ -358,16 +358,16 @@
                     
                 </h:form>
 
-            </pm:content>
-        </pm:view>
+            </bm:content>
+        </bm:view>
         
         <!-- Transitions -->
-        <pm:view id="transitions">
-            <pm:header title="Transitions">
+        <bm:view id="transitions">
+            <bm:header title="Transitions">
                 <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
-            </pm:header>
+            </bm:header>
 
-            <pm:content>
+            <bm:content>
                 Various animation types are supported in view navigations.
  
                 <b:button value="Fade" href="#transitionTarget?transition=fade" />
@@ -388,9 +388,9 @@
                 
                 <b:button value="None" href="#transitionTarget?transition=none" />
                     
-            </pm:content>
-        </pm:view>
+            </bm:content>
+        </bm:view>
 
-    </pm:page>
+    </bm:page>
 
 </f:view>

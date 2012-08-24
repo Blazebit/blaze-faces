@@ -28,41 +28,41 @@ public class SeleniumActionHelper {
 	public void dndToElement(WebElement source, WebElement target) {
 		builder.dragAndDrop(source, target).build().perform();
 	}
-    
-    public void keyDown(WebElement e, Keys keys) {
+
+	public void keyDown(WebElement e, Keys keys) {
 		builder.keyDown(e, keys).build().perform();
 	}
-    
-    public void keyDown(Keys keys) {
+
+	public void keyDown(Keys keys) {
 		builder.keyDown(keys).build().perform();
 	}
-    
-    public void keyUp(WebElement e, Keys keys) {
+
+	public void keyUp(WebElement e, Keys keys) {
 		builder.keyUp(e, keys).build().perform();
 	}
-    
-    public void keyUp(Keys keys) {
+
+	public void keyUp(Keys keys) {
 		builder.keyUp(keys).build().perform();
 	}
 
 	public void clickOnCurrentPosition() {
 		builder.click().perform();
 	}
-	
+
 	public void clickAndHoldOnElement(WebElement element) {
 		builder.clickAndHold(element).perform();
 	}
-	
-    public void dblClick(WebElement element) {
+
+	public void dblClick(WebElement element) {
 		builder.doubleClick(element).perform();
 	}
-	
+
 	public void moveByOffSet(int x, int y) {
 		builder.moveByOffset(x, y).perform();
 	}
-	
+
 	public void releaseMouse() {
 		builder.release().perform();
 	}
-	
+
 }

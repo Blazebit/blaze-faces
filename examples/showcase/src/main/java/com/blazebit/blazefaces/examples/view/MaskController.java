@@ -15,18 +15,23 @@
  */
 package com.blazebit.blazefaces.examples.view;
 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+
+@Named
+@RequestScoped
 public class MaskController {
 
 	private String date;
-	
+
 	private String phone;
-	
+
 	private String phoneExt;
-	
+
 	private String taxId;
-	
+
 	private String ssn;
-	
+
 	private String productKey;
 
 	public String getDate() {

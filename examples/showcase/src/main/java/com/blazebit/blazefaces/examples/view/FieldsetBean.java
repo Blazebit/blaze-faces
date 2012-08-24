@@ -15,15 +15,21 @@
  */
 package com.blazebit.blazefaces.examples.view;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
+
 import com.blazebit.blazefaces.event.ToggleEvent;
 
+@Named
+@RequestScoped
 public class FieldsetBean {
 
-    public void handleToggle(ToggleEvent event) {
-        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Fieldset Toggled", "Visibility:" + event.getVisibility());
-        
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
+	public void handleToggle(ToggleEvent event) {
+		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
+				"Fieldset Toggled", "Visibility:" + event.getVisibility());
+
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
 }

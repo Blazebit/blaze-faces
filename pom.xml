@@ -62,6 +62,18 @@
 			</roles>
 		</developer>
 		<developer>
+			<id>berndartmueller</id>
+			<name>Bernd Artmueller</name>
+			<email>bernd@blazebit.com</email>
+			<organization>Blazebit</organization>
+			<organizationUrl>http://www.blazebit.com</organizationUrl>
+			<timezone>UTC+1</timezone>
+			<roles>
+				<role>Project Owner</role>
+				<role>Committer</role>
+			</roles>
+		</developer>
+		<developer>
 			<id>cchet</id>
 			<name>Thomas Herzog</name>
 			<email>t.herzog@curecomp.com</email>
@@ -96,6 +108,7 @@
 				<artifactId>maven-jsf-plugin</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
@@ -127,7 +140,9 @@
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-										<ignore></ignore>
+										<execute>
+											<runOnIncremental>false</runOnIncremental>
+										</execute>
 									</action>
 								</pluginExecution>
 								<pluginExecution>
@@ -155,7 +170,9 @@
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-										<ignore></ignore>
+										<execute>
+											<runOnIncremental>false</runOnIncremental>
+										</execute>
 									</action>
 								</pluginExecution>
 								<pluginExecution>
@@ -174,7 +191,9 @@
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-										<ignore></ignore>
+										<execute>
+											<runOnIncremental>false</runOnIncremental>
+										</execute>
 									</action>
 								</pluginExecution>
 								<pluginExecution>
@@ -196,25 +215,6 @@
 										<ignore></ignore>
 									</action>
 								</pluginExecution>
-								<pluginExecution>
-        							<pluginExecutionFilter>
-        								<groupId>
-        									org.codehaus.mojo
-        								</groupId>
-        								<artifactId>
-        									build-helper-maven-plugin
-        								</artifactId>
-        								<versionRange>
-        									[1.5,)
-        								</versionRange>
-        								<goals>
-        									<goal>add-source</goal>
-        								</goals>
-        							</pluginExecutionFilter>
-        							<action>
-        								<ignore></ignore>
-        							</action>
-        						</pluginExecution>
 							</pluginExecutions>
 						</lifecycleMappingMetadata>
 					</configuration>

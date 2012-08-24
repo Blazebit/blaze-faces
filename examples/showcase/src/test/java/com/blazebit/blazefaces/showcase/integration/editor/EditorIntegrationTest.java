@@ -14,31 +14,34 @@ public class EditorIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void init() {
-		String testUrl = toShowcaseUrl("editor.jsf");
+		String testUrl = toShowcaseUrl("editor.xhtml");
 		driver.get(testUrl);
 	}
 
 	@Test
 	public void shouldSendBoldString() throws InterruptedException {
 		driver.switchTo().frame(findElementByTag("iframe"));
-		driver.findElement(By.xpath("html/body")).sendKeys("This is a editor content");
-		
+		driver.findElement(By.xpath("html/body")).sendKeys(
+				"This is a editor content");
+
 		driver.switchTo().defaultContent();
 		findElementById("form:submitButton").click();
-		
+
 		WebElement display = findElementById("form:display");
 		assertThat(display.getText(), equalTo("This is a editor content"));
 	}
-	
+
 	@Test
-	public void shouldClearEditorContent() throws InterruptedException{
+	public void shouldClearEditorContent() throws InterruptedException {
 		driver.switchTo().frame(findElementByTag("iframe"));
-		driver.findElement(By.xpath("html/body")).sendKeys("This is a editor content");
-		
+		driver.findElement(By.xpath("html/body")).sendKeys(
+				"This is a editor content");
+
 		driver.switchTo().defaultContent();
 		findElementById("form:clearButton").click();
-		
+
 		driver.switchTo().frame(findElementByTag("iframe"));
-		assertThat(driver.findElement(By.xpath("html/body")).getText(), equalTo(""));
+		assertThat(driver.findElement(By.xpath("html/body")).getText(),
+				equalTo(""));
 	}
 }

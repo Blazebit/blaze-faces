@@ -15,21 +15,28 @@
  */
 package com.blazebit.blazefaces.examples.touch;
 
+import java.io.Serializable;
 import java.util.List;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.event.ActionEvent;
+import javax.inject.Named;
 
 import com.blazebit.blazefaces.examples.service.TwitterRSSService;
 import com.blazebit.blazefaces.examples.service.TwitterService;
 
-public class TwitterController {
+@Named
+@RequestScoped
+public class TwitterController implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private TwitterService twitterService = new TwitterRSSService();
-	
+
 	private String username;
-	
+
 	private List<String> tweets;
-	
+
 	public void loadTweets(ActionEvent actionEvent) {
 		tweets = twitterService.getTweets(username);
 	}
@@ -37,13 +44,15 @@ public class TwitterController {
 	public String getUsername() {
 		return username;
 	}
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
+
 	public List<String> getTweets() {
 		return tweets;
 	}
+
 	public void setTweets(List<String> tweets) {
 		this.tweets = tweets;
 	}

@@ -11,7 +11,7 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
 public class AjaxDataTableIntegrationTest extends AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("pprDataTable.jsf");
+	private String testUrl = toShowcaseUrl("pprDataTable.xhtml");
 	private final String title = "title";
 	private final String author = "author";
 	private final String errMsg = "This book has already been added";
@@ -33,8 +33,8 @@ public class AjaxDataTableIntegrationTest extends AbstractIntegrationTest {
 
 		btnAdd.click();
 
-        waitUntilAjaxRequestCompletes();
-        
+		waitUntilAjaxRequestCompletes();
+
 		WebElement lblTitle = findElementById("form:bookTable:0:lblTitle");
 		WebElement lblAuthor = findElementById("form:bookTable:0:lblAuthor");
 

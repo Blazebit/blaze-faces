@@ -13,7 +13,7 @@ import com.blazebit.blazefaces.showcase.integration.SeleniumActionHelper;
 
 public class DataTableResizableIntegrationTest extends AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("datatableResizable.jsf");
+	private String testUrl = toShowcaseUrl("datatableResizable.xhtml");
 	private SeleniumActionHelper action;
 
 	@Before
@@ -47,7 +47,7 @@ public class DataTableResizableIntegrationTest extends AbstractIntegrationTest {
 				.tagName("span"));
 
 		action.clickAndHoldOnElement(yearColumnResizer);
-		Point location = yearColumnResizer.getLocation();
+		//Point location = yearColumnResizer.getLocation();
 		action.moveByOffSet(point.x + 1, point.y);
 		action.releaseMouse();
 		waitUntilAjaxRequestCompletes();

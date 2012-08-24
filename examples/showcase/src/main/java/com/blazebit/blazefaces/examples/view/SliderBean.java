@@ -15,21 +15,26 @@
  */
 package com.blazebit.blazefaces.examples.view;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
+
 import com.blazebit.blazefaces.event.SlideEndEvent;
 
+@Named
+@RequestScoped
 public class SliderBean {
 
 	private int number1;
-	
+
 	private int number2;
-	
+
 	private int number3;
-	
+
 	private int number4;
 
-    private int number5;
+	private int number5;
 
 	public int getNumber1() {
 		return number1;
@@ -63,16 +68,17 @@ public class SliderBean {
 		this.number4 = number4;
 	}
 
-    public int getNumber5() {
-        return number5;
-    }
+	public int getNumber5() {
+		return number5;
+	}
 
-    public void setNumber5(int number5) {
-        this.number5 = number5;
-    }
-    
-    public void onSlideEnd(SlideEndEvent event) {
-        FacesMessage msg = new FacesMessage("Slide Ended", "Value: " + event.getValue());
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
+	public void setNumber5(int number5) {
+		this.number5 = number5;
+	}
+
+	public void onSlideEnd(SlideEndEvent event) {
+		FacesMessage msg = new FacesMessage("Slide Ended", "Value: "
+				+ event.getValue());
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
 }

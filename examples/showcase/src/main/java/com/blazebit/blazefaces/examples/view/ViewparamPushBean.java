@@ -17,24 +17,32 @@ package com.blazebit.blazefaces.examples.view;
 
 import java.io.Serializable;
 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+
 import com.blazebit.blazefaces.push.PushContext;
 import com.blazebit.blazefaces.push.PushContextFactory;
 
-public class ViewparamPushBean implements Serializable{
+@Named
+@RequestScoped
+public class ViewparamPushBean implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private String data;
 
-    public String getData() {
-        return data;
-    }
+	public String getData() {
+		return data;
+	}
 
-    public void setData(String data) {
-        this.data = data;
-    }
+	public void setData(String data) {
+		this.data = data;
+	}
 
 	public void prerender() {
-		PushContext pushContext = PushContextFactory.getDefault().getPushContext();
-        
-        pushContext.push("/viewparam", data);
+		PushContext pushContext = PushContextFactory.getDefault()
+				.getPushContext();
+
+		pushContext.push("/viewparam", data);
 	}
 }

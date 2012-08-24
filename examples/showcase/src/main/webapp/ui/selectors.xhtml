@@ -19,24 +19,24 @@
                     
                     <h:panelGrid columns="4">
                         <h:outputLabel for="firstname" value="Firstname: *" />
-                        <b:inputText id="firstname" value="#{pprBean.firstname}" required="true" label="Firstname">
+                        <b:inputText id="firstname" value="#{partialProcessRequestBean.firstname}" required="true" label="Firstname">
                             <f:validateLength minimum="2" />
                         </b:inputText>
                         <b:message for="firstname" />
-                        <h:outputText value="#{pprBean.firstname}" />
+                        <h:outputText value="#{partialProcessRequestBean.firstname}" />
 
                         <h:outputLabel for="surname" value="Surname: *" />
-                        <b:inputText id="surname" value="#{pprBean.surname}" required="true" label="Surname"/>
+                        <b:inputText id="surname" value="#{partialProcessRequestBean.surname}" required="true" label="Surname"/>
                         <b:message for="surname" />
-                        <h:outputText value="#{pprBean.surname}" />
+                        <h:outputText value="#{partialProcessRequestBean.surname}" />
                         
                         <h:outputLabel for="city" value="City: *" />
-                        <h:selectOneMenu id="city" value="#{pprBean.city}" required="true">
+                        <h:selectOneMenu id="city" value="#{partialProcessRequestBean.city}" required="true">
                             <f:selectItem itemLabel="Select One" itemValue="" />
-                            <f:selectItems value="#{pprBean.cities}" />
+                            <f:selectItems value="#{partialProcessRequestBean.cities}" />
                         </h:selectOneMenu>
                         <b:message for="city" />
-                        <h:outputText value="#{pprBean.city}" />
+                        <h:outputText value="#{partialProcessRequestBean.city}" />
                         
                     </h:panelGrid>
                 </b:panel>
@@ -66,24 +66,24 @@
 
             &lt;h:panelGrid columns="4"&gt;
                 &lt;h:outputLabel for="firstname" value="Firstname: *" /&gt;
-                &lt;b:inputText id="firstname" value="\#{pprBean.firstname}" required="true" label="Firstname"&gt;
+                &lt;b:inputText id="firstname" value="\#{partialProcessRequestBean.firstname}" required="true" label="Firstname"&gt;
                     &lt;f:validateLength minimum="2" /&gt;
                 &lt;/b:inputText&gt;
                 &lt;b:message for="firstname" /&gt;
-                &lt;h:outputText value="\#{pprBean.firstname}" /&gt;
+                &lt;h:outputText value="\#{partialProcessRequestBean.firstname}" /&gt;
 
                 &lt;h:outputLabel for="surname" value="Surname: *" /&gt;
-                &lt;b:inputText id="surname" value="\#{pprBean.surname}" required="true" label="Surname"/&gt;
+                &lt;b:inputText id="surname" value="\#{partialProcessRequestBean.surname}" required="true" label="Surname"/&gt;
                 &lt;b:message for="surname" /&gt;
-                &lt;h:outputText value="\#{pprBean.surname}" /&gt;
+                &lt;h:outputText value="\#{partialProcessRequestBean.surname}" /&gt;
 
                 &lt;h:outputLabel for="city" value="City: *" /&gt;
-                &lt;h:selectOneMenu id="city" value="\#{pprBean.city}" required="true"&gt;
+                &lt;h:selectOneMenu id="city" value="\#{partialProcessRequestBean.city}" required="true"&gt;
                     &lt;f:selectItem itemLabel="Select One" itemValue="" /&gt;
-                    &lt;f:selectItems value="\#{pprBean.cities}" /&gt;
+                    &lt;f:selectItems value="\#{partialProcessRequestBean.cities}" /&gt;
                 &lt;/h:selectOneMenu&gt;
                 &lt;b:message for="city" /&gt;
-                &lt;h:outputText value="\#{pprBean.city}" /&gt;
+                &lt;h:outputText value="\#{partialProcessRequestBean.city}" /&gt;
 
             &lt;/h:panelGrid&gt;
         &lt;/b:panel&gt;

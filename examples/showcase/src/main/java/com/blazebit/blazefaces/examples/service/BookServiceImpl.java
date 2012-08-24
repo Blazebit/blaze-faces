@@ -17,7 +17,7 @@ package com.blazebit.blazefaces.examples.service;
 
 import com.blazebit.blazefaces.examples.domain.Book;
 
-public class BookServiceImpl implements BookService{
+public class BookServiceImpl implements BookService {
 
 	public void saveBook(Book book) {
 		System.out.println("Saving book:" + book.getTitle());

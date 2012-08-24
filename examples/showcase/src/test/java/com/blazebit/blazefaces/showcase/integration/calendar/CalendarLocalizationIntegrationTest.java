@@ -15,13 +15,14 @@ import org.openqa.selenium.WebElement;
 
 import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
-public class CalendarLocalizationIntegrationTest extends AbstractIntegrationTest {
+public class CalendarLocalizationIntegrationTest extends
+		AbstractIntegrationTest {
 
 	private CalendarTestingHelper calendarTestingHelper = new CalendarTestingHelper();
 
 	@Before
 	public void before() {
-		String testUrl = toShowcaseUrl("calendarLocalization.jsf");
+		String testUrl = toShowcaseUrl("calendarLocalization.xhtml");
 		driver.get(testUrl);
 	}
 
@@ -56,16 +57,19 @@ public class CalendarLocalizationIntegrationTest extends AbstractIntegrationTest
 
 		WebElement calendar = findElementById("ui-datepicker-div");
 
-		WebElement firstCellOfSecondRow = calendarTestingHelper.getCell(calendar);
+		WebElement firstCellOfSecondRow = calendarTestingHelper
+				.getCell(calendar);
 
-		Date clickedDate = calendarTestingHelper.getClickedDate(firstCellOfSecondRow);
+		Date clickedDate = calendarTestingHelper
+				.getClickedDate(firstCellOfSecondRow);
 
 		firstCellOfSecondRow.click();
 
 		trInput = findElementById(inputFieldName);
 
 		try {
-			assertThat(dateFormat.parse(trInput.getAttribute("value")), equalTo(clickedDate));
+			assertThat(dateFormat.parse(trInput.getAttribute("value")),
+					equalTo(clickedDate));
 		} catch (ParseException e) {
 			throw new RuntimeException("date parsing failed");
 		}

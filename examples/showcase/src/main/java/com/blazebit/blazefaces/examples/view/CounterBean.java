@@ -17,7 +17,15 @@ package com.blazebit.blazefaces.examples.view;
 
 import java.io.Serializable;
 
-public class CounterBean implements Serializable{
+import javax.inject.Named;
+
+import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
+
+@Named
+@ViewAccessScoped
+public class CounterBean implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private int count;
 
@@ -28,7 +36,7 @@ public class CounterBean implements Serializable{
 	public void setCount(int count) {
 		this.count = count;
 	}
-	
+
 	public void increment() {
 		count++;
 	}

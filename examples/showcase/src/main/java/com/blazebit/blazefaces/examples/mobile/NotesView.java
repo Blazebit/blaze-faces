@@ -18,11 +18,20 @@ package com.blazebit.blazefaces.examples.mobile;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Named;
+
+import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
+
 import com.blazebit.blazefaces.examples.domain.Note;
 
+@Named
+@ViewAccessScoped
 public class NotesView implements Serializable {
 
-    private Note note = new Note();
+	private static final long serialVersionUID = 1L;
+
+	private Note note = new Note();
 
 	private List<Note> notes = new ArrayList<Note>();
 
@@ -33,17 +42,18 @@ public class NotesView implements Serializable {
 	public Note getNote() {
 		return note;
 	}
+
 	public void setNote(Note note) {
 		this.note = note;
 	}
 
 	public String save() {
-        if(!notes.contains(note)) {
-            notes.add(note);
-        }
+		if (!notes.contains(note)) {
+			notes.add(note);
+		}
 
 		note = new Note();
-        
-        return "pm:main?reverse=true";
+
+		return "pm:main?reverse=true";
 	}
 }

@@ -18,33 +18,41 @@ package com.blazebit.blazefaces.examples.view;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Named;
+
+import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
+
 import com.blazebit.blazefaces.examples.domain.Player;
 
+@Named
+@ViewAccessScoped
 public class RingBean implements Serializable {
 
-    private List<Player> players;
+	private static final long serialVersionUID = 1L;
+	private List<Player> players;
 
-    private Player selectedPlayer;
+	private Player selectedPlayer;
 
-    public RingBean() {
-        players = new ArrayList<Player>();
-        
-        players.add(new Player("Messi", 10, "messi.jpg", "CF"));
-        players.add(new Player("Iniesta", 8, "iniesta.jpg", "CM"));
-        players.add(new Player("Villa", 7, "villa.jpg", "CF"));
-        players.add(new Player("Xavi", 6, "xavi.jpg", "CM"));
-        players.add(new Player("Puyol", 5, "puyol.jpg", "CB"));
-    }
+	public RingBean() {
+		players = new ArrayList<Player>();
 
-    public List<Player> getPlayers() {
-        return players;
-    }
+		players.add(new Player("Messi", 10, "messi.jpg", "CF"));
+		players.add(new Player("Iniesta", 8, "iniesta.jpg", "CM"));
+		players.add(new Player("Villa", 7, "villa.jpg", "CF"));
+		players.add(new Player("Xavi", 6, "xavi.jpg", "CM"));
+		players.add(new Player("Puyol", 5, "puyol.jpg", "CB"));
+	}
 
-    public Player getSelectedPlayer() {
-        return selectedPlayer;
-    }
+	public List<Player> getPlayers() {
+		return players;
+	}
 
-    public void setSelectedPlayer(Player selectedPlayer) {
-        this.selectedPlayer = selectedPlayer;
-    }
+	public Player getSelectedPlayer() {
+		return selectedPlayer;
+	}
+
+	public void setSelectedPlayer(Player selectedPlayer) {
+		this.selectedPlayer = selectedPlayer;
+	}
 }

@@ -18,7 +18,7 @@ public class CalendarBasicIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void before() {
-		String testUrl = toShowcaseUrl("calendarBasic.jsf");
+		String testUrl = toShowcaseUrl("calendarBasic.xhtml");
 		driver.get(testUrl);
 	}
 
@@ -31,7 +31,7 @@ public class CalendarBasicIntegrationTest extends AbstractIntegrationTest {
 	public void shouldTestPopupCalendar() {
 		WebElement inputText = findElementById("form:popupCal_input");
 		inputText.click();
-		
+
 		testCalendarBehavior("ui-datepicker-div", "form:popupDate");
 	}
 
@@ -44,12 +44,15 @@ public class CalendarBasicIntegrationTest extends AbstractIntegrationTest {
 		testCalendarBehavior("ui-datepicker-div", "form:popupButtonDate");
 	}
 
-	private void testCalendarBehavior(String calendarElementId, String elementIdToValidate) {
+	private void testCalendarBehavior(String calendarElementId,
+			String elementIdToValidate) {
 		WebElement calendar = findElementById(calendarElementId);
 
-		WebElement firtCellOfSecondRow = calendarTestingHelper.getCell(calendar);
+		WebElement firtCellOfSecondRow = calendarTestingHelper
+				.getCell(calendar);
 
-		Date expectedDate = calendarTestingHelper.getClickedDate(firtCellOfSecondRow);
+		Date expectedDate = calendarTestingHelper
+				.getClickedDate(firtCellOfSecondRow);
 
 		firtCellOfSecondRow.click();
 
@@ -57,7 +60,8 @@ public class CalendarBasicIntegrationTest extends AbstractIntegrationTest {
 
 		WebElement popupButtonDate = findElementById(elementIdToValidate);
 
-		assertThat(calendarTestingHelper.parseDateString(popupButtonDate.getText()), equalTo(expectedDate));
+		assertThat(calendarTestingHelper.parseDateString(popupButtonDate
+				.getText()), equalTo(expectedDate));
 	}
 
 	private void submitFormAndWaitUntilAjaxRequestCompletes() {

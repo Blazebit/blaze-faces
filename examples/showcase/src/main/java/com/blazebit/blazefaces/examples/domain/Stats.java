@@ -18,42 +18,45 @@ package com.blazebit.blazefaces.examples.domain;
 import java.io.Serializable;
 
 public class Stats implements Serializable {
-    
-    private String season;
-    
-    private int goals;
-    
-    private int assists;
 
-    public Stats() {}
+	private static final long serialVersionUID = 1L;
 
-    public Stats(String season, int goals, int assists) {
-        this.season = season;
-        this.goals = goals;
-        this.assists = assists;
-    }
+	private String season;
 
-    public int getAssists() {
-        return assists;
-    }
+	private int goals;
 
-    public void setAssists(int assists) {
-        this.assists = assists;
-    }
+	private int assists;
 
-    public int getGoals() {
-        return goals;
-    }
+	public Stats() {
+	}
 
-    public void setGoals(int goals) {
-        this.goals = goals;
-    }
+	public Stats(String season, int goals, int assists) {
+		this.season = season;
+		this.goals = goals;
+		this.assists = assists;
+	}
 
-    public String getSeason() {
-        return season;
-    }
+	public int getAssists() {
+		return assists;
+	}
 
-    public void setSeason(String season) {
-        this.season = season;
-    }
+	public void setAssists(int assists) {
+		this.assists = assists;
+	}
+
+	public int getGoals() {
+		return goals;
+	}
+
+	public void setGoals(int goals) {
+		this.goals = goals;
+	}
+
+	public String getSeason() {
+		return season;
+	}
+
+	public void setSeason(String season) {
+		this.season = season;
+	}
 }

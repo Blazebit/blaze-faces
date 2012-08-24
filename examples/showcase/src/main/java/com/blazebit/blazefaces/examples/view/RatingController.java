@@ -15,33 +15,40 @@
  */
 package com.blazebit.blazefaces.examples.view;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
 import com.blazebit.blazefaces.event.RateEvent;
 
+@Named
+@RequestScoped
 public class RatingController {
 
 	private Integer rating1;
 
 	private Integer rating2;
 
-    private Integer rating3;
-	
+	private Integer rating3;
+
 	private Integer rating4 = 3;
-	
+
 	public void onrate(RateEvent rateEvent) {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Rate Event", "You rated:" + ((Integer) rateEvent.getRating()).intValue());
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
+				"Rate Event", "You rated:"
+						+ ((Integer) rateEvent.getRating()).intValue());
 
 		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
-    
-    public void oncancel() {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cancel Event", "Rate Reset");
+
+	public void oncancel() {
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
+				"Cancel Event", "Rate Reset");
 
 		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
-	
+
 	public Integer getRating1() {
 		return rating1;
 	}
@@ -66,11 +73,11 @@ public class RatingController {
 		this.rating3 = rating3;
 	}
 
-    public Integer getRating4() {
-        return rating4;
-    }
+	public Integer getRating4() {
+		return rating4;
+	}
 
-    public void setRating4(Integer rating4) {
-        this.rating4 = rating4;
-    }
+	public void setRating4(Integer rating4) {
+		this.rating4 = rating4;
+	}
 }

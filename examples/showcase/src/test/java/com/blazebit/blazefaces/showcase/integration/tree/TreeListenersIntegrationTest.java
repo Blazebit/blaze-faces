@@ -5,7 +5,6 @@ import static junit.framework.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
@@ -13,7 +12,8 @@ import com.blazebit.blazefaces.showcase.integration.SeleniumActionHelper;
 
 public class TreeListenersIntegrationTest extends AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("treeEvents.jsf");
+	private String testUrl = toShowcaseUrl("treeEvents.xhtml");
+	@SuppressWarnings("unused")
 	private SeleniumActionHelper action;
 
 	@Before

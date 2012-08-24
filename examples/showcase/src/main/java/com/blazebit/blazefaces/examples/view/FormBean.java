@@ -19,10 +19,18 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
+import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
+
+@Named
+@ViewAccessScoped
 public class FormBean implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private boolean value1;
 
@@ -101,6 +109,7 @@ public class FormBean implements Serializable {
 	public void addMessage() {
 		String summary = value2 ? "Checked" : "Unchecked";
 
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
+		FacesContext.getCurrentInstance().addMessage(null,
+				new FacesMessage(summary));
 	}
 }

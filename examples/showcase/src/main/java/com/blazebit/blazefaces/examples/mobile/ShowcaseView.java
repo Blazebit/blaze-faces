@@ -19,29 +19,38 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Named;
+
+import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
+
+@Named
+@ViewAccessScoped
 public class ShowcaseView implements Serializable {
 
-    private String text;
+	private static final long serialVersionUID = 1L;
 
-    private List<String> texts = new ArrayList<String>();
+	private String text;
 
-    public String getText() {
-        return text;
-    }
-    public void setText(String text) {
-        this.text = text;
-    }
+	private List<String> texts = new ArrayList<String>();
 
-    public List<String> getTexts() {
-        return texts;
-    }
+	public String getText() {
+		return text;
+	}
 
-    public void add() {
-        texts.add(text);
-        text = null;
-    }
-    
-    public String navigate() {
-        return "pm:target";
-    }
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public List<String> getTexts() {
+		return texts;
+	}
+
+	public void add() {
+		texts.add(text);
+		text = null;
+	}
+
+	public String navigate() {
+		return "pm:target";
+	}
 }

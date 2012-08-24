@@ -29,13 +29,15 @@ public class PickListIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void before() {
-		driver.get(toShowcaseUrl("picklist.jsf"));
+		driver.get(toShowcaseUrl("picklist.xhtml"));
 
-		List<WebElement> pickListColumns = findElementById("form:pickList").findElements(By.tagName("td"));
+		List<WebElement> pickListColumns = findElementById("form:pickList")
+				.findElements(By.tagName("td"));
 		WebElement sourceCitiesColumn = pickListColumns.get(0);
 		WebElement buttonsColumn = pickListColumns.get(1);
 		cities = sourceCitiesColumn.findElements(By.tagName("li"));
-		List<WebElement> buttons = buttonsColumn.findElements(By.tagName("button"));
+		List<WebElement> buttons = buttonsColumn.findElements(By
+				.tagName("button"));
 
 		addButton = buttons.get(0);
 		addAllButton = buttons.get(1);
@@ -122,7 +124,8 @@ public class PickListIntegrationTest extends AbstractIntegrationTest {
 		WebElement sourceCities = getCities(true);
 
 		for (String selectedCity : cities) {
-			assertThat(sourceCities.getText(), not(containsString(selectedCity)));
+			assertThat(sourceCities.getText(),
+					not(containsString(selectedCity)));
 		}
 
 	}
@@ -136,8 +139,10 @@ public class PickListIntegrationTest extends AbstractIntegrationTest {
 	}
 
 	private WebElement getCities(boolean isSource) {
-		List<WebElement> selectedCityRows = findElementById("form:displayCities").findElements(By.tagName("tr"));
-		return selectedCityRows.get(isSource ? 0 : 1).findElements(By.tagName("td")).get(1);
+		List<WebElement> selectedCityRows = findElementById(
+				"form:displayCities").findElements(By.tagName("tr"));
+		return selectedCityRows.get(isSource ? 0 : 1)
+				.findElements(By.tagName("td")).get(1);
 	}
 
 	private void select(List<String> selectedCities, WebElement city) {
@@ -147,7 +152,9 @@ public class PickListIntegrationTest extends AbstractIntegrationTest {
 	}
 
 	private void removeFirstClickedItem(List<String> cities) {
-		List<WebElement> targetCities = findElementById("form:pickList").findElements(By.tagName("td")).get(2).findElements(By.tagName("li"));
+		List<WebElement> targetCities = findElementById("form:pickList")
+				.findElements(By.tagName("td")).get(2)
+				.findElements(By.tagName("li"));
 		WebElement city = targetCities.get(0);
 		cities.remove(city.getText());
 		city.click();

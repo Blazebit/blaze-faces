@@ -16,7 +16,7 @@ public class CollectorIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void before() {
-		String testUrl = toShowcaseUrl("collector.jsf");
+		String testUrl = toShowcaseUrl("collector.xhtml");
 		driver.get(testUrl);
 	}
 
@@ -37,9 +37,12 @@ public class CollectorIntegrationTest extends AbstractIntegrationTest {
 		verifyBook1(book1, author1, tdElements);
 	}
 
-	private void verifyBook1(String book1, String author1, List<WebElement> tdElements) {
-		assertThat(tdElements.get(0).findElement(By.tagName("div")).getText(), equalTo(book1));
-		assertThat(tdElements.get(1).findElement(By.tagName("div")).getText(), equalTo(author1));
+	private void verifyBook1(String book1, String author1,
+			List<WebElement> tdElements) {
+		assertThat(tdElements.get(0).findElement(By.tagName("div")).getText(),
+				equalTo(book1));
+		assertThat(tdElements.get(1).findElement(By.tagName("div")).getText(),
+				equalTo(author1));
 	}
 
 	private List<WebElement> getTdElements(WebElement bookTrElement) {
@@ -47,7 +50,8 @@ public class CollectorIntegrationTest extends AbstractIntegrationTest {
 	}
 
 	private List<WebElement> getBooksFromCollector() {
-		return findElementById("form:booksTable").findElement(By.id("form:booksTable_data")).findElements(By.tagName("tr"));
+		return findElementById("form:booksTable").findElement(
+				By.id("form:booksTable_data")).findElements(By.tagName("tr"));
 	}
 
 	@Test
@@ -71,7 +75,8 @@ public class CollectorIntegrationTest extends AbstractIntegrationTest {
 		verifyBook1(book1, author1, firstBooksTdElements);
 		verifyBook1(book2, author2, secondBooksTdElements);
 
-		WebElement removeLink = secondBooksTdElements.get(2).findElement(By.tagName("a"));
+		WebElement removeLink = secondBooksTdElements.get(2).findElement(
+				By.tagName("a"));
 		removeLink.click();
 
 		waitUntilAjaxRequestCompletes();
@@ -81,7 +86,7 @@ public class CollectorIntegrationTest extends AbstractIntegrationTest {
 		assertThat(books.size(), equalTo(1));
 
 		firstBooksTdElements = getTdElements(books.get(0));
-		
+
 		verifyBook1(book1, author1, firstBooksTdElements);
 	}
 

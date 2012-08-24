@@ -17,61 +17,67 @@ package com.blazebit.blazefaces.examples.view;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
+@Named
+@RequestScoped
 public class DefaultCommandBean {
-    
-    private String text;
-    
-    private String btn = "btn1";
-    
-    private List<String> buttons;
-    
-    public DefaultCommandBean() {
-        buttons = new ArrayList<String>();
-        buttons.add("btn1");
-        buttons.add("btn2");
-        buttons.add("btn3");
-    }
 
-    public String getBtn() {
-        return btn;
-    }
+	private String text;
 
-    public void setBtn(String btn) {
-        this.btn = btn;
-    }
+	private String btn = "btn1";
 
-    public List<String> getButtons() {
-        return buttons;
-    }
+	private List<String> buttons;
 
-    public void setButtons(List<String> buttons) {
-        this.buttons = buttons;
-    }
+	public DefaultCommandBean() {
+		buttons = new ArrayList<String>();
+		buttons.add("btn1");
+		buttons.add("btn2");
+		buttons.add("btn3");
+	}
 
-    public String getText() {
-        return text;
-    }
+	public String getBtn() {
+		return btn;
+	}
 
-    public void setText(String text) {
-        this.text = text;
-    }
-    
-    public void addMessage(String btn) {
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Submitted with " + btn));
-    }
-    
-    public void btn1Submit() {
-        addMessage("btn1");
-    }
-    
-    public void btn2Submit() {
-        addMessage("btn2");
-    }
-    
-    public void btn3Submit() {
-        addMessage("btn3");
-    }
+	public void setBtn(String btn) {
+		this.btn = btn;
+	}
+
+	public List<String> getButtons() {
+		return buttons;
+	}
+
+	public void setButtons(List<String> buttons) {
+		this.buttons = buttons;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public void addMessage(String btn) {
+		FacesContext.getCurrentInstance().addMessage(null,
+				new FacesMessage("Submitted with " + btn));
+	}
+
+	public void btn1Submit() {
+		addMessage("btn1");
+	}
+
+	public void btn2Submit() {
+		addMessage("btn2");
+	}
+
+	public void btn3Submit() {
+		addMessage("btn3");
+	}
 }

@@ -10,7 +10,7 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
 public class SeparatorIntegrationTest extends AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("separator.jsf");
+	private String testUrl = toShowcaseUrl("separator.xhtml");
 
 	@Before
 	public void init() {

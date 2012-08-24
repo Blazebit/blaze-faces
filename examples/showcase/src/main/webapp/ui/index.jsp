@@ -1,4 +1,4 @@
 <% 
-    response.sendRedirect("home.jsf");
+    response.sendRedirect("home.xhtml");
     return;
 %>

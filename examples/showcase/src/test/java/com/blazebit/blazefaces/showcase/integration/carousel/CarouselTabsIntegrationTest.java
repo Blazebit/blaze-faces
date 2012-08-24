@@ -19,7 +19,7 @@ public class CarouselTabsIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void before() {
-		driver.get(toShowcaseUrl("carouselTabs.jsf"));
+		driver.get(toShowcaseUrl("carouselTabs.xhtml"));
 		carousel = testingHelper.findCarouselById(driver, TABS_CAROUSEL_ID);
 	}
 
@@ -33,7 +33,8 @@ public class CarouselTabsIntegrationTest extends AbstractIntegrationTest {
 		clickToElementByClass("ui-carousel-next-button");
 		waitForOneSecond();
 
-		assertThat(getCssLeftValue(carousel), equalTo(leftValue + carouselWidth));
+		assertThat(getCssLeftValue(carousel),
+				equalTo(leftValue + carouselWidth));
 
 	}
 

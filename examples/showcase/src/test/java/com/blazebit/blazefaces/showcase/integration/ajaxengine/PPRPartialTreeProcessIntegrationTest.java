@@ -12,7 +12,7 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 public class PPRPartialTreeProcessIntegrationTest extends
 		AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("pprPartialTree.jsf");
+	private String testUrl = toShowcaseUrl("pprPartialTree.xhtml");
 	private final String errMsg = "Surname is required.";
 	private String emptyMsg;
 	private final String msgFormat = "Welcome %s %s!";

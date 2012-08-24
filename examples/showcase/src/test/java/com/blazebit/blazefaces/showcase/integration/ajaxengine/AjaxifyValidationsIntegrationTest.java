@@ -11,7 +11,7 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
 public class AjaxifyValidationsIntegrationTest extends AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("ajaxifyValidations.jsf");
+	private String testUrl = toShowcaseUrl("ajaxifyValidations.xhtml");
 	private WebElement lblFirstName;
 	private WebElement txtFirstName;
 	private WebElement lblErrMessage;

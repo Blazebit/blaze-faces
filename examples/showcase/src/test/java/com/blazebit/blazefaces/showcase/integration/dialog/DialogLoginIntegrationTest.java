@@ -12,7 +12,7 @@ public class DialogLoginIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void before() {
-		driver.get(toShowcaseUrl("dialogLogin.jsf"));
+		driver.get(toShowcaseUrl("dialogLogin.xhtml"));
 	}
 
 	@Test
@@ -30,7 +30,8 @@ public class DialogLoginIntegrationTest extends AbstractIntegrationTest {
 
 			public Boolean apply(WebDriver driver) {
 				return !driver.findElement(By.id("dialog")).isDisplayed()
-						&& !driver.findElement(By.id("loginLink")).isDisplayed();
+						&& !driver.findElement(By.id("loginLink"))
+								.isDisplayed();
 			}
 		});
 
@@ -45,7 +46,8 @@ public class DialogLoginIntegrationTest extends AbstractIntegrationTest {
 		waitForCondition(new ExpectedCondition<Boolean>() {
 
 			public Boolean apply(WebDriver driver) {
-				return !driver.findElement(By.id("loginLink")).getAttribute("style").contains("display: none;");
+				return !driver.findElement(By.id("loginLink"))
+						.getAttribute("style").contains("display: none;");
 			}
 		});
 	}

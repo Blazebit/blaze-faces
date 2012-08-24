@@ -13,7 +13,7 @@ public class CarouselSelectionIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void before() {
-		driver.get(toShowcaseUrl("carouselSelect.jsf"));
+		driver.get(toShowcaseUrl("carouselSelect.xhtml"));
 	}
 
 	@Test
@@ -24,17 +24,21 @@ public class CarouselSelectionIntegrationTest extends AbstractIntegrationTest {
 
 	private void selectElementAndVerify(int itemNumber) {
 
-		String imageURL = getImageUrlByElementId("form:carousel:" + itemNumber + ":image");
-		String model = findElementById("form:carousel:" + itemNumber + ":model").getText();
+		String imageURL = getImageUrlByElementId("form:carousel:" + itemNumber
+				+ ":image");
+		String model = findElementById("form:carousel:" + itemNumber + ":model")
+				.getText();
 
-        waitUntilAllAnimationsComplete();
+		waitUntilAllAnimationsComplete();
 		clickToElementById("form:carousel:" + itemNumber + ":view");
 		waitUntilAjaxRequestCompletes();
-        
-		assertThat(imageURL, containsString(getImageUrlByElementId("form:carImage")));
+
+		assertThat(imageURL,
+				containsString(getImageUrlByElementId("form:carImage")));
 		assertThat(findElementById("form:modelNo").getText(), equalTo(model));
-        
-        findElementBySelector(findElementById("form:dialog"), ".ui-dialog-titlebar-close").click();
+
+		findElementBySelector(findElementById("form:dialog"),
+				".ui-dialog-titlebar-close").click();
 	}
 
 	public String getImageUrlByElementId(String elementId) {

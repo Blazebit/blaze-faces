@@ -16,30 +16,32 @@ import com.blazebit.blazefaces.showcase.integration.SeleniumActionHelper;
 public class TreeContextMenuIntegrationTest extends AbstractIntegrationTest {
 
 	private SeleniumActionHelper action;
-	
+
 	@Before
-	public void init(){
-		String testUrl = toShowcaseUrl("treeContextMenu.jsf");
+	public void init() {
+		String testUrl = toShowcaseUrl("treeContextMenu.xhtml");
 		driver.get(testUrl);
 		action = new SeleniumActionHelper(driver);
-		
+
 		WebElement firstRow = findElementByClass("ui-tree-selectable-node");
 		action.rightClick(firstRow);
 	}
-	
+
 	@Test
-	public void shouldShowContextMenuWhenPageRightClicked() throws InterruptedException{
-		
+	public void shouldShowContextMenuWhenPageRightClicked()
+			throws InterruptedException {
+
 		WebElement contextMenu = findElementById("form:contextMenuId");
 		assertThat(contextMenu.isDisplayed(), equalTo(true));
-		
+
 	}
-	
+
 	@Test
-	public void shouldContextFourMenuItem(){
+	public void shouldContextFourMenuItem() {
 		WebElement contextMenu = findElementById("form:contextMenuId");
-		List<WebElement> menus = contextMenu.findElements(By.className("ui-menuitem-text"));
-		
+		List<WebElement> menus = contextMenu.findElements(By
+				.className("ui-menuitem-text"));
+
 		assertThat(menus.size(), equalTo(2));
 		assertThat(menus.get(0).getText(), equalTo("View"));
 		assertThat(menus.get(1).getText(), equalTo("Delete"));

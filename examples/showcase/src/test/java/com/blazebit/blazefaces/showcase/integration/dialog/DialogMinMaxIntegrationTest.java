@@ -17,7 +17,7 @@ public class DialogMinMaxIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void before() {
-		driver.get(toShowcaseUrl("dialogMinMax.jsf"));
+		driver.get(toShowcaseUrl("dialogMinMax.xhtml"));
 	}
 
 	@Test
@@ -30,7 +30,8 @@ public class DialogMinMaxIntegrationTest extends AbstractIntegrationTest {
 		testDialogMinMaxFunctionality("ui-icon-minus", "float: left;");
 	}
 
-	private void testDialogMinMaxFunctionality(final String clickedButtonId, final String expectedStyle) {
+	private void testDialogMinMaxFunctionality(final String clickedButtonId,
+			final String expectedStyle) {
 		WebElement openDialogButton = findElementById("basic");
 		openDialogButton.click();
 
@@ -44,7 +45,8 @@ public class DialogMinMaxIntegrationTest extends AbstractIntegrationTest {
 		waitForCondition(new ExpectedCondition<Boolean>() {
 
 			public Boolean apply(WebDriver driver) {
-				String dialogStyle = driver.findElement(By.id("minMaxDialog")).getAttribute("style");
+				String dialogStyle = driver.findElement(By.id("minMaxDialog"))
+						.getAttribute("style");
 				return dialogStyle.contains(expectedStyle);
 			}
 		});

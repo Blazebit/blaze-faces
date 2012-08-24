@@ -19,16 +19,18 @@ import java.io.Serializable;
 
 public class Birth implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
 	private int year;
-	
+
 	private int boys;
-	
+
 	private int girls;
-	
+
 	public Birth() {
-		
+
 	}
-	
+
 	public Birth(int year, int boys, int girls) {
 		this.year = year;
 		this.boys = boys;

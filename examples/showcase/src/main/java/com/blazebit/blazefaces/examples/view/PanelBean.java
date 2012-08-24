@@ -15,26 +15,34 @@
  */
 package com.blazebit.blazefaces.examples.view;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
 import com.blazebit.blazefaces.event.CloseEvent;
 import com.blazebit.blazefaces.event.ToggleEvent;
 
+@Named
+@RequestScoped
 public class PanelBean {
 
 	public void handleClose(CloseEvent event) {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Panel Closed", "Closed panel id:'" + event.getComponent().getId() + "'");
-		
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
+				"Panel Closed", "Closed panel id:'"
+						+ event.getComponent().getId() + "'");
+
 		addMessage(message);
 	}
-	
+
 	public void handleToggle(ToggleEvent event) {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, event.getComponent().getId() + " toggled", "Status:" + event.getVisibility().name());
-		
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
+				event.getComponent().getId() + " toggled", "Status:"
+						+ event.getVisibility().name());
+
 		addMessage(message);
 	}
-	
+
 	private void addMessage(FacesMessage message) {
 		FacesContext.getCurrentInstance().addMessage(null, message);
 	}

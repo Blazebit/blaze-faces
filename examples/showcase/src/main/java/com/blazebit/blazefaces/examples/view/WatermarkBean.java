@@ -15,10 +15,14 @@
  */
 package com.blazebit.blazefaces.examples.view;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.inject.Named;
 
+@Named
+@RequestScoped
 public class WatermarkBean {
 
 	private String keyword;
@@ -30,9 +34,11 @@ public class WatermarkBean {
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
-	
+
 	public void search(ActionEvent actionEvent) {
-		FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_INFO,"No results found with ", "'" + keyword + "'"));
+		FacesContext.getCurrentInstance().addMessage(
+				null,
+				new FacesMessage(FacesMessage.SEVERITY_INFO,
+						"No results found with ", "'" + keyword + "'"));
 	}
 }
-

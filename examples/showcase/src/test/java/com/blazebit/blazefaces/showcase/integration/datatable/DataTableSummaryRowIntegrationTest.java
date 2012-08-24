@@ -16,16 +16,17 @@ public class DataTableSummaryRowIntegrationTest extends AbstractIntegrationTest 
 
 	@Before
 	public void before() {
-		driver.get(toShowcaseUrl("datatableSummaryRow.jsf"));
+		driver.get(toShowcaseUrl("datatableSummaryRow.xhtml"));
 	}
 
 	@Test
 	public void shouldSummarizeBasedOnCarModels() {
 		groupAndVerifyColumnByHeaderAndColumnNumber("color", 3);
-		groupAndVerifyColumnByHeaderAndColumnNumber("year" , 1);
+		groupAndVerifyColumnByHeaderAndColumnNumber("year", 1);
 	}
-	
-	private void groupAndVerifyColumnByHeaderAndColumnNumber(String header, int columnNumber) {
+
+	private void groupAndVerifyColumnByHeaderAndColumnNumber(String header,
+			int columnNumber) {
 		getHeaderFor(header).click();
 		waitForOneSecond();
 		verifyGroupedColumnsByColumnId(columnNumber);
@@ -33,7 +34,8 @@ public class DataTableSummaryRowIntegrationTest extends AbstractIntegrationTest 
 
 	private void verifyGroupedColumnsByColumnId(int i) {
 		System.out.println();
-		List<WebElement> rows = findElementById("form:carsTable_data").findElements(By.tagName("tr"));
+		List<WebElement> rows = findElementById("form:carsTable_data")
+				.findElements(By.tagName("tr"));
 		String currentColor = null;
 		boolean isValid = true;
 		for (WebElement row : rows) {
@@ -64,7 +66,8 @@ public class DataTableSummaryRowIntegrationTest extends AbstractIntegrationTest 
 	}
 
 	private WebElement getHeaderFor(String id) {
-		return findElementById("form:carsTable:" + id + "Header").findElement(By.tagName("span"));
+		return findElementById("form:carsTable:" + id + "Header").findElement(
+				By.tagName("span"));
 
 	}
 

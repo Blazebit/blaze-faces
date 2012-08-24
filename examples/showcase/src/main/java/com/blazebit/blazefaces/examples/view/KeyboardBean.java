@@ -15,25 +15,30 @@
  */
 package com.blazebit.blazefaces.examples.view;
 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+
+@Named
+@RequestScoped
 public class KeyboardBean {
 
 	private String value1;
-	
+
 	private String value2;
-	
+
 	private String value3;
-	
+
 	private String value4;
-	
+
 	private String value5;
 
-    private String value6;
+	private String value6;
 
-    private String value7;
+	private String value7;
 
-    private String value8;
+	private String value8;
 
-    private String value9;
+	private String value9;
 
 	public String getValue1() {
 		return value1;
@@ -42,7 +47,7 @@ public class KeyboardBean {
 	public void setValue1(String value1) {
 		this.value1 = value1;
 	}
-	
+
 	public String getValue2() {
 		return value2;
 	}
@@ -66,7 +71,7 @@ public class KeyboardBean {
 	public void setValue4(String value4) {
 		this.value4 = value4;
 	}
-	
+
 	public String getValue5() {
 		return value5;
 	}
@@ -75,35 +80,35 @@ public class KeyboardBean {
 		this.value5 = value5;
 	}
 
-    public String getValue6() {
-        return value6;
-    }
+	public String getValue6() {
+		return value6;
+	}
 
-    public void setValue6(String value6) {
-        this.value6 = value6;
-    }
+	public void setValue6(String value6) {
+		this.value6 = value6;
+	}
 
-    public String getValue7() {
-        return value7;
-    }
+	public String getValue7() {
+		return value7;
+	}
 
-    public void setValue7(String value7) {
-        this.value7 = value7;
-    }
+	public void setValue7(String value7) {
+		this.value7 = value7;
+	}
 
-    public String getValue8() {
-        return value8;
-    }
+	public String getValue8() {
+		return value8;
+	}
 
-    public void setValue8(String value8) {
-        this.value8 = value8;
-    }
+	public void setValue8(String value8) {
+		this.value8 = value8;
+	}
 
-    public String getValue9() {
-        return value9;
-    }
+	public String getValue9() {
+		return value9;
+	}
 
-    public void setValue9(String value9) {
-        this.value9 = value9;
-    }
+	public void setValue9(String value9) {
+		this.value9 = value9;
+	}
 }

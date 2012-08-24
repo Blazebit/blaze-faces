@@ -4,6 +4,8 @@
 package com.blazebit.blazefaces.behavior.ajax;
 
 import com.blazebit.blazefaces.util.AjaxRequestBuilder;
+import com.blazebit.blazefaces.util.RendererUtils;
+
 import javax.faces.component.ActionSource;
 import javax.faces.component.EditableValueHolder;
 import javax.faces.component.UIComponent;
@@ -68,9 +70,9 @@ public class AjaxBehaviorRenderer extends ClientBehaviorRenderer {
                         .params(component)
                         .preventDefault()
                         .buildBehavior();
-
-        return request;
-//        return RendererUtil.getEventHandlerScript(fc, source, behaviorContext.getEventName(), req.toString());
+        	
+        return request.toString();
+//        return RendererUtils.getEventHandlerScript(context, source, behaviorContext.getEventName(), request.toString());
     }
 
     private boolean isImmediate(UIComponent component, AjaxBehavior ajaxBehavior) {

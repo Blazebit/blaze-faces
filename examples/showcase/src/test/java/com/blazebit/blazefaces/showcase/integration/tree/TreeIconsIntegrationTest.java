@@ -14,7 +14,7 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
 public class TreeIconsIntegrationTest extends AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("treeIcons.jsf");
+	private String testUrl = toShowcaseUrl("treeIcons.xhtml");
 
 	@Before
 	public void init() {

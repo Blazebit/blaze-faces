@@ -12,31 +12,36 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 import com.blazebit.blazefaces.showcase.integration.SeleniumActionHelper;
 
-public class PieChartIntegrationTest extends AbstractIntegrationTest{
+public class PieChartIntegrationTest extends AbstractIntegrationTest {
 	private SeleniumActionHelper actionHelper;
-	
+
 	@Before
 	public void init() {
-		driver.get(toShowcaseUrl("pieChart.jsf"));
+		driver.get(toShowcaseUrl("pieChart.xhtml"));
 		actionHelper = new SeleniumActionHelper(driver);
 	}
-	
+
 	@Test
-	public void shouldShowChartValues(){
-		//pieCharts must be exist
-		findElementById("sample").findElement(By.className("jqplot-pieRenderer-highlight-canvas"));
-		findElementById("custom").findElement(By.className("jqplot-pieRenderer-highlight-canvas"));
-		
-		WebElement chart = findElementById("sample").findElement(By.className("jqplot-event-canvas"));
+	public void shouldShowChartValues() {
+		// pieCharts must be exist
+		findElementById("sample").findElement(
+				By.className("jqplot-pieRenderer-highlight-canvas"));
+		findElementById("custom").findElement(
+				By.className("jqplot-pieRenderer-highlight-canvas"));
+
+		WebElement chart = findElementById("sample").findElement(
+				By.className("jqplot-event-canvas"));
 		actionHelper.mouseHover(chart);
 		actionHelper.clickOnCurrentPosition();
 		waitForCondition(new ExpectedCondition<Boolean>() {
 			public Boolean apply(WebDriver driver) {
-				return driver.findElement(By.className("ui-chart-tooltip")).getAttribute("style").contains("display: block;");
+				return driver.findElement(By.className("ui-chart-tooltip"))
+						.getAttribute("style").contains("display: block;");
 			}
 		});
-		WebElement clickedPlace = findElementById("sample").findElement(By.className("ui-chart-tooltip"));
+		WebElement clickedPlace = findElementById("sample").findElement(
+				By.className("ui-chart-tooltip"));
 		assertTrue(clickedPlace.getText().equals("Brand 3 : 702"));
-		
+
 	}
 }

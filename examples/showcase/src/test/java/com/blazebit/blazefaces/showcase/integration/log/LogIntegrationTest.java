@@ -1,59 +1,71 @@
 package com.blazebit.blazefaces.showcase.integration.log;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
-import static org.junit.Assert.assertTrue;
-
 public class LogIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void init() {
-		String testUrl = toShowcaseUrl("log.jsf");
+		String testUrl = toShowcaseUrl("log.xhtml");
 		driver.get(testUrl);
-        scrollByOffset(0, 310);
+		scrollByOffset(0, 310);
 	}
 
 	@Test
-	public void shouldDisplayInfoMessage(){
+	public void shouldDisplayInfoMessage() {
 		findElementById("info").click();
 		waitUntilAjaxRequestCompletes();
-		assertTrue(findElementByXpath("//div[@id='log']/div[2]/ul/li").getText().contains("This is an info message."));
+		assertTrue(findElementByXpath("//div[@id='log']/div[2]/ul/li")
+				.getText().contains("This is an info message."));
 	}
+
 	@Test
-	public void shouldDisplayWarnMessage(){
+	public void shouldDisplayWarnMessage() {
 		findElementById("warn").click();
 		waitUntilAjaxRequestCompletes();
-		assertTrue(findElementByXpath("//div[@id='log']/div[2]/ul/li").getText().contains("This is a warn message."));
+		assertTrue(findElementByXpath("//div[@id='log']/div[2]/ul/li")
+				.getText().contains("This is a warn message."));
 	}
+
 	@Test
-	public void shouldDisplayDebugMessage(){
+	public void shouldDisplayDebugMessage() {
 		findElementById("debug").click();
 		waitUntilAjaxRequestCompletes();
-		assertTrue(findElementByXpath("//div[@id='log']/div[2]/ul/li").getText().contains("This is a debug message."));
+		assertTrue(findElementByXpath("//div[@id='log']/div[2]/ul/li")
+				.getText().contains("This is a debug message."));
 	}
+
 	@Test
-	public void shouldDisplayErrorMessage(){
+	public void shouldDisplayErrorMessage() {
 		findElementById("error").click();
 		waitUntilAjaxRequestCompletes();
-		assertTrue(findElementByXpath("//div[@id='log']/div[2]/ul/li").getText().contains("This is an error message."));
+		assertTrue(findElementByXpath("//div[@id='log']/div[2]/ul/li")
+				.getText().contains("This is an error message."));
 	}
-	
+
 	@Test
-	public void shouldDisplayAjaxRequest(){
+	public void shouldDisplayAjaxRequest() {
 		findElementById("frm:name").clear();
 		findElementById("frm:name").sendKeys("BlazeFaces");
 		findElementById("frm:submit").click();
-		
-		assertTrue(findElementByXpath("//div[@id='log']/div[2]/ul/li").getText().contains("Initiating ajax request."));
-		assertTrue(findElementByXpath("//div[@id='log']/div[2]/ul/li[2]").getText().contains("Form to post frm."));
-		assertTrue(findElementByXpath("//div[@id='log']/div[2]/ul/li[3]").getText().contains("URL to post /blaze-showcase/ui/log.jsf"));
-		assertTrue(findElementByXpath("//div[@id='log']/div[2]/ul/li[5]").getText().contains("Response received succesfully."));
-		assertTrue(findElementByXpath("//div[@id='log']/div[2]/ul/li[6]").getText().contains("DOM is updated."));
-		assertTrue(findElementByXpath("//div[@id='log']/div[2]/ul/li[7]").getText().contains("Response completed."));
-		
+
+		assertTrue(findElementByXpath("//div[@id='log']/div[2]/ul/li")
+				.getText().contains("Initiating ajax request."));
+		assertTrue(findElementByXpath("//div[@id='log']/div[2]/ul/li[2]")
+				.getText().contains("Form to post frm."));
+		assertTrue(findElementByXpath("//div[@id='log']/div[2]/ul/li[3]")
+				.getText().contains("URL to post /blaze-showcase/ui/log.xhtml"));
+		assertTrue(findElementByXpath("//div[@id='log']/div[2]/ul/li[5]")
+				.getText().contains("Response received succesfully."));
+		assertTrue(findElementByXpath("//div[@id='log']/div[2]/ul/li[6]")
+				.getText().contains("DOM is updated."));
+		assertTrue(findElementByXpath("//div[@id='log']/div[2]/ul/li[7]")
+				.getText().contains("Response completed."));
 
 	}
 }

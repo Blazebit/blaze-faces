@@ -14,7 +14,7 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
 public class PPRAjaxStatusScriptIntegrationTest extends AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("pprAjaxStatusScript.jsf").replace(
+	private String testUrl = toShowcaseUrl("pprAjaxStatusScript.xhtml").replace(
 			"ui", "test");
 
 	private WebElement dlgStatus;

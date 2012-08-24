@@ -1,5 +1,7 @@
 package com.blazebit.blazefaces.showcase.integration.themeswitcher;
 
+import static junit.framework.Assert.assertTrue;
+
 import java.util.List;
 
 import org.junit.Before;
@@ -9,11 +11,9 @@ import org.openqa.selenium.WebElement;
 
 import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
-import static junit.framework.Assert.assertTrue;
-
 public class ThemeSwitcherIntegrationTest extends AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("themeswitcher.jsf");
+	private String testUrl = toShowcaseUrl("themeswitcher.xhtml");
 	private WebElement defaultSwitcher;
 	private WebElement statefulSwitcher;
 	private WebElement themePreview;
@@ -45,7 +45,7 @@ public class ThemeSwitcherIntegrationTest extends AbstractIntegrationTest {
 		WebElement themeStyle = null;
 
 		for (WebElement style : styles) {
-			if (style.getAttribute("href").contains("theme.css.jsf")) {
+			if (style.getAttribute("href").contains("theme.css.xhtml")) {
 				themeStyle = style;
 				break;
 			}
@@ -79,7 +79,7 @@ public class ThemeSwitcherIntegrationTest extends AbstractIntegrationTest {
 		WebElement themeStyle = null;
 
 		for (WebElement style : styles) {
-			if (style.getAttribute("href").contains("theme.css.jsf")) {
+			if (style.getAttribute("href").contains("theme.css.xhtml")) {
 				themeStyle = style;
 				break;
 			}
@@ -115,7 +115,7 @@ public class ThemeSwitcherIntegrationTest extends AbstractIntegrationTest {
 		WebElement themeStyle = null;
 
 		for (WebElement style : styles) {
-			if (style.getAttribute("href").contains("theme.css.jsf")) {
+			if (style.getAttribute("href").contains("theme.css.xhtml")) {
 				themeStyle = style;
 				break;
 			}

@@ -17,11 +17,16 @@ package com.blazebit.blazefaces.examples.view;
 
 import java.util.logging.Logger;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.event.ActionEvent;
+import javax.inject.Named;
 
+@Named
+@RequestScoped
 public class HotkeyController {
-	
-	private static final Logger logger = Logger.getLogger(HotkeyController.class.getName());
+
+	private static final Logger logger = Logger
+			.getLogger(HotkeyController.class.getName());
 
 	public void action(ActionEvent event) {
 		logger.info("Submitted with HotKey");

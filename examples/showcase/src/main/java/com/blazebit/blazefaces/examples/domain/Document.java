@@ -19,12 +19,14 @@ import java.io.Serializable;
 
 public class Document implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
 	private String name;
-	
+
 	private String size;
-	
+
 	private String type;
-	
+
 	public Document(String name, String size, String type) {
 		this.name = name;
 		this.size = size;
@@ -55,7 +57,7 @@ public class Document implements Serializable {
 		this.type = type;
 	}
 
-	//Eclipse Generated hashCode and equals
+	// Eclipse Generated hashCode and equals
 	@Override
 	public int hashCode() {
 		final int prime = 31;

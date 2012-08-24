@@ -1,5 +1,7 @@
 package com.blazebit.blazefaces.showcase.integration.dashboard;
 
+import static junit.framework.Assert.assertTrue;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
@@ -7,13 +9,11 @@ import org.openqa.selenium.interactions.Actions;
 
 import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
-import static junit.framework.Assert.assertTrue;
-
 public class DashboardIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void init() {
-		String testUrl = toShowcaseUrl("dashboard.jsf");
+		String testUrl = toShowcaseUrl("dashboard.xhtml");
 		driver.get(testUrl);
 	}
 

@@ -5,12 +5,14 @@ import java.util.List;
 
 public class NewsGroup implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
 	private String title;
-	
+
 	private List<NewsEntry> entries;
-	
+
 	public NewsGroup() {
-		
+
 	}
 
 	public NewsGroup(String title, List<NewsEntry> entries) {

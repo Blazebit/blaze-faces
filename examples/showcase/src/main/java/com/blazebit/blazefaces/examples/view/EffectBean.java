@@ -5,18 +5,18 @@ package com.blazebit.blazefaces.examples.view;
 
 import java.io.Serializable;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.inject.Named;
+
+import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
 
 /**
- *
+ * 
  * @author Christian Beikov
  */
-@ManagedBean
-@ViewScoped
+@Named
+@ViewAccessScoped
 public class EffectBean implements Serializable {
-    
+
 	private static final long serialVersionUID = 1L;
-    
-    
+
 }

@@ -26,6 +26,7 @@ import javax.faces.event.ActionEvent;
 import com.blazebit.blazefaces.renderkit.CoreRenderer;
 import com.blazebit.blazefaces.util.ComponentUtils;
 import com.blazebit.blazefaces.util.HTML;
+import com.blazebit.blazefaces.util.RendererUtils;
 
 public class CommandButtonRenderer extends CoreRenderer {
 
@@ -111,7 +112,8 @@ public class CommandButtonRenderer extends CoreRenderer {
         }
 
         if (onclick.length() > 0) {
-            writer.writeAttribute("onclick", onclick.toString(), "onclick");
+        	RendererUtils.encodeSequentialEventHandler(context, clientId, "click", onclick.toString());
+            //writer.writeAttribute("onclick", onclick.toString(), "onclick");
         }
 
         renderPassThruAttributes(context, button, HTML.BUTTON_ATTRS, HTML.CLICK_EVENT);

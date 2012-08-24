@@ -27,24 +27,27 @@ import com.sun.syndication.io.XmlReader;
 
 public class TwitterRSSService implements TwitterService {
 
-	private static final Logger logger = Logger.getLogger(TwitterRSSService.class.getName());
-	
+	private static final Logger logger = Logger
+			.getLogger(TwitterRSSService.class.getName());
+
 	public List<String> getTweets(String username) {
 		List<String> tweets = new ArrayList<String>();
-		
+
 		try {
-			URL feedSource = new URL("http://twitter.com/statuses/user_timeline.rss?screen_name=" + username);
+			URL feedSource = new URL(
+					"http://twitter.com/statuses/user_timeline.rss?screen_name="
+							+ username);
 
 			SyndFeedInput input = new SyndFeedInput();
 			SyndFeed feed = input.build(new XmlReader(feedSource));
-			for(Object f : feed.getEntries()) {
+			for (Object f : feed.getEntries()) {
 				SyndEntry entry = (SyndEntry) f;
 				tweets.add(entry.getTitle().substring(username.length() + 2));
 			}
-		}catch(Exception e) {
+		} catch (Exception e) {
 			logger.severe(e.getMessage());
 		}
-		
+
 		return tweets;
 	}
 }

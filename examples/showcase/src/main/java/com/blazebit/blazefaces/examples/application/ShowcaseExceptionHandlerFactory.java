@@ -18,18 +18,17 @@ package com.blazebit.blazefaces.examples.application;
 import javax.faces.context.ExceptionHandler;
 import javax.faces.context.ExceptionHandlerFactory;
 
-
 public class ShowcaseExceptionHandlerFactory extends ExceptionHandlerFactory {
 
-    private ExceptionHandlerFactory base;
-    
-    public ShowcaseExceptionHandlerFactory(ExceptionHandlerFactory base) {
-        this.base = base;
-    }
-    
-    @Override
-    public ExceptionHandler getExceptionHandler() {
-        return new ShowcaseExceptionHandler(base.getExceptionHandler());
-    }
-    
+	private ExceptionHandlerFactory base;
+
+	public ShowcaseExceptionHandlerFactory(ExceptionHandlerFactory base) {
+		this.base = base;
+	}
+
+	@Override
+	public ExceptionHandler getExceptionHandler() {
+		return new ShowcaseExceptionHandler(base.getExceptionHandler());
+	}
+
 }

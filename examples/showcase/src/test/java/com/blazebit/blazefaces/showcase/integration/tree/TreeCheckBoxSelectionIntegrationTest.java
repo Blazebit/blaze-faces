@@ -15,7 +15,7 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 public class TreeCheckBoxSelectionIntegrationTest extends
 		AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("treeSelectionCheckbox.jsf");
+	private String testUrl = toShowcaseUrl("treeSelectionCheckbox.xhtml");
 	private WebElement btnDisplay;
 
 	@Before

@@ -15,111 +15,129 @@
  */
 package com.blazebit.blazefaces.examples.view;
 
+import java.io.Serializable;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
+
 import com.blazebit.blazefaces.context.RequestContext;
 import com.blazebit.blazefaces.push.PushContext;
 import com.blazebit.blazefaces.push.PushContextFactory;
 
-public class ChatView {
-    
-    private final PushContext pushContext = PushContextFactory.getDefault().getPushContext();
-    
-    private ChatUsers users;
+@Named
+@ViewAccessScoped
+public class ChatView implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	private final PushContext pushContext = PushContextFactory.getDefault()
+			.getPushContext();
+
+	@Inject
+	private ChatUsers users;
 
 	private String privateMessage;
-    
-    private String globalMessage;
-	
+
+	private String globalMessage;
+
 	private String username;
-	
+
 	private boolean loggedIn;
-    
-    private String privateUser;
-    
-    private final static String CHANNEL = "/chat/";
 
-    public void setUsers(ChatUsers users) {
-        this.users = users;
-    }
+	private String privateUser;
 
-    public String getPrivateUser() {
-        return privateUser;
-    }
+	private final static String CHANNEL = "/chat/";
 
-    public void setPrivateUser(String privateUser) {
-        this.privateUser = privateUser;
-    }
+	public void setUsers(ChatUsers users) {
+		this.users = users;
+	}
 
-    public String getGlobalMessage() {
-        return globalMessage;
-    }
+	public String getPrivateUser() {
+		return privateUser;
+	}
 
-    public void setGlobalMessage(String globalMessage) {
-        this.globalMessage = globalMessage;
-    }
+	public void setPrivateUser(String privateUser) {
+		this.privateUser = privateUser;
+	}
 
-    public String getPrivateMessage() {
-        return privateMessage;
-    }
+	public String getGlobalMessage() {
+		return globalMessage;
+	}
 
-    public void setPrivateMessage(String privateMessage) {
-        this.privateMessage = privateMessage;
-    }
-    
+	public void setGlobalMessage(String globalMessage) {
+		this.globalMessage = globalMessage;
+	}
+
+	public String getPrivateMessage() {
+		return privateMessage;
+	}
+
+	public void setPrivateMessage(String privateMessage) {
+		this.privateMessage = privateMessage;
+	}
+
 	public String getUsername() {
 		return username;
 	}
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
+
 	public boolean isLoggedIn() {
 		return loggedIn;
 	}
+
 	public void setLoggedIn(boolean loggedIn) {
 		this.loggedIn = loggedIn;
 	}
 
 	public void sendGlobal() {
-        pushContext.push(CHANNEL + "*", username + ": " + globalMessage);
-		
+		pushContext.push(CHANNEL + "*", username + ": " + globalMessage);
+
 		globalMessage = null;
 	}
-    
-    public void sendPrivate() {
-        pushContext.push(CHANNEL + privateUser, "[PM] " + username + ": " + privateMessage);
-        
-        privateMessage = null;
-    }
-	
-	public void login() {
-        RequestContext requestContext = RequestContext.getCurrentInstance();
-        
-		if(users.contains(username)) {
-            loggedIn = false;
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Username taken", "Try with another username."));
-            
-            requestContext.update("growl");
-        }
-        else {
-            users.addUser(username);
-            pushContext.push(CHANNEL + "*", username + " joined the channel.");
-            requestContext.execute("subscriber.connect('/" + username + "')");
-            loggedIn = true;
-        }
+
+	public void sendPrivate() {
+		pushContext.push(CHANNEL + privateUser, "[PM] " + username + ": "
+				+ privateMessage);
+
+		privateMessage = null;
 	}
-    
-    public void disconnect() {
-        //remove user and update ui
-        users.removeUser(username);
-        RequestContext.getCurrentInstance().update("form:users");
-        
-        //push leave information
-        pushContext.push(CHANNEL + "*", username + " left the channel.");
-        
-        //reset state
-        loggedIn = false;
-        username = null;
-    }
+
+	public void login() {
+		RequestContext requestContext = RequestContext.getCurrentInstance();
+
+		if (users.contains(username)) {
+			loggedIn = false;
+			FacesContext.getCurrentInstance().addMessage(
+					null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR,
+							"Username taken", "Try with another username."));
+
+			requestContext.update("growl");
+		} else {
+			users.addUser(username);
+			pushContext.push(CHANNEL + "*", username + " joined the channel.");
+			requestContext.execute("subscriber.connect('/" + username + "')");
+			loggedIn = true;
+		}
+	}
+
+	public void disconnect() {
+		// remove user and update ui
+		users.removeUser(username);
+		RequestContext.getCurrentInstance().update("form:users");
+
+		// push leave information
+		pushContext.push(CHANNEL + "*", username + " left the channel.");
+
+		// reset state
+		loggedIn = false;
+		username = null;
+	}
 }

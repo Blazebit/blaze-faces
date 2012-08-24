@@ -6,17 +6,17 @@
 	contentType="text/html"
     renderKitId="BLAZEFACES_MOBILE">
 
-    <pm:page title="BlazeFaces Mobile Weather">
+    <bm:page title="BlazeFaces Mobile Weather">
 
         <!-- Main View -->
-        <pm:view id="main">
-            <pm:header title="Weather">
+        <bm:view id="main">
+            <bm:header title="Weather">
                 <f:facet name="right">
                     <b:button value="Settings" icon="gear" href="#settings" />
                 </f:facet>
-            </pm:header>
+            </bm:header>
 
-            <pm:content>
+            <bm:content>
                 <h:form id="mainForm">
                     <h:outputText value="Select City:" />
                     <h:selectOneMenu value="#{weatherController.city}">
@@ -31,16 +31,16 @@
                         <h:outputText id="display" value="#{weatherController.conditions}" escape="false" />
                     </b:outputPanel>
                 </h:form>
-            </pm:content>
-        </pm:view>
+            </bm:content>
+        </bm:view>
 
         <!-- Settings View -->
-        <pm:view id="settings">
-            <pm:header title="Weather">
+        <bm:view id="settings">
+            <bm:header title="Weather">
                 <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
-            </pm:header>
+            </bm:header>
 
-            <pm:content>
+            <bm:content>
                 <h:form id="settingsForm">
 
                     <h:outputText value="Select Unit:" />
@@ -52,12 +52,12 @@
                     <b:separator />
 
                     <b:commandButton value="Save" actionListener="#{weatherController.saveSettings}" update=":mainForm:display"
-                                      action="pm:main"/>
+                                      action="bm:main"/>
                     
                 </h:form>
-            </pm:content>
-        </pm:view>
+            </bm:content>
+        </bm:view>
 
-    </pm:page>
+    </bm:page>
 
 </f:view>

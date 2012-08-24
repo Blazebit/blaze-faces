@@ -1,5 +1,9 @@
 package com.blazebit.blazefaces.showcase.integration.inputmask;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.HasInputDevices;
@@ -8,15 +12,11 @@ import org.openqa.selenium.WebElement;
 
 import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertTrue;
-
 public class InputMaskIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void init() {
-		String testUrl = toShowcaseUrl("inputMask.jsf");
+		String testUrl = toShowcaseUrl("inputMask.xhtml");
 		driver.get(testUrl);
 	}
 
@@ -50,7 +50,8 @@ public class InputMaskIntegrationTest extends AbstractIntegrationTest {
 		element.clear();
 		keyboard.sendKeys("123456789012345");
 		findElementById("form:masks_header").click(); // change focus
-		assertThat(element.getAttribute("value"), equalTo("(123) 456-7890 x12345"));
+		assertThat(element.getAttribute("value"),
+				equalTo("(123) 456-7890 x12345"));
 	}
 
 	@Test
@@ -100,11 +101,17 @@ public class InputMaskIntegrationTest extends AbstractIntegrationTest {
 
 		assertTrue(findElementById("form:modalDialog").isDisplayed());
 
-		assertThat(findElementById("form:dateValue").getText(), equalTo("26/12/2008"));
-		assertThat(findElementById("form:phoneValue").getText(), equalTo("(123) 456-7890"));
-		assertThat(findElementById("form:phoneWithExtValue").getText(), equalTo("(123) 456-7890 x12345"));
-		assertThat(findElementById("form:taxValue").getText(), equalTo("12-3456789"));
-		assertThat(findElementById("form:ssnValue").getText(), equalTo("123-45-6789"));
-		assertThat(findElementById("form:keyValue").getText(), equalTo("ab-123-c456"));
+		assertThat(findElementById("form:dateValue").getText(),
+				equalTo("26/12/2008"));
+		assertThat(findElementById("form:phoneValue").getText(),
+				equalTo("(123) 456-7890"));
+		assertThat(findElementById("form:phoneWithExtValue").getText(),
+				equalTo("(123) 456-7890 x12345"));
+		assertThat(findElementById("form:taxValue").getText(),
+				equalTo("12-3456789"));
+		assertThat(findElementById("form:ssnValue").getText(),
+				equalTo("123-45-6789"));
+		assertThat(findElementById("form:keyValue").getText(),
+				equalTo("ab-123-c456"));
 	}
 }

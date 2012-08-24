@@ -18,18 +18,25 @@ package com.blazebit.blazefaces.examples.view;
 import java.io.Serializable;
 import java.util.Map;
 
+import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
+@Named
+@SessionScoped
 public class GuestPreferences implements Serializable {
 
-	private String theme = "blazing"; //default
+	private static final long serialVersionUID = 1L;
+
+	private String theme = "blazing"; // default
 
 	public String getTheme() {
-		Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-		if(params.containsKey("theme")) {
+		Map<String, String> params = FacesContext.getCurrentInstance()
+				.getExternalContext().getRequestParameterMap();
+		if (params.containsKey("theme")) {
 			theme = params.get("theme");
 		}
-		
+
 		return theme;
 	}
 

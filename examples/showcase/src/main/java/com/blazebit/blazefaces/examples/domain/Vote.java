@@ -4,12 +4,14 @@ import java.io.Serializable;
 
 public class Vote implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
 	private String candidate;
-	
+
 	private int count;
-	
+
 	public Vote() {
-		//NoOp
+		// NoOp
 	}
 
 	public Vote(String candidate, int count) {
@@ -32,7 +34,7 @@ public class Vote implements Serializable {
 	public void setCount(int count) {
 		this.count = count;
 	}
-	
+
 	public void add(int count) {
 		this.count = this.count + count;
 	}

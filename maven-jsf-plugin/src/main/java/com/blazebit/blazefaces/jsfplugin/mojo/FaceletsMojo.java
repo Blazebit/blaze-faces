@@ -91,9 +91,6 @@ public class FaceletsMojo extends BaseFacesMojo {
             Component component = iterator.next();
             
             writer.write("\t<tag>\n");
-            writer.write("\t\t<tag-name>");
-            writer.write(component.getTag());
-            writer.write("</tag-name>\n");
             writer.write("\t\t<description><![CDATA[");
             
             if (component.getDescription() != null) {
@@ -101,6 +98,9 @@ public class FaceletsMojo extends BaseFacesMojo {
             }
             
             writer.write("]]></description>\n");
+            writer.write("\t\t<tag-name>");
+            writer.write(component.getTag());
+            writer.write("</tag-name>\n");
             writer.write("\t\t<component>\n");
             writer.write("\t\t\t<component-type>");
             writer.write(component.getComponentType());

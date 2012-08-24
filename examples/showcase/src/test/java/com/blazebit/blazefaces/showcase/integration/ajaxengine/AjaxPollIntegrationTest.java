@@ -10,7 +10,7 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
 public class AjaxPollIntegrationTest extends AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("poll.jsf");
+	private String testUrl = toShowcaseUrl("poll.xhtml");
 	private WebElement txtCount;
 
 	@Before

@@ -19,64 +19,67 @@ import java.io.Serializable;
 
 public class ManufacturerSale implements Serializable {
 
-    private String manufacturer;
+	private static final long serialVersionUID = 1L;
 
-    private int lastYearSale;
+	private String manufacturer;
 
-    private int thisYearSale;
+	private int lastYearSale;
 
-    private int lastYearProfit;
+	private int thisYearSale;
 
-    private int thisYearProfit;
+	private int lastYearProfit;
 
-    public ManufacturerSale() {
-    }
+	private int thisYearProfit;
 
-    public ManufacturerSale(String manufacturer, int lastYearSale, int thisYearSale, int lastYearProfit, int thisYearProfit) {
-        this.manufacturer = manufacturer;
-        this.lastYearSale = lastYearSale;
-        this.thisYearSale = thisYearSale;
-        this.lastYearProfit = lastYearProfit;
-        this.thisYearProfit = thisYearProfit;
-    }
+	public ManufacturerSale() {
+	}
 
-    public int getLastYearProfit() {
-        return lastYearProfit;
-    }
+	public ManufacturerSale(String manufacturer, int lastYearSale,
+			int thisYearSale, int lastYearProfit, int thisYearProfit) {
+		this.manufacturer = manufacturer;
+		this.lastYearSale = lastYearSale;
+		this.thisYearSale = thisYearSale;
+		this.lastYearProfit = lastYearProfit;
+		this.thisYearProfit = thisYearProfit;
+	}
 
-    public void setLastYearProfit(int lastYearProfit) {
-        this.lastYearProfit = lastYearProfit;
-    }
+	public int getLastYearProfit() {
+		return lastYearProfit;
+	}
 
-    public int getLastYearSale() {
-        return lastYearSale;
-    }
+	public void setLastYearProfit(int lastYearProfit) {
+		this.lastYearProfit = lastYearProfit;
+	}
 
-    public void setLastYearSale(int lastYearSale) {
-        this.lastYearSale = lastYearSale;
-    }
+	public int getLastYearSale() {
+		return lastYearSale;
+	}
 
-    public String getManufacturer() {
-        return manufacturer;
-    }
+	public void setLastYearSale(int lastYearSale) {
+		this.lastYearSale = lastYearSale;
+	}
 
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
-    }
+	public String getManufacturer() {
+		return manufacturer;
+	}
 
-    public int getThisYearProfit() {
-        return thisYearProfit;
-    }
+	public void setManufacturer(String manufacturer) {
+		this.manufacturer = manufacturer;
+	}
 
-    public void setThisYearProfit(int thisYearProfit) {
-        this.thisYearProfit = thisYearProfit;
-    }
+	public int getThisYearProfit() {
+		return thisYearProfit;
+	}
 
-    public int getThisYearSale() {
-        return thisYearSale;
-    }
+	public void setThisYearProfit(int thisYearProfit) {
+		this.thisYearProfit = thisYearProfit;
+	}
 
-    public void setThisYearSale(int thisYearSale) {
-        this.thisYearSale = thisYearSale;
-    }
+	public int getThisYearSale() {
+		return thisYearSale;
+	}
+
+	public void setThisYearSale(int thisYearSale) {
+		this.thisYearSale = thisYearSale;
+	}
 }

@@ -4,22 +4,24 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
 	private String firstname;
-	
+
 	private String lastname;
-	
+
 	private Integer age;
-	
+
 	private String street;
-	
+
 	private String city;
-	
+
 	private String postalCode;
-	
+
 	private String info;
-	
+
 	private String email;
-	
+
 	private String phone;
 
 	public String getFirstname() {
@@ -77,7 +79,7 @@ public class User implements Serializable {
 	public void setInfo(String info) {
 		this.info = info;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}

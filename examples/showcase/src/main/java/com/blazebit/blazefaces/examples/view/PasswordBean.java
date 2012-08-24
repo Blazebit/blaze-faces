@@ -15,13 +15,18 @@
  */
 package com.blazebit.blazefaces.examples.view;
 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+
+@Named
+@RequestScoped
 public class PasswordBean {
 
 	private String password1;
 	private String password2;
 	private String password3;
 	private String password4;
-    private String password5;
+	private String password5;
 
 	public String getPassword1() {
 		return password1;
@@ -46,7 +51,7 @@ public class PasswordBean {
 	public void setPassword3(String password3) {
 		this.password3 = password3;
 	}
-	
+
 	public String getPassword4() {
 		return password4;
 	}
@@ -55,11 +60,11 @@ public class PasswordBean {
 		this.password4 = password4;
 	}
 
-    public String getPassword5() {
-        return password5;
-    }
+	public String getPassword5() {
+		return password5;
+	}
 
-    public void setPassword5(String password5) {
-        this.password5 = password5;
-    }
+	public void setPassword5(String password5) {
+		this.password5 = password5;
+	}
 }

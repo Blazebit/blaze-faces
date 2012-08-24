@@ -26,9 +26,9 @@
                     </b:selectOneMenu>
 
                     <h:outputText value="Editable: " />
-                    <b:selectOneMenu value="#{pprBean.city}" effect="fold" editable="true">
+                    <b:selectOneMenu value="#{partialProcessRequestBean.city}" effect="fold" editable="true">
                         <f:selectItem itemLabel="Select One" itemValue="" />
-                        <f:selectItems value="#{pprBean.cities}" />
+                        <f:selectItems value="#{partialProcessRequestBean.cities}" />
                     </b:selectOneMenu>
 
                     <h:outputText value="Pojo: " />
@@ -54,13 +54,13 @@
 
                 </h:panelGrid>
 
-                <b:commandButton value="Submit" update="display" oncomplete="dlg.show()" ajax="true"/>
+                <b:commandButton value="Submit" update="display @form" oncomplete="dlg.show()" ajax="true"/>
 
                 <b:dialog header="Selected Values" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg">
                     <h:panelGrid columns="1" id="display">
                         <h:outputText value="Value 1: #{buttonBean.number}" />
 
-                        <h:outputText value="Value 2: #{pprBean.city}" />
+                        <h:outputText value="Value 2: #{partialProcessRequestBean.city}" />
 
                         <h:outputText value="Value 3: #{autoCompleteBean.selectedPlayer1.name}" rendered="#{not empty autoCompleteBean.selectedPlayer1}" />
 
@@ -87,9 +87,9 @@
         &lt;/b:selectOneMenu&gt;
 
         &lt;h:outputText value="Editable: " /&gt;
-        &lt;b:selectOneMenu value="\#{pprBean.city}" effect="fold" editable="true"&gt;
+        &lt;b:selectOneMenu value="\#{partialProcessRequestBean.city}" effect="fold" editable="true"&gt;
             &lt;f:selectItem itemLabel="Select One" itemValue="" /&gt;
-            &lt;f:selectItems value="\#{pprBean.cities}" /&gt;
+            &lt;f:selectItems value="\#{partialProcessRequestBean.cities}" /&gt;
         &lt;/b:selectOneMenu&gt;
 
         &lt;h:outputText value="Pojo: " /&gt;
@@ -121,7 +121,7 @@
         &lt;h:panelGrid columns="1" id="display"&gt;
             &lt;h:outputText value="Value 1: \#{buttonBean.number}" /&gt;
 
-            &lt;h:outputText value="Value 2: \#{pprBean.city}" /&gt;
+            &lt;h:outputText value="Value 2: \#{partialProcessRequestBean.city}" /&gt;
 
             &lt;h:outputText value="Value 3: \#{autoCompleteBean.selectedPlayer1.name}" rendered="\#{not empty autoCompleteBean.selectedPlayer1}" /&gt;
 

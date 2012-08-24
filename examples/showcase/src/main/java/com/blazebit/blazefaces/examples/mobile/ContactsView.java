@@ -18,42 +18,51 @@ package com.blazebit.blazefaces.examples.mobile;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Named;
+
+import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
+
 import com.blazebit.blazefaces.examples.domain.Contact;
 
-public class ContactsView implements Serializable{
-    
-    private Contact contact = new Contact();
-    
-    private List<Contact> contacts;
+@Named
+@ViewAccessScoped
+public class ContactsView implements Serializable {
 
-    public ContactsView() {
-        contacts = new ArrayList<Contact>();
-    }
-    
-    public Contact getContact() {
-        return contact;
-    }
+	private static final long serialVersionUID = 1L;
 
-    public void setContact(Contact contact) {
-        this.contact = contact;
-    }
-    
-    public List<Contact> getContacts() {
-        return contacts;
-    }
-    
-    public String saveContact(){
-        if(!contacts.contains(contact)) {
-            contacts.add(contact);
-        }
-        
-        return "pm:main";
-    }
-    
-    public String prepareNewContact() {
-        contact = new Contact();
-        
-        return "pm:new";
-    }
+	private Contact contact = new Contact();
+
+	private List<Contact> contacts;
+
+	public ContactsView() {
+		contacts = new ArrayList<Contact>();
+	}
+
+	public Contact getContact() {
+		return contact;
+	}
+
+	public void setContact(Contact contact) {
+		this.contact = contact;
+	}
+
+	public List<Contact> getContacts() {
+		return contacts;
+	}
+
+	public String saveContact() {
+		if (!contacts.contains(contact)) {
+			contacts.add(contact);
+		}
+
+		return "pm:main";
+	}
+
+	public String prepareNewContact() {
+		contact = new Contact();
+
+		return "pm:new";
+	}
 
 }

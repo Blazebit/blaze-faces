@@ -13,22 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.blazebit.blazefaces.examples.view;
+package com.blazebit.blazefaces.examples.domain;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
+import java.io.Serializable;
 
-import com.blazebit.blazefaces.event.DragDropEvent;
+public class Sale implements Serializable {
 
-public class DDController {
+	private static final long serialVersionUID = 1L;
 
-	public void onDrop(DragDropEvent ddEvent) {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, ddEvent.getDragId() + " selected", "Position: " + ddEvent.getDropId());
-		
-		FacesContext.getCurrentInstance().addMessage(null, message);
+	private String brand;
+
+	private int amount;
+
+	public Sale(String brand, int amount) {
+		this.brand = brand;
+		this.amount = amount;
 	}
 
-    public void onCarDrop(DragDropEvent ddEvent) {
-        System.out.println("Dropped:" + ddEvent.getDragId());
-    }
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
 }

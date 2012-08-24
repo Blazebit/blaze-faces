@@ -7,40 +7,40 @@
 	contentType="text/html"
     renderKitId="BLAZEFACES_MOBILE">
 
-    <pm:page title="Contacts">
+    <bm:page title="Contacts">
 
         <!-- Main View -->
-        <pm:view id="main">
+        <bm:view id="main">
             <h:form id="listContactsForm">
-                <pm:header title="Contacts">
+                <bm:header title="Contacts">
                     <f:facet name="right">
                         <b:commandButton value="New" icon="plus" action="#{contactsView.prepareNewContact}" update=":newContactForm"/>
                     </f:facet>
-                </pm:header>
+                </bm:header>
 
-                <pm:content>
+                <bm:content>
                     <b:dataList id="contactsList" value="#{contactsView.contacts}" var="contact">
                         <b:column>
                             <b:graphicImage value="/images/pf-logo.png" />
                             <h3>
-                                <b:commandLink value="#{contact.firstname} #{contact.surname}" action="pm:new" update=":newContactForm">
+                                <b:commandLink value="#{contact.firstname} #{contact.surname}" action="bm:new" update=":newContactForm">
                                     <f:setPropertyActionListener value="#{contact}" target="#{contactsView.contact}" />
                                 </b:commandLink>
                             </h3>
                             <p><a href="tel:#{contact.phone}">Call</a></p>
                         </b:column>
                     </b:dataList>
-                </pm:content>
+                </bm:content>
             </h:form>
-        </pm:view>
+        </bm:view>
 
         <!-- New Contact -->
-        <pm:view id="new">
-            <pm:header title="New Contact">
+        <bm:view id="new">
+            <bm:header title="New Contact">
                 <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
-            </pm:header>
+            </bm:header>
 
-            <pm:content>
+            <bm:content>
                 <h:form id="newContactForm">
                     <b:inputText id="name" value="#{contactsView.contact.firstname}" label="Name:"/>
 
@@ -56,10 +56,10 @@
                     
                     <b:commandButton value="Save" action="#{contactsView.saveContact}" update=":listContactsForm:contactsList" icon="check" />
                 </h:form>
-            </pm:content>
+            </bm:content>
 
-        </pm:view>
+        </bm:view>
 
-    </pm:page>
+    </bm:page>
 
 </f:view>

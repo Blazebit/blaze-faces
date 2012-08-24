@@ -20,13 +20,13 @@
 				<h:panelGrid columns="5" cellpadding="5">
 					<h:outputLabel for="name" value="Name:" style="font-weight:bold"/>
 					
-					<b:inputText id="name" value="#{pprBean.firstname}" />
+					<b:inputText id="name" value="#{partialProcessRequestBean.firstname}" />
 					
 					<b:commandButton value="False" update="display" partialSubmit="false" process="name"/>
                     
                     <b:commandButton value="True" update="display" partialSubmit="true" process="name"/>
                     
-                    <h:outputText value="#{pprBean.firstname}" id="display" />
+                    <h:outputText value="#{partialProcessRequestBean.firstname}" id="display" />
 				</h:panelGrid>
                 
                 <b:inputText />
@@ -135,13 +135,13 @@
     &lt;h:panelGrid columns="5" cellpadding="5"&gt;
         &lt;h:outputLabel for="name" value="Name:" style="font-weight:bold"/&gt;
 
-        &lt;b:inputText id="name" value="\#{pprBean.firstname}" /&gt;
+        &lt;b:inputText id="name" value="\#{partialProcessRequestBean.firstname}" /&gt;
 
         &lt;b:commandButton value="False" update="display" partialSubmit="false" process="name"/&gt;
 
         &lt;b:commandButton value="True" update="display" partialSubmit="true" process="name"/&gt;
 
-        &lt;h:outputText value="\#{pprBean.firstname}" id="display" /&gt;
+        &lt;h:outputText value="\#{partialProcessRequestBean.firstname}" id="display" /&gt;
     &lt;/h:panelGrid&gt;
 
     &lt;b:inputText /&gt;
@@ -241,13 +241,13 @@
 						</pre>
 				</b:tab>
 				
-				<b:tab title="PPRBean.java">
+				<b:tab title="partialProcessRequestBean.java">
 <pre name="code" class="java">
 package com.blazebit.blazefaces.examples.view;
 
 import java.io.Serializable;
 
-public class PPRBean implements Serializable {
+public class partialProcessRequestBean implements Serializable {
 
 	private String firstname;
 	

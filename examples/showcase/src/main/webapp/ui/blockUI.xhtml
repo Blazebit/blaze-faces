@@ -20,17 +20,17 @@
                     <b:messages id="messages" />
                     <h:panelGrid columns="3">
                         <h:outputLabel for="firstname" value="Firstname: *" />
-                        <b:inputText id="firstname" value="#{pprBean.firstname}" required="true" label="Firstname">
+                        <b:inputText id="firstname" value="#{partialProcessRequestBean.firstname}" required="true" label="Firstname">
                             <f:validateLength minimum="2" />
                         </b:inputText>
                         <b:message for="firstname" />
 
                         <h:outputLabel for="surname" value="Surname: *" />
-                        <b:inputText id="surname" value="#{pprBean.surname}" required="true" label="Surname"/>
+                        <b:inputText id="surname" value="#{partialProcessRequestBean.surname}" required="true" label="Surname"/>
                         <b:message for="surname" />
                     </h:panelGrid>
                     
-                    <b:commandButton id="saveBtn" value="Save" icon="ui-icon-check" style="margin:0" actionListener="#{pprBean.savePerson}" update="growl"/>
+                    <b:commandButton id="saveBtn" value="Save" icon="ui-icon-check" style="margin:0" actionListener="#{partialProcessRequestBean.savePerson}" update="growl"/>
                 </b:panel>
                                 
                 <b:blockUI block="pnl" trigger="saveBtn" />
@@ -105,18 +105,18 @@
         &lt;b:messages id="messages" /&gt;
         &lt;h:panelGrid columns="3"&gt;
             &lt;h:outputLabel for="firstname" value="Firstname: *" /&gt;
-            &lt;b:inputText id="firstname" value="\#{pprBean.firstname}" required="true" label="Firstname"&gt;
+            &lt;b:inputText id="firstname" value="\#{partialProcessRequestBean.firstname}" required="true" label="Firstname"&gt;
                 &lt;f:validateLength minimum="2" /&gt;
             &lt;/b:inputText&gt;
             &lt;b:message for="firstname" /&gt;
 
             &lt;h:outputLabel for="surname" value="Surname: *" /&gt;
-            &lt;b:inputText id="surname" value="\#{pprBean.surname}" required="true" label="Surname"/&gt;
+            &lt;b:inputText id="surname" value="\#{partialProcessRequestBean.surname}" required="true" label="Surname"/&gt;
             &lt;b:message for="surname" /&gt;
         &lt;/h:panelGrid&gt;
 
         &lt;b:commandButton id="saveBtn" value="Save" icon="ui-icon-check" 
-                    style="margin:0" actionListener="\#{pprBean.savePerson}" update="growl"/&gt;
+                    style="margin:0" actionListener="\#{partialProcessRequestBean.savePerson}" update="growl"/&gt;
     &lt;/b:panel&gt;
 
     &lt;b:blockUI block="pnl" trigger="saveBtn" /&gt;

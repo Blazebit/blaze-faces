@@ -19,57 +19,61 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
-import java.util.logging.Logger;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
+import javax.inject.Named;
 import javax.servlet.ServletContext;
 
+import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
-import com.blazebit.blazefaces.examples.domain.Car;
-import com.blazebit.blazefaces.model.LazyDataModel;
 
-import com.lowagie.text.BadElementException;
-import com.lowagie.text.Document;
-import com.lowagie.text.DocumentException;
-import com.lowagie.text.Image;
-import com.lowagie.text.PageSize;
-import java.util.*;
-import javax.faces.application.ConfigurableNavigationHandler;
-import javax.faces.component.UIComponent;
-import javax.faces.context.Flash;
-import javax.faces.model.SelectItem;
 import com.blazebit.blazefaces.event.ColumnResizeEvent;
 import com.blazebit.blazefaces.event.DragDropEvent;
 import com.blazebit.blazefaces.event.RowEditEvent;
 import com.blazebit.blazefaces.event.SelectEvent;
 import com.blazebit.blazefaces.event.ToggleEvent;
 import com.blazebit.blazefaces.event.UnselectEvent;
+import com.blazebit.blazefaces.examples.domain.Car;
 import com.blazebit.blazefaces.examples.domain.ManufacturerSale;
 import com.blazebit.blazefaces.examples.domain.Player;
 import com.blazebit.blazefaces.examples.domain.Stats;
+import com.blazebit.blazefaces.examples.model.CarDataModel;
+import com.blazebit.blazefaces.examples.model.LazyCarDataModel;
+import com.blazebit.blazefaces.model.LazyDataModel;
+import com.lowagie.text.BadElementException;
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.Image;
+import com.lowagie.text.PageSize;
 
+@Named
+@ViewAccessScoped
 public class TableBean implements Serializable {
-    
-    private final static List<String> VALID_COLUMN_KEYS = Arrays.asList("model", "manufacturer", "year", "color");
-	
-	private final static Logger logger = Logger.getLogger(TableBean.class.getName());
-	
+
+	private static final long serialVersionUID = 1L;
+
+	private final static List<String> VALID_COLUMN_KEYS = Arrays.asList(
+			"model", "manufacturer", "year", "color");
+
 	private final static String[] colors;
-	
+
 	private final static String[] manufacturers;
-	
+
 	private String theme;
-    
-    private String columnTemplate = "model manufacturer year";
+
+	private String columnTemplate = "model manufacturer year";
 
 	static {
 		colors = new String[10];
@@ -83,7 +87,7 @@ public class TableBean implements Serializable {
 		colors[7] = "Yellow";
 		colors[8] = "Brown";
 		colors[9] = "Maroon";
-		
+
 		manufacturers = new String[10];
 		manufacturers[0] = "Mercedes";
 		manufacturers[1] = "BMW";
@@ -97,74 +101,75 @@ public class TableBean implements Serializable {
 		manufacturers[9] = "Ford";
 	}
 
-    private List<Car> filteredCars;
-    
+	private List<Car> filteredCars;
+
 	private List<Car> cars;
-	
+
 	private List<Car> carsSmall;
 
-    private List<Car> carsLarge;
-	
+	private List<Car> carsLarge;
+
 	private Date date = new Date();
-	
+
 	private Car selectedCar;
 
 	private Car[] selectedCars;
 
 	private LazyDataModel<Car> lazyModel;
 
-    private List<ManufacturerSale> sales;
+	private List<ManufacturerSale> sales;
 
-    private String columnName;
+	private String columnName;
 
-    private SelectItem[] manufacturerOptions;
+	private SelectItem[] manufacturerOptions;
 
-    private List<Car> droppedCars;
+	private List<Car> droppedCars;
 
-    private List<ColumnModel> columns = new ArrayList<ColumnModel>();;
+	private List<ColumnModel> columns = new ArrayList<ColumnModel>();;
 
-    private boolean editMode;
-    
-    private List<Player> players;
-    
-    private CarDataModel smallCarsModel;
-    
-    private CarDataModel mediumCarsModel;
+	private boolean editMode;
+
+	private List<Player> players;
+
+	private CarDataModel smallCarsModel;
+
+	private CarDataModel mediumCarsModel;
 
 	public TableBean() {
 		cars = new ArrayList<Car>();
 		carsSmall = new ArrayList<Car>();
-        carsLarge = new ArrayList<Car>();
-        droppedCars = new ArrayList<Car>();
-		
+		carsLarge = new ArrayList<Car>();
+		droppedCars = new ArrayList<Car>();
+
 		populateRandomCars(cars, 50);
 		populateRandomCars(carsSmall, 9);
-        populateRandomCars(carsLarge, 200);
-        populateRandomSales();
+		populateRandomCars(carsLarge, 200);
+		populateRandomSales();
 
-        createDynamicColumns();
-        
-        manufacturerOptions = createFilterOptions(manufacturers);
-        
-        populatePlayers();
-        
-        smallCarsModel = new CarDataModel(carsSmall);
-        mediumCarsModel = new CarDataModel(cars);
-        	
+		createDynamicColumns();
+
+		manufacturerOptions = createFilterOptions(manufacturers);
+
+		populatePlayers();
+
+		smallCarsModel = new CarDataModel(carsSmall);
+		mediumCarsModel = new CarDataModel(cars);
+
 		lazyModel = new LazyCarDataModel(cars);
 	}
-	
+
 	public LazyDataModel<Car> getLazyModel() {
 		return lazyModel;
 	}
-	
+
 	public Car[] getSelectedCars() {
 		return selectedCars;
 	}
+
 	public void setSelectedCars(Car[] selectedCars) {
 		this.selectedCars = selectedCars;
 	}
-	
+
 	public Car getSelectedCar() {
 		return selectedCar;
 	}
@@ -176,96 +181,95 @@ public class TableBean implements Serializable {
 	public Date getDate() {
 		return date;
 	}
+
 	public void setDate(Date date) {
 		this.date = date;
 	}
 
 	private void populateRandomCars(List<Car> list, int size) {
-		for(int i = 0 ; i < size ; i++)
-			list.add(new Car(getRandomModel(), getRandomYear(), getRandomManufacturer(), getRandomColor()));
-	}
-	
-	private void populateLazyRandomCars(List<Car> list, int size) {
-		for(int i = 0 ; i < size ; i++) {
-			list.add(new Car(getRandomModel(), getRandomYear(), getRandomManufacturer(), getRandomColor()));
-		}
+		for (int i = 0; i < size; i++)
+			list.add(new Car(getRandomModel(), getRandomYear(),
+					getRandomManufacturer(), getRandomColor()));
 	}
 
-    public List<Car> getFilteredCars() {
-        return filteredCars;
-    }
+	public List<Car> getFilteredCars() {
+		return filteredCars;
+	}
 
-    public void setFilteredCars(List<Car> filteredCars) {
-        this.filteredCars = filteredCars;
-    }
+	public void setFilteredCars(List<Car> filteredCars) {
+		this.filteredCars = filteredCars;
+	}
 
 	public List<Car> getCars() {
 		return cars;
 	}
-	
+
 	public List<Car> getCarsSmall() {
 		return carsSmall;
 	}
 
-    public List<Car> getCarsLarge() {
+	public List<Car> getCarsLarge() {
 		return carsLarge;
 	}
 
 	private int getRandomYear() {
 		return (int) (Math.random() * 50 + 1960);
 	}
-	
+
 	private String getRandomColor() {
 		return colors[(int) (Math.random() * 10)];
 	}
-	
+
 	private String getRandomManufacturer() {
 		return manufacturers[(int) (Math.random() * 10)];
 	}
-    
-    public int getRandomPrice() {
+
+	public int getRandomPrice() {
 		return (int) (Math.random() * 100000);
 	}
 
-    private int getRandomSale() {
+	private int getRandomSale() {
 		return (int) (Math.random() * 100000);
 	}
 
-    private int getRandomProfit() {
+	private int getRandomProfit() {
 		return (int) (Math.random() * 100);
 	}
-	
+
 	private String getRandomModel() {
 		return UUID.randomUUID().toString().substring(0, 8);
 	}
-	
+
 	public void postProcessXLS(Object document) {
 		HSSFWorkbook wb = (HSSFWorkbook) document;
 		HSSFSheet sheet = wb.getSheetAt(0);
 		HSSFRow header = sheet.getRow(0);
-		
-		HSSFCellStyle cellStyle = wb.createCellStyle();  
+
+		HSSFCellStyle cellStyle = wb.createCellStyle();
 		cellStyle.setFillForegroundColor(HSSFColor.GREEN.index);
 		cellStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
-		
-		for(int i=0; i < header.getPhysicalNumberOfCells();i++) {
+
+		for (int i = 0; i < header.getPhysicalNumberOfCells(); i++) {
 			HSSFCell cell = header.getCell(i);
-			
+
 			cell.setCellStyle(cellStyle);
 		}
 	}
-	
-	public void preProcessPDF(Object document) throws IOException, BadElementException, DocumentException {
-		Document pdf = (Document) document;
-        pdf.open();
-        pdf.setPageSize(PageSize.A4);
 
-		ServletContext servletContext = (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
-		String logo = servletContext.getRealPath("") + File.separator + "images" + File.separator + "blaze_logo.png";
-		
+	public void preProcessPDF(Object document) throws IOException,
+			BadElementException, DocumentException {
+		Document pdf = (Document) document;
+		pdf.open();
+		pdf.setPageSize(PageSize.A4);
+
+		ServletContext servletContext = (ServletContext) FacesContext
+				.getCurrentInstance().getExternalContext().getContext();
+		String logo = servletContext.getRealPath("") + File.separator
+				+ "images" + File.separator + "blaze_logo.png";
+
 		pdf.add(Image.getInstance(logo));
 	}
-		
+
 	public String getTheme() {
 		return theme;
 	}
@@ -273,241 +277,256 @@ public class TableBean implements Serializable {
 	public void setTheme(String theme) {
 		this.theme = theme;
 	}
-	
+
 	public void save() {
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Changes Saved"));
+		FacesContext.getCurrentInstance().addMessage(
+				null,
+				new FacesMessage(FacesMessage.SEVERITY_INFO, "Info",
+						"Changes Saved"));
 	}
 
-    public void onRowSelect(SelectEvent event) {
-        FacesMessage msg = new FacesMessage("Car Selected", ((Car) event.getObject()).getModel());
+	public void onRowSelect(SelectEvent event) {
+		FacesMessage msg = new FacesMessage("Car Selected",
+				((Car) event.getObject()).getModel());
 
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
 
-    public void onRowUnselect(UnselectEvent event) {
-        FacesMessage msg = new FacesMessage("Car Unselected", ((Car) event.getObject()).getModel());
+	public void onRowUnselect(UnselectEvent event) {
+		FacesMessage msg = new FacesMessage("Car Unselected",
+				((Car) event.getObject()).getModel());
 
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
-    
-    public String onRowSelectNavigate(SelectEvent event) {
-        FacesContext.getCurrentInstance().getExternalContext().getFlash().put("selectedCar", event.getObject());
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
 
-        return "carDetail?faces-redirect=true";
-    }
+	public String onRowSelectNavigate(SelectEvent event) {
+		FacesContext.getCurrentInstance().getExternalContext().getFlash()
+				.put("selectedCar", event.getObject());
 
-    public List<ManufacturerSale> getSales() {
-        return sales;
-    }
+		return "carDetail?faces-redirect=true";
+	}
 
-    private void populateRandomSales() {
-        sales = new ArrayList<ManufacturerSale>();
+	public List<ManufacturerSale> getSales() {
+		return sales;
+	}
 
-        for(int i = 0; i < 10; i++) {
-            sales.add(new ManufacturerSale(manufacturers[i], getRandomSale(), getRandomSale(), getRandomProfit(), getRandomProfit()));
-        }
-    }
+	private void populateRandomSales() {
+		sales = new ArrayList<ManufacturerSale>();
 
-    public int getLastYearTotal() {
-        int total = 0;
+		for (int i = 0; i < 10; i++) {
+			sales.add(new ManufacturerSale(manufacturers[i], getRandomSale(),
+					getRandomSale(), getRandomProfit(), getRandomProfit()));
+		}
+	}
 
-        for(ManufacturerSale sale : getSales()) {
-            total += sale.getLastYearSale();
-        }
+	public int getLastYearTotal() {
+		int total = 0;
 
-        return total;
-    }
+		for (ManufacturerSale sale : getSales()) {
+			total += sale.getLastYearSale();
+		}
 
-    public int getThisYearTotal() {
-        int total = 0;
+		return total;
+	}
 
-        for(ManufacturerSale sale : getSales()) {
-            total += sale.getThisYearSale();
-        }
+	public int getThisYearTotal() {
+		int total = 0;
 
-        return total;
-    }
+		for (ManufacturerSale sale : getSales()) {
+			total += sale.getThisYearSale();
+		}
 
-    public List<ColumnModel> getColumns() {
-        return columns;
-    }
+		return total;
+	}
 
-    public String getColumnName() {
-        return columnName;
-    }
+	public List<ColumnModel> getColumns() {
+		return columns;
+	}
 
-    public void setColumnName(String columnName) {
-        this.columnName = columnName;
-    }
+	public String getColumnName() {
+		return columnName;
+	}
 
-    public String[] getManufacturers() {
-        return manufacturers;
-    }
+	public void setColumnName(String columnName) {
+		this.columnName = columnName;
+	}
 
-    public String[] getColors() {
-        return colors;
-    }
+	public String[] getManufacturers() {
+		return manufacturers;
+	}
 
-    private SelectItem[] createFilterOptions(String[] data)  {
-        SelectItem[] options = new SelectItem[data.length + 1];
+	public String[] getColors() {
+		return colors;
+	}
 
-        options[0] = new SelectItem("", "Select");
-        for(int i = 0; i < data.length; i++) {
-            options[i + 1] = new SelectItem(data[i], data[i]);
-        }
+	private SelectItem[] createFilterOptions(String[] data) {
+		SelectItem[] options = new SelectItem[data.length + 1];
 
-        return options;
-    }
+		options[0] = new SelectItem("", "Select");
+		for (int i = 0; i < data.length; i++) {
+			options[i + 1] = new SelectItem(data[i], data[i]);
+		}
 
-    public SelectItem[] getManufacturerOptions() {
-        return manufacturerOptions;
-    }
+		return options;
+	}
 
-    public void onCarDrop(DragDropEvent ddEvent) {
-        Car car = ((Car) ddEvent.getData());
+	public SelectItem[] getManufacturerOptions() {
+		return manufacturerOptions;
+	}
 
-        droppedCars.add(car);
-        carsSmall.remove(car);
-    }
+	public void onCarDrop(DragDropEvent ddEvent) {
+		Car car = ((Car) ddEvent.getData());
 
-    public List<Car> getDroppedCars() {
-        return droppedCars;
-    }
-    
-    static public class ColumnModel implements Serializable {
+		droppedCars.add(car);
+		carsSmall.remove(car);
+	}
 
-        private String header;
-        private String property;
+	public List<Car> getDroppedCars() {
+		return droppedCars;
+	}
 
-        public ColumnModel(String header, String property) {
-            this.header = header;
-            this.property = property;
-        }
+	static public class ColumnModel implements Serializable {
 
-        public String getHeader() {
-            return header;
-        }
+		private static final long serialVersionUID = 1L;
 
-        public String getProperty() {
-            return property;
-        }
-    }
+		private String header;
+		private String property;
 
-    public void delete() {
-        carsSmall.remove(selectedCar);
-    }
+		public ColumnModel(String header, String property) {
+			this.header = header;
+			this.property = property;
+		}
 
-    public boolean isEditMode() {
-        return editMode;
-    }
+		public String getHeader() {
+			return header;
+		}
 
-    public void setEditMode(boolean editMode) {
-        this.editMode = editMode;
-    }
+		public String getProperty() {
+			return property;
+		}
+	}
 
-    public String navigate() {
-        return "home";
-    }
-    
-    public void onEdit(RowEditEvent event) {
-        FacesMessage msg = new FacesMessage("Car Edited", ((Car) event.getObject()).getModel());
+	public void delete() {
+		carsSmall.remove(selectedCar);
+	}
 
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
-    
-    public void onCancel(RowEditEvent event) {
-        FacesMessage msg = new FacesMessage("Car Cancelled", ((Car) event.getObject()).getModel());
+	public boolean isEditMode() {
+		return editMode;
+	}
 
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
-    
-    public void onResize(ColumnResizeEvent event) {
-        FacesMessage msg = new FacesMessage("Column " + event.getColumn().getClientId() + " resized", "W:" + event.getWidth() + ", H:" + event.getHeight());
+	public void setEditMode(boolean editMode) {
+		this.editMode = editMode;
+	}
 
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
-    
-    public void populatePlayers() {
-        players = new ArrayList<Player>();
-        
-        Player messi = new Player("Messi", 10);
-        messi.getStats().add(new Stats("2005-2006", 4, 2));
-        messi.getStats().add(new Stats("2006-2007", 10, 7));
-        messi.getStats().add(new Stats("2007-2008", 16, 10));
-        messi.getStats().add(new Stats("2008-2009", 32, 15));
-        messi.getStats().add(new Stats("2009-2010", 51, 22));
-        messi.getStats().add(new Stats("2010-2011", 55, 30));
-        players.add(messi);
-        
-        Player xavi = new Player("Xavi", 6);
-        xavi.getStats().add(new Stats("2005-2006", 6, 15));
-        xavi.getStats().add(new Stats("2006-2007", 10, 20));
-        xavi.getStats().add(new Stats("2007-2008", 12, 22));
-        xavi.getStats().add(new Stats("2008-2009", 9, 24));
-        xavi.getStats().add(new Stats("2009-2010", 8, 21));
-        xavi.getStats().add(new Stats("2010-2011", 10, 25));
-        players.add(xavi);
-        
-        Player iniesta = new Player("Iniesta", 10);
-        iniesta.getStats().add(new Stats("2005-2006", 4, 12));
-        iniesta.getStats().add(new Stats("2006-2007", 7, 9));
-        iniesta.getStats().add(new Stats("2007-2008", 10, 14));
-        iniesta.getStats().add(new Stats("2008-2009", 15, 17));
-        iniesta.getStats().add(new Stats("2009-2010", 14, 16));
-        iniesta.getStats().add(new Stats("2010-2011", 17, 22));
-        players.add(iniesta);
-    }
+	public String navigate() {
+		return "home";
+	}
 
-    public List<Player> getPlayers() {
-        return players;
-    }
-    
-    public CarDataModel getMediumCarsModel() {
-        return mediumCarsModel;
-    }
+	public void onEdit(RowEditEvent event) {
+		FacesMessage msg = new FacesMessage("Car Edited",
+				((Car) event.getObject()).getModel());
 
-    public CarDataModel getSmallCarsModel() {
-        return smallCarsModel;
-    }
-    
-    public void deleteCar() {
-        carsSmall.remove(selectedCar);
-    }
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
 
-    public String getColumnTemplate() {
-        return columnTemplate;
-    }
-    public void setColumnTemplate(String columnTemplate) {
-        this.columnTemplate = columnTemplate;
-    }
-    
-    public void updateColumns() {
-        //reset table state
-        UIComponent table = FacesContext.getCurrentInstance().getViewRoot().findComponent(":form:cars");
-        table.setValueExpression("sortBy", null);
-        
-        //update columns
-        createDynamicColumns();
-    }
-    
-    public void createDynamicColumns() {
-        String[] columnKeys = columnTemplate.split(" ");
-        columns.clear();      
-        
-        for(String columnKey : columnKeys) {
-            String key = columnKey.trim();
-            
-            if(VALID_COLUMN_KEYS.contains(key)) {
-                columns.add(new ColumnModel(columnKey.toUpperCase(), columnKey));
-            }
-        }
-    }
-    
-    public void onRowToggle(ToggleEvent event) {
-        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
-                                            "Row State " + event.getVisibility(),
-                                            "Model:" + ((Car) event.getData()).getModel());
-        
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
+	public void onCancel(RowEditEvent event) {
+		FacesMessage msg = new FacesMessage("Car Cancelled",
+				((Car) event.getObject()).getModel());
+
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
+
+	public void onResize(ColumnResizeEvent event) {
+		FacesMessage msg = new FacesMessage("Column "
+				+ event.getColumn().getClientId() + " resized", "W:"
+				+ event.getWidth() + ", H:" + event.getHeight());
+
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
+
+	public void populatePlayers() {
+		players = new ArrayList<Player>();
+
+		Player messi = new Player("Messi", 10);
+		messi.getStats().add(new Stats("2005-2006", 4, 2));
+		messi.getStats().add(new Stats("2006-2007", 10, 7));
+		messi.getStats().add(new Stats("2007-2008", 16, 10));
+		messi.getStats().add(new Stats("2008-2009", 32, 15));
+		messi.getStats().add(new Stats("2009-2010", 51, 22));
+		messi.getStats().add(new Stats("2010-2011", 55, 30));
+		players.add(messi);
+
+		Player xavi = new Player("Xavi", 6);
+		xavi.getStats().add(new Stats("2005-2006", 6, 15));
+		xavi.getStats().add(new Stats("2006-2007", 10, 20));
+		xavi.getStats().add(new Stats("2007-2008", 12, 22));
+		xavi.getStats().add(new Stats("2008-2009", 9, 24));
+		xavi.getStats().add(new Stats("2009-2010", 8, 21));
+		xavi.getStats().add(new Stats("2010-2011", 10, 25));
+		players.add(xavi);
+
+		Player iniesta = new Player("Iniesta", 10);
+		iniesta.getStats().add(new Stats("2005-2006", 4, 12));
+		iniesta.getStats().add(new Stats("2006-2007", 7, 9));
+		iniesta.getStats().add(new Stats("2007-2008", 10, 14));
+		iniesta.getStats().add(new Stats("2008-2009", 15, 17));
+		iniesta.getStats().add(new Stats("2009-2010", 14, 16));
+		iniesta.getStats().add(new Stats("2010-2011", 17, 22));
+		players.add(iniesta);
+	}
+
+	public List<Player> getPlayers() {
+		return players;
+	}
+
+	public CarDataModel getMediumCarsModel() {
+		return mediumCarsModel;
+	}
+
+	public CarDataModel getSmallCarsModel() {
+		return smallCarsModel;
+	}
+
+	public void deleteCar() {
+		carsSmall.remove(selectedCar);
+	}
+
+	public String getColumnTemplate() {
+		return columnTemplate;
+	}
+
+	public void setColumnTemplate(String columnTemplate) {
+		this.columnTemplate = columnTemplate;
+	}
+
+	public void updateColumns() {
+		// reset table state
+		UIComponent table = FacesContext.getCurrentInstance().getViewRoot()
+				.findComponent(":form:cars");
+		table.setValueExpression("sortBy", null);
+
+		// update columns
+		createDynamicColumns();
+	}
+
+	public void createDynamicColumns() {
+		String[] columnKeys = columnTemplate.split(" ");
+		columns.clear();
+
+		for (String columnKey : columnKeys) {
+			String key = columnKey.trim();
+
+			if (VALID_COLUMN_KEYS.contains(key)) {
+				columns.add(new ColumnModel(columnKey.toUpperCase(), columnKey));
+			}
+		}
+	}
+
+	public void onRowToggle(ToggleEvent event) {
+		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
+				"Row State " + event.getVisibility(), "Model:"
+						+ ((Car) event.getData()).getModel());
+
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
 }

@@ -23,7 +23,7 @@ public class ColorPickerIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void before() {
-		String testUrl = toShowcaseUrl("colorPicker.jsf");
+		String testUrl = toShowcaseUrl("colorPicker.xhtml");
 		driver.get(testUrl);
 	}
 
@@ -42,14 +42,16 @@ public class ColorPickerIntegrationTest extends AbstractIntegrationTest {
 		waitForCondition(new ExpectedCondition<Boolean>() {
 
 			public Boolean apply(WebDriver driver) {
-				return driver.findElement(By.id("form:inlineCPColor")).getText().equals(EXPECTED_COLOR);
+				return driver.findElement(By.id("form:inlineCPColor"))
+						.getText().equals(EXPECTED_COLOR);
 			}
 		});
 
 	}
 
 	private void pickColor(WebElement colorPicker) {
-		WebElement colorPalette = colorPicker.findElement(By.className("ui-colorpicker_color"));
+		WebElement colorPalette = colorPicker.findElement(By
+				.className("ui-colorpicker_color"));
 
 		actionHelper.mouseHover(colorPalette);
 		actionHelper.clickOnCurrentPosition();
@@ -72,7 +74,8 @@ public class ColorPickerIntegrationTest extends AbstractIntegrationTest {
 		waitForCondition(new ExpectedCondition<Boolean>() {
 
 			public Boolean apply(WebDriver driver) {
-				return driver.findElement(By.id("form:popupCPColor")).getText().equals(EXPECTED_COLOR);
+				return driver.findElement(By.id("form:popupCPColor")).getText()
+						.equals(EXPECTED_COLOR);
 			}
 		});
 	}

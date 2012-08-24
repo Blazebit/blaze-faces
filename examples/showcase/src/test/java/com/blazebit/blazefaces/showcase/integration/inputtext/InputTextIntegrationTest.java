@@ -1,6 +1,7 @@
 package com.blazebit.blazefaces.showcase.integration.inputtext;
 
 import static org.junit.Assert.assertTrue;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
@@ -11,7 +12,7 @@ public class InputTextIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void init() {
-		driver.get(toShowcaseUrl("inputText.jsf"));
+		driver.get(toShowcaseUrl("inputText.xhtml"));
 	}
 
 	@Test

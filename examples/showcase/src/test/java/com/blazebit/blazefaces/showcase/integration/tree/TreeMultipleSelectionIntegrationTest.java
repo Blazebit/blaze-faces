@@ -15,7 +15,7 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 public class TreeMultipleSelectionIntegrationTest extends
 		AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("treeSelectionMultiple.jsf");
+	private String testUrl = toShowcaseUrl("treeSelectionMultiple.xhtml");
 	private WebElement btnDisplay;
 
 	@Before

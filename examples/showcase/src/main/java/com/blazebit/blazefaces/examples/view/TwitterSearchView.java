@@ -15,68 +15,79 @@
  */
 package com.blazebit.blazefaces.examples.view;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
+
+import com.blazebit.blazefaces.push.PushContext;
+import com.blazebit.blazefaces.push.PushContextFactory;
 import com.ning.http.client.AsyncCompletionHandler;
 import com.ning.http.client.AsyncHttpClient;
 import com.ning.http.client.Response;
-import java.util.concurrent.Callable;
-import java.util.concurrent.TimeUnit;
-import com.blazebit.blazefaces.push.PushContext;
-import com.blazebit.blazefaces.push.PushContextFactory;
 
+@Named
+@ApplicationScoped
 public class TwitterSearchView {
-        
-    private boolean active;
-    
-    private final AsyncHttpClient asyncClient = new AsyncHttpClient();
-        
-    public boolean isActive() {
-        return active;
-    }
 
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-    
-    public void start() {
-        if(!active) {
-            
-            PushContext context = PushContextFactory.getDefault().getPushContext();
-            
-            context.schedule("/twitter", new Callable<String>() {
+	private boolean active;
 
-                private String results;
-                
-                public String call() throws Exception {
+	private final AsyncHttpClient asyncClient = new AsyncHttpClient();
 
-                    asyncClient.prepareGet("http://search.twitter.com/search.json?q=I").execute(
-                            
-                            new AsyncCompletionHandler<Object>() {
+	public boolean isActive() {
+		return active;
+	}
 
-                                @Override
-                                public Object onCompleted(Response response) throws Exception {
-                                    String s = response.getResponseBody();
-             
-                                    if(response.getStatusCode() != 200) {                                        
-                                        return null;
-                                    }
-                                    
-                                    StringBuilder jsonBuilder = new StringBuilder();
-                                    jsonBuilder.append("{\"data\":").append(s).append("}");
-                                    
-                                    results = jsonBuilder.toString();
-                                                                        
-                                    return results;
-                                }
+	public void setActive(boolean active) {
+		this.active = active;
+	}
 
-                                
-                            }).get();
-                    
-                    return results;
-                }
+	public void start() {
+		if (!active) {
 
-            }, 10, TimeUnit.SECONDS);
-            
-            active = true;
-        } 
-    }
+			PushContext context = PushContextFactory.getDefault()
+					.getPushContext();
+
+			context.schedule("/twitter", new Callable<String>() {
+
+				private String results;
+
+				public String call() throws Exception {
+
+					asyncClient
+							.prepareGet(
+									"http://search.twitter.com/search.json?q=I")
+							.execute(
+
+							new AsyncCompletionHandler<Object>() {
+
+								@Override
+								public Object onCompleted(Response response)
+										throws Exception {
+									String s = response.getResponseBody();
+
+									if (response.getStatusCode() != 200) {
+										return null;
+									}
+
+									StringBuilder jsonBuilder = new StringBuilder();
+									jsonBuilder.append("{\"data\":").append(s)
+											.append("}");
+
+									results = jsonBuilder.toString();
+
+									return results;
+								}
+
+							}).get();
+
+					return results;
+				}
+
+			}, 10, TimeUnit.SECONDS);
+
+			active = true;
+		}
+	}
 }

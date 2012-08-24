@@ -15,16 +15,26 @@
  */
 package com.blazebit.blazefaces.examples.view;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
+@Named
+@RequestScoped
 public class MacosxBean {
-	
+
 	private String text;
-	
-	public MacosxBean() {		
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Software Update", "New version of iTunes is available"));
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Software Update", "New version of BlazeFaces is available"));
+
+	public MacosxBean() {
+		FacesContext.getCurrentInstance().addMessage(
+				null,
+				new FacesMessage(FacesMessage.SEVERITY_INFO, "Software Update",
+						"New version of iTunes is available"));
+		FacesContext.getCurrentInstance().addMessage(
+				null,
+				new FacesMessage(FacesMessage.SEVERITY_INFO, "Software Update",
+						"New version of BlazeFaces is available"));
 	}
 
 	public String getText() {

@@ -15,15 +15,20 @@
  */
 package com.blazebit.blazefaces.examples.view;
 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+
+@Named
+@RequestScoped
 public class ProductDetailBean {
 
-    private String productId;
+	private String productId;
 
-    public String getProductId() {
-        return productId;
-    }
+	public String getProductId() {
+		return productId;
+	}
 
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
 }

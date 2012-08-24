@@ -4,13 +4,13 @@
  */
 package com.blazebit.blazefaces.showcase.integration.autocomplete;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
 
 /**
  * 
@@ -20,7 +20,7 @@ public class AutoCompletePojoIntegrationTest extends AbstractAutoCompleteTest {
 
 	@Before
 	public void before() {
-		String testUrl = toShowcaseUrl("autoCompletePojo.jsf");
+		String testUrl = toShowcaseUrl("autoCompletePojo.xhtml");
 		driver.get(testUrl);
 	}
 
@@ -42,21 +42,25 @@ public class AutoCompletePojoIntegrationTest extends AbstractAutoCompleteTest {
 		waitUntilAjaxRequestCompletes();
 		WebElement panel = findElementById("form:customPojo_panel");
 		waitUntilElementExistsAndGet(panel, By.tagName("table"), 1);
-		findElementByXpath("//div[@id='form:customPojo_panel']/table/tbody/tr/td[2]").click();
+		findElementByXpath(
+				"//div[@id='form:customPojo_panel']/table/tbody/tr/td[2]")
+				.click();
 		assertThat(autocomplete.getAttribute("value"), equalTo("Villa"));
 	}
-	
+
 	@Test
-	public void shoulSubmitValues(){
+	public void shoulSubmitValues() {
 		shouldSelectFromBasicPojo();
 		shouldSelectFromCustomPojo();
 
 		WebElement submit = findElementById("form:submit");
 		submit.click();
 		waitUntilAjaxRequestCompletes();
-		
-		assertThat(findElementById("form:txt1").getText(), equalTo("Player 1: Messi"));
-		assertThat(findElementById("form:txt2").getText(), equalTo("Player 2: Villa"));
-		
+
+		assertThat(findElementById("form:txt1").getText(),
+				equalTo("Player 1: Messi"));
+		assertThat(findElementById("form:txt2").getText(),
+				equalTo("Player 2: Villa"));
+
 	}
 }

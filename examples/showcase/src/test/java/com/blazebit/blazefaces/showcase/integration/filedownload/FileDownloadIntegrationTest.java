@@ -10,20 +10,21 @@ import org.openqa.selenium.WebElement;
 
 import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
-public class FileDownloadIntegrationTest extends AbstractIntegrationTest{
+public class FileDownloadIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
-	public void init(){
-		String testUrl = toShowcaseUrl("fileDownload.jsf");
+	public void init() {
+		String testUrl = toShowcaseUrl("fileDownload.xhtml");
 		driver.get(testUrl);
 	}
-	
+
 	@Test
-	public void shouldDownlaodFile() throws InterruptedException{
+	public void shouldDownlaodFile() throws InterruptedException {
 		WebElement downloadLink = findElementById("form:downloadLink");
 		downloadLink.click();
-		
-		File file = new File(System.getProperty("user.home")+File.separator+"downloaded_optimus.jpg");
+
+		File file = new File(System.getProperty("user.home") + File.separator
+				+ "downloaded_optimus.jpg");
 		assertTrue(file.exists());
 		file.delete();
 	}

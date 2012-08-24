@@ -17,48 +17,53 @@ package com.blazebit.blazefaces.examples.view;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+
 import com.blazebit.blazefaces.examples.domain.Player;
 
+@Named
+@RequestScoped
 public class GalleriaBean {
 
-    private List<String> images;
+	private List<String> images;
 
-    private List<Player> players;
+	private List<Player> players;
 
-    private Player selectedPlayer;
+	private Player selectedPlayer;
 
-    @PostConstruct
-    public void init() {
-        images = new ArrayList<String>();
+	@PostConstruct
+	public void init() {
+		images = new ArrayList<String>();
 
-        for(int i=1;i<=12;i++) {
-            images.add("galleria" + i + ".jpg");
-        }
+		for (int i = 1; i <= 12; i++) {
+			images.add("galleria" + i + ".jpg");
+		}
 
-        players = new ArrayList<Player>();
+		players = new ArrayList<Player>();
 
-        players.add(new Player("Messi", 10, "messi.jpg", "CF"));
-        players.add(new Player("Iniesta", 8, "iniesta.jpg", "CM"));
-        players.add(new Player("Villa", 7, "villa.jpg", "CF"));
-        players.add(new Player("Xavi", 6, "xavi.jpg", "CM"));
-        players.add(new Player("Puyol", 5, "puyol.jpg", "CB"));
-    }
+		players.add(new Player("Messi", 10, "messi.jpg", "CF"));
+		players.add(new Player("Iniesta", 8, "iniesta.jpg", "CM"));
+		players.add(new Player("Villa", 7, "villa.jpg", "CF"));
+		players.add(new Player("Xavi", 6, "xavi.jpg", "CM"));
+		players.add(new Player("Puyol", 5, "puyol.jpg", "CB"));
+	}
 
-    public Player getSelectedPlayer() {
-        return selectedPlayer;
-    }
+	public Player getSelectedPlayer() {
+		return selectedPlayer;
+	}
 
-    public void setSelectedPlayer(Player selectedPlayer) {
-        this.selectedPlayer = selectedPlayer;
-    }
+	public void setSelectedPlayer(Player selectedPlayer) {
+		this.selectedPlayer = selectedPlayer;
+	}
 
-   
-    public List<String> getImages() {
-        return images;
-    }
+	public List<String> getImages() {
+		return images;
+	}
 
-    public List<Player> getPlayers() {
-        return players;
-    }
+	public List<Player> getPlayers() {
+		return players;
+	}
 }

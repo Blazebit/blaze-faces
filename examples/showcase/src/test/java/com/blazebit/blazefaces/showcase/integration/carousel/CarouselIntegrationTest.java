@@ -21,7 +21,7 @@ public class CarouselIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void before() {
-		driver.get(toShowcaseUrl("carousel.jsf"));
+		driver.get(toShowcaseUrl("carousel.xhtml"));
 	}
 
 	@Test

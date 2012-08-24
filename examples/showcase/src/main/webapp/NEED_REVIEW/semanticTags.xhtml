@@ -1,79 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:b="http://blazebit.com/faces"
-      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets">
-    <h:head>
-        <title>BlazeFaces Showcase - semanticTags</title>
-    </h:head>
-    <h:body>
-        <h:outputText value="#{semanticBean.sanatized}" escape="false"/>
-        <b:panelGroup type="address" styleClass="myClass" dataMap="uid=1">
+	xmlns:b="http://blazebit.com/faces"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>BlazeFaces Showcase - semanticTags</title>
+</h:head>
+<h:body>
+	<h:outputText value="#{semanticBean.sanatized}" escape="false" />
+	<b:panelGroup type="address" styleClass="myClass" dataMap="uid=1">
             This is an address
         </b:panelGroup>
-        <b:panelGroup type="blockquote" styleClass="myClass" dataMap="uid=2">
+	<b:panelGroup type="blockquote" styleClass="myClass" dataMap="uid=2">
             This is a blockquote
         </b:panelGroup>
-        <b:panelGroup type="p" styleClass="myClass">
+	<b:panelGroup type="p" styleClass="myClass">
             This is a p
         </b:panelGroup>
-        <b:panelGroup type="code" styleClass="myClass">
+	<b:panelGroup type="code" styleClass="myClass">
             This is a code
         </b:panelGroup>
-        <b:panelGroup type="figure" styleClass="myClass">
+	<b:panelGroup type="figure" styleClass="myClass">
             This is a figure
             <b:panelGroup type="figcaption" styleClass="myClass">
                 This is a figcaption
             </b:panelGroup>
-        </b:panelGroup>
-        <b:panelGroup type="article" styleClass="myClass">
-            <b:panelGroup type="summary" styleClass="myClass">
+	</b:panelGroup>
+	<b:panelGroup type="article" styleClass="myClass">
+		<b:panelGroup type="summary" styleClass="myClass">
                 This is a summary within article
             </b:panelGroup>
             This is an article
         </b:panelGroup>
-        <b:panelGroup type="aside" styleClass="myClass">
+	<b:panelGroup type="aside" styleClass="myClass">
             This is an aside
         </b:panelGroup>
-        <b:panelGroup type="footer" styleClass="myClass">
+	<b:panelGroup type="footer" styleClass="myClass">
             This is a footer
         </b:panelGroup>
-        <b:panelGroup type="header" styleClass="myClass">
+	<b:panelGroup type="header" styleClass="myClass">
             This is a header
         </b:panelGroup>
-        <b:panelGroup type="hgroup" styleClass="myClass">
+	<b:panelGroup type="hgroup" styleClass="myClass">
             This is a hgroup
         </b:panelGroup>
-        <b:panelGroup type="nav" styleClass="myClass">
+	<b:panelGroup type="nav" styleClass="myClass">
             This is a nav
         </b:panelGroup>
-        <b:panelGroup type="section" styleClass="myClass">
+	<b:panelGroup type="section" styleClass="myClass">
             This is a section
         </b:panelGroup>
-        <b:panelGroup type="h1" styleClass="myClass">
+	<b:panelGroup type="h1" styleClass="myClass">
             Good old h1
         </b:panelGroup>
-        <b:panelGroup type="h2" styleClass="myClass">
+	<b:panelGroup type="h2" styleClass="myClass">
             Good old h2
         </b:panelGroup>
-        <b:panelGroup type="h3" styleClass="myClass">
+	<b:panelGroup type="h3" styleClass="myClass">
             Good old h3
         </b:panelGroup>
-        <b:panelGroup type="h4" styleClass="myClass">
+	<b:panelGroup type="h4" styleClass="myClass">
             Good old h4
         </b:panelGroup>
-        <b:panelGroup type="h5" styleClass="myClass">
+	<b:panelGroup type="h5" styleClass="myClass">
             Good old h5
         </b:panelGroup>
-        <b:panelGroup type="h6" styleClass="myClass">
+	<b:panelGroup type="h6" styleClass="myClass">
             Good old h6
         </b:panelGroup>
-        <b:outputTime value="#{semanticBean.yesterday}">
+	<b:outputTime value="#{semanticBean.yesterday}">
             Yesterday
         </b:outputTime>
-        <b:outputTime value="#{semanticBean.yesterday}" pretty="true"/>
-        <b:outputMeter value="12" min="1" max="20" low="4" high="16" optimum="18">
+	<b:outputTime value="#{semanticBean.yesterday}" pretty="true" />
+	<b:outputMeter value="12" min="1" max="20" low="4" high="16"
+		optimum="18">
             12 of 20
         </b:outputMeter>
-    </h:body>
+</h:body>
 </html>

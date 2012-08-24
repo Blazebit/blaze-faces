@@ -18,36 +18,43 @@ package com.blazebit.blazefaces.examples.touch;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import javax.annotation.PostConstruct;
 
-import javax.faces.event.ActionEvent;
+import javax.annotation.PostConstruct;
+import javax.inject.Named;
+
+import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
 
 import com.blazebit.blazefaces.examples.service.WeatherService;
 import com.blazebit.blazefaces.examples.service.YAHOOWeatherService;
 
+@Named
+@ViewAccessScoped
 public class WeatherController implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private String conditions;
 	private String city;
-	private String unit = "c";		//default
-    private Map<String,String> cities;
+	private String unit = "c"; // default
+	private Map<String, String> cities;
 
 	private WeatherService weatherService = new YAHOOWeatherService();
 
-    @PostConstruct
-    public void init() {
-        cities = new LinkedHashMap<String, String>();
-        cities.put("Istanbul", "TUXX0014");
-        cities.put("Barcelona", "SPXX0015");
-        cities.put("London", "UKXX0085");
-        cities.put("New York", "USNY0996");
-        cities.put("Paris", "FRXX2071");
-        cities.put("Rome", "ITXX0067");
-    }
+	@PostConstruct
+	public void init() {
+		cities = new LinkedHashMap<String, String>();
+		cities.put("Istanbul", "TUXX0014");
+		cities.put("Barcelona", "SPXX0015");
+		cities.put("London", "UKXX0085");
+		cities.put("New York", "USNY0996");
+		cities.put("Paris", "FRXX2071");
+		cities.put("Rome", "ITXX0067");
+	}
 
 	public String getCity() {
 		return city;
 	}
+
 	public void setCity(String city) {
 		this.city = city;
 	}
@@ -55,26 +62,28 @@ public class WeatherController implements Serializable {
 	public String getConditions() {
 		return conditions;
 	}
+
 	public void setConditions(String conditions) {
 		this.conditions = conditions;
 	}
-		
+
 	public String getUnit() {
 		return unit;
 	}
+
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
 
-    public Map<String, String> getCities() {
-        return cities;
-    }
+	public Map<String, String> getCities() {
+		return cities;
+	}
 
-    public void retrieveConditions() {
+	public void retrieveConditions() {
 		conditions = weatherService.getConditions(city, unit);
 	}
 
-    public void saveSettings() {
-        conditions = null;
-    }
+	public void saveSettings() {
+		conditions = null;
+	}
 }

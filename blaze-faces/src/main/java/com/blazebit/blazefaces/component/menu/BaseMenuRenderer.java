@@ -24,6 +24,7 @@ import com.blazebit.blazefaces.component.menuitem.MenuItem;
 import com.blazebit.blazefaces.component.separator.Separator;
 import com.blazebit.blazefaces.renderkit.CoreRenderer;
 import com.blazebit.blazefaces.util.ComponentUtils;
+import com.blazebit.blazefaces.util.RendererUtils;
 
 public abstract class BaseMenuRenderer extends CoreRenderer {
 
@@ -92,7 +93,8 @@ public abstract class BaseMenuRenderer extends CoreRenderer {
 			}
 
             if(onclick != null && !disabled) {
-                writer.writeAttribute("onclick", onclick, null);
+            	RendererUtils.encodeSequentialEventHandler(context, clientId, "click", onclick.toString());
+                //writer.writeAttribute("onclick", onclick, null);
             }
  
             if(icon != null) {

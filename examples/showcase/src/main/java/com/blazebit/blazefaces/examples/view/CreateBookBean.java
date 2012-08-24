@@ -15,38 +15,47 @@
  */
 package com.blazebit.blazefaces.examples.view;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
+
+import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
 
 import com.blazebit.blazefaces.examples.domain.Book;
 import com.blazebit.blazefaces.examples.service.BookService;
 import com.blazebit.blazefaces.examples.service.BookServiceImpl;
 
-public class CreateBookBean {
+@Named
+@ViewAccessScoped
+public class CreateBookBean implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private Book book = new Book();
-	
+
 	private List<Book> books = new ArrayList<Book>();
-	
-	private BookService bookService = new BookServiceImpl();	
-	
+
+	private BookService bookService = new BookServiceImpl();
+
 	public void createNew() {
-		if(books.contains(book)) {
-			FacesMessage msg = new FacesMessage("Dublicated", "This book has already been added");
+		if (books.contains(book)) {
+			FacesMessage msg = new FacesMessage("Dublicated",
+					"This book has already been added");
 			FacesContext.getCurrentInstance().addMessage(null, msg);
 		} else {
-            books.add(book);
-            bookService.saveBook(book);
-            book = new Book();          //reset form
-        }
+			books.add(book);
+			bookService.saveBook(book);
+			book = new Book(); // reset form
+		}
 	}
-	
+
 	public String reinit() {
 		book = new Book();
-		
+
 		return null;
 	}
 

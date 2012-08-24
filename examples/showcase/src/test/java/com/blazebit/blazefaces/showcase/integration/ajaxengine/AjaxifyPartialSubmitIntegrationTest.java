@@ -11,7 +11,7 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 public class AjaxifyPartialSubmitIntegrationTest extends
 		AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("ajaxifyPartialSubmit.jsf");
+	private String testUrl = toShowcaseUrl("ajaxifyPartialSubmit.xhtml");
 	private WebElement txtFirstName;
 	private WebElement txtSurname;
 	private WebElement lblOut2;

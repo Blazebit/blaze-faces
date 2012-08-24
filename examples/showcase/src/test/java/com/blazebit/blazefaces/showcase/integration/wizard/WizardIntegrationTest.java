@@ -16,34 +16,36 @@ public class WizardIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void before() {
-		driver.get(toShowcaseUrl("wizard.jsf"));
+		driver.get(toShowcaseUrl("wizard.xhtml"));
 	}
-	
+
 	@Test
-	public void shouldGenerateConfirmationFromAllValidFieldsEnteredInWizard() throws InterruptedException {
-		
-		List<WebElement> inputElements = driver.findElements(By.className("ui-inputfield"));
-		
+	public void shouldGenerateConfirmationFromAllValidFieldsEnteredInWizard()
+			throws InterruptedException {
+
+		List<WebElement> inputElements = driver.findElements(By
+				.className("ui-inputfield"));
+
 		inputElements.get(1).sendKeys("Cenk");
 		inputElements.get(2).sendKeys("Civici");
 		inputElements.get(3).sendKeys("90");
-		
+
 		driver.findElements(By.className("ui-button")).get(1).click();
-		
+
 		inputElements = driver.findElements(By.className("ui-inputfield"));
 		inputElements.get(1).sendKeys("Street");
 		inputElements.get(2).sendKeys("Postal");
 		inputElements.get(3).sendKeys("Istanbul");
-		
+
 		driver.findElements(By.className("ui-button")).get(1).click();
-		
+
 		inputElements = driver.findElements(By.className("ui-inputfield"));
 		inputElements.get(1).sendKeys("cc@cc.com");
 		inputElements.get(2).sendKeys("4314324343");
 		inputElements.get(3).sendKeys("Additional Info");
-		
+
 		driver.findElements(By.className("ui-button")).get(1).click();
-		
+
 		String text = driver.findElement(By.className("ui-wizard")).getText();
 		assertThat(text, containsString("Firstname: Cenk"));
 		assertThat(text, containsString("Lastname: Civici"));
@@ -56,37 +58,38 @@ public class WizardIntegrationTest extends AbstractIntegrationTest {
 		assertThat(text, containsString("Email: cc@cc.com"));
 		assertThat(text, containsString("Phone 4314324343"));
 		assertThat(text, containsString("Info: Additional Info"));
-		
+
 	}
-	
+
 	@Test
 	public void shouldSkipToLastStepIfValid() {
-		List<WebElement> inputElements = driver.findElements(By.className("ui-inputfield"));
-		
+		List<WebElement> inputElements = driver.findElements(By
+				.className("ui-inputfield"));
+
 		inputElements.get(1).sendKeys("Cenk");
 		inputElements.get(2).sendKeys("Civici");
 		inputElements.get(3).sendKeys("90");
-		
+
 		driver.findElement(By.cssSelector("input[type='checkbox']")).click();
-		
+
 		driver.findElements(By.className("ui-button")).get(1).click();
-		
+
 		String text = driver.findElement(By.className("ui-wizard")).getText();
 		assertThat(text, containsString("Firstname: Cenk"));
 		assertThat(text, containsString("Lastname: Civici"));
 		assertThat(text, containsString("Age: 90"));
 	}
-	
+
 	@Test
 	public void shouldNotGoToNextPageIfNotValid() {
 		driver.findElements(By.className("ui-button")).get(1).click();
-		
+
 		String text = driver.findElement(By.className("ui-wizard")).getText();
-		
-		assertThat(text, containsString("Firstname: Validation Error: Value is required."));
-		
-		
+
+		assertThat(
+				text,
+				containsString("Firstname: Validation Error: Value is required."));
+
 	}
-	
-	
+
 }

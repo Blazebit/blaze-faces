@@ -14,7 +14,7 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
 public class TreeSingleSelectionIntegrationTest extends AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("treeSelectionSingle.jsf");
+	private String testUrl = toShowcaseUrl("treeSelectionSingle.xhtml");
 	private WebElement btnDisplay;
 
 	@Before

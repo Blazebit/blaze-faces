@@ -21,7 +21,7 @@ public class CalendarNavigatorIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void before() {
-		String testUrl = toShowcaseUrl("calendarNavigator.jsf");
+		String testUrl = toShowcaseUrl("calendarNavigator.xhtml");
 		driver.get(testUrl);
 	}
 
@@ -48,7 +48,7 @@ public class CalendarNavigatorIntegrationTest extends AbstractIntegrationTest {
 
 	@Test
 	public void shouldNavigateBetweenYears() {
-		
+
 		WebElement calendarElement = findElementById("cal_inline");
 
 		WebElement yearElement = findElementByClass("ui-datepicker-year");
@@ -63,9 +63,9 @@ public class CalendarNavigatorIntegrationTest extends AbstractIntegrationTest {
 
 		Calendar selectedDate = calendarTestingHelper.toCalendar(clickedDate);
 
-		assertThat(selectedDate.get(Calendar.YEAR), equalTo(Integer.valueOf(selectedYear)));
+		assertThat(selectedDate.get(Calendar.YEAR),
+				equalTo(Integer.valueOf(selectedYear)));
 
 	}
 
-	
 }

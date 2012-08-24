@@ -15,25 +15,33 @@
  */
 package com.blazebit.blazefaces.examples.mobile;
 
+import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class TranslatorView {
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 
-    private Map<String,String> languages;
+@Named
+@RequestScoped
+public class TranslatorView implements Serializable {
 
-    public TranslatorView() {
-        languages = new LinkedHashMap<String, String>();
-        languages.put("English", "en");
-        languages.put("Turkish", "tr");
-        languages.put("Italian", "it");
-        languages.put("Spanish", "es");
-        languages.put("German", "de");
-        languages.put("French", "fr");
-        languages.put("Portuguese", "pt");
-    }
+	private static final long serialVersionUID = 1L;
 
-    public Map<String, String> getLanguages() {
-        return languages;
-    }
+	private Map<String, String> languages;
+
+	public TranslatorView() {
+		languages = new LinkedHashMap<String, String>();
+		languages.put("English", "en");
+		languages.put("Turkish", "tr");
+		languages.put("Italian", "it");
+		languages.put("Spanish", "es");
+		languages.put("German", "de");
+		languages.put("French", "fr");
+		languages.put("Portuguese", "pt");
+	}
+
+	public Map<String, String> getLanguages() {
+		return languages;
+	}
 }

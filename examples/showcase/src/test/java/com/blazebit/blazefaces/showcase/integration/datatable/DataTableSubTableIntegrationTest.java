@@ -15,35 +15,37 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 public class DataTableSubTableIntegrationTest extends AbstractIntegrationTest {
 
 	private List<WebElement> tableRows;
-	
+
 	@Before
 	public void before() {
-		driver.get(toShowcaseUrl("datatableSubTable.jsf"));
-		tableRows = findElementById("form:playersTable_data").findElements(By.tagName("tr"));
+		driver.get(toShowcaseUrl("datatableSubTable.xhtml"));
+		tableRows = findElementById("form:playersTable_data").findElements(
+				By.tagName("tr"));
 	}
 
 	@Test
 	public void shouldGroupByPlayers() {
-		
-		verifyPlayer(0 , "Messi"  , 168, 86);
-		verifyPlayer(8 , "Xavi"   , 55 , 127);
-		verifyPlayer(16, "Iniesta", 67 , 90);
+
+		verifyPlayer(0, "Messi", 168, 86);
+		verifyPlayer(8, "Xavi", 55, 127);
+		verifyPlayer(16, "Iniesta", 67, 90);
 	}
 
-	private void verifyPlayer(int playerRowNumber, String expectedPlayerName, int expectedTotalGoals, int expectedTotalAssists) {
+	private void verifyPlayer(int playerRowNumber, String expectedPlayerName,
+			int expectedTotalGoals, int expectedTotalAssists) {
 
 		WebElement playerRow = tableRows.get(playerRowNumber);
 		verifyRowIsHeader(playerRow);
-		
+
 		String playerName = playerRow.findElement(By.tagName("div")).getText();
 		assertThat(playerName, equalTo(expectedPlayerName));
-		
+
 		WebElement statsRow = tableRows.get(playerRowNumber + 7);
 		verifyRowIsHeader(playerRow);
-		
+
 		int totalGoals = getTotalGoals(statsRow);
 		assertThat(totalGoals, equalTo(expectedTotalGoals));
-		
+
 		int totalAssists = getTotalAssists(statsRow);
 		assertThat(totalAssists, equalTo(expectedTotalAssists));
 	}

@@ -19,47 +19,49 @@ import java.io.Serializable;
 
 public class ServerLoad implements Serializable {
 
-    private String name;
+	private static final long serialVersionUID = 1L;
 
-    private int cpu;
+	private String name;
 
-    private int memory;
+	private int cpu;
 
-    public ServerLoad() {
-    }
+	private int memory;
 
-    public ServerLoad(String name, int cpu, int memory) {
-        this.name = name;
-        this.cpu = cpu;
-        this.memory = memory;
-    }
-    
-    public int getCpu() {
-        return cpu;
-    }
+	public ServerLoad() {
+	}
 
-    public void setCpu(int cpu) {
-        this.cpu = cpu;
-    }
+	public ServerLoad(String name, int cpu, int memory) {
+		this.name = name;
+		this.cpu = cpu;
+		this.memory = memory;
+	}
 
-    public int getMemory() {
-        return memory;
-    }
+	public int getCpu() {
+		return cpu;
+	}
 
-    public void setMemory(int memory) {
-        this.memory = memory;
-    }
+	public void setCpu(int cpu) {
+		this.cpu = cpu;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public int getMemory() {
+		return memory;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setMemory(int memory) {
+		this.memory = memory;
+	}
 
-    public void update(int cpu, int memory) {
-        this.cpu = cpu;
-        this.memory = memory;
-    }
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void update(int cpu, int memory) {
+		this.cpu = cpu;
+		this.memory = memory;
+	}
 }

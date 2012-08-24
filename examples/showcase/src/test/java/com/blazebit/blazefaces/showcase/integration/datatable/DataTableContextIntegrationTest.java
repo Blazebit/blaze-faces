@@ -21,7 +21,7 @@ public class DataTableContextIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void before() {
-		driver.get(toShowcaseUrl("datatableComplex.jsf"));
+		driver.get(toShowcaseUrl("datatableComplex.xhtml"));
 	}
 
 	@Test
@@ -29,7 +29,7 @@ public class DataTableContextIntegrationTest extends AbstractIntegrationTest {
 		filterRowsByModelAndVerify();
 
 		sortRowsByYearAndVerify();
-		
+
 		clickToFirstRowAndVerify();
 	}
 
@@ -45,11 +45,15 @@ public class DataTableContextIntegrationTest extends AbstractIntegrationTest {
 	private void clickToFirstRowAndVerify() {
 		WebElement firstRow = getTableRows().get(0);
 		clickToFirstRow(firstRow);
-		
-		assertThat(findElementById("form:model").getText(), equalTo(getColumnData(firstRow, 0)));
-		assertThat(findElementById("form:year").getText(), equalTo(getColumnData(firstRow, 1)));
-		assertThat(findElementById("form:manufacturer").getText(), equalTo(getColumnData(firstRow, 2)));
-		assertThat(findElementById("form:color").getText(), equalTo(getColumnData(firstRow, 3)));
+
+		assertThat(findElementById("form:model").getText(),
+				equalTo(getColumnData(firstRow, 0)));
+		assertThat(findElementById("form:year").getText(),
+				equalTo(getColumnData(firstRow, 1)));
+		assertThat(findElementById("form:manufacturer").getText(),
+				equalTo(getColumnData(firstRow, 2)));
+		assertThat(findElementById("form:color").getText(),
+				equalTo(getColumnData(firstRow, 3)));
 	}
 
 	private void sortRowsByYearAndVerify() {
@@ -67,12 +71,14 @@ public class DataTableContextIntegrationTest extends AbstractIntegrationTest {
 
 	private void verifyAllCarsAreSortedByYear() {
 		Integer year = null;
-		for(WebElement row : getTableRows()) {
-			Integer currentYear = TestingUtils.getInteger(getColumnData(row, 1));
-			if(year == null) {
+		for (WebElement row : getTableRows()) {
+			Integer currentYear = TestingUtils
+					.getInteger(getColumnData(row, 1));
+			if (year == null) {
 				year = currentYear;
-			} else if(currentYear.compareTo(year) < 0) {
-				throw new AssertionFailedError("DataTableComplex sorting failed");
+			} else if (currentYear.compareTo(year) < 0) {
+				throw new AssertionFailedError(
+						"DataTableComplex sorting failed");
 			}
 		}
 	}
@@ -86,15 +92,18 @@ public class DataTableContextIntegrationTest extends AbstractIntegrationTest {
 	}
 
 	private WebElement getYearSorter() {
-		return findElementById("form:carsTable:year").findElement(By.className("ui-sortable-column-icon"));
+		return findElementById("form:carsTable:year").findElement(
+				By.className("ui-sortable-column-icon"));
 	}
 
 	private String getColumnData(WebElement row, int columnNumber) {
-		return row.findElements(By.className("ui-dt-c")).get(columnNumber).getText();
+		return row.findElements(By.className("ui-dt-c")).get(columnNumber)
+				.getText();
 	}
 
 	private List<WebElement> getTableRows() {
-		return findElementById("form:carsTable_data").findElements(By.tagName("tr"));
+		return findElementById("form:carsTable_data").findElements(
+				By.tagName("tr"));
 	}
 
 }

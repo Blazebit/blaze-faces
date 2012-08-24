@@ -16,38 +16,46 @@
 package com.blazebit.blazefaces.examples.view;
 
 import java.io.File;
+
+import javax.enterprise.context.RequestScoped;
 import javax.faces.FacesException;
 import javax.faces.context.FacesContext;
 import javax.imageio.stream.FileImageOutputStream;
+import javax.inject.Named;
 import javax.servlet.ServletContext;
+
 import com.blazebit.blazefaces.event.CaptureEvent;
 import com.blazebit.blazefaces.push.PushContextFactory;
 
+@Named
+@RequestScoped
 public class PhotoShare {
-        
-    private String getRandomImageName() {
+
+	private String getRandomImageName() {
 		int i = (int) (Math.random() * 10000000);
-		
+
 		return String.valueOf(i);
 	}
-    
-    public void share(CaptureEvent captureEvent) {
-        String photo = getRandomImageName();
-        byte[] data = captureEvent.getData();
-        
-		ServletContext servletContext = (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
-		String newFileName = servletContext.getRealPath("") + File.separator + "photocam" + File.separator + photo + ".png";
-		
+
+	public void share(CaptureEvent captureEvent) {
+		String photo = getRandomImageName();
+		byte[] data = captureEvent.getData();
+
+		ServletContext servletContext = (ServletContext) FacesContext
+				.getCurrentInstance().getExternalContext().getContext();
+		String newFileName = servletContext.getRealPath("") + File.separator
+				+ "photocam" + File.separator + photo + ".png";
+
 		FileImageOutputStream imageOutput;
 		try {
 			imageOutput = new FileImageOutputStream(new File(newFileName));
 			imageOutput.write(data, 0, data.length);
 			imageOutput.close();
-            
-            PushContextFactory.getDefault().getPushContext().push("/photoshare", photo + ".png");
-		}
-        catch(Exception e) {
+
+			PushContextFactory.getDefault().getPushContext()
+					.push("/photoshare", photo + ".png");
+		} catch (Exception e) {
 			throw new FacesException("Error in writing captured image.");
 		}
-    }
+	}
 }

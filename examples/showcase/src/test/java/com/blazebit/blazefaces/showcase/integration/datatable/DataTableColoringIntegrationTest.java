@@ -14,7 +14,7 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
 public class DataTableColoringIntegrationTest extends AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("datatableColoring.jsf");
+	private String testUrl = toShowcaseUrl("datatableColoring.xhtml");
 
 	@Before
 	public void init() {

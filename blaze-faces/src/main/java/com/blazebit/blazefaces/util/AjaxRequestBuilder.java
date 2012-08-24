@@ -33,7 +33,7 @@ public class AjaxRequestBuilder {
 
     public AjaxRequestBuilder() {
         sb = new StringBuilder();
-        sb.append("BlazeJS.Ajax.send({");
+        sb.append("BlazeFaces.ab({");
     }
 
     public AjaxRequestBuilder source(FacesContext context, UIComponent component, String source) {
@@ -222,7 +222,7 @@ public class AjaxRequestBuilder {
         sb.append("});");
 
         if (preventDefault) {
-            sb.append("event.preventDefault();");
+        	sb.append("event.preventDefault();");
         }
 
         String request = sb.toString();
@@ -235,7 +235,7 @@ public class AjaxRequestBuilder {
         sb.append("}, arguments[1]);");
 
         if (preventDefault) {
-            sb.append("event.preventDefault();");
+        	sb.append("event.preventDefault();");
         }
 
         String request = sb.toString();

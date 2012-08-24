@@ -13,39 +13,46 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.blazebit.blazefaces.examples.view;
+package com.blazebit.blazefaces.examples.model;
 
 import java.io.Serializable;
 import java.util.List;
+
 import javax.faces.model.ListDataModel;
+
 import com.blazebit.blazefaces.examples.domain.Car;
 import com.blazebit.blazefaces.model.SelectableDataModel;
 
-public class CarDataModel extends ListDataModel<Car> implements SelectableDataModel<Car>, Serializable {  
+public class CarDataModel extends ListDataModel<Car> implements
+		SelectableDataModel<Car>, Serializable {
 
-    public CarDataModel() {
-    }
+	private static final long serialVersionUID = 1L;
 
-    public CarDataModel(List<Car> data) {
-        super(data);
-    }
-    
-    @Override
-    public Car getRowData(String rowKey) {
-        //In a real app, a more efficient way like a query by rowKey should be implemented to deal with huge data
-        
-        List<Car> cars = (List<Car>) getWrappedData();
-        
-        for(Car car : cars) {
-            if(car.getModel().equals(rowKey))
-                return car;
-        }
-        
-        return null;
-    }
+	public CarDataModel() {
+	}
 
-    @Override
-    public Object getRowKey(Car car) {
-        return car.getModel();
-    }
+	public CarDataModel(List<Car> data) {
+		super(data);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Car getRowData(String rowKey) {
+		// In a real app, a more efficient way like a query by rowKey should be
+		// implemented to deal with huge data
+
+		List<Car> cars = (List<Car>) getWrappedData();
+
+		for (Car car : cars) {
+			if (car.getModel().equals(rowKey))
+				return car;
+		}
+
+		return null;
+	}
+
+	@Override
+	public Object getRowKey(Car car) {
+		return car.getModel();
+	}
 }

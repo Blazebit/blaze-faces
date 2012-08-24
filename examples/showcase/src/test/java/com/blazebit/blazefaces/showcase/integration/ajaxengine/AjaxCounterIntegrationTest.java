@@ -10,8 +10,8 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
 public class AjaxCounterIntegrationTest extends AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("pprCounter.jsf");
-	
+	private String testUrl = toShowcaseUrl("pprCounter.xhtml");
+
 	@Test
 	public void shouldIncreaseCounter() {
 
@@ -22,15 +22,15 @@ public class AjaxCounterIntegrationTest extends AbstractIntegrationTest {
 		button.click();
 
 		waitUntilAjaxRequestCompletes();
-		
+
 		WebElement numberText = findElementById("form:txt_count");
 
 		assertThat(numberText.getText(), equalTo("1"));
-		
+
 		button.click();
-		
+
 		waitUntilElementExistsAndGetsValue("form:txt_count", "2");
-		
+
 		numberText = findElementById("form:txt_count");
 
 		assertThat(numberText.getText(), equalTo("2"));

@@ -12,13 +12,14 @@ import org.openqa.selenium.WebElement;
 
 import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
-public class CalendarMultipleMonthsIntegrationTest extends AbstractIntegrationTest {
+public class CalendarMultipleMonthsIntegrationTest extends
+		AbstractIntegrationTest {
 
 	private CalendarTestingHelper calendarTestingHelper = new CalendarTestingHelper();
 
 	@Before
 	public void before() {
-		String testUrl = toShowcaseUrl("calendarMultipleMonths.jsf");
+		String testUrl = toShowcaseUrl("calendarMultipleMonths.xhtml");
 		driver.get(testUrl);
 	}
 
@@ -28,14 +29,16 @@ public class CalendarMultipleMonthsIntegrationTest extends AbstractIntegrationTe
 		int firstDisplayedMonth = getMonth("ui-datepicker-group-first");
 		int secondDisplayedMonth = getMonth("ui-datepicker-group-middle");
 		int thirdDisplayedMonth = getMonth("ui-datepicker-group-last");
-		
-		assertThat((firstDisplayedMonth + 1) % 12, equalTo(secondDisplayedMonth));
-		assertThat((secondDisplayedMonth + 1) % 12, equalTo(thirdDisplayedMonth));
+
+		assertThat((firstDisplayedMonth + 1) % 12,
+				equalTo(secondDisplayedMonth));
+		assertThat((secondDisplayedMonth + 1) % 12,
+				equalTo(thirdDisplayedMonth));
 
 		int first = firstDisplayedMonth;
 		WebElement next = findElementByClass("ui-datepicker-next");
 		next.click();
-		
+
 		firstDisplayedMonth = getMonth("ui-datepicker-group-first");
 		secondDisplayedMonth = getMonth("ui-datepicker-group-middle");
 		thirdDisplayedMonth = getMonth("ui-datepicker-group-last");

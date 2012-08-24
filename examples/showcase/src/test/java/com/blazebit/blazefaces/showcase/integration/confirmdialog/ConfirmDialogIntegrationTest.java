@@ -9,45 +9,44 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 
 import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
-public class ConfirmDialogIntegrationTest extends AbstractIntegrationTest{
+public class ConfirmDialogIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
-	public void init(){
-		driver.get(toShowcaseUrl("confirmDialog.jsf"));
+	public void init() {
+		driver.get(toShowcaseUrl("confirmDialog.xhtml"));
 	}
-	
+
 	@Test
-	public void shouldHideDialogWhenNotConfirmed(){
+	public void shouldHideDialogWhenNotConfirmed() {
 		WebElement showDialogButton = findElementById("showDialogButton");
 		showDialogButton.click();
-		
+
 		WebElement declineButton = findElementById("decline");
 		declineButton.click();
-		
+
 		waitForCondition(new ExpectedCondition<Boolean>() {
 			public Boolean apply(WebDriver driver) {
 				return driver.findElement(By.id("confirmDialog")).isDisplayed();
 			}
-		});	
+		});
 	}
-	
+
 	@Test
-	public void shouldInvokeConfirmationActionListenerWhenConfirmed(){
+	public void shouldInvokeConfirmationActionListenerWhenConfirmed() {
 		WebElement showDialogButton = findElementById("showDialogButton");
 		showDialogButton.click();
-		
+
 		WebElement confirmButton = findElementById("confirm");
 		confirmButton.click();
-		
+
 		waitForCondition(new ExpectedCondition<Boolean>() {
 			public Boolean apply(WebDriver driver) {
 				return driver.findElement(By.id("confirmDialog")).isDisplayed();
 			}
-		});	
-		
+		});
+
 		waitUntilElementExists(By.className("ui-growl"));
-		
+
 	}
-	
-	
+
 }

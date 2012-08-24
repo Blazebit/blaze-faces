@@ -17,13 +17,17 @@ package com.blazebit.blazefaces.examples.view;
 
 import java.io.Serializable;
 
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
 
 import com.blazebit.blazefaces.push.PushContext;
 import com.blazebit.blazefaces.push.PushContextFactory;
 
-public class GlobalCounterBean implements Serializable{
+@Named
+@ApplicationScoped
+public class GlobalCounterBean implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private int count;
 
@@ -34,11 +38,12 @@ public class GlobalCounterBean implements Serializable{
 	public void setCount(int count) {
 		this.count = count;
 	}
-	
+
 	public synchronized void increment() {
 		count++;
-        
-        PushContext pushContext = PushContextFactory.getDefault().getPushContext();
-        pushContext.push("/counter", String.valueOf(count));
+
+		PushContext pushContext = PushContextFactory.getDefault()
+				.getPushContext();
+		pushContext.push("/counter", String.valueOf(count));
 	}
 }

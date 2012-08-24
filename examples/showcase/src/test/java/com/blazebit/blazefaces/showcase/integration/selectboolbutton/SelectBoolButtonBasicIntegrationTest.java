@@ -1,80 +1,101 @@
 package com.blazebit.blazefaces.showcase.integration.selectboolbutton;
 
-import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.assertTrue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
-public class SelectBoolButtonBasicIntegrationTest extends AbstractIntegrationTest {
+import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
-    protected static final String TEST_URL = BLAZE_SHOWCASE_UI + "selectBooleanButton.jsf";
+public class SelectBoolButtonBasicIntegrationTest extends
+		AbstractIntegrationTest {
 
-    @BeforeClass
-    public static void init() {
-        driver.get(TEST_URL);
-    }
+	protected static final String TEST_URL = BLAZE_SHOWCASE_UI
+			+ "selectBooleanButton.xhtml";
 
-    @Test
-    public void shouldVerifyDOM() {
+	@BeforeClass
+	public static void init() {
+		driver.get(TEST_URL);
+	}
 
-        try {
+	@Test
+	public void shouldVerifyDOM() {
 
-            assertTrue("Value1 checkbox input element should be hidden.", !findElementBySelector(escapeClientId("form:value1") + " input[type='checkbox']").isDisplayed());
+		try {
 
-            assertTrue("Value2 checkbox input element should be hidden.", !findElementBySelector(escapeClientId("form:value2") + " input[type='checkbox']").isDisplayed());
+			assertTrue(
+					"Value1 checkbox input element should be hidden.",
+					!findElementBySelector(
+							escapeClientId("form:value1")
+									+ " input[type='checkbox']").isDisplayed());
 
-            findElementById("form:submit");
+			assertTrue(
+					"Value2 checkbox input element should be hidden.",
+					!findElementBySelector(
+							escapeClientId("form:value2")
+									+ " input[type='checkbox']").isDisplayed());
 
-            assertTrue("Values dialog should be hidden on startup.", !findElementById("form:dialog").isDisplayed());
+			findElementById("form:submit");
 
-        } catch (NoSuchElementException e) {
-            assertTrue("SelectBoolButton showcase DOM not verified.", false);
-        }
-    }
+			assertTrue("Values dialog should be hidden on startup.",
+					!findElementById("form:dialog").isDisplayed());
 
-    @Test
-    public void shouldUseButtons() {
+		} catch (NoSuchElementException e) {
+			assertTrue("SelectBoolButton showcase DOM not verified.", false);
+		}
+	}
 
-        WebElement v1 = findElementById("form:value1");
-        WebElement v1_input = findElementBySelector(v1, "input");
-        
-        WebElement v2 = findElementById("form:value2");
-        WebElement v2_input = findElementBySelector(v2, "input");
+	@Test
+	public void shouldUseButtons() {
 
-        assertThat("Value1 should be no.", v1.getText(), equalTo("No"));
-        assertTrue("Value1 should have valid hidden input element.", !v1_input.isSelected());
-        
-        v1.click();
+		WebElement v1 = findElementById("form:value1");
+		WebElement v1_input = findElementBySelector(v1, "input");
 
-        assertThat("Value1 should be yes.", v1.getText(), equalTo("Yes"));
-        
-        assertTrue("Value1 should toggle hidden input on change.", v1_input.isSelected());
+		WebElement v2 = findElementById("form:value2");
+		WebElement v2_input = findElementBySelector(v2, "input");
 
-        assertThat("Value2 should be no.", v2.getText(), equalTo("No"));
-        assertTrue("Value2 should have valid hidden input element.", !v2_input.isSelected());
+		assertThat("Value1 should be no.", v1.getText(), equalTo("No"));
+		assertTrue("Value1 should have valid hidden input element.",
+				!v1_input.isSelected());
 
-        try {
-            assertTrue("Value2 should display icon.", findElementBySelector(v2, ".ui-icon.ui-icon-close").isDisplayed());
-        } catch (NoSuchElementException e) {
-            assertTrue("Value2 should render icon.", false);
-        }
-        
-        v2.click();
-        
-        waitUntilAjaxRequestCompletes();
-        
-        assertTrue("Value2 should toggle hidden input on change.", v2_input.isSelected());
-        
-        assertThat("Value2 should be yes.", v2.getText(), equalTo("Yes"));
-        
-        try {
-            assertTrue("Value2 should display icon.", findElementBySelector(v2, ".ui-icon.ui-icon-check").isDisplayed());
-        } catch (NoSuchElementException e) {
-            assertTrue("Value2 should render icon.", false);
-        }
-    }
+		v1.click();
+
+		assertThat("Value1 should be yes.", v1.getText(), equalTo("Yes"));
+
+		assertTrue("Value1 should toggle hidden input on change.",
+				v1_input.isSelected());
+
+		assertThat("Value2 should be no.", v2.getText(), equalTo("No"));
+		assertTrue("Value2 should have valid hidden input element.",
+				!v2_input.isSelected());
+
+		try {
+			assertTrue("Value2 should display icon.",
+					findElementBySelector(v2, ".ui-icon.ui-icon-close")
+							.isDisplayed());
+		} catch (NoSuchElementException e) {
+			assertTrue("Value2 should render icon.", false);
+		}
+
+		v2.click();
+
+		waitUntilAjaxRequestCompletes();
+
+		assertTrue("Value2 should toggle hidden input on change.",
+				v2_input.isSelected());
+
+		assertThat("Value2 should be yes.", v2.getText(), equalTo("Yes"));
+
+		try {
+			assertTrue("Value2 should display icon.",
+					findElementBySelector(v2, ".ui-icon.ui-icon-check")
+							.isDisplayed());
+		} catch (NoSuchElementException e) {
+			assertTrue("Value2 should render icon.", false);
+		}
+	}
 }

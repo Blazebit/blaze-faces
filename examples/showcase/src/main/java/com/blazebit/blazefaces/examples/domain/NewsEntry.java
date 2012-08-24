@@ -3,17 +3,19 @@ package com.blazebit.blazefaces.examples.domain;
 import java.io.Serializable;
 
 public class NewsEntry implements Serializable {
-	
+
+	private static final long serialVersionUID = 1L;
+
 	private String title;
-	
+
 	private String content;
-	
+
 	private int index;
 
 	public NewsEntry() {
-		
+
 	}
-	
+
 	public NewsEntry(int index, String title, String content) {
 		this.index = index;
 		this.content = content;
@@ -35,7 +37,7 @@ public class NewsEntry implements Serializable {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
+
 	public int getIndex() {
 		return index;
 	}

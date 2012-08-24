@@ -19,10 +19,10 @@ public class ImageCompareIntegrationTest extends AbstractIntegrationTest {
 	private static final int Y_OFFSET_TO_MOVE = 0;
 	private static final int X_OFFSET_TO_MOVE = 50;
 	private SeleniumActionHelper actionHelper = new SeleniumActionHelper(driver);
-	
+
 	@Before
 	public void before() {
-		driver.get(toShowcaseUrl("imageCompare.jsf"));
+		driver.get(toShowcaseUrl("imageCompare.xhtml"));
 	}
 
 	@Test
@@ -32,11 +32,11 @@ public class ImageCompareIntegrationTest extends AbstractIntegrationTest {
 		WebElement dragger = getDragger(consoleCompare);
 		WebElement leftImageDiv = getLeftImageDiv(consoleCompare);
 		int leftImageWidth = getWidth(leftImageDiv);
-		
+
 		actionHelper.clickAndHoldOnElement(dragger);
 		actionHelper.moveByOffSet(X_OFFSET_TO_MOVE, Y_OFFSET_TO_MOVE);
 		actionHelper.releaseMouse();
-		
+
 		int draggedLeftWidth = getWidth(leftImageDiv);
 
 		assertThat(leftImageWidth, lessThan(draggedLeftWidth));
@@ -56,5 +56,5 @@ public class ImageCompareIntegrationTest extends AbstractIntegrationTest {
 	private int getWidth(WebElement element) {
 		return TestingUtils.getInteger(element.getCssValue("width"));
 	}
-	
+
 }

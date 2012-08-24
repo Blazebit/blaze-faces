@@ -13,15 +13,16 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 public class CarouselSlideShowIntegrationTest extends AbstractIntegrationTest {
 
 	private static final String SLIDE_SHOW_CAROUSEL_ID = "slideShow";
-	
+
 	private CarouselTestingHelper testingHelper = new CarouselTestingHelper();
-	
+
 	private WebElement carousel;
-	
+
 	@Before
 	public void before() {
-		driver.get(toShowcaseUrl("carouselSlideshow.jsf"));
-		carousel = testingHelper.findCarouselById(driver, SLIDE_SHOW_CAROUSEL_ID);
+		driver.get(toShowcaseUrl("carouselSlideshow.xhtml"));
+		carousel = testingHelper.findCarouselById(driver,
+				SLIDE_SHOW_CAROUSEL_ID);
 	}
 
 	@Test

@@ -22,43 +22,46 @@ import java.util.List;
 
 public class Player implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
 	private String name;
-	
+
 	private int number;
 
 	private String photo;
-	
+
 	private String position;
-	
+
 	private String nationality;
-	
+
 	private String height;
-	
+
 	private String weight;
-	
+
 	private Date birth;
-    
-    private List<Stats> stats = new ArrayList<Stats>();
-	
-	public Player() {}
-	
+
+	private List<Stats> stats = new ArrayList<Stats>();
+
+	public Player() {
+	}
+
 	public Player(String name) {
 		this.name = name;
 	}
 
-    public Player(String name, int number, String photo) {
+	public Player(String name, int number, String photo) {
 		this.name = name;
-        this.number = number;
+		this.number = number;
 		this.photo = photo;
 	}
-    
-    public Player(String name, int number, String photo, String position) {
+
+	public Player(String name, int number, String photo, String position) {
 		this.name = name;
-        this.number = number;
+		this.number = number;
 		this.photo = photo;
-        this.position = position;
+		this.position = position;
 	}
-	
+
 	public String getHeight() {
 		return height;
 	}
@@ -82,7 +85,7 @@ public class Player implements Serializable {
 	public void setBirth(Date birth) {
 		this.birth = birth;
 	}
-	
+
 	public Player(String name, int number) {
 		this.name = name;
 		this.number = number;
@@ -103,7 +106,7 @@ public class Player implements Serializable {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-	
+
 	public String getPosition() {
 		return position;
 	}
@@ -119,7 +122,6 @@ public class Player implements Serializable {
 	public void setNationality(String nationality) {
 		this.nationality = nationality;
 	}
-	
 
 	public int getNumber() {
 		return number;
@@ -129,48 +131,48 @@ public class Player implements Serializable {
 		this.number = number;
 	}
 
-    public List<Stats> getStats() {
-        return stats;
-    }
+	public List<Stats> getStats() {
+		return stats;
+	}
 
-    public void setStats(List<Stats> stats) {
-        this.stats = stats;
-    }
-    
-    public int getAllGoals() {
-        int sum = 0;
-        
-        for(Stats s : stats) {
-            sum += s.getGoals();
-        }
-        
-        return sum;
-    }
-    
-    public int getAllAssists() {
-        int sum = 0;
-        
-        for(Stats s : stats) {
-            sum += s.getAssists();
-        }
-        
-        return sum;
-    }
+	public void setStats(List<Stats> stats) {
+		this.stats = stats;
+	}
+
+	public int getAllGoals() {
+		int sum = 0;
+
+		for (Stats s : stats) {
+			sum += s.getGoals();
+		}
+
+		return sum;
+	}
+
+	public int getAllAssists() {
+		int sum = 0;
+
+		for (Stats s : stats) {
+			sum += s.getAssists();
+		}
+
+		return sum;
+	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if(obj == null)
+		if (obj == null)
 			return false;
-		if(!(obj instanceof Player))
+		if (!(obj instanceof Player))
 			return false;
-		
-		return ((Player)obj).getNumber() == this.number;
+
+		return ((Player) obj).getNumber() == this.number;
 	}
 
 	@Override
 	public int hashCode() {
-	    int hash = 1;
-	    return hash * 31 + name.hashCode();
+		int hash = 1;
+		return hash * 31 + name.hashCode();
 	}
 
 	@Override

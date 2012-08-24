@@ -15,57 +15,69 @@
  */
 package com.blazebit.blazefaces.examples.view;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
+
+import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
+
 import com.blazebit.blazefaces.event.TabChangeEvent;
 import com.blazebit.blazefaces.event.TabCloseEvent;
 import com.blazebit.blazefaces.examples.domain.Player;
 
-public class TabBean {
-    
-    private List<Player> players;
-    
-    private String effect = "fade";
+@Named
+@ViewAccessScoped
+public class TabBean implements Serializable {
 
-    public TabBean() {
-        players = new ArrayList<Player>();
-        
-        players.add(new Player("Messi", 10, "messi.jpg", "CF"));
-        players.add(new Player("Iniesta", 8, "iniesta.jpg", "CM"));
-        players.add(new Player("Villa", 7, "villa.jpg", "CF"));
-        players.add(new Player("Xavi", 6, "xavi.jpg", "CM"));
-        players.add(new Player("Puyol", 5, "puyol.jpg", "CB"));
-    }
+	private static final long serialVersionUID = 1L;
+	private List<Player> players;
 
-    public List<Player> getPlayers() {
-        return players;
-    }
-    
-    public void onTabChange(TabChangeEvent event) {
-        FacesMessage msg = new FacesMessage("Tab Changed", "Active Tab: " + event.getTab().getTitle());
+	private String effect = "fade";
 
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
-    
-    public void onPlayerChange(TabChangeEvent event) {
-        FacesMessage msg = new FacesMessage("Tab Changed", "Active Player: " + ((Player) event.getData()).getName());
+	public TabBean() {
+		players = new ArrayList<Player>();
 
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
-    
-    public void onTabClose(TabCloseEvent event) {
-        FacesMessage msg = new FacesMessage("Tab Closed", "Closed tab: " + event.getTab().getTitle());
+		players.add(new Player("Messi", 10, "messi.jpg", "CF"));
+		players.add(new Player("Iniesta", 8, "iniesta.jpg", "CM"));
+		players.add(new Player("Villa", 7, "villa.jpg", "CF"));
+		players.add(new Player("Xavi", 6, "xavi.jpg", "CM"));
+		players.add(new Player("Puyol", 5, "puyol.jpg", "CB"));
+	}
 
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
+	public List<Player> getPlayers() {
+		return players;
+	}
 
-    public String getEffect() {
-        return effect;
-    }
+	public void onTabChange(TabChangeEvent event) {
+		FacesMessage msg = new FacesMessage("Tab Changed", "Active Tab: "
+				+ event.getTab().getTitle());
 
-    public void setEffect(String effect) {
-        this.effect = effect;
-    }
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
+
+	public void onPlayerChange(TabChangeEvent event) {
+		FacesMessage msg = new FacesMessage("Tab Changed", "Active Player: "
+				+ ((Player) event.getData()).getName());
+
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
+
+	public void onTabClose(TabCloseEvent event) {
+		FacesMessage msg = new FacesMessage("Tab Closed", "Closed tab: "
+				+ event.getTab().getTitle());
+
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
+
+	public String getEffect() {
+		return effect;
+	}
+
+	public void setEffect(String effect) {
+		this.effect = effect;
+	}
 }

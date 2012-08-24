@@ -16,20 +16,24 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 public class TabViewModelIntegratinoTest extends AbstractIntegrationTest {
 
 	@Before
-	public void init(){
-		String testUrl = toShowcaseUrl("tabviewModel.jsf");
+	public void init() {
+		String testUrl = toShowcaseUrl("tabviewModel.xhtml");
 		driver.get(testUrl);
 	}
-	
+
 	@Test
-	public void shouldRenderPlayerModel(){
+	public void shouldRenderPlayerModel() {
 		WebElement tabView = findElementById("tabView");
 		List<WebElement> tabs = tabView.findElements(By.tagName("li"));
-		
+
 		assertThat(tabs.size(), equalTo(5));
-		assertTrue(findElementById("tabView:0:playerImg").getAttribute("src").contains("/blaze-showcase/images/barca/messi.jpg"));
-		assertThat(findElementById("tabView:0:playerName").getText(), equalTo("Messi"));
-		assertThat(findElementById("tabView:0:playerNumber").getText(), equalTo("10"));
-		assertThat(findElementById("tabView:0:playerPosition").getText(), equalTo("CF"));
+		assertTrue(findElementById("tabView:0:playerImg").getAttribute("src")
+				.contains("/blaze-showcase/images/barca/messi.jpg"));
+		assertThat(findElementById("tabView:0:playerName").getText(),
+				equalTo("Messi"));
+		assertThat(findElementById("tabView:0:playerNumber").getText(),
+				equalTo("10"));
+		assertThat(findElementById("tabView:0:playerPosition").getText(),
+				equalTo("CF"));
 	}
 }

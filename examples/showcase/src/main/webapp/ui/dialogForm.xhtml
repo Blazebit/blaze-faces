@@ -18,7 +18,7 @@
 
 							<h:panelGrid columns="2" style="margin-bottom:10px">
 								<h:outputLabel for="firstname" value="Firstname:" />
-								<b:inputText id="firstname" value="#{pprBean.firstname}" />
+								<b:inputText id="firstname" value="#{partialProcessRequestBean.firstname}" />
 							</h:panelGrid>
 
 							<b:commandButton id="submitButton" value="Submit" update=":display" oncomplete="dlg.hide();"/>
@@ -27,7 +27,7 @@
 					</b:dialog>
 						
 					<b:outputPanel id="display" style="display:block;margin-top:10px;">
-						<h:outputText id="name" value="Hello #{pprBean.firstname}" rendered="#{not empty pprBean.firstname}"/>
+						<h:outputText id="name" value="Hello #{partialProcessRequestBean.firstname}" rendered="#{not empty partialProcessRequestBean.firstname}"/>
 					</b:outputPanel>
 				
 					<h3>Source</h3>
@@ -41,7 +41,7 @@
 
 		&lt;h:panelGrid columns="2" style="margin-bottom:10px"&gt;
 			&lt;h:outputLabel for="firstname" value="Firstname:" /&gt;
-			&lt;b:inputText id="firstname" value="\#{pprBean.firstname}" /&gt;
+			&lt;b:inputText id="firstname" value="\#{partialProcessRequestBean.firstname}" /&gt;
 		&lt;/h:panelGrid&gt;
 
 		&lt;b:commandButton id="submitButton" value="Submit" update=":display" oncomplete="dlg.hide();"/&gt;
@@ -50,7 +50,7 @@
 &lt;/b:dialog&gt;
 	
 &lt;b:outputPanel id="display" style="display:block;margin-top:10px;"&gt;
-	&lt;h:outputText id="name" value="Hello \#{pprBean.firstname}" rendered="\#{not empty pprBean.firstname}"/&gt;
+	&lt;h:outputText id="name" value="Hello \#{partialProcessRequestBean.firstname}" rendered="\#{not empty partialProcessRequestBean.firstname}"/&gt;
 &lt;/b:outputPanel&gt;
 							</pre>
 						</b:tab>

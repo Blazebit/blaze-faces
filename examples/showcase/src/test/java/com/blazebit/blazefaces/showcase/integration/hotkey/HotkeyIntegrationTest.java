@@ -1,5 +1,7 @@
 package com.blazebit.blazefaces.showcase.integration.hotkey;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.HasInputDevices;
@@ -8,13 +10,11 @@ import org.openqa.selenium.Keys;
 
 import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
-import static org.junit.Assert.assertTrue;
-
 public class HotkeyIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void init() {
-		String testUrl = toShowcaseUrl("hotkey.jsf");
+		String testUrl = toShowcaseUrl("hotkey.xhtml");
 		driver.get(testUrl);
 	}
 

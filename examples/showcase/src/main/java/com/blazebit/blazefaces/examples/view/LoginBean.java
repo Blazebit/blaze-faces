@@ -1,17 +1,21 @@
 package com.blazebit.blazefaces.examples.view;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.inject.Named;
 
 import com.blazebit.blazefaces.context.RequestContext;
 
+@Named
+@RequestScoped
 public class LoginBean {
 
 	private String username;
-	
+
 	private String password;
-	
+
 	public String getUsername() {
 		return username;
 	}
@@ -32,15 +36,18 @@ public class LoginBean {
 		RequestContext context = RequestContext.getCurrentInstance();
 		FacesMessage msg = null;
 		boolean loggedIn = false;
-		
-		if(username != null && username.equals("admin") && password != null && password.equals("admin")) {
+
+		if (username != null && username.equals("admin") && password != null
+				&& password.equals("admin")) {
 			loggedIn = true;
-			msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username);
+			msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome",
+					username);
 		} else {
 			loggedIn = false;
-			msg = new FacesMessage(FacesMessage.SEVERITY_WARN, "Login Error", "Invalid credentials");
+			msg = new FacesMessage(FacesMessage.SEVERITY_WARN, "Login Error",
+					"Invalid credentials");
 		}
-		
+
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 		context.addCallbackParam("loggedIn", loggedIn);
 	}

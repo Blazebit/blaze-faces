@@ -15,44 +15,46 @@
  */
 package com.blazebit.blazefaces.examples.domain;
 
-public class Tweet {
-    
-    private String user;
-    private String datetime;
-    private String text;
+import java.io.Serializable;
 
-    public Tweet() {
-    }
-    
-    public Tweet(String user, String datetime, String text) {
-        this.user = user;
-        this.datetime = datetime;
-        this.text = text;
-    }
+public class Tweet implements Serializable {
 
-    public String getDatetime() {
-        return datetime;
-    }
+	private static final long serialVersionUID = 1L;
+	private String user;
+	private String datetime;
+	private String text;
 
-    public void setDatetime(String datetime) {
-        this.datetime = datetime;
-    }
+	public Tweet() {
+	}
 
-    public String getText() {
-        return text;
-    }
+	public Tweet(String user, String datetime, String text) {
+		this.user = user;
+		this.datetime = datetime;
+		this.text = text;
+	}
 
-    public void setText(String text) {
-        this.text = text;
-    }
+	public String getDatetime() {
+		return datetime;
+	}
 
-    public String getUser() {
-        return user;
-    }
+	public void setDatetime(String datetime) {
+		this.datetime = datetime;
+	}
 
-    public void setUser(String user) {
-        this.user = user;
-    }
-    
-    
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+
 }

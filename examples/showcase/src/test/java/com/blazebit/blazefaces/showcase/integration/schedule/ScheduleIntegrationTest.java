@@ -23,7 +23,7 @@ public class ScheduleIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void before() {
-		driver.get(toShowcaseUrl("schedule.jsf"));
+		driver.get(toShowcaseUrl("schedule.xhtml"));
 	}
 
 	@Test
@@ -68,7 +68,8 @@ public class ScheduleIntegrationTest extends AbstractIntegrationTest {
 	private int getDayDelta() {
 		WebElement message = findElementByClass("ui-growl-message");
 
-		return TestingUtils.getInteger(message.findElement(By.tagName("p")).getText());
+		return TestingUtils.getInteger(message.findElement(By.tagName("p"))
+				.getText());
 	}
 
 	@Test
@@ -94,14 +95,14 @@ public class ScheduleIntegrationTest extends AbstractIntegrationTest {
 		addEventToFirstSunday();
 
 		getAddedEvent().click();
-		
+
 		setEventNameAndSubmit(newEventName);
-		
+
 		assertThat(getEventTitle(getEvent(newEventName)), equalTo(newEventName));
 	}
 
 	private void setEventNameAndSubmit(String newEventName) {
-		WebElement titleInput = findElementById("form:title"); 
+		WebElement titleInput = findElementById("form:title");
 		titleInput.clear();
 		titleInput.sendKeys(newEventName);
 		clickToElementById("form:addButton");
@@ -109,7 +110,8 @@ public class ScheduleIntegrationTest extends AbstractIntegrationTest {
 
 	private void extendEventToMonday() {
 		WebElement event = getAddedEvent();
-		WebElement resizer = event.findElement(By.className("ui-resizable-handle"));
+		WebElement resizer = event.findElement(By
+				.className("ui-resizable-handle"));
 
 		moveByXY(resizer, 110, 0);
 	}
@@ -121,7 +123,7 @@ public class ScheduleIntegrationTest extends AbstractIntegrationTest {
 	private WebElement getAddedEvent() {
 		return getEvent(SUNDAY_EVENT_TITLE);
 	}
-	
+
 	private WebElement getEvent(String eventName) {
 		for (WebElement event : getScheduledEvents()) {
 			if (getEventTitle(event).equals(eventName)) {
@@ -168,7 +170,8 @@ public class ScheduleIntegrationTest extends AbstractIntegrationTest {
 	}
 
 	private WebElement getSecondSundayOfTheMonth() {
-		return findElementByClass("fc-week1").findElement(By.className("fc-sun"));
+		return findElementByClass("fc-week1").findElement(
+				By.className("fc-sun"));
 	}
 
 }

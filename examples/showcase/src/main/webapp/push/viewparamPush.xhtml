@@ -18,8 +18,8 @@
 	<ui:define name="content">
         
         <f:metadata>
-            <f:viewParam name="data" value="#{viewparamPush.data}" />
-            <f:event type="preRenderView" listener="#{viewparamPush.prerender}" />
+            <f:viewParam name="data" value="#{viewparamPushBean.data}" />
+            <f:event type="preRenderView" listener="#{viewparamPushBean.prerender}" />
         </f:metadata>
 
         <h1 class="title ui-widget-header ui-corner-all">BlazePush - ViewParam</h1>
@@ -27,7 +27,7 @@
 			<p>This sample demonstrates how to push data using GET instead of POST via view parameters. The value of "data"
             request parameter in uri is consumed by a view param and pushed using a preRenderView event.</p>
             
-            <h:outputText id="out" value="#{viewparamPush.data}" style="font-size:16px" />
+            <h:outputText id="out" value="#{viewparamPushBean.data}" style="font-size:16px" />
             
             <b:socket onMessage="handleMessage" channel="/viewparam" />
             
@@ -36,11 +36,11 @@
                 <b:tab title="viewparamPush.xhtml">
                     <pre name="code" class="xml">
 &lt;f:metadata&gt;
-    &lt;f:viewParam name="data" value="\#{viewparamPush.data}" /&gt;
-    &lt;f:event type="preRenderView" listener="\#{viewparamPush.push}" /&gt;
+    &lt;f:viewParam name="data" value="\#{viewparamPushBean.data}" /&gt;
+    &lt;f:event type="preRenderView" listener="\#{viewparamPushBean.push}" /&gt;
 &lt;/f:metadata&gt;
 
-&lt;h:outputText id="out" value="\#{viewparamPush.data}" style="font-size:16px" /&gt;
+&lt;h:outputText id="out" value="\#{viewparamPushBean.data}" style="font-size:16px" /&gt;
             
 &lt;b:socket onMessage="handleMessage" channel="/viewparam" /&gt;
                     </pre>

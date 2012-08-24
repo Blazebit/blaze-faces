@@ -17,14 +17,14 @@
                 <b:panel header="New Person">
                     <h:panelGrid columns="3">
                         <h:outputLabel for="firstname" value="Required Firstname *:" />
-                        <b:inputText id="firstname" value="#{pprBean.firstname}" required="true" />
+                        <b:inputText id="firstname" value="#{partialProcessRequestBean.firstname}" required="true" />
                         <h:outputText />
 
                         <h:outputLabel for="surname" value="Surname (request on blur): " />
-                        <b:inputText id="surname" value="#{pprBean.surname}">
+                        <b:inputText id="surname" value="#{partialProcessRequestBean.surname}">
                             <b:ajax event="blur" update="out2" process="@this"/>
                         </b:inputText>
-                        <h:outputText id="out2" value="#{pprBean.surname}" />
+                        <h:outputText id="out2" value="#{partialProcessRequestBean.surname}" />
                     </h:panelGrid>
                 </b:panel>
 
@@ -39,14 +39,14 @@
 	&lt;b:panel header="New Person"&gt;
 		&lt;h:panelGrid columns="3"&gt;
 			&lt;h:outputLabel for="firstname" value="Required Firstname *:" /&gt;
-			&lt;b:inputText id="firstname" value="\#{pprBean.firstname}" required="true" /&gt;
+			&lt;b:inputText id="firstname" value="\#{partialProcessRequestBean.firstname}" required="true" /&gt;
 			&lt;h:outputText /&gt;
 			
 			&lt;h:outputLabel for="surname" value="Surname (request on blur): " /&gt;
-			&lt;b:inputText id="surname" value="\#{pprBean.surname}"&gt;
+			&lt;b:inputText id="surname" value="\#{partialProcessRequestBean.surname}"&gt;
 				&lt;b:ajax event="blur" update="out2" process="@this"/&gt;
 			&lt;/b:inputText&gt;
-			&lt;h:outputText id="out2" value="\#{pprBean.surname}" /&gt;
+			&lt;h:outputText id="out2" value="\#{partialProcessRequestBean.surname}" /&gt;
 		&lt;/h:panelGrid&gt;
 	&lt;/b:panel&gt;
 	

@@ -4,13 +4,13 @@
  */
 package com.blazebit.blazefaces.showcase.integration.autocomplete;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.WebElement;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.fail;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.WebElement;
 
 /**
  * 
@@ -20,13 +20,13 @@ public class AutoCompleteSimpleIntegrationTest extends AbstractAutoCompleteTest 
 
 	@Before
 	public void before() {
-		String testUrl = toShowcaseUrl("autoCompleteBasic.jsf");
+		String testUrl = toShowcaseUrl("autoCompleteBasic.xhtml");
 		driver.get(testUrl);
 	}
 
 	@Test
 	public void shouldSelectElementFromList() {
-		doTestOnAutoComplete("form:acSimple","Blaze");
+		doTestOnAutoComplete("form:acSimple", "Blaze");
 	}
 
 	@Test
@@ -35,12 +35,12 @@ public class AutoCompleteSimpleIntegrationTest extends AbstractAutoCompleteTest 
 		WebElement autocomplete = findElementById("form:acMinLength_input");
 		autocomplete.sendKeys(text);
 		waitUntilAjaxRequestCompletes();
-        waitUntilAllAnimationsComplete();
+		waitUntilAllAnimationsComplete();
 		selectAutoCompleteListElement("form:acMinLength", 2, 1);
 		assertThat(autocomplete.getAttribute("value"), equalTo(text));
 
-		doTestOnAutoComplete("form:acMinLength","Blaze");
-		
+		doTestOnAutoComplete("form:acMinLength", "Blaze");
+
 	}
 
 	@Test
@@ -49,12 +49,12 @@ public class AutoCompleteSimpleIntegrationTest extends AbstractAutoCompleteTest 
 		WebElement autocomplete = findElementById("form:acDelay_input");
 		autocomplete.sendKeys(text);
 		waitUntilAjaxRequestCompletes();
-        waitUntilAllAnimationsComplete();
+		waitUntilAllAnimationsComplete();
 		selectAutoCompleteListElement("form:acDelay", 5, 0);
 		assertThat(autocomplete.getAttribute("value"), equalTo(text));
 
-		doTestOnAutoComplete("form:acDelay","Blaze");
-		
+		doTestOnAutoComplete("form:acDelay", "Blaze");
+
 	}
 
 	@Test
@@ -63,7 +63,7 @@ public class AutoCompleteSimpleIntegrationTest extends AbstractAutoCompleteTest 
 		WebElement autocomplete = findElementById("form:acMaxResults_input");
 		autocomplete.sendKeys(text);
 		waitUntilAjaxRequestCompletes();
-        waitUntilAjaxRequestCompletes();
+		waitUntilAjaxRequestCompletes();
 		try {
 			selectAutoCompleteListElement("form:acMaxResults", 6, 1);
 			assertThat(autocomplete.getAttribute("value"), equalTo(text));
@@ -82,11 +82,11 @@ public class AutoCompleteSimpleIntegrationTest extends AbstractAutoCompleteTest 
 		WebElement autocomplete = findElementById("form:acForce_input");
 		autocomplete.sendKeys(text);
 		waitUntilAjaxRequestCompletes();
-        waitUntilAjaxRequestCompletes();
+		waitUntilAjaxRequestCompletes();
 		findElementById("form:panel_header").click();
 		assertThat(autocomplete.getAttribute("value"), equalTo(""));
 
-		doTestOnAutoComplete("form:acForce",text);
+		doTestOnAutoComplete("form:acForce", text);
 	}
 
 	@Test
@@ -94,33 +94,33 @@ public class AutoCompleteSimpleIntegrationTest extends AbstractAutoCompleteTest 
 		WebElement autocompleteButton = findElementByXpath("//button[@type='button']");
 		autocompleteButton.click();
 		waitUntilAjaxRequestCompletes();
-        waitUntilAjaxRequestCompletes();
+		waitUntilAjaxRequestCompletes();
 		selectAutoCompleteListElement("form:dd", 5, 1);
 		WebElement autocomplete = findElementById("form:dd_input");
 		assertThat(autocomplete.getAttribute("value"), equalTo("5"));
 	}
 
 	@Test
-	public void shoulSubmitValues(){
+	public void shoulSubmitValues() {
 		shouldSelectElementFromList();
 		shouldNotSelectElementFromListIfSizeSmallerThan3();
 		shouldWaitForDelay();
 		shouldGetMaximum5Results();
 		shouldForceSelectionOfResult();
 		shouldDropdownListResults();
-		
+
 		WebElement submit = findElementById("form:submit");
 		submit.click();
 		waitUntilAjaxRequestCompletes();
-        waitUntilAllAnimationsComplete();
-		
+		waitUntilAllAnimationsComplete();
+
 		assertThat(findElementById("form:txt1").getText(), equalTo("Blaze2"));
 		assertThat(findElementById("form:txt2").getText(), equalTo("Blaze2"));
 		assertThat(findElementById("form:txt3").getText(), equalTo("Blaze2"));
 		assertThat(findElementById("form:txt4").getText(), equalTo("Blaze2"));
 		assertThat(findElementById("form:txt5").getText(), equalTo("Blaze2"));
 		assertThat(findElementById("form:txt6").getText(), equalTo("5"));
-		
+
 	}
-	
+
 }

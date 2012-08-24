@@ -7,14 +7,14 @@
 	contentType="text/html"
     renderKitId="BLAZEFACES_MOBILE">
 
-    <pm:page title="TwitFaces">
+    <bm:page title="TwitFaces">
 
         <!-- Main View -->
-        <pm:view id="main" swatch="b">
-            <pm:header title="TwitFaces">
-            </pm:header>
+        <bm:view id="main" swatch="b">
+            <bm:header title="TwitFaces">
+            </bm:header>
 
-            <pm:content>
+            <bm:content>
                 <h:form id="twitForm">
                     <b:inputText value="#{twitterController.username}" label="Account: "/>
 
@@ -27,10 +27,10 @@
                         #{tweet}
                     </b:dataList>
                 </h:form>
-            </pm:content>
+            </bm:content>
 
-        </pm:view>
+        </bm:view>
 
-    </pm:page>
+    </bm:page>
     
 </f:view>

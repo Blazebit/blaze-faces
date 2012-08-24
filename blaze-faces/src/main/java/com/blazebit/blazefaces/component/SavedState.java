@@ -17,7 +17,6 @@ package com.blazebit.blazefaces.component;
 
 import java.io.Serializable;
 
-@SuppressWarnings({"SerializableHasSerializationMethods","NonSerializableFieldInSerializableClass"})
 public class SavedState implements Serializable {
 
     private static final long serialVersionUID = 4325654657465654768L;

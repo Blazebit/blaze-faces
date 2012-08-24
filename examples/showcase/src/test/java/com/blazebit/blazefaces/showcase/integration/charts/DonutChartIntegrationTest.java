@@ -12,29 +12,34 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 import com.blazebit.blazefaces.showcase.integration.SeleniumActionHelper;
 
-public class DonutChartIntegrationTest extends AbstractIntegrationTest{
+public class DonutChartIntegrationTest extends AbstractIntegrationTest {
 	private SeleniumActionHelper actionHelper;
-	
+
 	@Before
 	public void init() {
-		driver.get(toShowcaseUrl("donutChart.jsf"));
+		driver.get(toShowcaseUrl("donutChart.xhtml"));
 		actionHelper = new SeleniumActionHelper(driver);
 	}
 
 	@Test
-	public void chartsMustBeExist(){
-		findElementById("sample").findElement(By.className("jqplot-donutRenderer-highlight-canvas"));
-		findElementById("custom").findElement(By.className("jqplot-donutRenderer-highlight-canvas"));
-		
-		WebElement chart = findElementById("sample").findElement(By.className("jqplot-event-canvas"));
+	public void chartsMustBeExist() {
+		findElementById("sample").findElement(
+				By.className("jqplot-donutRenderer-highlight-canvas"));
+		findElementById("custom").findElement(
+				By.className("jqplot-donutRenderer-highlight-canvas"));
+
+		WebElement chart = findElementById("sample").findElement(
+				By.className("jqplot-event-canvas"));
 		actionHelper.mouseHover(chart);
 		actionHelper.clickOnCurrentPosition();
 		waitForCondition(new ExpectedCondition<Boolean>() {
 			public Boolean apply(WebDriver driver) {
-				return driver.findElement(By.className("ui-chart-tooltip")).getAttribute("style").contains("display: block;");
+				return driver.findElement(By.className("ui-chart-tooltip"))
+						.getAttribute("style").contains("display: block;");
 			}
 		});
-		WebElement clickedPlace = findElementById("sample").findElement(By.className("ui-chart-tooltip"));
+		WebElement clickedPlace = findElementById("sample").findElement(
+				By.className("ui-chart-tooltip"));
 		assertTrue(clickedPlace.getText().equals("Brand 3 : 402"));
 	}
 }

@@ -14,7 +14,7 @@ public class OutputPanelIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void before() {
-		driver.get(toShowcaseUrl("outputPanel.jsf"));
+		driver.get(toShowcaseUrl("outputPanel.xhtml"));
 	}
 
 	@Test
@@ -22,13 +22,14 @@ public class OutputPanelIntegrationTest extends AbstractIntegrationTest {
 		WebElement panel = getPanel();
 		try {
 			checkImgExists(panel);
-			throw new AssertionFailedError("Image is on the page but it should not be!");
-		}catch(NoSuchElementException e) {
+			throw new AssertionFailedError(
+					"Image is on the page but it should not be!");
+		} catch (NoSuchElementException e) {
 			// everything is ok
 		}
-		
+
 		findElementById("form:showButton").click();
-		
+
 		panel = getPanel();
 		checkImgExists(panel);
 	}

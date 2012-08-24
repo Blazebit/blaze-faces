@@ -17,16 +17,16 @@
 				<b:panel header="Ajaxify">
 					<h:panelGrid columns="3" cellpadding="5">
 						<h:outputText value="KeyUp: " />
-						<b:inputText id="firstname" value="#{pprBean.firstname}">
+						<b:inputText id="firstname" value="#{partialProcessRequestBean.firstname}">
 							<b:ajax event="keyup" update="out1" />
 						</b:inputText>
-						<h:outputText id="out1" value="#{pprBean.firstname}" />
+						<h:outputText id="out1" value="#{partialProcessRequestBean.firstname}" />
 						
 						<h:outputText value="Blur: " />
-						<b:inputText id="surname" value="#{pprBean.surname}">
+						<b:inputText id="surname" value="#{partialProcessRequestBean.surname}">
 							<b:ajax event="blur" update="out2" />
 						</b:inputText>
-						<h:outputText id="out2" value="#{pprBean.surname}" />
+						<h:outputText id="out2" value="#{partialProcessRequestBean.surname}" />
 					</h:panelGrid>
 				</b:panel>
 				
@@ -41,16 +41,16 @@
 	&lt;b:panel header="Ajaxify"&gt;
 		&lt;h:panelGrid columns="3" cellpadding="5"&gt;
 			&lt;h:outputText value="KeyUp: " /&gt;
-			&lt;b:inputText id="firstname" value="\#{pprBean.firstname}"&gt;
+			&lt;b:inputText id="firstname" value="\#{partialProcessRequestBean.firstname}"&gt;
 				&lt;b:ajax event="keyup" update="out1" /&gt;
 			&lt;/b:inputText&gt;
-			&lt;h:outputText id="out1" value="\#{pprBean.firstname}" /&gt;
+			&lt;h:outputText id="out1" value="\#{partialProcessRequestBean.firstname}" /&gt;
 			
 			&lt;h:outputText value="Blur: " /&gt;
-			&lt;b:inputText id="surname" value="\#{pprBean.surname}"&gt;
+			&lt;b:inputText id="surname" value="\#{partialProcessRequestBean.surname}"&gt;
 				&lt;b:ajax event="blur" update="out2" /&gt;
 			&lt;/b:inputText&gt;
-			&lt;h:outputText id="out2" value="\#{pprBean.surname}" /&gt;
+			&lt;h:outputText id="out2" value="\#{partialProcessRequestBean.surname}" /&gt;
 		&lt;/h:panelGrid&gt;
 	&lt;/b:panel&gt;
 				

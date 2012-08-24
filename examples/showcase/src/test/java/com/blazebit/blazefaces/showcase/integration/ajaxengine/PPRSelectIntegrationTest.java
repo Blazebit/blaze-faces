@@ -13,7 +13,7 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
 public class PPRSelectIntegrationTest extends AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("pprSelect.jsf");
+	private String testUrl = toShowcaseUrl("pprSelect.xhtml");
 	private List<WebElement> cityList;
 	private List<WebElement> suburbList;
 

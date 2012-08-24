@@ -10,7 +10,7 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
 public class RemoteCommandIntegrationTest extends AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("remoteCommand.jsf");
+	private String testUrl = toShowcaseUrl("remoteCommand.xhtml");
 	private WebElement lazyPanel;
 	private WebElement btnLoad;
 	private final String strLazyPanelText = "This part of page is lazily loaded on demand using a RemoteCommand";

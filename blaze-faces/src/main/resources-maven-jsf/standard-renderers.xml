@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <render-kit>
         <client-behavior-renderer>
-            <client-behavior-renderer-type>com.blazebit.blazefaces.behavior.AjaxBehaviorRenderer</client-behavior-renderer-type>
+            <client-behavior-renderer-type>com.blazebit.blazefaces.behavior.AjaxBehavior</client-behavior-renderer-type>
             <client-behavior-renderer-class>com.blazebit.blazefaces.behavior.ajax.AjaxBehaviorRenderer</client-behavior-renderer-class>
         </client-behavior-renderer>
         <client-behavior-renderer>

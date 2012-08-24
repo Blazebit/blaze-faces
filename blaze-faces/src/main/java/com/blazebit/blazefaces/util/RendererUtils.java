@@ -223,15 +223,28 @@ public class RendererUtils {
     }
 
     public static String getEventHandlerScript(FacesContext context, String targetClientId, String event, String code) {
-        StringBuilder scriptBuilder = new StringBuilder();
+    	StringBuilder scriptBuilder = new StringBuilder();
         scriptBuilder.append("BlazeJS.EventHandler.add('");
         scriptBuilder.append(ComponentUtils.escapeJQueryId(targetClientId));
         scriptBuilder.append("','");
         scriptBuilder.append(event);
-        scriptBuilder.append("',function(){");
+        scriptBuilder.append("',function(event){");
         scriptBuilder.append(code);
         scriptBuilder.append("});");
         return scriptBuilder.toString();
+    }
+    
+    public static void encodeSequentialEventHandler(FacesContext context, String targetClientId, String domEvent, String code){
+    	StringBuilder scriptBuilder = new StringBuilder();
+        scriptBuilder.append("BlazeJS.EventHandler.add('");
+        scriptBuilder.append(ComponentUtils.escapeJQueryId(targetClientId));
+        scriptBuilder.append("','");
+        scriptBuilder.append(domEvent);
+    	scriptBuilder.append("',BlazeJS.EventHandler.create('sequential',[function(event){");
+    	scriptBuilder.append(code);
+        scriptBuilder.append("}]));");
+    	
+    	RendererUtils.addBodyBottomScript(context, scriptBuilder.toString());
     }
 
     /**

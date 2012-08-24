@@ -16,7 +16,7 @@ public class MessagesIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void before() {
-		driver.get(toShowcaseUrl("messages.jsf"));
+		driver.get(toShowcaseUrl("messages.xhtml"));
 	}
 
 	@Test
@@ -54,14 +54,17 @@ public class MessagesIntegrationTest extends AbstractIntegrationTest {
 
 		messages.findElement(By.className(iconClass));
 
-		String summary = messages.findElement(By.className(summaryClass)).getText();
+		String summary = messages.findElement(By.className(summaryClass))
+				.getText();
 		assertThat(summary, equalTo("Sample " + type + " message"));
 
-		String detail = messages.findElement(By.className(detailClass)).getText();
+		String detail = messages.findElement(By.className(detailClass))
+				.getText();
 		assertThat(detail, equalTo(expectedMessageDetail));
 	}
 
-	private void testMessageExists(String messageId, boolean iconExpected, boolean detailExpected) {
+	private void testMessageExists(String messageId, boolean iconExpected,
+			boolean detailExpected) {
 		WebElement message = findElementById(messageId);
 
 		if (iconExpected) {

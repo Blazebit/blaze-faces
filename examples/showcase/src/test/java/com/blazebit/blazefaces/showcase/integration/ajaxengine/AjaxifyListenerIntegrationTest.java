@@ -10,7 +10,7 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
 public class AjaxifyListenerIntegrationTest extends AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("ajaxifyAction.jsf");
+	private String testUrl = toShowcaseUrl("ajaxifyAction.xhtml");
 	private WebElement txtCount;
 	private WebElement lblOut;
 

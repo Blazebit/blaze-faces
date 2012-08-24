@@ -29,16 +29,20 @@ public class PickListPojoIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void before() {
-		driver.get(toShowcaseUrl("pickList.jsf"));
-		List<WebElement> pickListColumns = findElementById("form:pojoPickList").findElements(By.tagName("td"));
+		driver.get(toShowcaseUrl("pickList.xhtml"));
+		List<WebElement> pickListColumns = findElementById("form:pojoPickList")
+				.findElements(By.tagName("td"));
 
 		sourcePlayers = pickListColumns.get(1).findElements(By.tagName("li"));
-		addButton = pickListColumns.get(14).findElements(By.tagName("button")).get(0);
+		addButton = pickListColumns.get(14).findElements(By.tagName("button"))
+				.get(0);
 
-		removeButton = pickListColumns.get(14).findElements(By.tagName("button")).get(2);
+		removeButton = pickListColumns.get(14)
+				.findElements(By.tagName("button")).get(2);
 		targetColumn = pickListColumns.get(15);
 
-		List<WebElement> targetButtons = pickListColumns.get(16).findElements(By.tagName("button"));
+		List<WebElement> targetButtons = pickListColumns.get(16).findElements(
+				By.tagName("button"));
 		moveUpButton = targetButtons.get(0);
 		moveTopButton = targetButtons.get(1);
 	}
@@ -70,11 +74,14 @@ public class PickListPojoIntegrationTest extends AbstractIntegrationTest {
 		submitForm();
 
 		String selectedPlayers = getSelectedPlayers();
-		assertThat(selectedPlayers.indexOf(player3Name), lessThan(selectedPlayers.indexOf(player2Name)));
+		assertThat(selectedPlayers.indexOf(player3Name),
+				lessThan(selectedPlayers.indexOf(player2Name)));
 	}
 
 	private String getSelectedPlayers() {
-		return findElementById("form:displayPlayers").findElements(By.tagName("tr")).get(1).findElements(By.tagName("td")).get(1).getText();
+		return findElementById("form:displayPlayers")
+				.findElements(By.tagName("tr")).get(1)
+				.findElements(By.tagName("td")).get(1).getText();
 	}
 
 	private void operateOnLastTargetPlayer(WebElement button) {

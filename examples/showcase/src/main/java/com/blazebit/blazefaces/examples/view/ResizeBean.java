@@ -15,16 +15,22 @@
  */
 package com.blazebit.blazefaces.examples.view;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
+
 import com.blazebit.blazefaces.event.ResizeEvent;
 
+@Named
+@RequestScoped
 public class ResizeBean {
 
-    public void onResize(ResizeEvent event) {
-        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, 
-                        "Image resized", "Width:" + event.getWidth() + ",Height:" + event.getHeight());
+	public void onResize(ResizeEvent event) {
+		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
+				"Image resized", "Width:" + event.getWidth() + ",Height:"
+						+ event.getHeight());
 
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
 }

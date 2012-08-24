@@ -15,6 +15,11 @@
  */
 package com.blazebit.blazefaces.examples.view;
 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+
+@Named
+@RequestScoped
 public class GreetingController {
 
 	private String message = "Merhaba";

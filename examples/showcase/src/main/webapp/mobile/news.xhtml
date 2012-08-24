@@ -6,18 +6,18 @@
 	contentType="text/html"
     renderKitId="BLAZEFACES_MOBILE">
 
-    <pm:page title="BlazeFaces News">
+    <bm:page title="BlazeFaces News">
 
         <!-- Groups -->
-        <pm:view id="groups" swatch="c">
-            <pm:header title="News" />
+        <bm:view id="groups" swatch="c">
+            <bm:header title="News" />
 
-            <pm:content>
+            <bm:content>
                 <h:form id="groupsForm">
 
                     <b:dataList  value="#{newsController.groups}" var="group">
                         <b:column>
-                            <b:commandLink value="#{group.title}" update=":entriesForm:entries" action="pm:summaries">
+                            <b:commandLink value="#{group.title}" update=":entriesForm:entries" action="bm:summaries">
                                 <f:setPropertyActionListener value="#{group}" target="#{newsController.selectedGroup}" />
                             </b:commandLink>
                         </b:column>
@@ -25,40 +25,40 @@
 
                 </h:form>
 
-            </pm:content>
-        </pm:view>
+            </bm:content>
+        </bm:view>
 
         <!-- Summaries -->
-        <pm:view id="summaries" swatch="c">
-            <pm:header title="News">
+        <bm:view id="summaries" swatch="c">
+            <bm:header title="News">
                 <f:facet name="left"><b:button value="Back" icon="back" href="#groups?reverse=true"/></f:facet>
-            </pm:header>
+            </bm:header>
 
-            <pm:content>
+            <bm:content>
                 <h:form id="entriesForm">
 
                     <b:dataList id="entries" value="#{newsController.selectedGroup.entries}" var="entry">
                         <b:column>
-                            <b:commandLink value="#{entry.title}" update=":content" action="pm:details">
+                            <b:commandLink value="#{entry.title}" update=":content" action="bm:details">
                                 <f:setPropertyActionListener value="#{entry}" target="#{newsController.selectedEntry}" />
                             </b:commandLink>
                         </b:column>
                     </b:dataList>
                     
                 </h:form>
-            </pm:content>
-        </pm:view>
+            </bm:content>
+        </bm:view>
 
         <!-- Details -->
-        <pm:view id="details" swatch="c">
-            <pm:header title="News">
+        <bm:view id="details" swatch="c">
+            <bm:header title="News">
                 <f:facet name="left"><b:button value="Back" icon="back" href="#summaries?reverse=true"/></f:facet>
-            </pm:header>
+            </bm:header>
 
-            <pm:content>
+            <bm:content>
                 <h:outputText id="content" value="#{newsController.selectedEntry.content}" escape="false" />
-            </pm:content>
-        </pm:view>
+            </bm:content>
+        </bm:view>
 
-    </pm:page>
+    </bm:page>
 </f:view>

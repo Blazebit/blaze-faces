@@ -29,6 +29,7 @@ import com.blazebit.blazefaces.component.menuitem.MenuItem;
 import com.blazebit.blazefaces.component.separator.Separator;
 import com.blazebit.blazefaces.util.ComponentUtils;
 import com.blazebit.blazefaces.util.HTML;
+import com.blazebit.blazefaces.util.RendererUtils;
 
 public class SplitButtonRenderer extends CommandButtonRenderer {
     
@@ -90,7 +91,8 @@ public class SplitButtonRenderer extends CommandButtonRenderer {
         writer.writeAttribute("class", button.resolveStyleClass(), "styleClass");
         
 		if(onclick.length() > 0) {
-			writer.writeAttribute("onclick", onclick.toString(), "onclick");
+        	RendererUtils.encodeSequentialEventHandler(context, button.getClientId(context), "click", onclick.toString());
+			//writer.writeAttribute("onclick", onclick.toString(), "onclick");
 		}
 		
 		renderPassThruAttributes(context, button, HTML.BUTTON_ATTRS, HTML.CLICK_EVENT);
@@ -272,7 +274,8 @@ public class SplitButtonRenderer extends CommandButtonRenderer {
 			}
 
             if(onclick != null && !disabled) {
-                writer.writeAttribute("onclick", onclick, null);
+            	RendererUtils.encodeSequentialEventHandler(context, clientId, "click", onclick.toString());
+                //writer.writeAttribute("onclick", onclick, null);
             }
  
             if(icon != null) {

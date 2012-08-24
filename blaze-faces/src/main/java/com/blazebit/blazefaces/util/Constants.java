@@ -38,7 +38,7 @@ public class Constants {
     public static final String DOWNLOAD_COOKIE = "blazefaces.download";
 
     public final static String VERSION = "0.1.3-SNAPSHOT";
-    public final static String LIBRARY = "blazebit";
+    public final static String LIBRARY = "blazefaces";
 
     public final static String CUSTOM_EVENT = "CUSTOM_EVENT";
     

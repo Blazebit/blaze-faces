@@ -7,35 +7,35 @@
 	contentType="text/html"
     renderKitId="BLAZEFACES_MOBILE">
 
-    <pm:page title="Notes">
+    <bm:page title="Notes">
 
         <!-- Main View -->
-        <pm:view id="main" swatch="e">
-            <pm:header title="Notes">
+        <bm:view id="main" swatch="e">
+            <bm:header title="Notes">
                 <f:facet name="right"><b:button value="New" icon="plus" href="#new" /></f:facet>
-            </pm:header>
+            </bm:header>
 
-            <pm:content>
+            <bm:content>
                 <h:form id="listNotesForm">
                     <b:dataList id="notesList" value="#{notesView.notes}" var="note" type="inset">
                         <b:column>
-                            <b:commandLink value="#{note.shortText}" update=":newNoteForm:noteText" action="pm:new">
+                            <b:commandLink value="#{note.shortText}" update=":newNoteForm:noteText" action="bm:new">
                                 <f:setPropertyActionListener value="#{note}" target="#{notesView.note}" />
                             </b:commandLink>
                         </b:column>
                     </b:dataList>
                 </h:form>
-            </pm:content>
+            </bm:content>
 
-        </pm:view>
+        </bm:view>
 
         <!-- New Notes -->
-        <pm:view id="new" swatch="e">
-            <pm:header title="New Note">
+        <bm:view id="new" swatch="e">
+            <bm:header title="New Note">
                 <f:facet name="left"><b:button value="Back" icon="back" href="#main?reverse=true" /></f:facet>
-            </pm:header>
+            </bm:header>
 
-            <pm:content>
+            <bm:content>
                 <h:form id="newNoteForm">
                     <b:inputTextarea id="noteText" value="#{notesView.note.text}" />
 
@@ -44,10 +44,10 @@
                     <b:commandButton value="Save" action="#{notesView.save}" update="noteText :listNotesForm:notesList" icon="check" />
 
                 </h:form>
-            </pm:content>
+            </bm:content>
 
-        </pm:view>
+        </bm:view>
 
-    </pm:page>
+    </bm:page>
 
 </f:view>

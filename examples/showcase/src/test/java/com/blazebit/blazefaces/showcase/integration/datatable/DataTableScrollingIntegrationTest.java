@@ -11,7 +11,7 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
 public class DataTableScrollingIntegrationTest extends AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("datatableScrolling.jsf");
+	private String testUrl = toShowcaseUrl("datatableScrolling.xhtml");
 
 	@Before
 	public void init() {
@@ -25,25 +25,19 @@ public class DataTableScrollingIntegrationTest extends AbstractIntegrationTest {
 		WebElement dataTable3 = findElementById("dataTable3");
 		WebElement dataTable4 = findElementById("dataTable4");
 
-		assertTrue(dataTable1
-				.findElement(By.className("ui-datatable-scrollable-body"))
-				.getSize().height == 150);
+		assertTrue(dataTable1.findElement(
+				By.className("ui-datatable-scrollable-body")).getSize().height == 150);
 
-		assertTrue(dataTable2
-				.findElement(By.className("ui-datatable-scrollable-body"))
-				.getSize().width == 400);
+		assertTrue(dataTable2.findElement(
+				By.className("ui-datatable-scrollable-body")).getSize().width == 400);
 
-		assertTrue(dataTable3
-				.findElement(By.className("ui-datatable-scrollable-body"))
-				.getSize().width == 400
-				&& dataTable3
-						.findElement(
-								By.className("ui-datatable-scrollable-body"))
-						.getSize().height == 150);
+		assertTrue(dataTable3.findElement(
+				By.className("ui-datatable-scrollable-body")).getSize().width == 400
+				&& dataTable3.findElement(
+						By.className("ui-datatable-scrollable-body")).getSize().height == 150);
 
-		assertTrue(dataTable4
-				.findElement(By.className("ui-datatable-scrollable-body"))
-				.getSize().height == 150);
+		assertTrue(dataTable4.findElement(
+				By.className("ui-datatable-scrollable-body")).getSize().height == 150);
 
 		int size = findElementById("dataTable4_data").findElements(
 				By.tagName("tr")).size();

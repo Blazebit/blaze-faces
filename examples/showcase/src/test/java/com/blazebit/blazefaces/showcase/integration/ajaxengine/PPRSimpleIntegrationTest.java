@@ -9,7 +9,7 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
 public class PPRSimpleIntegrationTest extends AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("pprUpdate.jsf");
+	private String testUrl = toShowcaseUrl("pprUpdate.xhtml");
 
 	@Test
 	public void shouldUpdateNameWithPPR() {
@@ -22,7 +22,7 @@ public class PPRSimpleIntegrationTest extends AbstractIntegrationTest {
 
 		driver.get(testUrl);
 		// Alternatively the same thing can be done like this
-		// driver.navigate().to(""); 
+		// driver.navigate().to("");
 
 		// Find the text input element by its name
 		WebElement inputField = findElementById("form:name");
@@ -35,9 +35,9 @@ public class PPRSimpleIntegrationTest extends AbstractIntegrationTest {
 		button.submit();
 
 		boolean nameTextUpdated = false;
-		
+
 		waitUntilElementGetsValue("form:display", nameToTest);
-		
+
 		WebElement nameField = findElementById("form:display");
 		nameTextUpdated = nameToTest.equals(nameField.getText());
 		assertTrue(nameTextUpdated);

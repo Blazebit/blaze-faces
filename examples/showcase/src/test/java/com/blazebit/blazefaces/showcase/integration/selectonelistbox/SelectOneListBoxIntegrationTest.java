@@ -10,13 +10,14 @@ public class SelectOneListBoxIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void before() {
-		driver.get(toShowcaseUrl("selectOneListbox.jsf"));
+		driver.get(toShowcaseUrl("selectOneListbox.xhtml"));
 	}
 
 	@Test
 	public void shouldSelectOneValue() {
 
-		findElementById("form:basic").findElements(By.tagName("li")).get(0).click();
+		findElementById("form:basic").findElements(By.tagName("li")).get(0)
+				.click();
 
 		clickToElementById("form:submitButton");
 
@@ -26,7 +27,8 @@ public class SelectOneListBoxIntegrationTest extends AbstractIntegrationTest {
 	@Test
 	public void shouldSelectOneValueFromListBoxWithScroll() {
 
-		findElementById("form:scroll").findElements(By.tagName("li")).get(0).click();
+		findElementById("form:scroll").findElements(By.tagName("li")).get(0)
+				.click();
 
 		clickToElementById("form:submitButton");
 

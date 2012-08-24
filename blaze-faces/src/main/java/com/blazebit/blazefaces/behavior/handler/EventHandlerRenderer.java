@@ -60,8 +60,9 @@ public class EventHandlerRenderer extends CoreRenderer {
             scriptBuilder.append(");");
         }
         
-        if(scriptBuilder.length() > 0)
+        if(scriptBuilder.length() > 0){
             RendererUtils.addBodyBottomScript(context, scriptBuilder.toString());
+        }
     }
     
     private void encodeBehaviors(StringBuilder scriptBuilder, FacesContext context, UIComponent source, EventHandler component, String event){

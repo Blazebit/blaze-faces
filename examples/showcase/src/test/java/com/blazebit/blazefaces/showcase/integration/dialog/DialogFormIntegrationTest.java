@@ -10,7 +10,7 @@ public class DialogFormIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void before() {
-		String testUrl = toShowcaseUrl("dialogForm.jsf");
+		String testUrl = toShowcaseUrl("dialogForm.xhtml");
 		driver.get(testUrl);
 	}
 
@@ -23,7 +23,7 @@ public class DialogFormIntegrationTest extends AbstractIntegrationTest {
 		showDialogButton.click();
 
 		WebElement firstNameInput = findElementById("form:firstname");
-		
+
 		firstNameInput.sendKeys(text);
 
 		WebElement submitButton = findElementById("form:submitButton");

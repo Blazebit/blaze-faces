@@ -12,16 +12,16 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 public class SpacerIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
-	public void init(){
-		String testUrl = toShowcaseUrl("spacer.jsf");
+	public void init() {
+		String testUrl = toShowcaseUrl("spacer.xhtml");
 		driver.get(testUrl);
 	}
 
 	@Test
-	public void shouldSpace(){
+	public void shouldSpace() {
 		WebElement firstSpacer = findElementById("firstSpacer");
 		WebElement secondSpacer = findElementById("secondSpacer");
-		
+
 		assertThat(firstSpacer.getAttribute("width"), equalTo("100"));
 		assertThat(firstSpacer.getAttribute("height"), equalTo("10"));
 

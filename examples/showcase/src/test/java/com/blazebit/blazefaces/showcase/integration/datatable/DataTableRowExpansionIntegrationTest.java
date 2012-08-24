@@ -12,11 +12,12 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 
 import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
-public class DataTableRowExpansionIntegrationTest extends AbstractIntegrationTest {
+public class DataTableRowExpansionIntegrationTest extends
+		AbstractIntegrationTest {
 
 	@Before
 	public void before() {
-		driver.get(toShowcaseUrl("datatableExpandableRows.jsf"));
+		driver.get(toShowcaseUrl("datatableExpandableRows.xhtml"));
 	}
 
 	@Test
@@ -24,7 +25,7 @@ public class DataTableRowExpansionIntegrationTest extends AbstractIntegrationTes
 		expandAndVerifyByRowNumber(0);
 		expandAndVerifyByRowNumber(1);
 	}
-	
+
 	private void expandAndVerifyByRowNumber(int rowNumber) {
 		List<WebElement> trElements = getDataTableRows();
 		WebElement row = trElements.get(rowNumber);
@@ -40,12 +41,18 @@ public class DataTableRowExpansionIntegrationTest extends AbstractIntegrationTes
 		return getColumnData(row, 1);
 	}
 
-	private void verifyExpandedRow(final String expectedModel, final String expectedYear, final int expandedRowNumber) {
+	private void verifyExpandedRow(final String expectedModel,
+			final String expectedYear, final int expandedRowNumber) {
 		waitForCondition(new ExpectedCondition<Boolean>() {
 
 			public Boolean apply(WebDriver driver) {
-				return driver.findElement(By.id(toModelElementId(expandedRowNumber))).getText().equals(expectedModel)
-						&& driver.findElement(By.id(toYearElementId(expandedRowNumber))).getText().equals(expectedYear);
+				return driver
+						.findElement(By.id(toModelElementId(expandedRowNumber)))
+						.getText().equals(expectedModel)
+						&& driver
+								.findElement(
+										By.id(toYearElementId(expandedRowNumber)))
+								.getText().equals(expectedYear);
 			}
 
 			private String toYearElementId(final int expandedRowNumber) {
@@ -59,7 +66,8 @@ public class DataTableRowExpansionIntegrationTest extends AbstractIntegrationTes
 	}
 
 	private String getColumnData(WebElement row, int columnNumber) {
-		return row.findElements(By.className("ui-dt-c")).get(columnNumber).getText();
+		return row.findElements(By.className("ui-dt-c")).get(columnNumber)
+				.getText();
 	}
 
 	private void expand(WebElement row) {
@@ -67,10 +75,12 @@ public class DataTableRowExpansionIntegrationTest extends AbstractIntegrationTes
 	}
 
 	private List<WebElement> getDataTableRows() {
-		List<WebElement> trElements =  findElementById("form:carsTable_data").findElements(By.tagName("tr"));
+		List<WebElement> trElements = findElementById("form:carsTable_data")
+				.findElements(By.tagName("tr"));
 		List<WebElement> rows = new ArrayList<WebElement>();
-		for(WebElement tr : trElements) {
-			if(tr.getAttribute("class").contains("ui-datatable-even") || tr.getAttribute("class").contains("ui-datatable-odd")) {
+		for (WebElement tr : trElements) {
+			if (tr.getAttribute("class").contains("ui-datatable-even")
+					|| tr.getAttribute("class").contains("ui-datatable-odd")) {
 				rows.add(tr);
 			}
 		}

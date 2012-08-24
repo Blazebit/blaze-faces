@@ -11,18 +11,18 @@ public class DialogCloseListenerIntegrationTest extends AbstractIntegrationTest 
 
 	@Before
 	public void before() {
-		driver.get(toShowcaseUrl("dialogClose.jsf"));
+		driver.get(toShowcaseUrl("dialogClose.xhtml"));
 	}
 
 	@Test
 	public void shouldInvokeDialogCloseListener() {
 		WebElement openDialogLink = findElementById("form:openDialogLink");
 		openDialogLink.click();
-		
-        waitUntilAllAnimationsComplete();
-        
+
+		waitUntilAllAnimationsComplete();
+
 		findElementBySelector(".ui-dialog-titlebar-close").click();
-		
+
 		waitUntilElementExists(By.className("ui-growl"));
 	}
 

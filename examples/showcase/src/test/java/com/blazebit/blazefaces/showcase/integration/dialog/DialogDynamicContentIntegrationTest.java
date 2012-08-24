@@ -11,23 +11,26 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 
 import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
-public class DialogDynamicContentIntegrationTest extends AbstractIntegrationTest {
+public class DialogDynamicContentIntegrationTest extends
+		AbstractIntegrationTest {
 
 	@Before
 	public void before() {
-		driver.get(toShowcaseUrl("dialogDynamic.jsf"));
+		driver.get(toShowcaseUrl("dialogDynamic.xhtml"));
 	}
 
 	@Test
 	public void shouldLoadDialogContentDynamically() {
-		assertThat(findElementByClass("ui-dialog-content").getText(), equalTo(""));
+		assertThat(findElementByClass("ui-dialog-content").getText(),
+				equalTo(""));
 
 		findElementById("basic").click();
 
 		waitForCondition(new ExpectedCondition<Boolean>() {
 
 			public Boolean apply(WebDriver driver) {
-				return driver.findElement(By.className("ui-dialog-content")).getText().equals("This content is loaded lazy.");
+				return driver.findElement(By.className("ui-dialog-content"))
+						.getText().equals("This content is loaded lazy.");
 			}
 		});
 

@@ -9,17 +9,18 @@ import org.junit.Test;
 
 import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
-public class DataTableInCellEditingIntegrationTest extends AbstractIntegrationTest {
+public class DataTableInCellEditingIntegrationTest extends
+		AbstractIntegrationTest {
 
 	private static final String MODEL_INPUT = "form:carList:0:modelInput";
 
 	private static final String OK_BUTTON = "ui-icon-check";
-	
+
 	private static final String EDIT_BUTTON = "ui-icon-pencil";
 
 	@Before
 	public void before() {
-		driver.get(toShowcaseUrl("datatableEditing.jsf"));
+		driver.get(toShowcaseUrl("datatableEditing.xhtml"));
 	}
 
 	@Test
@@ -31,9 +32,9 @@ public class DataTableInCellEditingIntegrationTest extends AbstractIntegrationTe
 		findElementById(MODEL_INPUT).sendKeys("PF");
 		clickToElementByClass(OK_BUTTON);
 
-        waitUntilAjaxRequestCompletes();
-        waitUntilAllAnimationsComplete();
-        
+		waitUntilAjaxRequestCompletes();
+		waitUntilAllAnimationsComplete();
+
 		String newModelName = getModelName();
 
 		assertThat(newModelName, not(equalTo(prevModelName)));

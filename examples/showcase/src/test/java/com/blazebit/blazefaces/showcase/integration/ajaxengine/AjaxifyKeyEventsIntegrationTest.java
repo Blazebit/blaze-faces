@@ -10,7 +10,7 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
 public class AjaxifyKeyEventsIntegrationTest extends AbstractIntegrationTest {
 
-	private String testUrl = toShowcaseUrl("ajaxifyKeyEvents.jsf");
+	private String testUrl = toShowcaseUrl("ajaxifyKeyEvents.xhtml");
 	private WebElement txtFirstName;
 	private WebElement txtSurname;
 	private WebElement lblFirstName;

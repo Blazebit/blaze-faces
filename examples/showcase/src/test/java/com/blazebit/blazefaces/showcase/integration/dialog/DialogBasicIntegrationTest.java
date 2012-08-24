@@ -15,7 +15,7 @@ public class DialogBasicIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void before() {
-		String testUrl = toShowcaseUrl("dialog.jsf");
+		String testUrl = toShowcaseUrl("dialog.xhtml");
 		driver.get(testUrl);
 	}
 
@@ -23,7 +23,8 @@ public class DialogBasicIntegrationTest extends AbstractIntegrationTest {
 	public void shouldOpenBasicDialog() {
 		WebElement basicDialog = findElementById("basicDialog");
 
-		assertThat(basicDialog.getAttribute("style"), not(containsString("z-index")));
+		assertThat(basicDialog.getAttribute("style"),
+				not(containsString("z-index")));
 
 		WebElement basicDialogButton = findElementById("basic");
 		basicDialogButton.click();

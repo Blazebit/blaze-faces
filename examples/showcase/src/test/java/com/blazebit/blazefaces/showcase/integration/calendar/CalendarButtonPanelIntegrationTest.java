@@ -15,36 +15,44 @@ public class CalendarButtonPanelIntegrationTest extends AbstractIntegrationTest 
 
 	@Before
 	public void before() {
-		String testUrl = toShowcaseUrl("calendarButtonPanel.jsf");
+		String testUrl = toShowcaseUrl("calendarButtonPanel.xhtml");
 		driver.get(testUrl);
 	}
 
 	@Test
 	public void shouldReturnToCurrentMonthWhenTodayButtonClicked() {
-		
+
 		WebElement input = findElementById("cal_input");
-		
+
 		input.click();
 
 		WebElement calendar = findElementById("ui-datepicker-div");
 
-		String initialCurrentMonth = calendar.findElement(By.className("ui-datepicker-month")).getText();
+		String initialCurrentMonth = calendar.findElement(
+				By.className("ui-datepicker-month")).getText();
 
 		WebElement nextMonthLink = calendar.findElement(By.linkText("Next"));
 		nextMonthLink.click();
 
-		String currentMonthAfterNextButtonClicked = calendar.findElement(By.className("ui-datepicker-month")).getText();
+		String currentMonthAfterNextButtonClicked = calendar.findElement(
+				By.className("ui-datepicker-month")).getText();
 
-		assertThat(currentMonthAfterNextButtonClicked, not(equalTo(initialCurrentMonth)));
-		
-		WebElement todayButton = calendar.findElement(By.className("ui-datepicker-buttonpane")).findElements(By.tagName("button")).get(0);
+		assertThat(currentMonthAfterNextButtonClicked,
+				not(equalTo(initialCurrentMonth)));
+
+		WebElement todayButton = calendar
+				.findElement(By.className("ui-datepicker-buttonpane"))
+				.findElements(By.tagName("button")).get(0);
 		todayButton.click();
-		
-		String currentMonthAfterTodayButtonClicked = calendar.findElement(By.className("ui-datepicker-month")).getText();
-		
-		assertThat(currentMonthAfterTodayButtonClicked, not(equalTo(currentMonthAfterNextButtonClicked)));
-		
-		assertThat(currentMonthAfterTodayButtonClicked, equalTo(initialCurrentMonth));
+
+		String currentMonthAfterTodayButtonClicked = calendar.findElement(
+				By.className("ui-datepicker-month")).getText();
+
+		assertThat(currentMonthAfterTodayButtonClicked,
+				not(equalTo(currentMonthAfterNextButtonClicked)));
+
+		assertThat(currentMonthAfterTodayButtonClicked,
+				equalTo(initialCurrentMonth));
 
 	}
 

@@ -15,14 +15,15 @@ import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 public class SimpleGalleriaIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
-	public void init(){
-		String testUrl = toShowcaseUrl("galleria.jsf");
+	public void init() {
+		String testUrl = toShowcaseUrl("galleria.xhtml");
 		driver.get(testUrl);
 	}
-	
+
 	@Test
-	public void shouldRenderSimplestGalleria(){
-		List<WebElement> bigImageDivs = findElementByClass("ui-galleria-panel_wrap").findElements(By.tagName("div"));
+	public void shouldRenderSimplestGalleria() {
+		List<WebElement> bigImageDivs = findElementByClass(
+				"ui-galleria-panel_wrap").findElements(By.tagName("div"));
 		assertThat(bigImageDivs.size(), equalTo(12));
 	}
 }

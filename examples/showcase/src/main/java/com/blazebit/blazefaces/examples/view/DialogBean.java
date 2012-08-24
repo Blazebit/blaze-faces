@@ -15,17 +15,23 @@
  */
 package com.blazebit.blazefaces.examples.view;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
 import com.blazebit.blazefaces.event.CloseEvent;
 
+@Named
+@RequestScoped
 public class DialogBean {
 
 	public void handleClose(CloseEvent event) {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, event.getComponent().getId() + " closed", "So you don't like nature?");
-		
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
+				event.getComponent().getId() + " closed",
+				"So you don't like nature?");
+
 		facesContext.addMessage(null, message);
 	}
 }

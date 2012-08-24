@@ -8,19 +8,27 @@ import org.openqa.selenium.By;
 
 import com.blazebit.blazefaces.showcase.integration.AbstractIntegrationTest;
 
-public class OhlcChartIntegrationTest extends AbstractIntegrationTest{
+public class OhlcChartIntegrationTest extends AbstractIntegrationTest {
 
 	@Before
 	public void init() {
-		driver.get(toShowcaseUrl("ohlcChart.jsf"));
+		driver.get(toShowcaseUrl("ohlcChart.xhtml"));
 	}
-	
+
 	@Test
-	public void chartsMustBeExist(){
-		assertTrue(findElementById("sample").findElements(By.className("jqplot-xaxis-tick")).get(3).getText().equals("2009"));
-		assertTrue(findElementById("sample").findElements(By.className("jqplot-yaxis-tick")).get(5).getText().equals("140"));
-		
-		assertTrue(findElementById("candleStick").findElements(By.className("jqplot-xaxis-tick")).get(2).getText().equals("5"));
-		assertTrue(findElementById("candleStick").findElements(By.className("jqplot-yaxis-tick")).get(2).getText().equals("100"));
+	public void chartsMustBeExist() {
+		assertTrue(findElementById("sample")
+				.findElements(By.className("jqplot-xaxis-tick")).get(3)
+				.getText().equals("2009"));
+		assertTrue(findElementById("sample")
+				.findElements(By.className("jqplot-yaxis-tick")).get(5)
+				.getText().equals("140"));
+
+		assertTrue(findElementById("candleStick")
+				.findElements(By.className("jqplot-xaxis-tick")).get(2)
+				.getText().equals("5"));
+		assertTrue(findElementById("candleStick")
+				.findElements(By.className("jqplot-yaxis-tick")).get(2)
+				.getText().equals("100"));
 	}
 }

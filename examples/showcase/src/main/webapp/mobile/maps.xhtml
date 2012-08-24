@@ -7,7 +7,7 @@
 	contentType="text/html"
     renderKitId="BLAZEFACES_MOBILE">
 
-    <pm:page title="Maps">
+    <bm:page title="Maps">
 
         <f:facet name="postinit">
             <h:outputScript library="blazefaces" name="gmap/gmap.js" />
@@ -39,21 +39,21 @@
 		</f:facet>
 
         <!-- Main View -->
-        <pm:view id="main" swatch="a">
-            <pm:header title="Maps">
+        <bm:view id="main" swatch="a">
+            <bm:header title="Maps">
                 
-            </pm:header>
+            </bm:header>
 
-            <pm:content>
+            <bm:content>
                 <b:gmap center="41.381542, 2.122893" zoom="15" type="HYBRID" style="width:100%;height:15em" widgetVar="gmap"/>
 
                 <b:separator />
 
                 <b:commandButton type="button" value="My Location" onclick="findMe()"/>
-            </pm:content>
+            </bm:content>
 
-        </pm:view>
+        </bm:view>
 
-    </pm:page>
+    </bm:page>
 
 </f:view>

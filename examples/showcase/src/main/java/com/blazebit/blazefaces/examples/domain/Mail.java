@@ -20,49 +20,52 @@ import java.util.Date;
 
 public class Mail implements Serializable {
 
-    public String from;
-    public String subject;
-    public String body;
-    public Date date;
-    
-    public Mail() {}
+	private static final long serialVersionUID = 1L;
 
-    public Mail(String from, String subject, String body, Date date) {
-        this.from = from;
-        this.subject = subject;
-        this.body = body;
-        this.date = date;
-    }
+	public String from;
+	public String subject;
+	public String body;
+	public Date date;
 
-    public String getBody() {
-        return body;
-    }
+	public Mail() {
+	}
 
-    public void setBody(String body) {
-        this.body = body;
-    }
+	public Mail(String from, String subject, String body, Date date) {
+		this.from = from;
+		this.subject = subject;
+		this.body = body;
+		this.date = date;
+	}
 
-    public Date getDate() {
-        return date;
-    }
+	public String getBody() {
+		return body;
+	}
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
+	public void setBody(String body) {
+		this.body = body;
+	}
 
-    public String getFrom() {
-        return from;
-    }
+	public Date getDate() {
+		return date;
+	}
 
-    public void setFrom(String from) {
-        this.from = from;
-    }
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
-    public String getSubject() {
-        return subject;
-    }
+	public String getFrom() {
+		return from;
+	}
 
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
+	public void setFrom(String from) {
+		this.from = from;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
 }

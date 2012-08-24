@@ -26,6 +26,7 @@ import javax.faces.event.ActionEvent;
 import com.blazebit.blazefaces.renderkit.CoreRenderer;
 import com.blazebit.blazefaces.util.ComponentUtils;
 import com.blazebit.blazefaces.util.HTML;
+import com.blazebit.blazefaces.util.RendererUtils;
 
 public class CommandLinkRenderer extends CoreRenderer {
 
@@ -155,7 +156,8 @@ public class CommandLinkRenderer extends CoreRenderer {
             }
 
             String onclick = link.getOnclick() != null ? link.getOnclick() + ";" + request : request;
-            writer.writeAttribute("onclick", onclick, "onclick");
+        	RendererUtils.encodeSequentialEventHandler(context, clientId, "click", onclick.toString());
+            //writer.writeAttribute("onclick", onclick, "onclick");
 
             renderPassThruAttributes(context, link, HTML.LINK_ATTRS, HTML.CLICK_EVENT);
 

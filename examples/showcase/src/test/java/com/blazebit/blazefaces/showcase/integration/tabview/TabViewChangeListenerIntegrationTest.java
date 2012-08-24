@@ -15,13 +15,14 @@ public class TabViewChangeListenerIntegrationTest extends
 		AbstractIntegrationTest {
 
 	@Before
-	public void init(){
-		String testUrl = toShowcaseUrl("tabviewChangeListener.jsf");
+	public void init() {
+		String testUrl = toShowcaseUrl("tabviewChangeListener.xhtml");
 		driver.get(testUrl);
 	}
-	
+
 	@Test
-	public void shouldGrowlShownByTabChangeListener() throws InterruptedException {
+	public void shouldGrowlShownByTabChangeListener()
+			throws InterruptedException {
 		WebElement tabView = findElementById("form:tabView");
 		List<WebElement> tabs = tabView.findElements(By.tagName("li"));
 		tabs.get(1).click();

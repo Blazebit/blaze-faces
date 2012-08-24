@@ -22,24 +22,28 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
 import com.blazebit.blazefaces.event.DateSelectEvent;
 
+@Named
+@RequestScoped
 public class CalendarBean {
 
 	private Date date1;
-	
+
 	private Date date2;
-	
+
 	private Date date3;
 
-    private Date date4;
+	private Date date4;
 
-    private Date date5;
+	private Date date5;
 
-    private Date date6;
+	private Date date6;
 
 	private Date[] dates;
 
@@ -67,7 +71,7 @@ public class CalendarBean {
 		this.date3 = date3;
 	}
 
-    public Date getDate4() {
+	public Date getDate4() {
 		return date4;
 	}
 
@@ -75,22 +79,22 @@ public class CalendarBean {
 		this.date4 = date4;
 	}
 
-    public Date getDate5() {
-        return date5;
-    }
+	public Date getDate5() {
+		return date5;
+	}
 
-    public void setDate5(Date date5) {
-        this.date5 = date5;
-    }
+	public void setDate5(Date date5) {
+		this.date5 = date5;
+	}
 
-    public Date getDate6() {
-        return date6;
-    }
+	public Date getDate6() {
+		return date6;
+	}
 
-    public void setDate6(Date date6) {
-        this.date6 = date6;
-    }
-    
+	public void setDate6(Date date6) {
+		this.date6 = date6;
+	}
+
 	public Date[] getDates() {
 		return dates;
 	}
@@ -98,20 +102,22 @@ public class CalendarBean {
 	public void setDates(Date[] dates) {
 		this.dates = dates;
 	}
-	
+
 	public List<Date> getSelectedDates() {
-		if(dates != null)
+		if (dates != null)
 			return Arrays.asList(dates);
 		else
 			return new ArrayList<Date>();
 	}
-	
+
 	public void handleDateSelect(DateSelectEvent event) {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		SimpleDateFormat format = new SimpleDateFormat("d/M/yyyy");
-		facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Date Selected", format.format(event.getDate())));
+		facesContext.addMessage(null,
+				new FacesMessage(FacesMessage.SEVERITY_INFO, "Date Selected",
+						format.format(event.getDate())));
 	}
-	
+
 	public TimeZone getTimeZone() {
 		return TimeZone.getDefault();
 	}

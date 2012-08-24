@@ -7,7 +7,7 @@
 	contentType="text/html"
     renderKitId="BLAZEFACES_MOBILE">
 
-    <pm:page title="Chat">
+    <bm:page title="Chat">
         
         <f:facet name="postinit">
             <script type="text/javascript">
@@ -24,11 +24,11 @@
         </f:facet>
 
         <!-- Main View -->
-        <pm:view id="main" swatch="a">
-            <pm:header title="Chat">
-            </pm:header>
+        <bm:view id="main" swatch="a">
+            <bm:header title="Chat">
+            </bm:header>
 
-            <pm:content>
+            <bm:content>
                 <h:form id="chatForm">
                     
                     <b:outputPanel id="container">
@@ -57,10 +57,10 @@
                 
                 <b:socket onMessage="handleMessage" channel="/chat" widgetVar="subscriber"/>
                 
-            </pm:content>
+            </bm:content>
 
-        </pm:view>
+        </bm:view>
 
-    </pm:page>
+    </bm:page>
     
 </f:view>

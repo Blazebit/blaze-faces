@@ -1,5 +1,6 @@
 package com.blazebit.blazefaces.showcase.integration;
 
+import java.io.File;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -13,9 +14,11 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -42,51 +45,76 @@ public abstract class AbstractIntegrationTest {
 	protected static final boolean DECREASING = false;
 
 	protected static WebDriver driver;
-    
+
 	@BeforeClass
 	public static void beforeClass() {
-		
-        driver = getDriver();
-        
+
+		driver = getDriver();
+
 	}
-    
-    protected static WebDriver getDriver() {
-            
-        String type = System.getProperty("integrationTestsDriverType");
-        String path = System.getProperty("integrationTestsDriverPath");
 
-        if(type != null) {
-            if(type.equalsIgnoreCase("chrome")) {
+	protected static WebDriver getDriver() {
 
-                System.setProperty("webdriver.chrome.driver", path );
+		String type = System.getProperty("integrationTestsDriverType");
+		String path = System.getProperty("integrationTestsDriverPath");
+		String pathX86 = System.getProperty("integrationTestsDriverPath-x86");
 
-                return new ChromeDriver();
-            }
-            else if(type.equalsIgnoreCase("win32ie")) {
-                DesiredCapabilities ieCapabilities = DesiredCapabilities.internetExplorer();  
-                ieCapabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
-                return new InternetExplorerDriver(ieCapabilities);
-            }
-        }
-        
-        FirefoxDriver ff = new FirefoxDriver(prepareFirefoxProfileForFileDownload());
-        ff.manage().window().setPosition(new Point(0, 0));
+		if (type != null) {
+			if (type.equalsIgnoreCase("chrome")) {
+
+				System.setProperty("webdriver.chrome.driver", path);
+
+				return new ChromeDriver();
+			} else if (type.equalsIgnoreCase("ie")) {
+				DesiredCapabilities ieCapabilities = DesiredCapabilities
+						.internetExplorer();
+				ieCapabilities
+						.setCapability(
+								InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,
+								true);
+				
+				File ieDriver = null;
+
+				if(System.getenv("ProgramFiles(x86)") != null || pathX86 == null){
+					ieDriver = new File(path);
+				} else {
+					ieDriver = new File(pathX86);
+				}
+				
+				return new InternetExplorerDriver(new InternetExplorerDriverService.Builder().usingDriverExecutable(ieDriver).usingAnyFreePort().build(), ieCapabilities);
+			}
+		}
+		
+		FirefoxDriver ff = null;
+		
+		if(System.getenv("ProgramFiles(x86)") != null){
+			ff = new FirefoxDriver(new FirefoxBinary(new File(System.getenv("ProgramFiles(x86)") + "\\Mozilla Firefox\\firefox.exe")), prepareFirefoxProfileForFileDownload());
+		} else {
+			ff = new FirefoxDriver(prepareFirefoxProfileForFileDownload());
+		}
+		
+		ff.manage().window().setPosition(new Point(0, 0));
 		ff.manage().window().setSize(new Dimension(WIDTH, HEIGHT));
-        return ff;
-    }
+		return ff;
+	}
 
 	private static FirefoxProfile prepareFirefoxProfileForFileDownload() {
 		FirefoxProfile profile = new FirefoxProfile();
+		
 		profile.setPreference("browser.download.folderList", 2);
-		profile.setPreference("browser.download.manager.showWhenStarting", false);
-		profile.setPreference("browser.helperApps.neverAsk.saveToDisk", "image/jpg, text/csv,text/xml,application/xml,application/vnd.ms-excel,application/x-excel,application/x-msexcel,application/excel,application/pdf");
-		profile.setPreference("browser.download.dir", System.getProperty("user.home"));
+		profile.setPreference("browser.download.manager.showWhenStarting",
+				false);
+		profile.setPreference(
+				"browser.helperApps.neverAsk.saveToDisk",
+				"image/jpg, text/csv,text/xml,application/xml,application/vnd.ms-excel,application/x-excel,application/x-msexcel,application/excel,application/pdf");
+		profile.setPreference("browser.download.dir",
+				System.getProperty("user.home"));
 		return profile;
 	}
 
 	@AfterClass
 	public static void afterClass() {
-                driver.quit();
+		driver.quit();
 	}
 
 	/**
@@ -97,9 +125,12 @@ public abstract class AbstractIntegrationTest {
 	 * @param elementId
 	 * @param value
 	 */
-	protected void waitUntilElementGetsValue(final String elementId, final String value) {
-		new FluentWait<WebDriver>(driver).withTimeout(DEFAULT_TIMEOUT_IN_SECONDS, TimeUnit.SECONDS)
-				.pollingEvery(DEFAULT_SLEEP_TIME_IN_SECONDS, TimeUnit.SECONDS).ignoring(NoSuchElementException.class)
+	protected void waitUntilElementGetsValue(final String elementId,
+			final String value) {
+		new FluentWait<WebDriver>(driver)
+				.withTimeout(DEFAULT_TIMEOUT_IN_SECONDS, TimeUnit.SECONDS)
+				.pollingEvery(DEFAULT_SLEEP_TIME_IN_SECONDS, TimeUnit.SECONDS)
+				.ignoring(NoSuchElementException.class)
 				.until(new ExpectedCondition<Boolean>() {
 					public Boolean apply(WebDriver wd) {
 						WebElement element = wd.findElement(By.id(elementId));
@@ -115,9 +146,12 @@ public abstract class AbstractIntegrationTest {
 	 * @param elementId
 	 * @param value
 	 */
-	protected void waitUntilElementExistsAndGetsValue(final String elementId, final String value) {
-		new FluentWait<WebDriver>(driver).withTimeout(DEFAULT_TIMEOUT_IN_SECONDS, TimeUnit.SECONDS)
-				.pollingEvery(DEFAULT_SLEEP_TIME_IN_SECONDS, TimeUnit.SECONDS).until(new ExpectedCondition<Boolean>() {
+	protected void waitUntilElementExistsAndGetsValue(final String elementId,
+			final String value) {
+		new FluentWait<WebDriver>(driver)
+				.withTimeout(DEFAULT_TIMEOUT_IN_SECONDS, TimeUnit.SECONDS)
+				.pollingEvery(DEFAULT_SLEEP_TIME_IN_SECONDS, TimeUnit.SECONDS)
+				.until(new ExpectedCondition<Boolean>() {
 					public Boolean apply(WebDriver wd) {
 						WebElement element = wd.findElement(By.id(elementId));
 						return element.getText().equals(value);
@@ -126,11 +160,14 @@ public abstract class AbstractIntegrationTest {
 	}
 
 	protected void waitUntilAjaxRequestCompletes() {
-		new FluentWait<WebDriver>(driver).withTimeout(DEFAULT_TIMEOUT_IN_SECONDS, TimeUnit.SECONDS)
-				.pollingEvery(DEFAULT_SLEEP_TIME_IN_SECONDS, TimeUnit.SECONDS).until(new ExpectedCondition<Boolean>() {
+		new FluentWait<WebDriver>(driver)
+				.withTimeout(DEFAULT_TIMEOUT_IN_SECONDS, TimeUnit.SECONDS)
+				.pollingEvery(DEFAULT_SLEEP_TIME_IN_SECONDS, TimeUnit.SECONDS)
+				.until(new ExpectedCondition<Boolean>() {
 					public Boolean apply(WebDriver d) {
 						JavascriptExecutor jsExec = (JavascriptExecutor) d;
-						return (Boolean) jsExec.executeScript(JQUERY_ACTIVE_CONNECTIONS_QUERY);
+						return (Boolean) jsExec
+								.executeScript(JQUERY_ACTIVE_CONNECTIONS_QUERY);
 					}
 				});
 	}
@@ -149,12 +186,15 @@ public abstract class AbstractIntegrationTest {
 	 *            : jQuery element selector
 	 */
 	protected void waitUntilAnimationCompletes(final String selector) {
-		new FluentWait<WebDriver>(driver).withTimeout(DEFAULT_TIMEOUT_IN_SECONDS * 2, TimeUnit.SECONDS)
-				.pollingEvery(DEFAULT_ANIMATED_INTERVAL_IN_SECONDS, TimeUnit.MILLISECONDS)
+		new FluentWait<WebDriver>(driver)
+				.withTimeout(DEFAULT_TIMEOUT_IN_SECONDS * 2, TimeUnit.SECONDS)
+				.pollingEvery(DEFAULT_ANIMATED_INTERVAL_IN_SECONDS,
+						TimeUnit.MILLISECONDS)
 				.until(new ExpectedCondition<Boolean>() {
 					public Boolean apply(WebDriver d) {
-						return (Boolean) ((JavascriptExecutor) d).executeScript("return ! $('" + selector
-								+ "').is(':animated');");
+						return (Boolean) ((JavascriptExecutor) d)
+								.executeScript("return ! $('" + selector
+										+ "').is(':animated');");
 					}
 				});
 	}
@@ -207,7 +247,8 @@ public abstract class AbstractIntegrationTest {
 		return parent.findElement(By.xpath(path));
 	}
 
-	protected List<WebElement> findElementsByXpath(WebElement parent, String path) {
+	protected List<WebElement> findElementsByXpath(WebElement parent,
+			String path) {
 		return parent.findElements(By.xpath(path));
 	}
 
@@ -219,11 +260,13 @@ public abstract class AbstractIntegrationTest {
 		return driver.findElements(By.cssSelector(selector));
 	}
 
-	protected WebElement findElementBySelector(WebElement parent, String selector) {
+	protected WebElement findElementBySelector(WebElement parent,
+			String selector) {
 		return parent.findElement(By.cssSelector(selector));
 	}
 
-	protected List<WebElement> findElementsBySelector(WebElement parent, String selector) {
+	protected List<WebElement> findElementsBySelector(WebElement parent,
+			String selector) {
 		return parent.findElements(By.cssSelector(selector));
 	}
 
@@ -240,7 +283,8 @@ public abstract class AbstractIntegrationTest {
 	}
 
 	protected boolean hasClass(WebElement e, String c) {
-		return e.getAttribute("class") != null && e.getAttribute("class").contains(c);
+		return e.getAttribute("class") != null
+				&& e.getAttribute("class").contains(c);
 	}
 
 	protected Object executeJS(String js, Object... os) {
@@ -248,13 +292,17 @@ public abstract class AbstractIntegrationTest {
 	}
 
 	protected void waitForCondition(ExpectedCondition<Boolean> condition) {
-		new FluentWait<WebDriver>(driver).withTimeout(DEFAULT_TIMEOUT_IN_SECONDS, TimeUnit.SECONDS)
-				.pollingEvery(DEFAULT_SLEEP_TIME_IN_SECONDS, TimeUnit.SECONDS).until(condition);
+		new FluentWait<WebDriver>(driver)
+				.withTimeout(DEFAULT_TIMEOUT_IN_SECONDS, TimeUnit.SECONDS)
+				.pollingEvery(DEFAULT_SLEEP_TIME_IN_SECONDS, TimeUnit.SECONDS)
+				.until(condition);
 	}
 
 	protected void waitUntilElementExists(final By by) {
-		new FluentWait<WebDriver>(driver).withTimeout(DEFAULT_TIMEOUT_IN_SECONDS, TimeUnit.SECONDS)
-				.pollingEvery(DEFAULT_SLEEP_TIME_IN_SECONDS, TimeUnit.SECONDS).ignoring(NoSuchElementException.class)
+		new FluentWait<WebDriver>(driver)
+				.withTimeout(DEFAULT_TIMEOUT_IN_SECONDS, TimeUnit.SECONDS)
+				.pollingEvery(DEFAULT_SLEEP_TIME_IN_SECONDS, TimeUnit.SECONDS)
+				.ignoring(NoSuchElementException.class)
 				.until(new ExpectedCondition<Boolean>() {
 					public Boolean apply(WebDriver wd) {
 						wd.findElement(by);
@@ -263,13 +311,15 @@ public abstract class AbstractIntegrationTest {
 				});
 	}
 
-	protected Integer getAnimationQueueSizeBySelector(String selector, String queue) {
-		return ((Long) executeJS("return $('" + selector + "').queue('" + queue + "').length;")).intValue();
+	protected Integer getAnimationQueueSizeBySelector(String selector,
+			String queue) {
+		return ((Long) executeJS("return $('" + selector + "').queue('" + queue
+				+ "').length;")).intValue();
 	}
 
 	protected Boolean anyAnimationInProgress(String selector, String queue) {
-		return (Boolean) executeJS(" var q = $('" + selector + "').queue('" + queue
-				+ "'); return q.length && q[0] == 'inprogress';");
+		return (Boolean) executeJS(" var q = $('" + selector + "').queue('"
+				+ queue + "'); return q.length && q[0] == 'inprogress';");
 	}
 
 	protected Boolean anyAnimationInProgress(String selector) {
@@ -288,8 +338,8 @@ public abstract class AbstractIntegrationTest {
 	 * @param long interval : Time in milliseconds to look before and after
 	 * 
 	 */
-	protected Boolean shouldElementAnimating(WebElement e, String cssValue, boolean increasing, long interval)
-			throws InterruptedException {
+	protected Boolean shouldElementAnimating(WebElement e, String cssValue,
+			boolean increasing, long interval) throws InterruptedException {
 
 		String initial = e.getCssValue(cssValue);
 
@@ -299,8 +349,8 @@ public abstract class AbstractIntegrationTest {
 
 		try {
 
-			double init = Double.parseDouble(initial.replaceAll("px", "")), last = Double.parseDouble(after.replaceAll(
-					"px", "")), dif = last - init;
+			double init = Double.parseDouble(initial.replaceAll("px", "")), last = Double
+					.parseDouble(after.replaceAll("px", "")), dif = last - init;
 
 			return dif != 0 && (dif < 0) ^ increasing;
 
@@ -317,7 +367,8 @@ public abstract class AbstractIntegrationTest {
 		return waitUntilElementExistsAndGet(element, by, 0);
 	}
 
-	protected WebElement waitUntilElementExistsAndGet(WebElement element, By by, int waitSecond) {
+	protected WebElement waitUntilElementExistsAndGet(WebElement element,
+			By by, int waitSecond) {
 		WebElement item = null;
 		if (element != null && by != null) {
 			try {
@@ -357,7 +408,7 @@ public abstract class AbstractIntegrationTest {
 	protected void scrollByOffset(int x, int y) {
 		executeJS("window.scrollBy(" + x + "," + y + ")");
 	}
-    
+
 	protected Boolean isTextPresent(WebElement element, String text) {
 		return element.getText().contains(text);
 	}

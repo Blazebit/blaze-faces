@@ -15,30 +15,35 @@
  */
 package com.blazebit.blazefaces.examples.view;
 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+
+@Named
+@RequestScoped
 public class SpinnerController {
 
 	private int number1;
-	
+
 	private double number2;
-	
+
 	private int number3;
-	
+
 	private int number4;
-	
+
 	private int number5;
-	
+
 	private int number6;
 
-    private int number7;
+	private int number7;
 
 	public int getNumber1() {
 		return number1;
 	}
-	
+
 	public void setNumber1(int number1) {
 		this.number1 = number1;
 	}
-	
+
 	public double getNumber2() {
 		return number2;
 	}
@@ -46,7 +51,7 @@ public class SpinnerController {
 	public void setNumber2(double number2) {
 		this.number2 = number2;
 	}
-	
+
 	public int getNumber3() {
 		return number3;
 	}
@@ -70,7 +75,7 @@ public class SpinnerController {
 	public void setNumber5(int number5) {
 		this.number5 = number5;
 	}
-	
+
 	public int getNumber6() {
 		return number6;
 	}
@@ -79,11 +84,11 @@ public class SpinnerController {
 		this.number6 = number6;
 	}
 
-    public int getNumber7() {
-        return number7;
-    }
+	public int getNumber7() {
+		return number7;
+	}
 
-    public void setNumber7(int number7) {
-        this.number7 = number7;
-    }
+	public void setNumber7(int number7) {
+		this.number7 = number7;
+	}
 }

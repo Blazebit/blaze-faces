@@ -25,6 +25,7 @@ import javax.faces.context.ResponseWriter;
 import com.blazebit.blazefaces.component.menuitem.MenuItem;
 import com.blazebit.blazefaces.renderkit.CoreRenderer;
 import com.blazebit.blazefaces.util.ComponentUtils;
+import com.blazebit.blazefaces.util.RendererUtils;
 
 public class StackRenderer extends CoreRenderer {
 
@@ -115,8 +116,9 @@ public class StackRenderer extends CoreRenderer {
                 String command = menuitem.isAjax() ? buildAjaxRequest(context, menuitem, form) : buildNonAjaxRequest(context, menuitem, form, clientId, true);
 
                 command = menuitem.getOnclick() == null ? command : menuitem.getOnclick() + ";" + command;
-				
-				writer.writeAttribute("onclick", command, null);
+
+            	RendererUtils.encodeSequentialEventHandler(context, clientId, "click", command.toString());
+				//writer.writeAttribute("onclick", command, null);
 			}
 			
 			//Label

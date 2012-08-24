@@ -24,6 +24,8 @@ import com.blazebit.blazefaces.behavior.handler.EventHandler;
 import com.blazebit.blazefaces.component.AjaxSource;
 import com.blazebit.blazefaces.util.AjaxRequestBuilder;
 import com.blazebit.blazefaces.util.Constants;
+import com.blazebit.blazefaces.util.RendererUtils;
+
 import java.util.Collections;
 import javax.faces.component.UIParameter;
 import javax.faces.component.behavior.ClientBehaviorContext;

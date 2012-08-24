@@ -16,22 +16,30 @@
 package com.blazebit.blazefaces.examples.view;
 
 import java.io.InputStream;
+
+import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import javax.servlet.ServletContext;
 
 import com.blazebit.blazefaces.model.DefaultStreamedContent;
 import com.blazebit.blazefaces.model.StreamedContent;
 
+@Named
+@RequestScoped
 public class FileDownloadController {
 
 	private StreamedContent file;
-	
-	public FileDownloadController() {        
-        InputStream stream = ((ServletContext)FacesContext.getCurrentInstance().getExternalContext().getContext()).getResourceAsStream("/images/blaze_logo.jpg");
-		file = new DefaultStreamedContent(stream, "image/jpg", "downloaded_logo.jpg");
+
+	public FileDownloadController() {
+		InputStream stream = ((ServletContext) FacesContext
+				.getCurrentInstance().getExternalContext().getContext())
+				.getResourceAsStream("/images/blaze_logo.jpg");
+		file = new DefaultStreamedContent(stream, "image/jpg",
+				"downloaded_logo.jpg");
 	}
 
-    public StreamedContent getFile() {
-        return file;
-    }  
+	public StreamedContent getFile() {
+		return file;
+	}
 }
