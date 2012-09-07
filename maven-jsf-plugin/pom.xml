@@ -6,6 +6,7 @@
         <groupId>com.blazebit</groupId>
         <artifactId>blaze-faces-parent</artifactId>
         <version>0.1.3-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     
     <artifactId>maven-jsf-plugin</artifactId>

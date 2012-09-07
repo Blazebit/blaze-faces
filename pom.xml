@@ -20,6 +20,7 @@
 	<modules>
 		<module>blaze-faces</module>
 		<module>blaze-faces-mobile</module>
+		<module>blaze-faces-dependencies</module>
 		<module>examples</module>
 		<module>maven-jsf-plugin</module>
 		<module>themes</module>
@@ -97,6 +98,12 @@
 				<groupId>${project.groupId}</groupId>
 				<artifactId>blaze-faces-mobile</artifactId>
 				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>blaze-faces-dependencies</artifactId>
+				<version>${project.version}</version>
+				<type>pom</type>
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
