@@ -23,32 +23,28 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.event.ActionEvent;
 
+import com.blazebit.blazefaces.renderkit.CommandRenderer;
 import com.blazebit.blazefaces.renderkit.CoreRenderer;
+import com.blazebit.blazefaces.util.ArrayUtils;
 import com.blazebit.blazefaces.util.ComponentUtils;
 import com.blazebit.blazefaces.util.HTML;
 import com.blazebit.blazefaces.util.RendererUtils;
 
-public class CommandButtonRenderer extends CoreRenderer {
-
-    @Override
-    public void decode(FacesContext context, UIComponent component) {
-        CommandButton button = (CommandButton) component;
-        if (button.isDisabled()) {
-            return;
-        }
-
-        String param = component.getClientId(context);
-        if (context.getExternalContext().getRequestParameterMap().containsKey(param)) {
-            component.queueEvent(new ActionEvent(component));
-        }
-    }
-
+public class CommandButtonRenderer extends CommandRenderer {
+	
+	private static final String[] ALLOWED_TYPES = ArrayUtils.concat(CommandRenderer.ALLOWED_TYPES, new String[]{"button"});
+	
     @Override
     public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
         CommandButton button = (CommandButton) component;
 
         encodeMarkup(context, button);
         encodeScript(context, button);
+    }
+    
+    @Override
+    protected String[] getAllowedTypes(){
+    	return ALLOWED_TYPES;
     }
     
     // Old implementation
@@ -75,11 +71,12 @@ public class CommandButtonRenderer extends CoreRenderer {
     protected void encodeMarkup(FacesContext context, CommandButton button) throws IOException {
         ResponseWriter writer = context.getResponseWriter();
         String clientId = button.getClientId(context);
-        String type = button.getType();
+        String type = getType(context, button.getType());
         String value = (String) button.getValue();
-        String icon = button.resolveIcon();
+        String icon = button.getIcon();
 
         StringBuilder onclick = new StringBuilder();
+        
         if (button.getOnclick() != null) {
             onclick.append(button.getOnclick()).append(";");
         }
@@ -89,13 +86,14 @@ public class CommandButtonRenderer extends CoreRenderer {
         writer.writeAttribute("name", clientId, "name");
         writer.writeAttribute("class", button.resolveStyleClass(), "styleClass");
 
-        if (!type.equals("reset") && !type.equals("button")) {
+        if ("submit".equals(type)) {
             String request;
 
             if (button.isAjax()) {
                 request = buildAjaxRequest(context, button, null);
             } else {
                 UIComponent form = ComponentUtils.findParentForm(context, button);
+                
                 if (form == null) {
                     throw new FacesException("CommandButton : \"" + clientId + "\" must be inside a form element");
                 }
@@ -107,13 +105,13 @@ public class CommandButtonRenderer extends CoreRenderer {
         }
 
         String onclickBehaviors = getOnclickBehaviors(context, button);
+        
         if (onclickBehaviors != null) {
             onclick.append(onclickBehaviors).append(";");
         }
 
         if (onclick.length() > 0) {
         	RendererUtils.encodeSequentialEventHandler(context, clientId, "click", onclick.toString());
-            //writer.writeAttribute("onclick", onclick.toString(), "onclick");
         }
 
         renderPassThruAttributes(context, button, HTML.BUTTON_ATTRS, HTML.CLICK_EVENT);

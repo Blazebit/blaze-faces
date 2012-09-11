@@ -5,6 +5,7 @@ package com.blazebit.blazefaces.renderkit;
 
 import java.util.Map;
 
+import javax.faces.FacesException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -18,8 +19,8 @@ import com.blazebit.blazefaces.util.RendererUtils;
  */
 public class CommandRenderer extends OutputRenderer {
 
-    private static final String DEFAULT_TYPE = "submit";
-    private static final String[] ALLOWED_TYPES = {
+    protected static final String DEFAULT_TYPE = "submit";
+    protected static final String[] ALLOWED_TYPES = {
         "submit",
         "reset"
     };
@@ -60,13 +61,23 @@ public class CommandRenderer extends OutputRenderer {
         }
         return true;
     }
+    
+    protected String[] getAllowedTypes(){
+    	return ALLOWED_TYPES;
+    }
 
     protected String getType(FacesContext context, UIComponent component) {
-        String inputType = (String) component.getAttributes().get("type");
-        
-        for(String type : ALLOWED_TYPES){
-            if(type.equalsIgnoreCase(inputType))
-                return type;
+        return getType(context, (String) component.getAttributes().get("type"));
+    }
+
+    protected String getType(FacesContext context, String inputType) {        
+        if(inputType != null && !inputType.isEmpty()){
+	        for(String type : getAllowedTypes()){
+	            if(type.equalsIgnoreCase(inputType))
+	                return type;
+	        }
+	        
+	        throw new FacesException("Invalid command type '" + inputType + "' given.");
         }
         
         return DEFAULT_TYPE;

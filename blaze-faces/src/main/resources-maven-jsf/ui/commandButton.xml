@@ -113,13 +113,6 @@
             <description>Disables the button.</description>
 		</attribute>
 		<attribute>
-			<name>image</name>
-			<required>false</required>
-			<type>java.lang.String</type>
-			<ignoreInComponent>true</ignoreInComponent>
-            <description>Style class representing the button icon.</description>
-		</attribute>
-		<attribute>
 			<name>label</name>
 			<required>false</required>
 			<type>java.lang.String</type>
