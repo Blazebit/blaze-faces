@@ -10,7 +10,7 @@
 	<rendererType>com.blazebit.blazefaces.component.TooltipRenderer</rendererType>
 	<rendererClass>com.blazebit.blazefaces.component.tooltip.TooltipRenderer</rendererClass>
 	<parent>javax.faces.component.UIOutput</parent>
-    <description>Tooltip goes beyond the legacy html title attribute by providing custom effects, events, html content and advance theme support.</description>
+    <description>Tooltip goes beyond the legacy html title attribute by providing custom effects, events and html content support.</description>
      <interfaces>
 		<interface>
 			<name>com.blazebit.blazefaces.component.Widget</name>

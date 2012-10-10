@@ -16,7 +16,7 @@
 	</context-param>
 	<context-param>
 		<param-name>blazefaces.THEME</param-name>
-		<param-value>#{guestPreferences.theme}</param-value>
+		<param-value>blazing</param-value>
 	</context-param>
 	<context-param>
 		<param-name>javax.faces.DEFAULT_SUFFIX</param-name>

@@ -91,12 +91,6 @@ img.right {
 	text-decoration: underline;
 }
 
-#globalthemeswitcher {
-    position:absolute;
-    top:5px;
-    right:50px;
-}
-
 /* Page */
 #page {
 	padding: 10px 0px;
@@ -241,18 +235,8 @@ img.right {
 	margin-right:10px
 }
 
-.themeMenu {
-    overflow: auto;
-    height:300px;
-    width:200px;
-}
-
 .dp-xml {
     width:1000px;
-}
-
-.ui-themeswitcher a.ui-selectonemenu-label-container {
-    text-decoration: none !important;
 }
 
 .ui-widget {

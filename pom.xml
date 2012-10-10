@@ -23,7 +23,6 @@
 		<module>blaze-faces-dependencies</module>
 		<module>examples</module>
 		<module>maven-jsf-plugin</module>
-		<module>themes</module>
 	</modules>
 
 	<issueManagement>

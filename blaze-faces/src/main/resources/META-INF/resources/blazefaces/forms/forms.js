@@ -2348,20 +2348,3 @@ BlazeFaces.widget.SplitButton = BlazeFaces.widget.BaseWidget.extend({
     }
     
 });
-
-/*
- * BlazeFaces ThemeSwitcher Widget
- */
-BlazeFaces.widget.ThemeSwitcher = BlazeFaces.widget.SelectOneMenu.extend({
-    
-    init: function(cfg) { 
-        var _self = this;
-        cfg.onchange = function() {
-            var value = _self.options.filter(':selected').val();
-            
-            BlazeFaces.changeTheme(value);
-        };
-        
-        this._super(cfg);
-    }
-});

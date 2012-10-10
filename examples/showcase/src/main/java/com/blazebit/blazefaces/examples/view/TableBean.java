@@ -71,8 +71,6 @@ public class TableBean implements Serializable {
 
 	private final static String[] manufacturers;
 
-	private String theme;
-
 	private String columnTemplate = "model manufacturer year";
 
 	static {
@@ -268,14 +266,6 @@ public class TableBean implements Serializable {
 				+ "images" + File.separator + "blaze_logo.png";
 
 		pdf.add(Image.getInstance(logo));
-	}
-
-	public String getTheme() {
-		return theme;
-	}
-
-	public void setTheme(String theme) {
-		this.theme = theme;
 	}
 
 	public void save() {

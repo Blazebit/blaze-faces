@@ -154,18 +154,6 @@ BlazeFaces = {
         }
     },
     
-    changeTheme: function(newTheme) {
-        if(newTheme && newTheme != '') {
-            var themeLink = $('link[href*="javax.faces.resource/theme.css"]'),
-            themeURL = themeLink.attr('href'),
-            plainURL = themeURL.split('&')[0],
-            oldTheme = plainURL.split('ln=')[1],
-            newThemeURL = themeURL.replace(oldTheme, 'blazefaces-' + newTheme);
-
-            themeLink.attr('href', newThemeURL);
-        }
-    },
-    
     escapeRegExp: function(text) {
         return text.replace(/([.?*+^$[\]\\(){}|-])/g, "\\$1");
     },

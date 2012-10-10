@@ -17,7 +17,6 @@
     <description>BlazeFaces JSF Component Library Examples Parent</description>
     
     <modules>
-        <module>blaze-portlet</module>
         <module>showcase</module>
     </modules>
 </project>

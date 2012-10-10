@@ -48,27 +48,7 @@
                     <li class="current_page_item"><a href="#{request.contextPath}/ui/home.xhtml" style="background:url('../design/ui.png') no-repeat center left;">BlazeUI</a></li>
                     <li><a href="#{request.contextPath}/mobile/index.xhtml" style="background:url('../design/iphone.png') no-repeat center left;">BlazeMobile</a></li>
                     <li><a href="#{request.contextPath}/push/index.xhtml" style="background:url('../design/push.png') no-repeat center left">BlazePush</a></li>
-                    <li class="current_page_item"><a href="#{request.contextPath}/ui/macosx.xhtml" style="background:url('../design/mac.png') no-repeat center left;">Mock OS X</a></li>
                 </ul>
-            </div>
-            
-            <div id="globalthemeswitcher">
-                <h:form>
-                    <b:themeSwitcher value="#{themeSwitcherBean.theme}" style="width:175px;" effect="fade" var="t">
-                        <f:selectItem itemLabel="Choose Theme" itemValue="" />
-                        <f:selectItems value="#{themeSwitcherBean.advancedThemes}" var="theme" itemLabel="#{theme.name}" itemValue="#{theme}"/>
-                        <b:ajax listener="#{themeSwitcherBean.saveTheme()}" />
-                        
-                        <b:column>
-                        	#{t.image}
-                            <h:graphicImage name="images/themes/#{t.image}" />
-                        </b:column>
-                        
-                        <b:column>
-                            #{t.name}
-                        </b:column>
-                    </b:themeSwitcher>
-                </h:form>
             </div>
 		</div>
 
@@ -432,7 +412,6 @@
                                     <li><a href="#{request.contextPath}/ui/separator.xhtml">Separator</a></li>
                                     <li><a href="#{request.contextPath}/ui/spacer.xhtml">Spacer</a></li>
                                     <li><a href="#{request.contextPath}/ui/terminalHome.xhtml">Terminal</a></li>
-                                    <li><a href="#{request.contextPath}/ui/themeswitcher.xhtml">Themeswitcher</a></li>
                                     <li><a href="#{request.contextPath}/ui/watermark.xhtml">Watermark</a></li>
                                 </ul>
                             </td>
