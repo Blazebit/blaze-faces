@@ -3,6 +3,7 @@
  */
 package com.blazebit.blazefaces.component.outputmeter;
 
+import com.blazebit.blazefaces.apt.JsfRenderer;
 import java.io.IOException;
 
 import javax.faces.component.UIComponent;
@@ -14,6 +15,7 @@ import com.blazebit.blazefaces.renderkit.OutputRenderer;
 import com.blazebit.blazefaces.util.HTML5;
 import com.blazebit.blazefaces.util.RendererUtils;
 
+@JsfRenderer
 public class OutputMeterRenderer extends OutputRenderer {
     
     @Override

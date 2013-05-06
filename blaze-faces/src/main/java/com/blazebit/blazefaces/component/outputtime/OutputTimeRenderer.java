@@ -3,6 +3,7 @@
  */
 package com.blazebit.blazefaces.component.outputtime;
 
+import com.blazebit.blazefaces.apt.JsfRenderer;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -22,6 +23,7 @@ import com.blazebit.blazefaces.util.HTML5;
 import com.blazebit.blazefaces.util.RendererUtils;
 import com.ocpsoft.pretty.time.PrettyTime;
 
+@JsfRenderer
 public class OutputTimeRenderer extends OutputRenderer {
     
     public static final DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");

@@ -3,6 +3,7 @@
  */
 package com.blazebit.blazefaces.behavior.ajax;
 
+import com.blazebit.blazefaces.apt.JsfBehaviorRenderer;
 import com.blazebit.blazefaces.util.AjaxRequestBuilder;
 import com.blazebit.blazefaces.util.RendererUtils;
 
@@ -23,6 +24,7 @@ import com.blazebit.blazefaces.util.ComponentUtils;
  *
  * @author Christian Beikov
  */
+@JsfBehaviorRenderer
 public class AjaxBehaviorRenderer extends ClientBehaviorRenderer {
 
     @Override

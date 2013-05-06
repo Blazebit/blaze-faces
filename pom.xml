@@ -22,6 +22,7 @@
 		<module>blaze-faces-mobile</module>
 		<module>blaze-faces-dependencies</module>
 		<module>examples</module>
+		<module>blaze-faces-apt</module>
 		<module>maven-jsf-plugin</module>
 	</modules>
 
@@ -85,9 +86,18 @@
 			</roles>
 		</developer>
 	</developers>
+	
+	<properties>
+		<version.blaze-utils>0.1.6-SNAPSHOT</version.blaze-utils>
+	</properties>
 
 	<dependencyManagement>
 		<dependencies>
+	        <dependency>
+	            <groupId>com.blazebit</groupId>
+	            <artifactId>blaze-common-utils</artifactId>
+	            <version>${version.blaze-utils}</version>
+	        </dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>blaze-faces</artifactId>
@@ -103,10 +113,16 @@
 				<artifactId>blaze-faces-dependencies</artifactId>
 				<version>${project.version}</version>
 				<type>pom</type>
+				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>blaze-faces-examples-parent</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>blaze-faces-apt</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>

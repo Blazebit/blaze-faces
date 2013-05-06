@@ -3,6 +3,7 @@
  */
 package com.blazebit.blazefaces.util;
 
+import com.blazebit.blazefaces.apt.JsfFunction;
 import com.blazebit.blazefaces.component.Widget;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -191,7 +192,8 @@ public class ComponentUtils {
 
         return value.toString();
     }
-
+    
+	@JsfFunction
     public static UIComponent findParentForm(FacesContext context, UIComponent component) {
         UIComponent parent = component.getParent();
 

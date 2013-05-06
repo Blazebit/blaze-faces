@@ -50,6 +50,11 @@
             <scope>provided</scope>
         </dependency>
         
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>blaze-faces-apt</artifactId>
+		</dependency>
+        
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -107,6 +112,7 @@
                         <configuration>
                             <sources>
                                 <source>target/generated-sources/maven-jsf-plugin</source>
+                                <source>target/generated-sources/annotations</source>
                             </sources>
                         </configuration>
                     </execution>

@@ -15,6 +15,7 @@
  */
 package com.blazebit.blazefaces.component.outputpanel;
 
+import com.blazebit.blazefaces.apt.JsfRenderer;
 import java.io.IOException;
 
 import javax.faces.FacesException;
@@ -24,6 +25,7 @@ import javax.faces.context.ResponseWriter;
 
 import com.blazebit.blazefaces.renderkit.CoreRenderer;
 
+@JsfRenderer
 public class OutputPanelRenderer extends CoreRenderer {
 
     @Override

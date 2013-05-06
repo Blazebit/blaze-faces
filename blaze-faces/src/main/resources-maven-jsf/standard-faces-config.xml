@@ -33,10 +33,6 @@
     </application>
     
     <behavior>
-        <behavior-id>com.blazebit.blazefaces.behavior.AjaxBehavior</behavior-id>
-        <behavior-class>com.blazebit.blazefaces.behavior.ajax.AjaxBehavior</behavior-class>
-    </behavior>
-    <behavior>
         <behavior-id>com.blazebit.blazefaces.component.PrinterBehavior</behavior-id>
         <behavior-class>com.blazebit.blazefaces.behavior.printer.PrinterBehavior</behavior-class>
     </behavior>

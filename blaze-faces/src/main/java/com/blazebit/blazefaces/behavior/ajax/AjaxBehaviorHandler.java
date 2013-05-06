@@ -6,25 +6,16 @@ package com.blazebit.blazefaces.behavior.ajax;
 import java.beans.BeanDescriptor;
 import java.beans.BeanInfo;
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeSet;
 
-import javax.el.ELContext;
 import javax.el.MethodExpression;
-import javax.el.MethodNotFoundException;
 import javax.faces.application.Application;
 import javax.faces.component.UIComponent;
 import javax.faces.component.behavior.ClientBehaviorHolder;
-import javax.faces.context.FacesContext;
-import javax.faces.event.AbortProcessingException;
-import javax.faces.event.AjaxBehaviorEvent;
-import javax.faces.event.AjaxBehaviorListener;
 import javax.faces.view.AttachedObjectHandler;
 import javax.faces.view.AttachedObjectTarget;
 import javax.faces.view.BehaviorHolderAttachedObjectTarget;
@@ -33,12 +24,9 @@ import javax.faces.view.facelets.BehaviorHandler;
 import javax.faces.view.facelets.ComponentHandler;
 import javax.faces.view.facelets.CompositeFaceletHandler;
 import javax.faces.view.facelets.FaceletContext;
-import javax.faces.view.facelets.MetaRuleset;
 import javax.faces.view.facelets.TagAttribute;
 import javax.faces.view.facelets.TagException;
 import javax.faces.view.facelets.TagHandler;
-
-import com.blazebit.blazefaces.facelets.MethodRule;
 
 /**
  *
