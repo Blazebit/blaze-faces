@@ -20,15 +20,14 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
-
-import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
 
 import com.blazebit.blazefaces.examples.service.WeatherService;
 import com.blazebit.blazefaces.examples.service.YAHOOWeatherService;
 
 @Named
-@ViewAccessScoped
+@ConversationScoped
 public class WeatherController implements Serializable {
 
 	private static final long serialVersionUID = 1L;

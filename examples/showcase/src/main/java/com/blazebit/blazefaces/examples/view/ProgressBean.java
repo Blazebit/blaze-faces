@@ -2,14 +2,13 @@ package com.blazebit.blazefaces.examples.view;
 
 import java.io.Serializable;
 
+import javax.enterprise.context.ConversationScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
-import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
-
 @Named
-@ViewAccessScoped
+@ConversationScoped
 public class ProgressBean implements Serializable {
 
 	private static final long serialVersionUID = -5000470162366926811L;

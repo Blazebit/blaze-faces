@@ -19,15 +19,14 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.enterprise.context.ConversationScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.inject.Named;
 
-import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
-
 @Named
-@ViewAccessScoped
+@ConversationScoped
 public class PartialProcessRequestBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;

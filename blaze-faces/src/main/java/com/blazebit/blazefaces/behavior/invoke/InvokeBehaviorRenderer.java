@@ -9,10 +9,13 @@ import javax.faces.component.behavior.ClientBehaviorContext;
 import javax.faces.context.FacesContext;
 import javax.faces.render.ClientBehaviorRenderer;
 
+import com.blazebit.blazefaces.apt.JsfBehaviorRenderer;
+
 /**
  *
  * @author Christian Beikov
  */
+//@JsfBehaviorRenderer
 public class InvokeBehaviorRenderer extends ClientBehaviorRenderer {
 
     @Override

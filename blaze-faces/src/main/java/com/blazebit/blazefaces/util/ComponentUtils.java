@@ -332,6 +332,7 @@ public class ComponentUtils {
         return sb.toString();
     }
 
+    @JsfFunction(name = "component")
     public static String findComponentClientId(String id) {
         UIComponent component = null;
 
@@ -366,6 +367,8 @@ public class ComponentUtils {
         }
         return result;
     }
+    
+    @JsfFunction(name = "widgetVar")
     public static String getWidgetVar(String id) {
 	    UIComponent component = findComponent(FacesContext.getCurrentInstance().getViewRoot(), id);
 

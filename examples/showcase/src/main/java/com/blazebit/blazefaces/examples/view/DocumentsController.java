@@ -2,11 +2,10 @@ package com.blazebit.blazefaces.examples.view;
 
 import java.io.Serializable;
 
+import javax.enterprise.context.ConversationScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
-
-import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
 
 import com.blazebit.blazefaces.event.ColumnResizeEvent;
 import com.blazebit.blazefaces.event.NodeCollapseEvent;
@@ -18,7 +17,7 @@ import com.blazebit.blazefaces.model.DefaultTreeNode;
 import com.blazebit.blazefaces.model.TreeNode;
 
 @Named
-@ViewAccessScoped
+@ConversationScoped
 public class DocumentsController implements Serializable {
 
 	private static final long serialVersionUID = 1L;

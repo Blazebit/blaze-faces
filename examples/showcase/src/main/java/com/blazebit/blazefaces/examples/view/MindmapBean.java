@@ -18,16 +18,15 @@ package com.blazebit.blazefaces.examples.view;
 import java.io.Serializable;
 import java.util.UUID;
 
+import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
-
-import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
 
 import com.blazebit.blazefaces.event.SelectEvent;
 import com.blazebit.blazefaces.model.mindmap.DefaultMindmapNode;
 import com.blazebit.blazefaces.model.mindmap.MindmapNode;
 
 @Named
-@ViewAccessScoped
+@ConversationScoped
 public class MindmapBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;

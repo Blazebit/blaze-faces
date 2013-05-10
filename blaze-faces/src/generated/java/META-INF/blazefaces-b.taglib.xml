@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<facelet-taglib xmlns="http://java.sun.com/xml/ns/javaee"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facelettaglibrary_2_0.xsd"
+		version="2.0">
+		
+    <namespace>http://blazebit.com/faces</namespace>
+	
+    <function>
+        <function-name>findParentForm</function-name>
+        <function-class>com.blazebit.blazefaces.util.ComponentUtils</function-class>
+        <function-signature>javax.faces.component.UIComponent findParentForm(javax.faces.context.FacesContext, javax.faces.component.UIComponent)</function-signature>
+    </function>
+    
+    <function>
+        <function-name>component</function-name>
+        <function-class>com.blazebit.blazefaces.util.ComponentUtils</function-class>
+        <function-signature>java.lang.String findComponentClientId(java.lang.String)</function-signature>
+    </function>
+    
+    <function>
+        <function-name>widgetVar</function-name>
+        <function-class>com.blazebit.blazefaces.util.ComponentUtils</function-class>
+        <function-signature>java.lang.String getWidgetVar(java.lang.String)</function-signature>
+    </function>
+    
+    <function>
+        <function-name>concat</function-name>
+        <function-class>com.blazebit.blazefaces.util.Functions</function-class>
+        <function-signature>java.lang.String concat(java.lang.String, java.lang.String)</function-signature>
+    </function>
+    
+    <function>
+        <function-name>ifGranted</function-name>
+        <function-class>com.blazebit.blazefaces.util.SecurityUtils</function-class>
+        <function-signature>boolean ifGranted(java.lang.String)</function-signature>
+    </function>
+    
+    <function>
+        <function-name>ifAllGranted</function-name>
+        <function-class>com.blazebit.blazefaces.util.SecurityUtils</function-class>
+        <function-signature>boolean ifAllGranted(java.lang.String)</function-signature>
+    </function>
+    
+    <function>
+        <function-name>ifAnyGranted</function-name>
+        <function-class>com.blazebit.blazefaces.util.SecurityUtils</function-class>
+        <function-signature>boolean ifAnyGranted(java.lang.String)</function-signature>
+    </function>
+    
+    <function>
+        <function-name>ifNoneGranted</function-name>
+        <function-class>com.blazebit.blazefaces.util.SecurityUtils</function-class>
+        <function-signature>boolean ifNoneGranted(java.lang.String)</function-signature>
+    </function>
+    
+    <function>
+        <function-name>remoteUser</function-name>
+        <function-class>com.blazebit.blazefaces.util.SecurityUtils</function-class>
+        <function-signature>java.lang.String remoteUser()</function-signature>
+    </function>
+    
+    <function>
+        <function-name>userPrincipal</function-name>
+        <function-class>com.blazebit.blazefaces.util.SecurityUtils</function-class>
+        <function-signature>java.security.Principal userPrincipal()</function-signature>
+    </function>
+    
+    <tag>
+        <tag-name>ajax</tag-name>
+        <behavior>
+            <behavior-id>com.blazebit.blazefaces.behavior.AjaxBehavior</behavior-id>
+            <handler-class>com.blazebit.blazefaces.behavior.ajax.AjaxBehaviorHandler</handler-class>
+        </behavior>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Method to process in partial request.
+                    ]]>
+            </description>
+            <name>listener</name>
+            <required>false</required>
+            <type>javax.el.MethodExpression</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            When set to true, ajax requests are not queued.
+                    ]]>
+            </description>
+            <name>async</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Component(s) to process in partial request. Defaults to @this.
+                    ]]>
+            </description>
+            <name>process</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Component(s) to update with ajax.
+                    ]]>
+            </description>
+            <name>update</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Client side callback execute before ajax request is begins.
+                    ]]>
+            </description>
+            <name>onstart</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Client side callback execute when ajax request is completed and dom is updated.
+                    ]]>
+            </description>
+            <name>oncomplete</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Client side callback execute when ajax requests returns with error response.
+                    ]]>
+            </description>
+            <name>onerror</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Client side callback execute before dom is updated.
+                    ]]>
+            </description>
+            <name>onsuccess</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Boolean value that determines the phaseId to execute listener. Default is false meaning "Invoke Application" phase, when true phase is "Apply Request Values".
+                    ]]>
+            </description>
+            <name>immediate</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Global ajax requests are listened by ajaxStatus component, setting global to false will not trigger ajaxStatus.
+                    ]]>
+            </description>
+            <name>global</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Disables ajax behavior.
+                    ]]>
+            </description>
+            <name>disabled</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Client side event to trigger ajax request. Default value is defined by parent ClientBehaviorHolder component the behavior is attached to.
+                    ]]>
+            </description>
+            <name>event</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            When enabled, only values related to partially processed components would be serialized for ajax instead of whole form.
+                    ]]>
+            </description>
+            <name>partialSubmit</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <description>
+                <![CDATA[
+                        OutputMeter is an output component for numbers. It makes use of the HTML5 meter-Tag and thus provides semantic information for the value.
+                ]]>
+        </description>
+        <display-name>
+                <![CDATA[
+                        OutputMeter
+                ]]>
+        </display-name>
+        <tag-name>outputMeter</tag-name>
+        <component>
+            <component-type>com.blazebit.blazefaces.component.OutputMeter</component-type>
+            <renderer-type>com.blazebit.blazefaces.renderer.OutputMeterRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            The minimum allowed value. The default value is 0
+                    ]]>
+            </description>
+            <name>min</name>
+            <required>false</required>
+            <type>java.lang.Double</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            The maximum allowed value. If the maximum value is less than the minimum value, then the minimum value is used as the max. If it is not specified then the value is 1.
+                    ]]>
+            </description>
+            <name>max</name>
+            <required>false</required>
+            <type>java.lang.Double</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            This is considered to be the low part of the value range. It must be less than or equal to the value of the high attribute. Also, if the low value is less than the min value, then the low value is the same as the min value.
+                    ]]>
+            </description>
+            <name>low</name>
+            <required>false</required>
+            <type>java.lang.Double</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            This is considered to be the high part of the value range. If the high value is less than the low boundary, then the high value is the same as the low value. Also, if the high value is greater than the max value, then the high value is the same as the max value.
+                    ]]>
+            </description>
+            <name>high</name>
+            <required>false</required>
+            <type>java.lang.Double</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            This is considered to be the optimum value and needs to be somewhere between min and max. It can be greater than the high attribute
+                    ]]>
+            </description>
+            <name>optimum</name>
+            <required>false</required>
+            <type>java.lang.Double</type>
+        </attribute>
+        <attribute>
+            <name>style</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Value of the component.
+                    ]]>
+            </description>
+            <name>value</name>
+            <required>false</required>
+            <type>java.lang.Object</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            An el expression or a literal text that defines a converter for the component. When it's an EL expression, it's resolved to a converter instance. 
+ In case it's a static text, it must refer to a converter id.
+                    ]]>
+            </description>
+            <name>converter</name>
+            <required>false</required>
+            <type>javax.faces.convert.Converter</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            An el expression referring to a server side UIComponent instance in a backing bean.
+                    ]]>
+            </description>
+            <name>binding</name>
+            <required>false</required>
+            <type>javax.faces.component.UIComponent</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Unique identifier of the component in a namingContainer.
+                    ]]>
+            </description>
+            <name>id</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Boolean value to specify the rendering of the component, when set to false component will not be rendered.
+                    ]]>
+            </description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <description>
+                <![CDATA[
+                        OutputPanel is a display only element that's useful in various cases such as adding placeholders to a page.
+                ]]>
+        </description>
+        <display-name>
+                <![CDATA[
+                        OutputPanel
+                ]]>
+        </display-name>
+        <tag-name>outputPanel</tag-name>
+        <component>
+            <component-type>com.blazebit.blazefaces.component.OutputPanel</component-type>
+            <renderer-type>com.blazebit.blazefaces.renderer.OutputPanelRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Layout of the panel, valid values are inline(span) or block(div).
+                    ]]>
+            </description>
+            <name>layout</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <name>style</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            An el expression referring to a server side UIComponent instance in a backing bean.
+                    ]]>
+            </description>
+            <name>binding</name>
+            <required>false</required>
+            <type>javax.faces.component.UIComponent</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Unique identifier of the component in a namingContainer.
+                    ]]>
+            </description>
+            <name>id</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Boolean value to specify the rendering of the component, when set to false component will not be rendered.
+                    ]]>
+            </description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <description>
+                <![CDATA[
+                        OutputTime is an output component for date/time values. It makes use of the HTML5 time-Tag and can also print pretty times like "5 minutes ago" based on the given locale.
+                ]]>
+        </description>
+        <display-name>
+                <![CDATA[
+                        OutputTime
+                ]]>
+        </display-name>
+        <tag-name>outputTime</tag-name>
+        <component>
+            <component-type>com.blazebit.blazefaces.component.OutputTime</component-type>
+            <renderer-type>com.blazebit.blazefaces.renderer.OutputTimeRenderer</renderer-type>
+        </component>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            If the time element is the publication date of the document or of an article element that contains it, set this to true.
+                    ]]>
+            </description>
+            <name>pubdate</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            The date time value to be displayed.
+                    ]]>
+            </description>
+            <name>value</name>
+            <required>false</required>
+            <type>java.lang.Object</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Indicates whether the time should be printed as human readable text or as normal date.
+                    ]]>
+            </description>
+            <name>pretty</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            The pattern attribute sets the custom formatting pattern which determines how the date/time string should be formatted and parsed. 
+                <table border="1">
+                        <tbody>
+                        <tr>
+                                <th align="left">Pattern</th>
+                                <th align="left">Result</th>
+                        </tr>
+                                <tr><td>yyyy.MM.dd 'at' HH:mm:ss z</td><td>2006.01.01  at 10:05:30 EST </td></tr>
+                                <tr bgcolor="#eeeeff"><td>EEE, MMM d, ''yy</td><td>Sun, Jan 1, '06 </td></tr>
+                                <tr><td>h:mm a</td><td>10:05 AM </td></tr><tr bgcolor="#eeeeff"><td>hh 'o''clock' a, zzzz</td><td>10 o'clock AM, Eastern Standard Time </td></tr>
+                                <tr><td>EEE, d MMM yyyy HH:mm:ss Z </td><td>Sun, 1 Jan 2006 10:05:30 -0500 </td></tr>
+                        </tbody>
+                </table>
+                For more examples of date formatting patterns, please see the  Java API documentation for java.text.SimpleDateFormat.
+                    ]]>
+            </description>
+            <name>pattern</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            This attribute sets the time zone for which to interpret date/time information.
+The value must be either a value-binding expression that evaluates to a java.util.TimeZone instance, or a String that is a timezone ID as per the Java API documentation for java.util.TimeZone.getTimeZone().
+                    ]]>
+            </description>
+            <name>timeZone</name>
+            <required>false</required>
+            <type>java.util.TimeZone</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            The locale attribute sets the language, country, and variant for formatting locale-sensitive data such as numbers and dates.
+If not specified, the Locale returned by FacesContext.getViewRoot().getLocale() will be used. Valid expressions must evaluate to a java.util.Locale.
+                    ]]>
+            </description>
+            <name>locale</name>
+            <required>false</required>
+            <type>java.util.Locale</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            This attributes specifies what type of information the string to be formatted or parsed will contain.
+The valid values for this attribute are "date", "time", and "both". The default value is "date".
+                    ]]>
+            </description>
+            <name>type</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            This attribute sets a predefined formatting style which determines how a date string is to be formatted. It only applies the type attribute is "date" or "both".
+                    Valid values for this attribute are:
+                    
+                    <table width="350" border="1">
+                        <tbody>
+                            <tr>
+                                <th align="left">Date Style </th>
+                                <th align="left">Example</th>
+                            </tr>
+                            <tr>
+                                <td align="left">default</td>
+                                <td nowrap="" align="left"><span>Jan 1, 2006 1:20:45 PM</span></td>
+                            </tr>
+                            <tr>
+                                <td align="left">short</td>
+                                <td align="left"><span>1/1/06 1:20:45 PM</span></td>
+                            </tr>
+                            <tr>
+                                <td align="left">medium</td>
+                                <td align="left"><span>Jan 1, 2006 1:20:45 PM</span></td>
+                            </tr>
+                            <tr>
+                                <td align="left">long</td>
+                                <td align="left"><span>January 1, 2006 1:20:45 PM</span></td>
+                            </tr>
+                            <tr>
+                                <td align="left">full</td>
+                                <td align="left"><span>Sunday, January 1, 2006 1:20:45 PM</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    ]]>
+            </description>
+            <name>dateStyle</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            The timeStyle attribute sets a predefined formatting style which determines how a time string is to be formatted and parsed. Applied only if the type attribute is "time" or "both".
+                Valid values are:
+
+                <table width="350" border="1">
+                        <tbody>
+                                <tr>
+                                        <th align="left">Date Style </th>
+                                        <th align="left">Example</th>
+                                </tr>
+                                <tr>
+                                        <td align="left">default</td>
+                                        <td nowrap="" align="left"><span id="time7">Jan 1, 2006 10:05:30 AM</span></td>
+                                </tr>
+                                <tr>
+                                        <td align="left">short</td>
+                                        <td align="left"><span id="time8">1/1/06 10:05:30 AM</span></td>
+                                </tr>
+                                <tr>
+                                        <td align="left">medium</td>
+                                        <td align="left"><span id="time9">Jan 1, 2006 10:05:30 AM</span></td>
+                                </tr>
+                                <tr>
+                                        <td align="left">long</td>
+                                        <td align="left"><span id="time10">January 1, 2006 10:05:30 AM</span></td>
+                                </tr>
+                                <tr>
+                                        <td align="left">full</td>
+                                        <td align="left"><span id="time11">Sunday, January 1, 2006 10:05:30 AM</span></td>
+                                </tr>
+                        </tbody>
+                </table>
+                The default value is "default".
+                    ]]>
+            </description>
+            <name>timeStyle</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <name>style</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            An el expression or a literal text that defines a converter for the component. When it's an EL expression, it's resolved to a converter instance. 
+ In case it's a static text, it must refer to a converter id.
+                    ]]>
+            </description>
+            <name>converter</name>
+            <required>false</required>
+            <type>javax.faces.convert.Converter</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            An el expression referring to a server side UIComponent instance in a backing bean.
+                    ]]>
+            </description>
+            <name>binding</name>
+            <required>false</required>
+            <type>javax.faces.component.UIComponent</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Unique identifier of the component in a namingContainer.
+                    ]]>
+            </description>
+            <name>id</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Boolean value to specify the rendering of the component, when set to false component will not be rendered.
+                    ]]>
+            </description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+    </tag>
+    
+</facelet-taglib>

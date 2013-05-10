@@ -20,8 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.faces.component.UIComponent;
 
-import com.blazebit.blazefaces.component.menuitem.MenuItem;
-import com.blazebit.blazefaces.component.submenu.Submenu;
+//import com.blazebit.blazefaces.component.menuitem.MenuItem;
+//import com.blazebit.blazefaces.component.submenu.Submenu;
 
 public class DefaultMenuModel implements MenuModel, Serializable {
 
@@ -31,13 +31,13 @@ public class DefaultMenuModel implements MenuModel, Serializable {
         contents = new ArrayList<UIComponent>();
     }
 
-    public void addSubmenu(Submenu submenu) {
-        contents.add(submenu);
-    }
-
-    public void addMenuItem(MenuItem menuItem) {
-        contents.add(menuItem);
-    }
+//    public void addSubmenu(Submenu submenu) {
+//        contents.add(submenu);
+//    }
+//
+//    public void addMenuItem(MenuItem menuItem) {
+//        contents.add(menuItem);
+//    }
 
     public List<UIComponent> getContents() {
         return contents;

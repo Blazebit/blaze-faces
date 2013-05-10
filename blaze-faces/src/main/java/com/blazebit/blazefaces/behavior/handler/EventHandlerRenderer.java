@@ -14,10 +14,12 @@ import javax.faces.component.behavior.ClientBehavior;
 import javax.faces.component.behavior.ClientBehaviorContext;
 import javax.faces.context.FacesContext;
 
+import com.blazebit.blazefaces.apt.JsfRenderer;
 import com.blazebit.blazefaces.renderkit.CoreRenderer;
 import com.blazebit.blazefaces.util.ComponentUtils;
 import com.blazebit.blazefaces.util.RendererUtils;
 
+//@JsfRenderer
 public class EventHandlerRenderer extends CoreRenderer {
     
     @Override

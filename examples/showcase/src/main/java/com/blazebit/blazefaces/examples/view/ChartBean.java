@@ -21,11 +21,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.enterprise.context.ConversationScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
-
-import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
 
 import com.blazebit.blazefaces.event.ItemSelectEvent;
 import com.blazebit.blazefaces.model.chart.BubbleChartModel;
@@ -40,7 +39,7 @@ import com.blazebit.blazefaces.model.chart.OhlcChartSeries;
 import com.blazebit.blazefaces.model.chart.PieChartModel;
 
 @Named
-@ViewAccessScoped
+@ConversationScoped
 public class ChartBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;

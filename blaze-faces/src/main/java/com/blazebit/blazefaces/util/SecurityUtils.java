@@ -19,14 +19,18 @@ import java.security.Principal;
 
 import javax.faces.context.FacesContext;
 
+import com.blazebit.blazefaces.apt.JsfFunction;
+
 public class SecurityUtils {
 
 	private SecurityUtils() {}
 	
+	@JsfFunction
 	public static boolean ifGranted(String role) {
 		return FacesContext.getCurrentInstance().getExternalContext().isUserInRole(role);
 	}
-	
+
+	@JsfFunction
 	public static boolean ifAllGranted(String value) {
 		String[] roles = value.split(",");
 		boolean isAuthorized = false;
@@ -42,7 +46,8 @@ public class SecurityUtils {
 		
 		return isAuthorized;
 	}
-	
+
+	@JsfFunction
 	public static boolean ifAnyGranted(String value) {
 		String[] roles = value.split(",");
 		boolean isAuthorized = false;
@@ -57,6 +62,7 @@ public class SecurityUtils {
 		return isAuthorized;
 	}
 
+	@JsfFunction
 	public static boolean ifNoneGranted(String value) {
 		String[] roles = value.split(",");
 		boolean isAuthorized = false;
@@ -73,10 +79,12 @@ public class SecurityUtils {
 		return isAuthorized;
 	}
 	
+	@JsfFunction
 	public static String remoteUser() {
 		return FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
 	}
-	
+
+	@JsfFunction
 	public static Principal userPrincipal() {
 		return FacesContext.getCurrentInstance().getExternalContext().getUserPrincipal();
 	}

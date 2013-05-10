@@ -18,14 +18,14 @@ package com.blazebit.blazefaces.model;
 import java.util.List;
 import javax.faces.component.UIComponent;
 
-import com.blazebit.blazefaces.component.menuitem.MenuItem;
-import com.blazebit.blazefaces.component.submenu.Submenu;
+//import com.blazebit.blazefaces.component.menuitem.MenuItem;
+//import com.blazebit.blazefaces.component.submenu.Submenu;
 
 public interface MenuModel {
 
 	public List<UIComponent> getContents();
 	
-	public void addSubmenu(Submenu submenu);
-	
-	public void addMenuItem(MenuItem menuItem);
+//	public void addSubmenu(Submenu submenu);
+//	
+//	public void addMenuItem(MenuItem menuItem);
 }

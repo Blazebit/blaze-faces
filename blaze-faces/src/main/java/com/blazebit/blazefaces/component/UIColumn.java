@@ -15,7 +15,7 @@
  */
 package com.blazebit.blazefaces.component;
 
-import com.blazebit.blazefaces.component.celleditor.CellEditor;
+//import com.blazebit.blazefaces.component.celleditor.CellEditor;
 import java.util.List;
 import javax.el.MethodExpression;
 import javax.el.ValueExpression;
@@ -66,7 +66,7 @@ public interface UIColumn {
     
     public Object getFilterOptions();
     
-    public CellEditor getCellEditor();
+//    public CellEditor getCellEditor();
     
     public boolean isDynamic();
     

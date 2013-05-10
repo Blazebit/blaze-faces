@@ -15,15 +15,26 @@
  */
 package com.blazebit.blazefaces.event;
 
+import javax.faces.application.Application;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AbortProcessingException;
+import javax.faces.event.PostAddToViewEvent;
+import javax.faces.event.PostConstructApplicationEvent;
 import javax.faces.event.SystemEvent;
 import javax.faces.event.SystemEventListener;
+
+import com.blazebit.blazefaces.apt.JsfSystemEventListener;
+import com.blazebit.blazefaces.apt.JsfSystemEventListeners;
 import com.blazebit.blazefaces.component.AutoUpdatable;
 
 /**
  * Registers components to auto update before rendering
  */
+//@JsfSystemEventListeners({
+//	@JsfSystemEventListener(source = com.blazebit.blazefaces.component.messages.Messages.class, event = PostAddToViewEvent.class),
+//	@JsfSystemEventListener(source = com.blazebit.blazefaces.component.growl.Growl.class, event = PostAddToViewEvent.class),
+//	@JsfSystemEventListener(source = com.blazebit.blazefaces.component.outputpanel.OutputPanel.class, event = PostAddToViewEvent.class)
+//})
 public class AutoUpdateComponentListener implements SystemEventListener {
 
     public void processEvent(SystemEvent cse) throws AbortProcessingException {

@@ -12,8 +12,10 @@ import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
+import com.blazebit.blazefaces.apt.JsfRenderer;
 import com.blazebit.blazefaces.util.RendererUtils;
 
+@JsfRenderer(type = "javax.faces.Body", family = "javax.faces.Output")
 public class BodyRenderer extends CoreRenderer {
 
     private static final String[] attrs = {

@@ -15,11 +15,13 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.render.Renderer;
 
+import com.blazebit.blazefaces.apt.JsfRenderer;
 import com.blazebit.blazefaces.util.AgentUtils;
 import com.blazebit.blazefaces.util.Constants;
 import com.blazebit.blazefaces.util.FeatureDetectionUtils;
 import com.blazebit.blazefaces.util.RendererUtils;
 
+@JsfRenderer(type = "javax.faces.Head", family = "javax.faces.Output")
 public class HeadRenderer extends Renderer {
 
     @Override

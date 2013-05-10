@@ -21,18 +21,17 @@ import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ConversationScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
-
-import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
 
 import com.blazebit.blazefaces.examples.domain.Mail;
 import com.blazebit.blazefaces.model.DefaultTreeNode;
 import com.blazebit.blazefaces.model.TreeNode;
 
 @Named
-@ViewAccessScoped
+@ConversationScoped
 public class Mailbox implements Serializable {
 
 	private static final long serialVersionUID = 1L;

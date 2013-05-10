@@ -20,16 +20,19 @@ import javax.faces.component.behavior.Behavior;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.event.AjaxBehaviorListener;
 import javax.faces.event.FacesListener;
-import com.blazebit.blazefaces.component.tabview.Tab;
 
 public class TabCloseEvent extends AjaxBehaviorEvent {
 
-    private Tab tab;
-    private Object data;
+//    private Tab tab;
+//    private Object data;
+//
+//	public TabCloseEvent(UIComponent component, Behavior behavior, Tab tab) {
+//		super(component, behavior);
+//        this.tab = tab;
+//	}
 
-	public TabCloseEvent(UIComponent component, Behavior behavior, Tab tab) {
+	public TabCloseEvent(UIComponent component, Behavior behavior) {
 		super(component, behavior);
-        this.tab = tab;
 	}
 
 	@Override
@@ -42,19 +45,19 @@ public class TabCloseEvent extends AjaxBehaviorEvent {
 		((AjaxBehaviorListener) faceslistener).processAjaxBehavior(this);
 	}
 
-    public Tab getTab() {
-        return tab;
-    }
-    
-    public void setTab(Tab tab) {
-        this.tab = tab;
-    }
-    
-    public Object getData() {
-        return data;
-    }
-    
-    public void setData(Object data) {
-        this.data = data;
-    }
+//    public Tab getTab() {
+//        return tab;
+//    }
+//    
+//    public void setTab(Tab tab) {
+//        this.tab = tab;
+//    }
+//    
+//    public Object getData() {
+//        return data;
+//    }
+//    
+//    public void setData(Object data) {
+//        this.data = data;
+//    }
 }

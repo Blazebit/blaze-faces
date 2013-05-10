@@ -7,11 +7,11 @@
         </description>
         </#if>
         <#if description.displayName??>
-        <displayName>
+        <display-name>
                 <![CDATA[
                         ${description.displayName}
                 ]]>
-        </displayName>
+        </display-name>
         </#if>
         <#if description.icon??>
         <icon>

@@ -17,15 +17,21 @@ package com.blazebit.blazefaces.webapp;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.faces.application.Application;
 import javax.faces.event.AbortProcessingException;
+import javax.faces.event.PostConstructApplicationEvent;
 import javax.faces.event.SystemEvent;
 import javax.faces.event.SystemEventListener;
+
+import com.blazebit.blazefaces.apt.JsfSystemEventListener;
 import com.blazebit.blazefaces.util.Constants;
 
 /**
  *
  * Displays BlazeFaces version information on startup
  */
+@JsfSystemEventListener(source = Application.class, event = PostConstructApplicationEvent.class)
 public class PostConstructApplicationEventListener implements SystemEventListener {
 
     private final static Logger logger = Logger.getLogger(PostConstructApplicationEventListener.class.getName());

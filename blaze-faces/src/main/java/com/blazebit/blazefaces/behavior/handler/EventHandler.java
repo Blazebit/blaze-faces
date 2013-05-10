@@ -8,6 +8,40 @@ import javax.faces.component.behavior.ClientBehavior;
 import javax.faces.component.behavior.ClientBehaviorHolder;
 import javax.faces.context.FacesContext;
 
+import com.blazebit.blazefaces.apt.JsfComponent;
+
+//@JsfComponent(
+//		attributes = {
+//			<attribute>
+//	            <description><![CDATA[The name of the event when the action is triggered.]]>
+//	            </description>
+//	            <name>event</name>
+//	            <required>false</required>
+//	            <type>java.lang.String</type>
+//	        </attribute>
+//	        <attribute>
+//	            <description><![CDATA[The type of the event handler. Valid values are parallel and sequential(default).]]>
+//	            </description>
+//	            <name>type</name>
+//	            <required>false</required>
+//	            <type>java.lang.String</type>
+//	        </attribute>
+//	        <attribute>
+//	            <description><![CDATA[When set to true, the handler action will be called asynchronously.]]>
+//	            </description>
+//	            <name>async</name>
+//	            <required>false</required>
+//	            <type>java.lang.Boolean</type>
+//	        </attribute>
+//	        <attribute>
+//	            <description><![CDATA[]]>
+//	            </description>
+//	            <name>disabled</name>
+//	            <required>false</required>
+//	            <type>java.lang.Boolean</type>
+//	        </attribute>
+//		}
+//)
 public class EventHandler extends UIComponentBase implements ClientBehaviorHolder {
 
     public static final String COMPONENT_TYPE = "com.blazebit.blazefaces.behavior.handler.EventHandler";

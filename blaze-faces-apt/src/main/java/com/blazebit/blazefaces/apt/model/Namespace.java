@@ -7,7 +7,8 @@ public class Namespace {
 
 	private String name;
 	private String namespace;
-        private String shortName;
+    private String shortName;
+    private String packageName;
 	private List<Function> functions = new ArrayList<Function>(0);
 	private List<Tag> tags = new ArrayList<Tag>(0);
 	private Application application = new Application();
@@ -43,6 +44,14 @@ public class Namespace {
     public void setShortName(String shortName) {
         this.shortName = shortName;
     }
+
+	public String getPackageName() {
+		return packageName;
+	}
+
+	public void setPackageName(String packageName) {
+		this.packageName = packageName;
+	}
 
 	public List<Function> getFunctions() {
 		return functions;

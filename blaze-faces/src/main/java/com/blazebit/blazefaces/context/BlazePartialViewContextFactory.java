@@ -7,6 +7,9 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.PartialViewContext;
 import javax.faces.context.PartialViewContextFactory;
 
+import com.blazebit.blazefaces.apt.JsfPartialViewContextFactory;
+
+@JsfPartialViewContextFactory
 public class BlazePartialViewContextFactory extends PartialViewContextFactory {
 
     private PartialViewContextFactory parent;

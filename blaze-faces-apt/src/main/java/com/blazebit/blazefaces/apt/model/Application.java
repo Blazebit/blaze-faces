@@ -6,7 +6,7 @@ import java.util.List;
 public class Application {
 
 	private String resourceHandler;
-	private List<SystemEventHandler> systemEventHandlers = new ArrayList<SystemEventHandler>(0);
+	private List<SystemEventListener> systemEventListeners = new ArrayList<SystemEventListener>(0);
 	
 	public Application() {
 	}
@@ -23,12 +23,12 @@ public class Application {
 		this.resourceHandler = resourceHandler;
 	}
 
-	public List<SystemEventHandler> getSystemEventHandlers() {
-		return systemEventHandlers;
+	public List<SystemEventListener> getSystemEventListeners() {
+		return systemEventListeners;
 	}
 
-	public void setSystemEventHandlers(List<SystemEventHandler> systemEventHandlers) {
-		this.systemEventHandlers = systemEventHandlers;
+	public void setSystemEventListeners(List<SystemEventListener> systemEventListeners) {
+		this.systemEventListeners = systemEventListeners;
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class Application {
 				+ ((resourceHandler == null) ? 0 : resourceHandler.hashCode());
 		result = prime
 				* result
-				+ ((systemEventHandlers == null) ? 0 : systemEventHandlers
+				+ ((systemEventListeners == null) ? 0 : systemEventListeners
 						.hashCode());
 		return result;
 	}
@@ -63,11 +63,11 @@ public class Application {
 		} else if (!resourceHandler.equals(other.resourceHandler)) {
 			return false;
 		}
-		if (systemEventHandlers == null) {
-			if (other.systemEventHandlers != null) {
+		if (systemEventListeners == null) {
+			if (other.systemEventListeners != null) {
 				return false;
 			}
-		} else if (!systemEventHandlers.equals(other.systemEventHandlers)) {
+		} else if (!systemEventListeners.equals(other.systemEventListeners)) {
 			return false;
 		}
 		return true;

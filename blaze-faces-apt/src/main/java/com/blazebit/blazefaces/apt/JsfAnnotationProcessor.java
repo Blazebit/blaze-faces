@@ -2,15 +2,18 @@ package com.blazebit.blazefaces.apt;
 
 import com.blazebit.template.ClassPathTemplateLoader;
 import com.blazebit.apt.AnnotationProcessingUtils;
+import com.blazebit.blazefaces.apt.model.Application;
 import com.blazebit.blazefaces.apt.model.Attribute;
 import com.blazebit.blazefaces.apt.model.Behavior;
 import com.blazebit.blazefaces.apt.model.BehaviorRenderer;
 import com.blazebit.blazefaces.apt.model.Component;
 import com.blazebit.blazefaces.apt.model.Description;
+import com.blazebit.blazefaces.apt.model.Factory;
 import com.blazebit.blazefaces.apt.model.Function;
 import com.blazebit.blazefaces.apt.model.Icon;
 import com.blazebit.blazefaces.apt.model.Namespace;
 import com.blazebit.blazefaces.apt.model.Renderer;
+import com.blazebit.blazefaces.apt.model.SystemEventListener;
 import com.blazebit.blazefaces.apt.model.Tag;
 import com.blazebit.blazefaces.apt.model.TagHolder;
 import java.util.HashMap;
@@ -33,6 +36,9 @@ import javax.tools.JavaFileObject;
 import freemarker.template.Configuration;
 import freemarker.template.ObjectWrapper;
 import freemarker.template.Template;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,6 +54,8 @@ import javax.lang.model.element.PackageElement;
 import javax.lang.model.type.DeclaredType;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Elements;
+import javax.lang.model.util.Types;
+import javax.tools.Diagnostic;
 import javax.tools.FileObject;
 import javax.tools.StandardLocation;
 
@@ -111,7 +119,11 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
             }
         }
         
-        return null;
+        if(namespaces.size() == 1) {
+        	return namespaces.entrySet().iterator().next();
+        }
+        
+        throw new IllegalArgumentException("Could not find a namespace for the package name '" + packageName + "'");
     }
     
     protected Namespace getNamespace(String packageName) {
@@ -121,7 +133,11 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
             }
         }
         
-        return null;
+        if(namespaces.size() == 1) {
+        	return namespaces.values().iterator().next();
+        }
+
+        throw new IllegalArgumentException("Could not find a namespace for the package name '" + packageName + "'");
     }
     
     protected Behavior getBehavior(String behaviorClass) {
@@ -139,6 +155,8 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
         AnnotationMirror annotation = AnnotationProcessingUtils
                 .findAnnotationMirror(element, JsfNamespace.class);
         
+        namespace.setPackageName(element.getQualifiedName().toString());
+        
         for (Map.Entry<? extends ExecutableElement, ? extends AnnotationValue> entry : processingEnv.getElementUtils().getElementValuesWithDefaults(annotation).entrySet()) {
             String memberName = entry.getKey().getSimpleName().toString();
             
@@ -153,20 +171,16 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
             }
         }
         
-        if (namespace.getApplication().getResourceHandler() == null && namespace.getApplication().getSystemEventHandlers().isEmpty()) {
-            namespace.setApplication(null);
-        }
-        
         return namespace;
     }
     
-    protected Renderer processRenderer(TypeElement typeElement, String namespacePackage, Namespace namespace) {
+    protected Renderer processRenderer(TypeElement typeElement, Namespace namespace) {
         Renderer renderer = new Renderer();
         AnnotationMirror annotation = AnnotationProcessingUtils
                 .findAnnotationMirror(typeElement, JsfRenderer.class);
         
         renderer.setClazz(typeElement.getQualifiedName().toString());
-        renderer.setType(namespacePackage + ".renderer." + typeElement.getSimpleName().toString());
+        renderer.setType(namespace.getPackageName() + ".renderer." + typeElement.getSimpleName().toString());
         
         for (Map.Entry<? extends ExecutableElement, ? extends AnnotationValue> entry : processingEnv.getElementUtils().getElementValuesWithDefaults(annotation).entrySet()) {
             String memberName = entry.getKey().getSimpleName().toString();
@@ -178,20 +192,22 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
             
             if ("type".equals(memberName) && !isDefault) {
                 renderer.setType(entry.getValue().getValue().toString());
+            } else if ("family".equals(memberName) && !isDefault) {
+                renderer.setComponentFamily(entry.getValue().getValue().toString());
             }
         }
         
         return renderer;
     }
     
-    protected BehaviorRenderer processBehaviorRenderer(TypeElement typeElement, String namespacePackage, Namespace namespace) {
+    protected BehaviorRenderer processBehaviorRenderer(TypeElement typeElement, Namespace namespace) {
         BehaviorRenderer clientBehaviorRenderer = new BehaviorRenderer();
         AnnotationMirror annotation = AnnotationProcessingUtils
                 .findAnnotationMirror(typeElement, JsfBehaviorRenderer.class);
         
         clientBehaviorRenderer.setClazz(typeElement.getQualifiedName()
                 .toString());
-        clientBehaviorRenderer.setType(namespacePackage + ".behavior.renderer." + typeElement.getSimpleName().toString());
+        clientBehaviorRenderer.setType(namespace.getPackageName() + ".behavior.renderer." + typeElement.getSimpleName().toString());
         
         for (Map.Entry<? extends ExecutableElement, ? extends AnnotationValue> entry : processingEnv.getElementUtils().getElementValuesWithDefaults(annotation).entrySet()) {
             String memberName = entry.getKey().getSimpleName().toString();
@@ -211,14 +227,14 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
     }
     
     @SuppressWarnings("unchecked")
-	protected Behavior processBehavior(TypeElement typeElement, String namespacePackage, Namespace namespace) {
+	protected Behavior processBehavior(TypeElement typeElement, Namespace namespace) {
         Behavior behavior = new Behavior();
         AnnotationMirror annotation = AnnotationProcessingUtils
                 .findAnnotationMirror(typeElement, JsfBehavior.class);
         
         behavior.getTag().setName(
                 firstToLowerCase(typeElement.getSimpleName().toString()));
-        behavior.setId(namespacePackage + ".behavior." + typeElement.getSimpleName().toString());
+        behavior.setId(namespace.getPackageName() + ".behavior." + typeElement.getSimpleName().toString());
         behavior.setClazz(typeElement.getQualifiedName().toString());
         behavior.setAbstract(typeElement.getModifiers().contains(
                 Modifier.ABSTRACT));
@@ -254,6 +270,11 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
             }
         }
         
+        if(behavior.isAbstract()) {
+        	// Abstract behaviors are not allowed to have parents
+        	behavior.setParent(null);
+        }
+        
         if (!behavior.getHints().isEmpty()) {
             Set<String> imports = new HashSet<String>(behavior.getImports());
             imports.add("java.util.Collections");
@@ -266,7 +287,7 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
     }
     
     @SuppressWarnings("unchecked")
-	protected Component processComponent(TypeElement typeElement, String namespacePackage, Namespace namespace) {
+	protected Component processComponent(TypeElement typeElement, Namespace namespace) {
         Component component = new Component();
         AnnotationMirror annotation = AnnotationProcessingUtils
                 .findAnnotationMirror(typeElement, JsfComponent.class);
@@ -276,8 +297,8 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
         component.setClazz(typeElement.getQualifiedName().toString());
         component.setAbstract(typeElement.getModifiers().contains(
                 Modifier.ABSTRACT));
-        component.setType(namespacePackage + ".component." + typeElement.getSimpleName().toString());
-        component.setFamily(namespacePackage + ".component");
+        component.setType(namespace.getPackageName() + ".component." + typeElement.getSimpleName().toString());
+        component.setFamily(namespace.getPackageName() + ".component");
         
         for (Map.Entry<? extends ExecutableElement, ? extends AnnotationValue> entry : processingEnv.getElementUtils().getElementValuesWithDefaults(annotation).entrySet()) {
             String memberName = entry.getKey().getSimpleName().toString();
@@ -316,26 +337,33 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
             }
         }
         
-        if (component.getRenderer() != null) {
-            for (Renderer renderer : namespace.getRenderers()) {
-                if (renderer.getClazz().equals(component.getRenderer())) {
-                    component.setRendererType(renderer.getType());
-                    
-                    if (renderer.getComponentFamily() != null) {
-                        // There may be only a 1:1 mapping between renderers
-                        // and components
-                    }
-                    
-                    renderer.setComponentFamily(component.getFamily());
-                    
-                    break;
-                }
-            }
+        if(component.isAbstract()) {
+        	// Abstract components are not allowed to have parents
+        	component.setParent(null);
+        	// also they don't have renderers
+        } else {
+	        if (component.getRenderer() != null) {
+	            for (Renderer renderer : namespace.getRenderers()) {
+	                if (renderer.getClazz().equals(component.getRenderer())) {
+	                    component.setRendererType(renderer.getType());
+	                    
+	                    if (renderer.getComponentFamily() != null) {
+	                        // There may be only a 1:1 mapping between renderers
+	                        // and components
+	                    }
+	                    
+	                    renderer.setComponentFamily(component.getFamily());
+	                    
+	                    break;
+	                }
+	            }
+	        }
         }
         return component;
     }
     
-    protected Function processFunction(ExecutableElement executableElement, String namespacePackage, Namespace namespace) {
+    protected Function processFunction(ExecutableElement executableElement, Namespace namespace) {
+    	Types typeUtils = processingEnv.getTypeUtils();
         TypeElement typeElement = (TypeElement) executableElement.getEnclosingElement();
         String methodName = executableElement.getSimpleName().toString();
         
@@ -344,7 +372,8 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
         AnnotationMirror annotation = AnnotationProcessingUtils
                 .findAnnotationMirror(executableElement, JsfFunction.class);
         
-        signatureSb.append(executableElement.getReturnType().toString())
+        
+        signatureSb.append(typeUtils.erasure(executableElement.getReturnType()).toString())
                 .append(" ");
         signatureSb.append(executableElement.getSimpleName().toString())
                 .append("(");
@@ -354,11 +383,11 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
         
         if (!parameters.isEmpty()) {
             for (int i = 0; i < parameters.size() - 1; i++) {
-                signatureSb.append(parameters.get(i).asType().toString())
+                signatureSb.append(typeUtils.erasure(parameters.get(i).asType()).toString())
                         .append(", ");
             }
-            signatureSb.append(parameters.get(parameters.size() - 1)
-                    .asType().toString());
+            signatureSb.append(typeUtils.erasure(parameters.get(parameters.size() - 1)
+                    .asType()).toString());
         }
         
         signatureSb.append(')');
@@ -385,7 +414,41 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
         return function;
     }
     
-    protected Attribute processAttribute(Tag tag, Element e) {
+    private SystemEventListener processSystemEventListener(TypeElement typeElement, AnnotationMirror annotation) {
+    	SystemEventListener listener = new SystemEventListener();
+    	
+    	listener.setSystemEventListenerClass(typeElement.getQualifiedName().toString());
+    	
+    	for (Map.Entry<? extends ExecutableElement, ? extends AnnotationValue> entry : processingEnv.getElementUtils().getElementValuesWithDefaults(annotation).entrySet()) {
+            String memberName = entry.getKey().getSimpleName().toString();
+            Object value = entry.getValue().getValue();
+            
+            if ("source".equals(memberName)) {
+            	listener.setSourceClass(value.toString());
+            } else if ("event".equals(memberName)) {
+            	listener.setSystemEventClass(value.toString());
+            }
+    	}
+    	
+    	return listener;
+	}
+
+    @SuppressWarnings("unchecked")
+    private Collection<SystemEventListener> processSystemEventListeners(TypeElement typeElement) {
+    	Collection<SystemEventListener> systemEventListeners = new ArrayList<SystemEventListener>();
+        AnnotationMirror annotation = AnnotationProcessingUtils
+                .findAnnotationMirror(typeElement, JsfSystemEventListeners.class);
+		List<AnnotationValue> listeners = (List<AnnotationValue>) annotation.getElementValues().get("value").getValue();
+		
+    	for(AnnotationValue listener : listeners) {
+    		systemEventListeners.add(processSystemEventListener(typeElement, (AnnotationMirror) listener.getValue()));
+    	}
+    	
+		return systemEventListeners;
+	}
+    
+    protected Attribute processAttribute(Element e) {
+    	Types typeUtils = processingEnv.getTypeUtils();
         Attribute attribute = new Attribute();
         AnnotationMirror annotation = AnnotationProcessingUtils
                 .findAnnotationMirror(e, JsfAttribute.class);
@@ -395,14 +458,14 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
                 ExecutableElement executableElement = (ExecutableElement) e;
                 attribute.setName(guessFieldName(executableElement
                         .getSimpleName().toString()));
-                attribute.setType(executableElement.getReturnType().toString());
+                attribute.setType(typeUtils.erasure(executableElement.getReturnType()).toString());
                 attribute.setObjectType(getObjectType(executableElement.getReturnType().toString()));
                 break;
             case FIELD:
                 VariableElement variableElement = (VariableElement) e;
                 attribute.setName(variableElement.getSimpleName().toString());
-                attribute.setType(variableElement.asType().toString());
-                attribute.setObjectType(getObjectType(variableElement.asType().toString()));
+                attribute.setType(typeUtils.erasure(variableElement.asType()).toString());
+                attribute.setObjectType(getObjectType(typeUtils.erasure(variableElement.asType()).toString()));
                 break;
             default:
                 // Should not happen
@@ -452,98 +515,165 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
         String namespacePackage;
         Namespace namespace;
 
-        // Phase 1: Create model for found elements
-        for (Element e : roundEnv.getElementsAnnotatedWith(JsfNamespace.class)) {
-            PackageElement packageElement = (PackageElement) e;
-            namespacePackage = packageElement.getQualifiedName().toString();
-            namespaces.put(namespacePackage, processNamespace(packageElement));
+        try{
+	        // Phase 1: Create model for found elements
+	        for (Element e : roundEnv.getElementsAnnotatedWith(JsfNamespace.class)) {
+	            PackageElement packageElement = (PackageElement) e;
+	            namespacePackage = packageElement.getQualifiedName().toString();
+	            namespaces.put(namespacePackage, processNamespace(packageElement));
+	        }
+	        for (Element e : roundEnv.getElementsAnnotatedWith(JsfRenderer.class)) {
+	            typeElement = (TypeElement) e;
+	            typeElementPackage = typeElement.getQualifiedName().toString();
+	            namespaceEntry = getNamespaceEntry(typeElementPackage);
+	            namespacePackage = namespaceEntry.getKey();
+	            namespace = namespaceEntry.getValue();
+	            
+	            namespace.getRenderers()
+	                    .add(processRenderer(typeElement, namespace));
+	        }
+	        for (Element e : roundEnv
+	                .getElementsAnnotatedWith(JsfBehaviorRenderer.class)) {
+	            typeElement = (TypeElement) e;
+	            typeElementPackage = typeElement.getQualifiedName().toString();
+	            namespaceEntry = getNamespaceEntry(typeElementPackage);
+	            namespacePackage = namespaceEntry.getKey();
+	            namespace = namespaceEntry.getValue();
+	            
+	            namespace.getClientBehaviorRenderers()
+	                    .add(processBehaviorRenderer(typeElement, namespace));
+	        }
+	        // Do behaviors before components since they can reference them
+	        for (Element e : roundEnv.getElementsAnnotatedWith(JsfBehavior.class)) {
+	            typeElement = (TypeElement) e;
+	            typeElementPackage = typeElement.getQualifiedName().toString();
+	            namespaceEntry = getNamespaceEntry(typeElementPackage);
+	            namespacePackage = namespaceEntry.getKey();
+	            namespace = namespaceEntry.getValue();
+	            
+	            namespace.getBehaviors()
+	                    .add(processBehavior(typeElement, namespace));
+	        }
+	        for (Element e : roundEnv.getElementsAnnotatedWith(JsfComponent.class)) {
+	            typeElement = (TypeElement) e;
+	            typeElementPackage = typeElement.getQualifiedName().toString();
+	            namespaceEntry = getNamespaceEntry(typeElementPackage);
+	            namespacePackage = namespaceEntry.getKey();
+	            namespace = namespaceEntry.getValue();
+	            
+	            namespace.getComponents()
+	                    .add(processComponent(typeElement, namespace));
+	        }
+	        for (Element e : roundEnv.getElementsAnnotatedWith(JsfFunction.class)) {
+	            ExecutableElement executableElement = (ExecutableElement) e;
+	            typeElement = (TypeElement) executableElement.getEnclosingElement();
+	            typeElementPackage = typeElement.getQualifiedName().toString();
+	            namespaceEntry = getNamespaceEntry(typeElementPackage);
+	            namespacePackage = namespaceEntry.getKey();
+	            namespace = namespaceEntry.getValue();
+	            
+	            namespace.getFunctions()
+	                    .add(processFunction(executableElement, namespace));
+	        }
+	        for (Element e : roundEnv.getElementsAnnotatedWith(JsfExceptionHandlerFactory.class)) {
+	            typeElement = (TypeElement) e;
+	            typeElementPackage = typeElement.getQualifiedName().toString();
+	            namespaceEntry = getNamespaceEntry(typeElementPackage);
+	            namespacePackage = namespaceEntry.getKey();
+	            namespace = namespaceEntry.getValue();
+	            
+	            namespace.getFactory().setExceptionHandlerFactory(typeElementPackage);
+	        }
+	        for (Element e : roundEnv.getElementsAnnotatedWith(JsfPartialViewContextFactory.class)) {
+	            typeElement = (TypeElement) e;
+	            typeElementPackage = typeElement.getQualifiedName().toString();
+	            namespaceEntry = getNamespaceEntry(typeElementPackage);
+	            namespacePackage = namespaceEntry.getKey();
+	            namespace = namespaceEntry.getValue();
+	            
+	            namespace.getFactory().setPartialViewContextFactory(typeElementPackage);
+	        }
+	        for (Element e : roundEnv.getElementsAnnotatedWith(JsfResourceHandler.class)) {
+	            typeElement = (TypeElement) e;
+	            typeElementPackage = typeElement.getQualifiedName().toString();
+	            namespaceEntry = getNamespaceEntry(typeElementPackage);
+	            namespacePackage = namespaceEntry.getKey();
+	            namespace = namespaceEntry.getValue();
+	            
+	            namespace.getApplication().setResourceHandler(typeElementPackage);
+	        }
+	        for (Element e : roundEnv.getElementsAnnotatedWith(JsfSystemEventListener.class)) {
+	            typeElement = (TypeElement) e;
+	            typeElementPackage = typeElement.getQualifiedName().toString();
+	            namespaceEntry = getNamespaceEntry(typeElementPackage);
+	            namespacePackage = namespaceEntry.getKey();
+	            namespace = namespaceEntry.getValue();
+	            
+	            namespace.getApplication()
+	            	.getSystemEventListeners()
+	            	.add(processSystemEventListener(typeElement, AnnotationProcessingUtils.findAnnotationMirror(typeElement, JsfSystemEventListener.class)));
+	        }
+	        for (Element e : roundEnv.getElementsAnnotatedWith(JsfSystemEventListeners.class)) {
+	            typeElement = (TypeElement) e;
+	            typeElementPackage = typeElement.getQualifiedName().toString();
+	            namespaceEntry = getNamespaceEntry(typeElementPackage);
+	            namespacePackage = namespaceEntry.getKey();
+	            namespace = namespaceEntry.getValue();
+	            
+	            namespace.getApplication()
+	            	.getSystemEventListeners()
+	            	.addAll(processSystemEventListeners(typeElement));
+	        }
+	        for (Element e : roundEnv.getElementsAnnotatedWith(JsfAttribute.class)) {
+	            Tag tag = getTag(e);
+	            
+	            mergeAttributes(tag.getAttributes(), processAttribute(e));
+	        }
+	
+	        // Phase 2: Apply inherited attributes to tags
+	        for (Namespace ns : namespaces.values()) {
+	        	Application app = ns.getApplication();
+	        	Factory fact = ns.getFactory();
+	            Map<String, Behavior> behaviorMap = new HashMap<String, Behavior>();
+	            
+	            for (Behavior behavior : ns.getBehaviors()) {
+	                behaviorMap.put(behavior.getClazz(), behavior);
+	                ns.getTags().add(behavior.getTag());
+	            }
+	            for (Behavior behavior : ns.getBehaviors()) {
+	                inheritAttributes(ns, behavior, behaviorMap);
+	            }
+	            
+	            Map<String, Component> componentMap = new HashMap<String, Component>();
+	            for (Component component : ns.getComponents()) {
+	                componentMap.put(component.getClazz(), component);
+	                ns.getTags().add(component.getTag());
+	            }
+	            for (Component component : ns.getComponents()) {
+	                inheritAttributes(ns, component, componentMap);
+	            }
+	            
+	            if (app.getResourceHandler() == null && app.getSystemEventListeners().isEmpty()) {
+	            	ns.setApplication(null);
+	            }
+	            if(fact.getExceptionHandlerFactory() == null && fact.getPartialViewContextFactory() == null) {
+	            	ns.setFactory(null);
+	            }
+	        }
+	
+	        // Phase 3: Generate files
+	        return generateFiles();
+        } catch(Exception ex) {
+        	ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ex.printStackTrace(new PrintStream(baos));
+			String message = baos.toString();
+			processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR,
+					"Could not generate jsf resources\n" + message);
+			return false;
         }
-        for (Element e : roundEnv.getElementsAnnotatedWith(JsfRenderer.class)) {
-            typeElement = (TypeElement) e;
-            typeElementPackage = typeElement.getQualifiedName().toString();
-            namespaceEntry = getNamespaceEntry(typeElementPackage);
-            namespacePackage = namespaceEntry.getKey();
-            namespace = namespaceEntry.getValue();
-            
-            namespace.getRenderers()
-                    .add(processRenderer(typeElement, namespacePackage, namespace));
-        }
-        for (Element e : roundEnv
-                .getElementsAnnotatedWith(JsfBehaviorRenderer.class)) {
-            typeElement = (TypeElement) e;
-            typeElementPackage = typeElement.getQualifiedName().toString();
-            namespaceEntry = getNamespaceEntry(typeElementPackage);
-            namespacePackage = namespaceEntry.getKey();
-            namespace = namespaceEntry.getValue();
-            
-            namespace.getClientBehaviorRenderers()
-                    .add(processBehaviorRenderer(typeElement, namespacePackage, namespace));
-        }
-        // Do behaviors before components since they can reference them
-        for (Element e : roundEnv.getElementsAnnotatedWith(JsfBehavior.class)) {
-            typeElement = (TypeElement) e;
-            typeElementPackage = typeElement.getQualifiedName().toString();
-            namespaceEntry = getNamespaceEntry(typeElementPackage);
-            namespacePackage = namespaceEntry.getKey();
-            namespace = namespaceEntry.getValue();
-            
-            namespace.getBehaviors()
-                    .add(processBehavior(typeElement, namespacePackage, namespace));
-        }
-        for (Element e : roundEnv.getElementsAnnotatedWith(JsfComponent.class)) {
-            typeElement = (TypeElement) e;
-            typeElementPackage = typeElement.getQualifiedName().toString();
-            namespaceEntry = getNamespaceEntry(typeElementPackage);
-            namespacePackage = namespaceEntry.getKey();
-            namespace = namespaceEntry.getValue();
-            
-            namespace.getComponents()
-                    .add(processComponent(typeElement, namespacePackage, namespace));
-        }
-        for (Element e : roundEnv.getElementsAnnotatedWith(JsfFunction.class)) {
-            ExecutableElement executableElement = (ExecutableElement) e;
-            typeElement = (TypeElement) executableElement.getEnclosingElement();
-            typeElementPackage = typeElement.getQualifiedName().toString();
-            namespaceEntry = getNamespaceEntry(typeElementPackage);
-            namespacePackage = namespaceEntry.getKey();
-            namespace = namespaceEntry.getValue();
-            
-            namespace.getFunctions()
-                    .add(processFunction(executableElement, namespacePackage, namespace));
-        }
-        for (Element e : roundEnv.getElementsAnnotatedWith(JsfAttribute.class)) {
-            Tag tag = getTag(e);
-            
-            mergeAttributes(tag.getAttributes(), processAttribute(tag, e));
-        }
-
-        // Phase 2: Apply inherited attributes to tags
-        for (Namespace ns : namespaces.values()) {
-            Map<String, Behavior> behaviorMap = new HashMap<String, Behavior>();
-            
-            for (Behavior behavior : ns.getBehaviors()) {
-                behaviorMap.put(behavior.getClazz(), behavior);
-                ns.getTags().add(behavior.getTag());
-            }
-            for (Behavior behavior : ns.getBehaviors()) {
-                inheritAttributes(behavior, behaviorMap);
-            }
-            
-            Map<String, Component> componentMap = new HashMap<String, Component>();
-            for (Component component : ns.getComponents()) {
-                componentMap.put(component.getClazz(), component);
-                ns.getTags().add(component.getTag());
-            }
-            for (Component component : ns.getComponents()) {
-                inheritAttributes(component, componentMap);
-            }
-        }
-
-        // Phase 3: Generate files
-        return generateFiles();
     }
-    
-    protected boolean generateFiles() {
+
+	protected boolean generateFiles() {
         try {
             Template taglibTemplate = templateConfiguration
                     .getTemplate(TAGLIB_TEMPLATE);
@@ -777,7 +907,7 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
         return list;
     }
     
-    protected Set<TagHolder> getParentTagHolders(TagHolder tagHolder, Map<String, ? extends TagHolder> tagHolderMap) {
+    protected Set<TagHolder> getParentTagHolders(Namespace namespace, TagHolder tagHolder, Map<String, ? extends TagHolder> tagHolderMap) {
         Elements elementUtils = processingEnv.getElementUtils();
         Set<TagHolder> list = new LinkedHashSet<TagHolder>();
         Stack<TypeElement> stack = new Stack<TypeElement>();
@@ -791,6 +921,24 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
             while (!stack.isEmpty()) {
                 traverseElement = stack.pop();
                 traverseTagHolder = tagHolderMap.get(traverseElement.getQualifiedName().toString());
+                
+                if(traverseTagHolder == null) {
+                	// When we enter any of the two branches we found an interface or a class that isn't compiled with this code
+                	if(AnnotationProcessingUtils.findAnnotationMirror(traverseElement, JsfComponent.class) != null) {
+                		traverseTagHolder = processComponent(traverseElement, namespace);
+                	} else if(AnnotationProcessingUtils.findAnnotationMirror(traverseElement, JsfBehavior.class) != null) {
+                		traverseTagHolder = processBehavior(traverseElement, namespace);
+                	}
+
+                	// Note that because the elements come from foreign code, we need to parse the attributes within the body ourselves
+                	if(traverseTagHolder != null) {
+                		for(Element e : traverseElement.getEnclosedElements()) {
+                			if(AnnotationProcessingUtils.findAnnotationMirror(e, JsfAttribute.class) != null) {
+                				mergeAttributes(traverseTagHolder.getTag().getAttributes(), processAttribute(e));
+                			}
+                		}
+                	}
+                }
                 
                 if (traverseTagHolder != null) {
                     list.add(traverseTagHolder);
@@ -810,7 +958,7 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
         return list;
     }
     
-    protected void inheritAttributes(TagHolder tagHolder, Map<String, ? extends TagHolder> tagHolderMap) {
+    protected void inheritAttributes(Namespace namespace, TagHolder tagHolder, Map<String, ? extends TagHolder> tagHolderMap) {
         if (tagHolder.getParent() == null) {
             return;
         }
@@ -819,7 +967,7 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
         List<Attribute> inheritedAttributes = new ArrayList<Attribute>();
         Set<String> parentFields = getParentAttributeNames(tagHolder, tagHolderMap);
         
-        for (TagHolder parent : getParentTagHolders(tagHolder, tagHolderMap)) {
+        for (TagHolder parent : getParentTagHolders(namespace, tagHolder, tagHolderMap)) {
             for (Attribute parentAttribute : parent.getTag().getAttributes()) {
                 Attribute inheritedAttribute = new Attribute(
                         parentAttribute.getName(),

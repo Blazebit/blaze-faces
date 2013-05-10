@@ -24,6 +24,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+import javax.enterprise.context.ConversationScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -31,7 +32,6 @@ import javax.faces.model.SelectItem;
 import javax.inject.Named;
 import javax.servlet.ServletContext;
 
-import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFRow;
@@ -59,7 +59,7 @@ import com.lowagie.text.Image;
 import com.lowagie.text.PageSize;
 
 @Named
-@ViewAccessScoped
+@ConversationScoped
 public class TableBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;

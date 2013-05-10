@@ -28,6 +28,12 @@ import javax.faces.context.FacesContext;
     @ResourceDependency(library = "blazefaces", name = "printer/printer.js"),
     @ResourceDependency(library = "blazefaces", name = "blazefaces.js")
 })
+//<attribute>
+//<description>Id of the component to print.</description>
+//<name>target</name>
+//<required>false</required>
+//<type>java.lang.String</type>
+//</attribute>
 public class PrinterBehavior extends ClientBehaviorBase {
 
     private String target;

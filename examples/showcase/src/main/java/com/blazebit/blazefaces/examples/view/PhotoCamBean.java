@@ -20,18 +20,17 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.enterprise.context.ConversationScoped;
 import javax.faces.FacesException;
 import javax.faces.context.FacesContext;
 import javax.imageio.stream.FileImageOutputStream;
 import javax.inject.Named;
 import javax.servlet.ServletContext;
 
-import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
-
 import com.blazebit.blazefaces.event.CaptureEvent;
 
 @Named
-@ViewAccessScoped
+@ConversationScoped
 public class PhotoCamBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;

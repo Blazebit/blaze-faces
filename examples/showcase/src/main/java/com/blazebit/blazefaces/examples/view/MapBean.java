@@ -17,12 +17,11 @@ package com.blazebit.blazefaces.examples.view;
 
 import java.io.Serializable;
 
+import javax.enterprise.context.ConversationScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.inject.Named;
-
-import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
 
 import com.blazebit.blazefaces.event.map.MarkerDragEvent;
 import com.blazebit.blazefaces.event.map.OverlaySelectEvent;
@@ -42,7 +41,7 @@ import com.blazebit.blazefaces.push.PushContext;
 import com.blazebit.blazefaces.push.PushContextFactory;
 
 @Named
-@ViewAccessScoped
+@ConversationScoped
 public class MapBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;

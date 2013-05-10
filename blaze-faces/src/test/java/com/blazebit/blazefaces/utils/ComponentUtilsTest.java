@@ -18,28 +18,28 @@ package com.blazebit.blazefaces.utils;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-import com.blazebit.blazefaces.component.commandlink.CommandLink;
+//import com.blazebit.blazefaces.component.commandlink.CommandLink;
 import com.blazebit.blazefaces.util.ComponentUtils;
 
 public class ComponentUtilsTest {
 
-	@Test
-	public void shouldDecorateAttribute() {
-		CommandLink link = new CommandLink();
-		ComponentUtils.decorateAttribute(link, "onclick", "alert('barca');");
-		
-		assertEquals("alert('barca');", link.getAttributes().get("onclick"));
-	}
-	
-	@Test
-	public void shouldNotDecorateAttributeForSameValue() {
-		CommandLink link = new CommandLink();
-		ComponentUtils.decorateAttribute(link, "onclick", "alert('barca');");
-		ComponentUtils.decorateAttribute(link, "onclick", "alert('barca');");
-		ComponentUtils.decorateAttribute(link, "onclick", "alert('barca');");
-		
-		assertEquals("alert('barca');", link.getAttributes().get("onclick"));
-	}
+//	@Test
+//	public void shouldDecorateAttribute() {
+//		CommandLink link = new CommandLink();
+//		ComponentUtils.decorateAttribute(link, "onclick", "alert('barca');");
+//		
+//		assertEquals("alert('barca');", link.getAttributes().get("onclick"));
+//	}
+//	
+//	@Test
+//	public void shouldNotDecorateAttributeForSameValue() {
+//		CommandLink link = new CommandLink();
+//		ComponentUtils.decorateAttribute(link, "onclick", "alert('barca');");
+//		ComponentUtils.decorateAttribute(link, "onclick", "alert('barca');");
+//		ComponentUtils.decorateAttribute(link, "onclick", "alert('barca');");
+//		
+//		assertEquals("alert('barca');", link.getAttributes().get("onclick"));
+//	}
 	
 	@Test
 	public void shouldEscapeJQueryId() {

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2.0.xsd">
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+	
     <name>${namespace.name}</name>
     
     <#if namespace.application??>
@@ -9,20 +10,23 @@
         <#if namespace.application.resourceHandler??>
         <resource-handler>${namespace.application.resourceHandler}</resource-handler>
         </#if>
-        <#list namespace.application.systemEventHandlers as systemEventHandler>
+        <#list namespace.application.systemEventListeners as systemEventListener>
     	<system-event-listener>
-            <source-class>${systemEventHandler.sourceClass}</source-class>
-            <system-event-class>${systemEventHandler.systemEventClass}</system-event-class>
-            <system-event-listener-class>${systemEventHandler.systemEventListenerClass}</system-event-listener-class>
+            <system-event-listener-class>${systemEventListener.systemEventListenerClass}</system-event-listener-class>
+            <system-event-class>${systemEventListener.systemEventClass}</system-event-class>
+            <source-class>${systemEventListener.sourceClass}</source-class>
         </system-event-listener>
         </#list>
     </application>
     
     </#if>
-    <#if namespace.facotry??>
+    <#if namespace.factory??>
     <factory>
-        <#if namespace.facotry.partialViewContextFactory??>
-        <partial-view-context-factory>${namespace.facotry.partialViewContextFactory}</partial-view-context-factory>
+        <#if namespace.factory.partialViewContextFactory??>
+        <partial-view-context-factory>${namespace.factory.partialViewContextFactory}</partial-view-context-factory>
+        </#if>
+        <#if namespace.factory.exceptionHandlerFactory??>
+        <exception-handler-factory>${namespace.factory.exceptionHandlerFactory}</exception-handler-factory>
         </#if>
     </factory>
     
@@ -46,13 +50,6 @@
     </#if>
     </#list>
     <render-kit>
-    <#list namespace.clientBehaviorRenderers as clientBehaviorRenderer>
-        <client-behavior-renderer>
-            <client-behavior-renderer-type>${clientBehaviorRenderer.type}</client-behavior-renderer-type>
-            <client-behavior-renderer-class>${clientBehaviorRenderer.clazz}</client-behavior-renderer-class>
-        </client-behavior-renderer>
-    </#list>
-
     <#list namespace.renderers as renderer>
         <renderer>
             <component-family>${renderer.componentFamily}</component-family>
@@ -61,5 +58,12 @@
         </renderer>
     </#list>
 
+    <#list namespace.clientBehaviorRenderers as clientBehaviorRenderer>
+        <client-behavior-renderer>
+            <client-behavior-renderer-type>${clientBehaviorRenderer.type}</client-behavior-renderer-type>
+            <client-behavior-renderer-class>${clientBehaviorRenderer.clazz}</client-behavior-renderer-class>
+        </client-behavior-renderer>
+    </#list>
+    
     </render-kit>
 </faces-config>

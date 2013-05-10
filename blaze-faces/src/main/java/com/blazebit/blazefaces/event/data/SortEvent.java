@@ -20,16 +20,17 @@ import javax.faces.component.behavior.Behavior;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.event.AjaxBehaviorListener;
 import javax.faces.event.FacesListener;
-import com.blazebit.blazefaces.component.column.Column;
+
+import com.blazebit.blazefaces.component.UIColumn;
 import com.blazebit.blazefaces.model.SortOrder;
 
 public class SortEvent extends AjaxBehaviorEvent {
 
-	private Column sortColumn;
+	private UIColumn sortColumn;
     
     private boolean ascending;
 	
-	public SortEvent(UIComponent component, Behavior behavior, Column sortColumn, SortOrder order) {
+	public SortEvent(UIComponent component, Behavior behavior, UIColumn sortColumn, SortOrder order) {
 		super(component, behavior);
 		this.sortColumn = sortColumn;
         this.ascending = order.equals(SortOrder.ASCENDING);
@@ -49,7 +50,7 @@ public class SortEvent extends AjaxBehaviorEvent {
         return ascending;
     }
 
-    public Column getSortColumn() {
+    public UIColumn getSortColumn() {
         return sortColumn;
     }
 }

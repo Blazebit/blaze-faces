@@ -24,7 +24,11 @@ import javax.faces.component.UIComponent;
  *
  * @author Christian
  */
-@JsfComponent
+@JsfComponent(
+		attributes = {
+			    @JsfAttribute(name = "binding", type = UIComponent.class, ignore = true, description = @JsfDescription(description = "An el expression referring to a server side UIComponent instance in a backing bean."))
+		}
+)
 public interface BaseUIComponent {
     
     @JsfAttribute(description = @JsfDescription(description = "Unique identifier of the component in a namingContainer."))
@@ -34,8 +38,4 @@ public interface BaseUIComponent {
     @JsfAttribute(description = @JsfDescription(description = "Boolean value to specify the rendering of the component, when set to false component will not be rendered."))
     public boolean isRendered();
     public void setRendered(boolean rendered);
-    
-    @JsfAttribute(description = @JsfDescription(description = "An el expression referring to a server side UIComponent instance in a backing bean."))
-    public UIComponent getBinding();
-    public void setBinding(UIComponent binding);
 }

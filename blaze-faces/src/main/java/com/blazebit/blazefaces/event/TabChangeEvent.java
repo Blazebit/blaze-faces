@@ -20,16 +20,20 @@ import javax.faces.component.behavior.Behavior;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.event.AjaxBehaviorListener;
 import javax.faces.event.FacesListener;
-import com.blazebit.blazefaces.component.tabview.Tab;
+//import com.blazebit.blazefaces.component.tabview.Tab;
 
 public class TabChangeEvent extends AjaxBehaviorEvent {
 
-    private Tab tab;
-    private Object data;
-
-	public TabChangeEvent(UIComponent component, Behavior behavior, Tab tab) {
+//    private Tab tab;
+//    private Object data;
+//
+//	public TabChangeEvent(UIComponent component, Behavior behavior, Tab tab) {
+//		super(component, behavior);
+//        this.tab = tab;
+//	}
+	
+	public TabChangeEvent(UIComponent component, Behavior behavior) {
 		super(component, behavior);
-        this.tab = tab;
 	}
 
 	@Override
@@ -41,20 +45,20 @@ public class TabChangeEvent extends AjaxBehaviorEvent {
 	public void processListener(FacesListener faceslistener) {
         ((AjaxBehaviorListener) faceslistener).processAjaxBehavior(this);
 	}
-
-    public Tab getTab() {
-        return tab;
-    }
-    
-    public void setTab(Tab tab) {
-        this.tab = tab;
-    }
-    
-    public Object getData() {
-        return data;
-    }
-    
-    public void setData(Object data) {
-        this.data = data;
-    }
+//
+//    public Tab getTab() {
+//        return tab;
+//    }
+//    
+//    public void setTab(Tab tab) {
+//        this.tab = tab;
+//    }
+//    
+//    public Object getData() {
+//        return data;
+//    }
+//    
+//    public void setData(Object data) {
+//        this.data = data;
+//    }
 }

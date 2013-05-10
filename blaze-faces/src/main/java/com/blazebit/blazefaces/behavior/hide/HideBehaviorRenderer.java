@@ -9,12 +9,14 @@ import javax.faces.component.behavior.ClientBehaviorContext;
 import javax.faces.context.FacesContext;
 import javax.faces.render.ClientBehaviorRenderer;
 
+import com.blazebit.blazefaces.apt.JsfBehaviorRenderer;
 import com.blazebit.blazefaces.util.ComponentUtils;
 
 /**
  *
  * @author Christian Beikov
  */
+//@JsfBehaviorRenderer
 public class HideBehaviorRenderer extends ClientBehaviorRenderer {
 
     @Override

@@ -19,12 +19,11 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.enterprise.context.ConversationScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.inject.Named;
-
-import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
 
 import com.blazebit.blazefaces.event.DateSelectEvent;
 import com.blazebit.blazefaces.event.ScheduleEntryMoveEvent;
@@ -37,7 +36,7 @@ import com.blazebit.blazefaces.model.ScheduleEvent;
 import com.blazebit.blazefaces.model.ScheduleModel;
 
 @Named
-@ViewAccessScoped
+@ConversationScoped
 public class ScheduleController implements Serializable {
 
 	private static final long serialVersionUID = 1L;

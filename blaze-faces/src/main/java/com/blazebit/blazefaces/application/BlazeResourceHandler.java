@@ -3,6 +3,7 @@
  */
 package com.blazebit.blazefaces.application;
 
+import com.blazebit.blazefaces.apt.JsfResourceHandler;
 import com.blazebit.blazefaces.model.StreamedContent;
 import com.blazebit.blazefaces.util.Constants;
 import java.io.IOException;
@@ -18,6 +19,7 @@ import javax.faces.application.ResourceHandlerWrapper;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
+@JsfResourceHandler
 public class BlazeResourceHandler extends ResourceHandlerWrapper {
 
     private static final Logger logger = Logger.getLogger(BlazeResourceHandler.class.getName());

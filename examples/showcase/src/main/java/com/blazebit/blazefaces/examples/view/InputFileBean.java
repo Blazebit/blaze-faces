@@ -5,10 +5,9 @@ package com.blazebit.blazefaces.examples.view;
 
 import java.io.Serializable;
 
+import javax.enterprise.context.ConversationScoped;
 import javax.faces.event.ComponentSystemEvent;
 import javax.inject.Named;
-
-import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessScoped;
 
 import com.blazebit.blazefaces.event.FileUploadEvent;
 import com.blazebit.blazefaces.model.UploadedFile;
@@ -18,7 +17,7 @@ import com.blazebit.blazefaces.model.UploadedFile;
  * @author Christian Beikov
  */
 @Named
-@ViewAccessScoped
+@ConversationScoped
 public class InputFileBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;

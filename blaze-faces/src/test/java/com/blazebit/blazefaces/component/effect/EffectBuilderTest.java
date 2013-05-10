@@ -21,29 +21,29 @@ import org.junit.Test;
 
 public class EffectBuilderTest {
 
-	@Test
-	public void buildHighlightEffectWithNoOptions() {
-		String effect = new EffectBuilder("highlight", "id").atSpeed(1000).build();
-		
-		assertEquals("$(BlazeFaces.escapeClientId('id')).effect('highlight',{},1000);", effect);
-	}
-	
-	@Test
-	public void buildHighlightEffectWithAnOption() {
-		String effect = new EffectBuilder("highlight","id").withOption("startcolor", "'#FFFFFF'").atSpeed(5000).build();
-		
-		assertEquals("$(BlazeFaces.escapeClientId('id')).effect('highlight',{startcolor:'#FFFFFF'},5000);", effect);
-	}
-	
-	@Test
-	public void buildHighlightEffectWitManyOptions() {
-		String effect = new EffectBuilder("highlight","id")
-													.withOption("startcolor", "'#FFFFFF'")
-													.withOption("endcolor", "'#CCCCCC'")
-													.withOption("restorecolor", "'#000000'")
-													.atSpeed(1000)
-													.build();
-		
-		assertEquals("$(BlazeFaces.escapeClientId('id')).effect('highlight',{startcolor:'#FFFFFF',endcolor:'#CCCCCC',restorecolor:'#000000'},1000);", effect);
-	}	
+//	@Test
+//	public void buildHighlightEffectWithNoOptions() {
+//		String effect = new EffectBuilder("highlight", "id").atSpeed(1000).build();
+//		
+//		assertEquals("$(BlazeFaces.escapeClientId('id')).effect('highlight',{},1000);", effect);
+//	}
+//	
+//	@Test
+//	public void buildHighlightEffectWithAnOption() {
+//		String effect = new EffectBuilder("highlight","id").withOption("startcolor", "'#FFFFFF'").atSpeed(5000).build();
+//		
+//		assertEquals("$(BlazeFaces.escapeClientId('id')).effect('highlight',{startcolor:'#FFFFFF'},5000);", effect);
+//	}
+//	
+//	@Test
+//	public void buildHighlightEffectWitManyOptions() {
+//		String effect = new EffectBuilder("highlight","id")
+//													.withOption("startcolor", "'#FFFFFF'")
+//													.withOption("endcolor", "'#CCCCCC'")
+//													.withOption("restorecolor", "'#000000'")
+//													.atSpeed(1000)
+//													.build();
+//		
+//		assertEquals("$(BlazeFaces.escapeClientId('id')).effect('highlight',{startcolor:'#FFFFFF',endcolor:'#CCCCCC',restorecolor:'#000000'},1000);", effect);
+//	}	
 }

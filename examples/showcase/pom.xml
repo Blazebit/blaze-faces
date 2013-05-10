@@ -18,25 +18,12 @@
 	<description>BlazeFaces JSF Component Library Examples - Showcase</description>
 
 	<properties>
-		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
-		<version.myfaces>2.1.8</version.myfaces>
-		<version.mojarra>2.1.12</version.mojarra>
+		<version.myfaces>2.1.10</version.myfaces>
+		<version.mojarra>2.1.5</version.mojarra>
 	</properties>
 
 	<build>
 		<plugins>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>${maven.compiler.argument.source}</source>
-					<target>${maven.compiler.argument.target}</target>
-					<compilerArguments>
-						<endorseddirs>${endorsed.dir}</endorseddirs>
-					</compilerArguments>
-				</configuration>
-			</plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -58,61 +45,35 @@
 				</configuration>
 			</plugin>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<configuration>
-					<encoding>${project.build.sourceEncoding}</encoding>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>validate</phase>
-						<goals>
-							<goal>copy</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${endorsed.dir}</outputDirectory>
-							<silent>true</silent>
-							<artifactItems>
-								<artifactItem>
-									<groupId>javax</groupId>
-									<artifactId>javaee-endorsed-api</artifactId>
-									<version>6.0</version>
-									<type>jar</type>
-								</artifactItem>
-							</artifactItems>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
 		</plugins>
 
 		<pluginManagement>
 			<plugins>
 
 				<plugin>
-					<groupId>org.mortbay.jetty</groupId>
+					<groupId>org.eclipse.jetty</groupId>
 					<artifactId>jetty-maven-plugin</artifactId>
-					<version>8.1.5.v20120716</version>
+					<version>9.0.2.v20130417</version>
 				</plugin>
+				
 			</plugins>
 		</pluginManagement>
 	</build>
 
 	<dependencies>
+	
 		<dependency>
-			<groupId>org.jboss.spec</groupId>
-			<artifactId>jboss-javaee-6.0</artifactId>
-			<version>1.0.0.Final</version>
-			<type>pom</type>
+			<groupId>org.apache.openejb</groupId>
+			<artifactId>javaee-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
 		<dependency>
 			<groupId>com.blazebit</groupId>
 			<artifactId>blaze-faces-dependencies</artifactId>
@@ -123,16 +84,6 @@
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
 			<version>1.1.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.myfaces.extensions.cdi.core</groupId>
-			<artifactId>myfaces-extcdi-core-impl</artifactId>
-			<version>1.0.5</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.myfaces.extensions.cdi.modules</groupId>
-			<artifactId>myfaces-extcdi-jsf20-module-impl</artifactId>
-			<version>1.0.5</version>
 		</dependency>
 
 		<!-- Logging -->
@@ -155,20 +106,18 @@
 		<!-- TESTING -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>2.25.0</version>
+			<artifactId>selenium-server</artifactId>
+			<version>2.32.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hamcrest</groupId>
 			<artifactId>hamcrest-all</artifactId>
-			<version>1.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.8.2</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -196,7 +145,7 @@
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>org.mortbay.jetty</groupId>
+						<groupId>org.eclipse.jetty</groupId>
 						<artifactId>jetty-maven-plugin</artifactId>
 						<configuration>
 							<scanIntervalSeconds>10</scanIntervalSeconds>
@@ -236,7 +185,7 @@
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>org.mortbay.jetty</groupId>
+						<groupId>org.eclipse.jetty</groupId>
 						<artifactId>jetty-maven-plugin</artifactId>
 						<configuration>
 							<scanIntervalSeconds>10</scanIntervalSeconds>
@@ -260,11 +209,6 @@
 			<id>integrationTest</id>
 			<dependencies>
 				<dependency>
-					<groupId>org.mortbay.jetty</groupId>
-					<artifactId>servlet-api</artifactId>
-					<version>3.0.20100224</version>
-				</dependency>
-				<dependency>
 					<groupId>javax.annotation</groupId>
 					<artifactId>jsr250-api</artifactId>
 					<version>1.0</version>
@@ -279,7 +223,7 @@
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>org.mortbay.jetty</groupId>
+						<groupId>org.eclipse.jetty</groupId>
 						<artifactId>jetty-maven-plugin</artifactId>
 						<executions>
 							<execution>
@@ -360,11 +304,6 @@
 			<id>integrationTestWindows</id>
 			<dependencies>
 				<dependency>
-					<groupId>org.mortbay.jetty</groupId>
-					<artifactId>servlet-api</artifactId>
-					<version>3.0.20100224</version>
-				</dependency>
-				<dependency>
 					<groupId>javax.annotation</groupId>
 					<artifactId>jsr250-api</artifactId>
 					<version>1.0</version>
@@ -379,7 +318,7 @@
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>org.mortbay.jetty</groupId>
+						<groupId>org.eclipse.jetty</groupId>
 						<artifactId>jetty-maven-plugin</artifactId>
 						<executions>
 							<execution>
