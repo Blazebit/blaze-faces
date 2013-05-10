@@ -1,5 +1,7 @@
 package com.blazebit.blazefaces.apt;
 
+import com.blazebit.template.ClassPathTemplateLoader;
+import com.blazebit.apt.AnnotationProcessingUtils;
 import com.blazebit.blazefaces.apt.model.Attribute;
 import com.blazebit.blazefaces.apt.model.Behavior;
 import com.blazebit.blazefaces.apt.model.BehaviorRenderer;
@@ -77,7 +79,7 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
     
     public static Configuration getDefaultConfiguration() {
         Configuration configuration = new Configuration();
-        configuration.setTemplateLoader(new ClassPathTemplateLoader());
+        configuration.setTemplateLoader(new ClassPathTemplateLoader(JsfAnnotationProcessor.class.getClassLoader()));
         configuration.setObjectWrapper(ObjectWrapper.BEANS_WRAPPER);
         return configuration;
     }
@@ -134,7 +136,7 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
     
     protected Namespace processNamespace(PackageElement element) {
         Namespace namespace = new Namespace();
-        AnnotationMirror annotation = AnnotationProcessingUtil
+        AnnotationMirror annotation = AnnotationProcessingUtils
                 .findAnnotationMirror(element, JsfNamespace.class);
         
         for (Map.Entry<? extends ExecutableElement, ? extends AnnotationValue> entry : processingEnv.getElementUtils().getElementValuesWithDefaults(annotation).entrySet()) {
@@ -160,7 +162,7 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
     
     protected Renderer processRenderer(TypeElement typeElement, String namespacePackage, Namespace namespace) {
         Renderer renderer = new Renderer();
-        AnnotationMirror annotation = AnnotationProcessingUtil
+        AnnotationMirror annotation = AnnotationProcessingUtils
                 .findAnnotationMirror(typeElement, JsfRenderer.class);
         
         renderer.setClazz(typeElement.getQualifiedName().toString());
@@ -184,7 +186,7 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
     
     protected BehaviorRenderer processBehaviorRenderer(TypeElement typeElement, String namespacePackage, Namespace namespace) {
         BehaviorRenderer clientBehaviorRenderer = new BehaviorRenderer();
-        AnnotationMirror annotation = AnnotationProcessingUtil
+        AnnotationMirror annotation = AnnotationProcessingUtils
                 .findAnnotationMirror(typeElement, JsfBehaviorRenderer.class);
         
         clientBehaviorRenderer.setClazz(typeElement.getQualifiedName()
@@ -211,7 +213,7 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
     @SuppressWarnings("unchecked")
 	protected Behavior processBehavior(TypeElement typeElement, String namespacePackage, Namespace namespace) {
         Behavior behavior = new Behavior();
-        AnnotationMirror annotation = AnnotationProcessingUtil
+        AnnotationMirror annotation = AnnotationProcessingUtils
                 .findAnnotationMirror(typeElement, JsfBehavior.class);
         
         behavior.getTag().setName(
@@ -266,7 +268,7 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
     @SuppressWarnings("unchecked")
 	protected Component processComponent(TypeElement typeElement, String namespacePackage, Namespace namespace) {
         Component component = new Component();
-        AnnotationMirror annotation = AnnotationProcessingUtil
+        AnnotationMirror annotation = AnnotationProcessingUtils
                 .findAnnotationMirror(typeElement, JsfComponent.class);
         
         component.getTag().setName(
@@ -339,7 +341,7 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
         
         Function function = new Function();
         StringBuilder signatureSb = new StringBuilder();
-        AnnotationMirror annotation = AnnotationProcessingUtil
+        AnnotationMirror annotation = AnnotationProcessingUtils
                 .findAnnotationMirror(executableElement, JsfFunction.class);
         
         signatureSb.append(executableElement.getReturnType().toString())
@@ -385,7 +387,7 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
     
     protected Attribute processAttribute(Tag tag, Element e) {
         Attribute attribute = new Attribute();
-        AnnotationMirror annotation = AnnotationProcessingUtil
+        AnnotationMirror annotation = AnnotationProcessingUtils
                 .findAnnotationMirror(e, JsfAttribute.class);
         
         switch (e.getKind()) {
