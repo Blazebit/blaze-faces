@@ -52,24 +52,24 @@ public class TabBean implements Serializable {
 	}
 
 	public void onTabChange(TabChangeEvent event) {
-		FacesMessage msg = new FacesMessage("Tab Changed", "Active Tab: "
-				+ event.getTab().getTitle());
-
-		FacesContext.getCurrentInstance().addMessage(null, msg);
+//		FacesMessage msg = new FacesMessage("Tab Changed", "Active Tab: "
+//				+ event.getTab().getTitle());
+//
+//		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 
 	public void onPlayerChange(TabChangeEvent event) {
-		FacesMessage msg = new FacesMessage("Tab Changed", "Active Player: "
-				+ ((Player) event.getData()).getName());
-
-		FacesContext.getCurrentInstance().addMessage(null, msg);
+//		FacesMessage msg = new FacesMessage("Tab Changed", "Active Player: "
+//				+ ((Player) event.getData()).getName());
+//
+//		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 
 	public void onTabClose(TabCloseEvent event) {
-		FacesMessage msg = new FacesMessage("Tab Closed", "Closed tab: "
-				+ event.getTab().getTitle());
-
-		FacesContext.getCurrentInstance().addMessage(null, msg);
+//		FacesMessage msg = new FacesMessage("Tab Closed", "Closed tab: "
+//				+ event.getTab().getTitle());
+//
+//		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 
 	public String getEffect() {

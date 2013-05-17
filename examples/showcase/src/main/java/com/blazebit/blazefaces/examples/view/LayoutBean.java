@@ -20,7 +20,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
-import com.blazebit.blazefaces.component.layout.LayoutUnit;
+//import com.blazebit.blazefaces.component.layout.LayoutUnit;
 import com.blazebit.blazefaces.event.CloseEvent;
 import com.blazebit.blazefaces.event.ResizeEvent;
 import com.blazebit.blazefaces.event.ToggleEvent;
@@ -30,28 +30,28 @@ import com.blazebit.blazefaces.event.ToggleEvent;
 public class LayoutBean {
 
 	public void handleClose(CloseEvent event) {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
-				"Unit Closed", "Position:'"
-						+ ((LayoutUnit) event.getComponent()).getPosition()
-						+ "'");
-
-		addMessage(message);
+//		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
+//				"Unit Closed", "Position:'"
+//						+ ((LayoutUnit) event.getComponent()).getPosition()
+//						+ "'");
+//
+//		addMessage(message);
 	}
 
 	public void handleToggle(ToggleEvent event) {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
-				((LayoutUnit) event.getComponent()).getPosition() + " toggled",
-				"Status:" + event.getVisibility().name());
-
-		addMessage(message);
+//		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
+//				((LayoutUnit) event.getComponent()).getPosition() + " toggled",
+//				"Status:" + event.getVisibility().name());
+//
+//		addMessage(message);
 	}
 
 	public void handleResize(ResizeEvent event) {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
-				((LayoutUnit) event.getComponent()).getPosition() + " resized",
-				"Width:" + event.getWidth() + ", Height:" + event.getHeight());
-
-		addMessage(message);
+//		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
+//				((LayoutUnit) event.getComponent()).getPosition() + " resized",
+//				"Width:" + event.getWidth() + ", Height:" + event.getHeight());
+//
+//		addMessage(message);
 	}
 
 	private void addMessage(FacesMessage message) {
