@@ -42,7 +42,7 @@ public class FileUploadFilter implements Filter {
 			if(logger.isLoggable(Level.WARNING))
 				logger.log(Level.WARNING, "Using temporary directory because the given directory is not present, does not exist or is not writeable!");
             // Even if the temp dir is default, set it.
-            uploadDir = System.getProperty("java.io.tmpdir");
+            uploadDir = ((File) filterConfig.getServletContext().getAttribute("javax.servlet.context.tempdir")).getAbsolutePath();
         }
 
 		if(logger.isLoggable(Level.FINE))
