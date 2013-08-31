@@ -76,7 +76,7 @@
 	</developers>
 
 	<properties>
-		<version.blaze-utils>0.1.6-SNAPSHOT</version.blaze-utils>
+		<version.blaze-utils>0.1.7-SNAPSHOT</version.blaze-utils>
 		<version.processor.plugin>2.2.1</version.processor.plugin>
 	</properties>
 
