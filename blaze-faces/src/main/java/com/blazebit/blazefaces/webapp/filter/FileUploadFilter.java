@@ -74,8 +74,7 @@ public class FileUploadFilter implements Filter {
 
 			if(logger.isLoggable(Level.FINE))
 				logger.log(Level.FINE, "File upload request parsed succesfully.");
-			// TODO: Remove the unnecessary wrapping when the rewrite bug gets fixed
-            filterChain.doFilter(new HttpServletRequestWrapper(multipartRequest), response);
+            filterChain.doFilter(multipartRequest, response);
         } else {
             filterChain.doFilter(request, response);
         }
