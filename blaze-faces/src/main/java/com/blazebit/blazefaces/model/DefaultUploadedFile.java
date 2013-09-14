@@ -30,7 +30,7 @@ public class DefaultUploadedFile implements UploadedFile, Serializable {
         return fileItem.getName();
     }
 
-    public InputStream getInputstream() throws IOException {
+    public InputStream getInputStream() throws IOException {
         return fileItem.getInputStream();
     }
 

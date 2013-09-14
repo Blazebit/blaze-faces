@@ -18,23 +18,23 @@
  * limitations under the License.
  */
 
-package com.blazebit.blazefaces.component.outputpanel;
+package com.blazebit.blazefaces.component.inputfile;
 
 import java.util.ArrayList;
 import javax.el.ValueExpression;
 import java.util.List;
 
-public abstract class OutputPanelBase extends javax.faces.component.UIPanel {
+public abstract class InputFileBase extends javax.faces.component.UIInput {
 
-        public static final String COMPONENT_TYPE = "com.blazebit.blazefaces.component.OutputPanel";
+        public static final String COMPONENT_TYPE = "com.blazebit.blazefaces.component.InputFile";
         public static final String COMPONENT_FAMILY = "com.blazebit.blazefaces.component";
-        private static final String DEFAULT_RENDERER = "com.blazebit.blazefaces.renderer.OutputPanelRenderer";
+        private static final String DEFAULT_RENDERER = "com.blazebit.blazefaces.renderer.InputFileRenderer";
         private static final String OPTIMIZED_PACKAGE = "com.blazebit.blazefaces.component.";
         
         protected enum PropertyKeys {
-            layout,
             style,
-            styleClass;
+            styleClass,
+            disabled;
 
             String toString;
 
@@ -50,7 +50,7 @@ public abstract class OutputPanelBase extends javax.faces.component.UIPanel {
             }
         }
         
-        public OutputPanelBase() {
+        public InputFileBase() {
             setRendererType(DEFAULT_RENDERER);
         }
         
@@ -59,15 +59,6 @@ public abstract class OutputPanelBase extends javax.faces.component.UIPanel {
             return COMPONENT_FAMILY;
         }
         
-        public java.lang.String getLayout() {
-            return (java.lang.String) getStateHelper().eval(PropertyKeys.layout, "inline");
-        }
-        
-        public void setLayout(java.lang.String _layout) {
-            getStateHelper().put(PropertyKeys.layout, _layout);
-            handleAttribute("layout", _layout);
-        }
-
         public java.lang.String getStyle() {
             return (java.lang.String) getStateHelper().eval(PropertyKeys.style, null);
         }
@@ -84,6 +75,15 @@ public abstract class OutputPanelBase extends javax.faces.component.UIPanel {
         public void setStyleClass(java.lang.String _styleClass) {
             getStateHelper().put(PropertyKeys.styleClass, _styleClass);
             handleAttribute("styleClass", _styleClass);
+        }
+
+        public boolean isDisabled() {
+            return (java.lang.Boolean) getStateHelper().eval(PropertyKeys.disabled, false);
+        }
+        
+        public void setDisabled(boolean _disabled) {
+            getStateHelper().put(PropertyKeys.disabled, _disabled);
+            handleAttribute("disabled", _disabled);
         }
 
         @SuppressWarnings("unchecked")

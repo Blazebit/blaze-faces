@@ -156,6 +156,7 @@ public abstract class OutputTimeBase extends javax.faces.component.UIOutput {
             handleAttribute("styleClass", _styleClass);
         }
 
+        @SuppressWarnings("unchecked")
         public void handleAttribute(String name, Object value) {
             List<String> setAttributes = (List<String>) this.getAttributes().get("javax.faces.component.UIComponentBase.attributesThatAreSet");
             if(setAttributes == null) {

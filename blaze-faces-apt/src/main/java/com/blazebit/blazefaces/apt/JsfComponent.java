@@ -23,4 +23,5 @@ public @interface JsfComponent {
     Class<? extends ComponentHandler> handler() default ComponentHandler.class;
     Class<? extends ClientBehavior> behavior() default ClientBehavior.class;
     Class<? extends Renderer> renderer() default Renderer.class;
+    String rendererType() default "";
 }

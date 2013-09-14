@@ -17,6 +17,7 @@ public class Namespace {
 	private List<Component> components = new ArrayList<Component>(0);
 	private List<BehaviorRenderer> clientBehaviorRenderers = new ArrayList<BehaviorRenderer>(0);
 	private List<Renderer> renderers = new ArrayList<Renderer>(0);
+    private List<PhaseListener> phaseListeners = new ArrayList<PhaseListener>(0);
 	
 	public Namespace() {
 	}
@@ -117,8 +118,16 @@ public class Namespace {
 	public void setRenderers(List<Renderer> renderers) {
 		this.renderers = renderers;
 	}
+	
+    public List<PhaseListener> getPhaseListeners() {
+        return phaseListeners;
+    }
+    
+    public void setPhaseListeners(List<PhaseListener> phaseListeners) {
+        this.phaseListeners = phaseListeners;
+    }
 
-	@Override
+    @Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;

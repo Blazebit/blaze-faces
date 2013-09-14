@@ -36,6 +36,7 @@ import javax.faces.context.FacesContext;
 public abstract class AjaxBehaviorBase extends javax.faces.component.behavior.ClientBehaviorBase {
 
     public static final String BEHAVIOR_ID = "com.blazebit.blazefaces.behavior.AjaxBehavior";
+    private static final String DEFAULT_RENDERER = "com.blazebit.blazefaces.behavior.renderer.AjaxBehaviorRenderer";
     private static final Set<ClientBehaviorHint> HINTS = Collections.unmodifiableSet(EnumSet.of(ClientBehaviorHint.SUBMITTING));
     
     protected javax.el.MethodExpression listener;
@@ -55,7 +56,7 @@ public abstract class AjaxBehaviorBase extends javax.faces.component.behavior.Cl
 
     @Override
     public String getRendererType() {
-        return BEHAVIOR_ID;
+        return DEFAULT_RENDERER;
     }
 
     @Override

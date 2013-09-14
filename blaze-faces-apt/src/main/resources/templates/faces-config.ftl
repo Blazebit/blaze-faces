@@ -28,6 +28,14 @@
     </application>
     
     </#if>
+    <#if namespace.phaseListeners?has_content>
+    <lifecycle>
+    <#list namespace.phaseListeners as phaseListener>
+    	<phase-listener>${phaseListener.phaseListenerClass}</phase-listener>
+    </#list>
+    </lifecycle>
+    
+    </#if>
     <#if namespace.factory??>
     <factory>
         <#if namespace.factory.partialViewContextFactory??>

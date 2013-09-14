@@ -10,7 +10,7 @@ public interface UploadedFile {
 
     public String getFileName();
 
-    public InputStream getInputstream() throws IOException;
+    public InputStream getInputStream() throws IOException;
 
     public long getSize();
 

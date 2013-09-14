@@ -23,4 +23,5 @@ public @interface JsfBehavior {
     Class<? extends ClientBehavior> parent() default ClientBehaviorBase.class;
     Class<? extends BehaviorHandler> handler() default BehaviorHandler.class;
     Class<? extends ClientBehaviorRenderer> renderer() default ClientBehaviorRenderer.class;
+    String rendererType() default "";
 }

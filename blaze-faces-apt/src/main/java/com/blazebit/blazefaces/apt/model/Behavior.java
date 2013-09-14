@@ -9,6 +9,7 @@ public class Behavior implements TagHolder {
 	private String clazz;
 	private String parent;
         private String renderer;
+        private String rendererType;
 	private boolean isAbstract;
         private List<String> hints = new ArrayList<String>(0);
         private List<String> imports = new ArrayList<String>(0);
@@ -62,6 +63,14 @@ public class Behavior implements TagHolder {
 
     public void setRenderer(String renderer) {
         this.renderer = renderer;
+    }
+
+    public String getRendererType() {
+        return rendererType;
+    }
+
+    public void setRendererType(String rendererType) {
+        this.rendererType = rendererType;
     }
 
         @Override

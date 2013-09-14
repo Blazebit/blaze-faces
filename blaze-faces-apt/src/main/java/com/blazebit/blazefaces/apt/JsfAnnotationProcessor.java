@@ -12,10 +12,12 @@ import com.blazebit.blazefaces.apt.model.Factory;
 import com.blazebit.blazefaces.apt.model.Function;
 import com.blazebit.blazefaces.apt.model.Icon;
 import com.blazebit.blazefaces.apt.model.Namespace;
+import com.blazebit.blazefaces.apt.model.PhaseListener;
 import com.blazebit.blazefaces.apt.model.Renderer;
 import com.blazebit.blazefaces.apt.model.SystemEventListener;
 import com.blazebit.blazefaces.apt.model.Tag;
 import com.blazebit.blazefaces.apt.model.TagHolder;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,6 +49,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Stack;
+
 import javax.lang.model.element.AnnotationValue;
 import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.Modifier;
@@ -181,6 +184,7 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
         
         renderer.setClazz(typeElement.getQualifiedName().toString());
         renderer.setType(namespace.getPackageName() + ".renderer." + typeElement.getSimpleName().toString());
+        renderer.setComponentFamily(namespace.getPackageName() + ".component");
         
         for (Map.Entry<? extends ExecutableElement, ? extends AnnotationValue> entry : processingEnv.getElementUtils().getElementValuesWithDefaults(annotation).entrySet()) {
             String memberName = entry.getKey().getSimpleName().toString();
@@ -267,12 +271,24 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
                         entry.getValue().getValue().toString());
             } else if ("renderer".equals(memberName) && !isDefault) {
                 behavior.setRenderer(entry.getValue().getValue().toString());
+            } else if ("rendererType".equals(memberName) && !isDefault) {
+                behavior.setRendererType(entry.getValue().getValue().toString());
             }
         }
         
         if(behavior.isAbstract()) {
         	// Abstract behaviors are not allowed to have parents
         	behavior.setParent(null);
+        } else {
+            if (behavior.getRenderer() != null && behavior.getRendererType() == null) {
+                for (BehaviorRenderer renderer : namespace.getClientBehaviorRenderers()) {
+                    if (renderer.getClazz().equals(behavior.getRenderer())) {
+                        behavior.setRendererType(renderer.getType());
+                        
+                        break;
+                    }
+                }
+            }
         }
         
         if (!behavior.getHints().isEmpty()) {
@@ -334,6 +350,8 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
             } else if ("renderer".equals(memberName) && !isDefault) {
                 component.setRenderer(entry.getValue().getValue()
                         .toString());
+            } else if ("rendererType".equals(memberName) && !isDefault) {
+                component.setRendererType(entry.getValue().getValue().toString());
             }
         }
         
@@ -342,17 +360,10 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
         	component.setParent(null);
         	// also they don't have renderers
         } else {
-	        if (component.getRenderer() != null) {
+	        if (component.getRenderer() != null && component.getRendererType() == null) {
 	            for (Renderer renderer : namespace.getRenderers()) {
 	                if (renderer.getClazz().equals(component.getRenderer())) {
 	                    component.setRendererType(renderer.getType());
-	                    
-	                    if (renderer.getComponentFamily() != null) {
-	                        // There may be only a 1:1 mapping between renderers
-	                        // and components
-	                    }
-	                    
-	                    renderer.setComponentFamily(component.getFamily());
 	                    
 	                    break;
 	                }
@@ -446,6 +457,10 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
     	
 		return systemEventListeners;
 	}
+    
+    private PhaseListener processPhaseListener(TypeElement typeElement, AnnotationMirror annotation) {
+        return new PhaseListener(typeElement.getQualifiedName().toString());
+    }
     
     protected Attribute processAttribute(Element e) {
     	Types typeUtils = processingEnv.getTypeUtils();
@@ -624,6 +639,16 @@ public class JsfAnnotationProcessor extends AbstractProcessor {
 	            	.getSystemEventListeners()
 	            	.addAll(processSystemEventListeners(typeElement));
 	        }
+            for (Element e : roundEnv.getElementsAnnotatedWith(JsfPhaseListener.class)) {
+                typeElement = (TypeElement) e;
+                typeElementPackage = typeElement.getQualifiedName().toString();
+                namespaceEntry = getNamespaceEntry(typeElementPackage);
+                namespacePackage = namespaceEntry.getKey();
+                namespace = namespaceEntry.getValue();
+                
+                namespace.getPhaseListeners()
+                    .add(processPhaseListener(typeElement, AnnotationProcessingUtils.findAnnotationMirror(typeElement, JsfSystemEventListener.class)));
+            }
 	        for (Element e : roundEnv.getElementsAnnotatedWith(JsfAttribute.class)) {
 	            Tag tag = getTag(e);
 	            

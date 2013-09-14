@@ -27,6 +27,7 @@ import ${import};
 public abstract class ${behavior.shortName} extends ${behavior.parent} {
 
     public static final String BEHAVIOR_ID = "${behavior.id}";
+    private static final String DEFAULT_RENDERER = "${behavior.rendererType}";
     <#if behavior.hints.size() != 0>
     private static final Set<ClientBehaviorHint> HINTS = Collections.unmodifiableSet(EnumSet.of(<#list behavior.hints as hint>${hint}<#if hint_has_next>, </#if></#list>));
     </#if>
@@ -38,7 +39,7 @@ public abstract class ${behavior.shortName} extends ${behavior.parent} {
 
     @Override
     public String getRendererType() {
-        return BEHAVIOR_ID;
+        return DEFAULT_RENDERER;
     }
 
     <#if behavior.hints.size() != 0>

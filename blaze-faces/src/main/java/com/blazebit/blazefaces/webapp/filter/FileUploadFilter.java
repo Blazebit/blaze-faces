@@ -13,11 +13,13 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.blazebit.blazefaces.webapp.MultipartRequest;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -72,7 +74,8 @@ public class FileUploadFilter implements Filter {
 
 			if(logger.isLoggable(Level.FINE))
 				logger.log(Level.FINE, "File upload request parsed succesfully.");
-            filterChain.doFilter(multipartRequest, response);
+			// TODO: Remove the unnecessary wrapping when the rewrite bug gets fixed
+            filterChain.doFilter(new HttpServletRequestWrapper(multipartRequest), response);
         } else {
             filterChain.doFilter(request, response);
         }
