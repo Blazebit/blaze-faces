@@ -8,6 +8,7 @@ import java.io.Serializable;
 import javax.enterprise.context.ConversationScoped;
 import javax.faces.event.ComponentSystemEvent;
 import javax.inject.Named;
+import javax.servlet.http.Part;
 
 import com.blazebit.blazefaces.event.FileUploadEvent;
 import com.blazebit.blazefaces.model.UploadedFile;
@@ -22,6 +23,7 @@ public class InputFileBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	private Part file;
 	private UploadedFile files[];
 
 	public void preRender(ComponentSystemEvent event) {
@@ -32,7 +34,22 @@ public class InputFileBean implements Serializable {
 		System.out.println(event);
 	}
 
-	public UploadedFile[] getFiles() {
+	public String test() {
+	    System.out.println(file);
+	    return "";
+	}
+
+    
+    public Part getFile() {
+        return file;
+    }
+
+    
+    public void setFile(Part file) {
+        this.file = file;
+    }
+
+    public UploadedFile[] getFiles() {
 		return files;
 	}
 

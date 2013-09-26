@@ -21,7 +21,7 @@
         <script type="text/javascript">
             $(function() {$('.sidebar a').hover(function() {$(this).toggleClass('ui-state-hover');})});
         </script>
-        
+        <!-- 
         <script type="text/javascript">
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-12200033-3']);
@@ -34,20 +34,26 @@
             })();
 
           </script>
+          -->
 	</h:head>
 
 	<h:body>
 
 		<div id="header" class="ui-widget ui-widget-header">
 			<div id="logo">
+				<h1>BlazeFaces</h1>
+			<!-- 
 				<img src="#{request.contextPath}/images/logo.png" alt="Logo"/>
+			-->
 			</div>
             
             <div id="menu" class="ui-widget">
                 <ul id="main">
                     <li class="current_page_item"><a href="#{request.contextPath}/ui/home.xhtml" style="background:url('../design/ui.png') no-repeat center left;">BlazeUI</a></li>
+                    <!-- 
                     <li><a href="#{request.contextPath}/mobile/index.xhtml" style="background:url('../design/iphone.png') no-repeat center left;">BlazeMobile</a></li>
                     <li><a href="#{request.contextPath}/push/index.xhtml" style="background:url('../design/push.png') no-repeat center left">BlazePush</a></li>
+                     -->
                 </ul>
             </div>
 		</div>
@@ -55,6 +61,31 @@
         <div id="page" class="ui-widget">
             <div id="sidebar" class="ui-widget-content ui-corner-bottom ui-helper-clearfix ui-shadow">
 
+                <h3 class="ui-widget ui-widget-header ui-corner-all submenu-title" style="margin-top:2px">Input</h3>
+                <div class="ui-widget submenu-content">
+                    <table>
+                        <tr>
+                            <td style="width:33%">
+                                <ul>
+                                    <li><a href="#{request.contextPath}/ui/input/inputtext/inputText.xhtml" class="ui-state-highlight">InputText</a></li>
+                                    
+                                </ul>
+                            </td>
+                            <td style="width:33%">
+                                <ul>
+                                    <li><a href="#{request.contextPath}/ui/input/inputfile/inputFile.xhtml" class="ui-state-highlight">InputFile</a></li>
+                                    
+                                </ul>
+                            </td>
+                            <td style="width:33%">
+                                <ul>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+<!-- 
                 <h3 class="ui-widget ui-widget-header ui-corner-all submenu-title" style="margin-top:2px">Ajax Core</h3>
                 <div class="ui-widget submenu-content">
                     <table>
@@ -419,8 +450,8 @@
                     </table>
                 </div>
 
+ -->
             </div>
-
             <div id="content">
                 <div class="post">
                     <ui:insert name="content">...</ui:insert>
@@ -435,6 +466,7 @@
 		</div>
 
         <ui:insert name="status">
+        	<!-- 
             <b:ajaxStatus style="width:64px;height:64px;position:fixed;right:5px;bottom:5px">
                 <f:facet name="start">
                     <b:graphicImage value="/images/loading.gif" />
@@ -444,6 +476,7 @@
                     <h:outputText value="" />
                 </f:facet>
             </b:ajaxStatus>
+            -->
         </ui:insert>
 
 	</h:body>

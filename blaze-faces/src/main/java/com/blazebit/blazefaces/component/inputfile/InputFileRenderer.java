@@ -3,23 +3,20 @@
  */
 package com.blazebit.blazefaces.component.inputfile;
 
-import com.blazebit.blazefaces.apt.JsfRenderer;
-
 import java.io.IOException;
 
+import javax.faces.FacesException;
 import javax.faces.component.UIComponent;
-import javax.faces.component.behavior.ClientBehaviorHolder;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
-import javax.servlet.ServletRequestWrapper;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Part;
 
-import org.apache.commons.fileupload.FileItem;
-
-import com.blazebit.blazefaces.model.DefaultUploadedFile;
+import com.blazebit.blazefaces.apt.JsfRenderer;
 import com.blazebit.blazefaces.renderkit.OutputRenderer;
 import com.blazebit.blazefaces.util.HTML5;
 import com.blazebit.blazefaces.util.RendererUtils;
-import com.blazebit.blazefaces.webapp.MultipartRequest;
 
 @JsfRenderer
 public class InputFileRenderer extends OutputRenderer {
@@ -28,35 +25,24 @@ public class InputFileRenderer extends OutputRenderer {
     public void decode(FacesContext context, UIComponent component) {
         InputFile inputFile = (InputFile) component;
         String clientId = inputFile.getClientId(context);
-        MultipartRequest multipartRequest = getMultiPartRequestInChain(context);
         
-        if(multipartRequest != null) {
-            FileItem file = multipartRequest.getFileItem(clientId);
-
-            if(file.getName().equals("")) {
+        Part part = null;
+        
+        try {
+            part = ((HttpServletRequest)context.getExternalContext().getRequest()).getPart(clientId);
+        } catch (IOException ex) {
+            throw new FacesException("Could not get the part", ex);
+        } catch (ServletException ex) {
+            throw new FacesException("Could not get the part", ex);
+        }
+        
+        if(part != null) {
+            if(part.getName().equals("")) {
                 inputFile.setSubmittedValue("");
             } else {
-                inputFile.setSubmittedValue(new DefaultUploadedFile(file));
+                inputFile.setSubmittedValue(part);
             }
         }
-    }
-    
-    /**
-     * Finds our MultipartRequestServletWrapper in case application contains other RequestWrappers
-     */
-    private MultipartRequest getMultiPartRequestInChain(FacesContext facesContext) {
-        Object request = facesContext.getExternalContext().getRequest();
-        
-        while(request instanceof ServletRequestWrapper) {
-            if(request instanceof MultipartRequest) {
-                return (MultipartRequest) request;
-            }
-            else {
-                request = ((ServletRequestWrapper) request).getRequest();
-            }
-        }
-        
-        return null;
     }
 
     @Override
