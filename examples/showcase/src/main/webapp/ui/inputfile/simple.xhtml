@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://blazebit.com/faces"
+	template="/WEB-INF/templates/ui.xhtml">
+
+	<ui:define name="content">
+
+		<h1 class="title ui-widget-header ui-corner-all">InputFile</h1>
+		<div class="entry">
+			<p>A simple input component for just one file.</p>
+
+			<h:form rendered="#{not facesContext.postback}">
+            	<b:inputFile id="input" />
+            </h:form>
+
+			<h3>Source</h3>
+					<pre name="code" class="xml">
+&lt;h:form enctype="multipart/form-data"&gt;
+	&lt;b:inputFile /&gt;
+&lt;/h:form&gt;
+					</pre>
+					<!-- 
+			<b:tabView>
+				<b:tab title="inputText.xhtml">
+				</b:tab>
+			</b:tabView>
+			 -->
+
+		</div>
+
+	</ui:define>
+</ui:composition>

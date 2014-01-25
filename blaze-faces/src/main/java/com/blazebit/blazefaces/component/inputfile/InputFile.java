@@ -20,6 +20,7 @@ import com.blazebit.blazefaces.apt.JsfComponent;
 import com.blazebit.blazefaces.apt.JsfDescription;
 import com.blazebit.blazefaces.component.BaseUIInput;
 import com.blazebit.blazefaces.component.BaseUIOutput;
+import com.blazebit.blazefaces.component.FileUpload;
 import com.blazebit.blazefaces.component.Styleable;
 
 import javax.el.MethodExpression;
@@ -40,20 +41,13 @@ import javax.faces.context.FacesContext;
 		description = @JsfDescription(
 				displayName = "InputFile",
 				description = "InputFile is an input component for files."
-		),
-                attributes = {
-//                    @JsfAttribute(name = "min", type = Double.class, defaultValue = "0", description = @JsfDescription(description = "The minimum allowed value. The default value is 0")),
-//                    @JsfAttribute(name = "max", type = Double.class, defaultValue = "1", description = @JsfDescription(description = "The maximum allowed value. If the maximum value is less than the minimum value, then the minimum value is used as the max. If it is not specified then the value is 1.")),
-//                    @JsfAttribute(name = "low", type = Double.class, defaultValue = "getMin()", description = @JsfDescription(description = "This is considered to be the low part of the value range. It must be less than or equal to the value of the high attribute. Also, if the low value is less than the min value, then the low value is the same as the min value.")),
-//                    @JsfAttribute(name = "high", type = Double.class, defaultValue = "getMax()", description = @JsfDescription(description = "This is considered to be the high part of the value range. If the high value is less than the low boundary, then the high value is the same as the low value. Also, if the high value is greater than the max value, then the high value is the same as the max value.")),
-//                    @JsfAttribute(name = "optimum", type = Double.class, description = @JsfDescription(description = "This is considered to be the optimum value and needs to be somewhere between min and max. It can be greater than the high attribute"))
-                }
+		)
 )
 //@ResourceDependencies({
 //    @ResourceDependency(name = "core/html5.js", target = "head_lt_ie9"),
 //    @ResourceDependency(name = "core/innershiv.js")
 //})
-public class InputFile extends InputFileBase implements BaseUIInput, Styleable, ClientBehaviorHolder{
+public class InputFile extends InputFileBase implements BaseUIInput, FileUpload, Styleable, ClientBehaviorHolder{
 
 
     public void broadcast(javax.faces.event.FacesEvent event) throws javax.faces.event.AbortProcessingException {

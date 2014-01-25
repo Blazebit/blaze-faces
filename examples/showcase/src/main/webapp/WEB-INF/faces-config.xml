@@ -6,13 +6,13 @@
 	
     <application>
         <resource-bundle>
-            <base-name>com.blazebit.blazefaces.examples.build</base-name>
+            <base-name>com.blazebit.blazefaces.showcase.build</base-name>
             <var>build</var>
         </resource-bundle>
     </application>
 
     <factory>
-        <exception-handler-factory>com.blazebit.blazefaces.examples.application.ShowcaseExceptionHandlerFactory</exception-handler-factory>
+        <exception-handler-factory>com.blazebit.blazefaces.showcase.application.ShowcaseExceptionHandlerFactory</exception-handler-factory>
     </factory>
 
 </faces-config>

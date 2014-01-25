@@ -24,46 +24,59 @@ public class InputFileRenderer extends OutputRenderer {
     @Override
     public void decode(FacesContext context, UIComponent component) {
         InputFile inputFile = (InputFile) component;
-        String clientId = inputFile.getClientId(context);
         
-        Part part = null;
-        
-        try {
-            part = ((HttpServletRequest)context.getExternalContext().getRequest()).getPart(clientId);
-        } catch (IOException ex) {
-            throw new FacesException("Could not get the part", ex);
-        } catch (ServletException ex) {
-            throw new FacesException("Could not get the part", ex);
-        }
-        
-        if(part != null) {
-            if(part.getName().equals("")) {
-                inputFile.setSubmittedValue("");
-            } else {
-                inputFile.setSubmittedValue(part);
+        if(!inputFile.isDisabled()) {
+            String clientId = inputFile.getClientId(context);
+            
+            Part part = null;
+            
+            try {
+                part = ((HttpServletRequest)context.getExternalContext().getRequest()).getPart(clientId);
+            } catch (IOException ex) {
+                throw new FacesException("Could not get the part", ex);
+            } catch (ServletException ex) {
+                throw new FacesException("Could not get the part", ex);
+            }
+            
+            if(part != null) {
+                if(part.getName().equals("")) {
+                    inputFile.setSubmittedValue("");
+                } else {
+                    inputFile.setSubmittedValue(part);
+                }
             }
         }
     }
 
     @Override
     public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
+        String clientId = component.getClientId(context);
         InputFile inputFile = (InputFile) component;
         
-        encodeMarkup(context, inputFile);
-//        encodeScript(context, fileUpload);
+        encodeMarkup(context, inputFile, clientId);
+        encodeScript(context, inputFile, clientId);
     }
     
-    public void encodeMarkup(FacesContext context, InputFile component) throws IOException {
+    public void encodeMarkup(FacesContext context, InputFile component, String clientId) throws IOException {
         ResponseWriter writer = context.getResponseWriter();
         writer.startElement("input", component);
 
-        RendererUtils.encodeAttribute(writer, "id", component.getClientId(context), null);
-        RendererUtils.encodeAttribute(writer, "name", component.getClientId(context), null);
+        RendererUtils.encodeAttribute(writer, "id", clientId, null);
+        RendererUtils.encodeAttribute(writer, "name", clientId, null);
         RendererUtils.encodeAttribute(writer, "type", "file", null);
-        RendererUtils.encodeAttribute(writer, "class", component.getStyleClass(), null);
+        RendererUtils.encodeAttribute(writer, "class", component.getStyleClass(), null, "styleClass");
+        RendererUtils.encodeBooleanAttribute(writer, "disabled", component.isDisabled(), false, "disabled");
         renderPassThruAttributes(context, component, HTML5.COMMON_ATTRIBUTES);
         renderPassThruAttributes(context, component, HTML5.COMMON_TAG_ATTRIBUTES);
         renderDataMapAttributes(context, component);
         writer.endElement("input");
+    }
+    
+    public void encodeScript(FacesContext context, InputFile component, String clientId) throws IOException {
+        StringBuilder scriptBuilder = new StringBuilder();
+        
+        scriptBuilder.append("");
+        
+        RendererUtils.addBodyBottomScript(context, scriptBuilder.toString());
     }
 }

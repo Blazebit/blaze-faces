@@ -86,15 +86,37 @@ public class RendererUtils {
     }
 
     public static void encodeAttribute(ResponseWriter writer, String attribute, Object value, String defaultValue) throws IOException {
+        encodeAttribute(writer, attribute, value, defaultValue, null);
+    }
+
+    public static void encodeAttribute(ResponseWriter writer, String attribute, Object value, String defaultValue, String property) throws IOException {
         if (value == null) {
             if (defaultValue != null) {
-                writer.writeAttribute(attribute, defaultValue, null);
+                writer.writeAttribute(attribute, defaultValue, property);
             }
 
             return;
         }
 
-        writer.writeAttribute(attribute, value, null);
+        writer.writeAttribute(attribute, value, property);
+    }
+
+    public static void encodeBooleanAttribute(ResponseWriter writer, String attribute, Boolean value, boolean defaultValue) throws IOException {
+        encodeBooleanAttribute(writer, attribute, value, defaultValue, null);
+    }
+
+    public static void encodeBooleanAttribute(ResponseWriter writer, String attribute, Boolean value, boolean defaultValue, String property) throws IOException {
+        if (value == null) {
+            if (defaultValue) {
+                writer.writeAttribute(attribute, attribute, property);
+            }
+
+            return;
+        }
+
+        if(value) {
+            writer.writeAttribute(attribute, attribute, property);
+        }
     }
 
     public static String encodeToString(FacesContext facesContext, BlazeEncoder encoder) throws IOException {

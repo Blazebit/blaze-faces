@@ -67,7 +67,7 @@ public class HeadRenderer extends Renderer {
             }
         }
         
-        if(!"false".equalsIgnoreCase(featureDetection)){
+        if("true".equalsIgnoreCase(featureDetection)){
             // Feature detection script will only be rendered once
             FeatureDetectionUtils.encodeFeatures(context);
         }

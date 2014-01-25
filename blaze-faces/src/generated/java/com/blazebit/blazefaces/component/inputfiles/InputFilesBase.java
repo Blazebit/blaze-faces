@@ -18,17 +18,17 @@
  * limitations under the License.
  */
 
-package com.blazebit.blazefaces.component.inputfile;
+package com.blazebit.blazefaces.component.inputfiles;
 
 import java.util.ArrayList;
 import javax.el.ValueExpression;
 import java.util.List;
 
-public abstract class InputFileBase extends javax.faces.component.UIInput {
+public abstract class InputFilesBase extends javax.faces.component.UIInput {
 
-        public static final String COMPONENT_TYPE = "com.blazebit.blazefaces.component.InputFile";
+        public static final String COMPONENT_TYPE = "com.blazebit.blazefaces.component.InputFiles";
         public static final String COMPONENT_FAMILY = "com.blazebit.blazefaces.component";
-        private static final String DEFAULT_RENDERER = "com.blazebit.blazefaces.renderer.InputFileRenderer";
+        private static final String DEFAULT_RENDERER = "com.blazebit.blazefaces.renderer.InputFilesRenderer";
         private static final String OPTIMIZED_PACKAGE = "com.blazebit.blazefaces.component.";
         
         protected enum PropertyKeys {
@@ -52,7 +52,7 @@ public abstract class InputFileBase extends javax.faces.component.UIInput {
             }
         }
         
-        public InputFileBase() {
+        public InputFilesBase() {
             setRendererType(DEFAULT_RENDERER);
         }
         

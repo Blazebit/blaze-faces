@@ -1,0 +1,28 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://blazebit.com/faces"
+	template="/WEB-INF/templates/ui.xhtml">
+
+	<ui:define name="content">
+
+		<h1 class="title ui-widget-header ui-corner-all">InputText</h1>
+		<div class="entry">
+			<p>InputText extends standard InputText with skinning capabilities.</p>
+
+            <b:inputText id="input" />
+
+			<h3>Source</h3>
+			<b:tabView>
+				<b:tab title="inputText.xhtml">
+					<pre name="code" class="xml">
+&lt;b:inputText /&gt;
+					</pre>
+				</b:tab>
+			</b:tabView>
+
+		</div>
+
+	</ui:define>
+</ui:composition>

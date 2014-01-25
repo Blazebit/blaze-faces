@@ -1,0 +1,31 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://blazebit.com/faces"
+	template="/WEB-INF/templates/ui.xhtml">
+
+	<ui:define name="content">
+	
+		<h1 class="title ui-widget-header ui-corner-all">InputFile</h1>
+		<div class="entry">
+			<!-- 
+			<b:menu styleClass="homeMenu"> 
+				<b:submenu label="Examples">
+					<b:menuitem url="/ui/input/inputfile/simple.xhtml" value="Simple InputFile" />
+				</b:submenu>
+			</b:menu>
+			 -->
+			<ul>
+				<li><a href="#{request.contextPath}/ui/inputfile/simple.xhtml">Simple InputFile</a></li>
+				<li><a href="#{request.contextPath}/ui/inputfile/customized.xhtml">Customized InputFile</a></li>
+				<li><a href="#{request.contextPath}/ui/inputfile/multiple.xhtml">Simple InputFiles</a></li>
+			</ul>
+			
+			<span class="homeText">A fully customizable file upload component.</span>
+		
+		</div>
+			
+
+	</ui:define>
+</ui:composition>

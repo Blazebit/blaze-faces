@@ -47,11 +47,11 @@
 		<param-value>server</param-value>
 	</context-param>
 	<listener>
-		<listener-class>com.blazebit.blazefaces.examples.application.CoerceToZeroServletContextListener</listener-class>
+		<listener-class>com.blazebit.blazefaces.showcase.application.CoerceToZeroServletContextListener</listener-class>
 	</listener>
 	<filter>
 		<filter-name>Character Encoding Filter</filter-name>
-		<filter-class>com.blazebit.blazefaces.examples.filter.CharacterEncodingFilter</filter-class>
+		<filter-class>com.blazebit.blazefaces.showcase.filter.CharacterEncodingFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>Character Encoding Filter</filter-name>
@@ -75,6 +75,6 @@
 		<url-pattern>/blazepush/*</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
-		<welcome-file>ui/home.xhtml</welcome-file>
+		<welcome-file>ui/index.xhtml</welcome-file>
 	</welcome-file-list>
 </web-app>

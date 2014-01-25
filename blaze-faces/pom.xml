@@ -106,116 +106,116 @@
 				</executions>
 			</plugin>
 
-			<plugin>
-				<groupId>net.alchim31.maven</groupId>
-				<artifactId>yuicompressor-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<goals>
-							<goal>compress</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<nosuffix>true</nosuffix>
-					<linebreakpos>-1</linebreakpos>
-					<excludes>
-						<exclude>**/*.js</exclude>
-						<exclude>**/*.css</exclude>
-					</excludes>
-					<aggregations>
-						<aggregation>
-							<insertNewLine>true</insertNewLine>
-							<removeIncluded>true</removeIncluded>
-							<output>${project.build.directory}/classes/META-INF/resources/blazefaces/blazefaces.css</output>
-							<includes>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/jquery/ui/jquery-ui.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/accordion/accordion.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/autocomplete/autocomplete.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/blockui/blockui.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/carousel/carousel.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/core/core.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/dashboard/dashboard.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datalist/datalist.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datagrid/datagrid.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datatable/datatable.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/dialog/dialog.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/fieldset/fieldset.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/forms/forms.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/growl/growl.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/inplace/inplace.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/lightbox/lightbox.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/menu/menu.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/messages/messages.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/notificationbar/notificationbar.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/orderlist/orderlist.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/overlaypanel/overlaypanel.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/panel/panel.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/panelgrid/panelgrid.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/paginator/paginator.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/picklist/picklist.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/progressbar/progressbar.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/rating/rating.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/scrollpanel/scrollpanel.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/spinner/spinner.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tabview/tabview.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tagcloud/tagcloud.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/toolbar/toolbar.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tooltip/tooltip.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tree/tree.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/treetable/treetable.css</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/wizard/wizard.css</include>
-							</includes>
-						</aggregation>
-						<aggregation>
-							<insertNewLine>true</insertNewLine>
-							<removeIncluded>true</removeIncluded>
-							<output>${project.build.directory}/classes/META-INF/resources/blazefaces/blazefaces.js</output>
-							<includes>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/core/core.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/accordion/accordion.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/ajaxstatus/ajaxstatus.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/autocomplete/autocomplete.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/blockui/blockui.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/calendar/calendar.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/carousel/carousel.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/dashboard/dashboard.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datagrid/datagrid.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datalist/datalist.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datatable/datatable.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/dialog/dialog.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/dragdrop/dragdrop.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/effect/effect.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/fieldset/fieldset.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/forms/forms.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/growl/growl.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/inplace/inplace.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/lightbox/lightbox.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/menu/menu.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/notificationbar/notificationbar.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/panel/panel.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/poll/poll.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/orderlist/orderlist.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/overlaypanel/overlaypanel.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/paginator/paginator.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/picklist/picklist.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/progressbar/progressbar.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/rating/rating.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/resizable/resizable.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/scrollpanel/scrollpanel.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/slider/slider.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/spinner/spinner.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tabview/tabview.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tagcloud/tagcloud.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tooltip/tooltip.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tree/tree.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/treetable/treetable.js</include>
-								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/wizard/wizard.js</include>
-							</includes>
-						</aggregation>
-					</aggregations>
-				</configuration>
-			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<groupId>net.alchim31.maven</groupId> -->
+<!-- 				<artifactId>yuicompressor-maven-plugin</artifactId> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<goals> -->
+<!-- 							<goal>compress</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 				<configuration> -->
+<!-- 					<nosuffix>true</nosuffix> -->
+<!-- 					<linebreakpos>-1</linebreakpos> -->
+<!-- 					<excludes> -->
+<!-- 						<exclude>**/*.js</exclude> -->
+<!-- 						<exclude>**/*.css</exclude> -->
+<!-- 					</excludes> -->
+<!-- 					<aggregations> -->
+<!-- 						<aggregation> -->
+<!-- 							<insertNewLine>true</insertNewLine> -->
+<!-- 							<removeIncluded>true</removeIncluded> -->
+<!-- 							<output>${project.build.directory}/classes/META-INF/resources/blazefaces/blazefaces.css</output> -->
+<!-- 							<includes> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/jquery/ui/jquery-ui.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/accordion/accordion.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/autocomplete/autocomplete.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/blockui/blockui.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/carousel/carousel.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/core/core.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/dashboard/dashboard.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datalist/datalist.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datagrid/datagrid.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datatable/datatable.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/dialog/dialog.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/fieldset/fieldset.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/forms/forms.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/growl/growl.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/inplace/inplace.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/lightbox/lightbox.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/menu/menu.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/messages/messages.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/notificationbar/notificationbar.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/orderlist/orderlist.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/overlaypanel/overlaypanel.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/panel/panel.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/panelgrid/panelgrid.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/paginator/paginator.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/picklist/picklist.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/progressbar/progressbar.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/rating/rating.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/scrollpanel/scrollpanel.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/spinner/spinner.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tabview/tabview.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tagcloud/tagcloud.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/toolbar/toolbar.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tooltip/tooltip.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tree/tree.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/treetable/treetable.css</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/wizard/wizard.css</include> -->
+<!-- 							</includes> -->
+<!-- 						</aggregation> -->
+<!-- 						<aggregation> -->
+<!-- 							<insertNewLine>true</insertNewLine> -->
+<!-- 							<removeIncluded>true</removeIncluded> -->
+<!-- 							<output>${project.build.directory}/classes/META-INF/resources/blazefaces/blazefaces.js</output> -->
+<!-- 							<includes> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/core/core.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/accordion/accordion.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/ajaxstatus/ajaxstatus.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/autocomplete/autocomplete.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/blockui/blockui.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/calendar/calendar.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/carousel/carousel.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/dashboard/dashboard.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datagrid/datagrid.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datalist/datalist.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datatable/datatable.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/dialog/dialog.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/dragdrop/dragdrop.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/effect/effect.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/fieldset/fieldset.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/forms/forms.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/growl/growl.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/inplace/inplace.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/lightbox/lightbox.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/menu/menu.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/notificationbar/notificationbar.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/panel/panel.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/poll/poll.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/orderlist/orderlist.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/overlaypanel/overlaypanel.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/paginator/paginator.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/picklist/picklist.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/progressbar/progressbar.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/rating/rating.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/resizable/resizable.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/scrollpanel/scrollpanel.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/slider/slider.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/spinner/spinner.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tabview/tabview.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tagcloud/tagcloud.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tooltip/tooltip.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tree/tree.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/treetable/treetable.js</include> -->
+<!-- 								<include>${project.build.directory}/classes/META-INF/resources/blazefaces/wizard/wizard.js</include> -->
+<!-- 							</includes> -->
+<!-- 						</aggregation> -->
+<!-- 					</aggregations> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
 		</plugins>
 	</build>
 
@@ -250,115 +250,115 @@
 						</executions>
 					</plugin>
 
-					<plugin>
-						<groupId>net.alchim31.maven</groupId>
-						<artifactId>yuicompressor-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<goals>
-									<goal>compress</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<nosuffix>true</nosuffix>
-							<linebreakpos>-1</linebreakpos>
-							<excludes>
-								<exclude>**/*.css</exclude>
-							</excludes>
-							<aggregations>
-								<aggregation>
-									<insertNewLine>true</insertNewLine>
-									<removeIncluded>true</removeIncluded>
-									<output>${project.build.directory}/classes/META-INF/resources/blazefaces/blazefaces.css</output>
-									<includes>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/jquery/ui/jquery-ui.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/accordion/accordion.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/autocomplete/autocomplete.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/blockui/blockui.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/carousel/carousel.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/core/core.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/dashboard/dashboard.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datalist/datalist.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datagrid/datagrid.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datatable/datatable.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/dialog/dialog.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/fieldset/fieldset.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/forms/forms.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/growl/growl.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/inplace/inplace.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/lightbox/lightbox.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/menu/menu.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/messages/messages.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/notificationbar/notificationbar.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/orderlist/orderlist.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/overlaypanel/overlaypanel.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/panel/panel.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/panelgrid/panelgrid.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/paginator/paginator.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/picklist/picklist.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/progressbar/progressbar.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/rating/rating.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/scrollpanel/scrollpanel.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/spinner/spinner.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tabview/tabview.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tagcloud/tagcloud.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/toolbar/toolbar.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tooltip/tooltip.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tree/tree.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/treetable/treetable.css</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/wizard/wizard.css</include>
-									</includes>
-								</aggregation>
-								<aggregation>
-									<insertNewLine>true</insertNewLine>
-									<removeIncluded>true</removeIncluded>
-									<output>${project.build.directory}/classes/META-INF/resources/blazefaces/blazefaces.js</output>
-									<includes>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/core/core.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/accordion/accordion.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/ajaxstatus/ajaxstatus.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/autocomplete/autocomplete.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/blockui/blockui.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/calendar/calendar.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/carousel/carousel.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/dashboard/dashboard.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datagrid/datagrid.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datalist/datalist.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datatable/datatable.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/dialog/dialog.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/dragdrop/dragdrop.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/effect/effect.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/fieldset/fieldset.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/forms/forms.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/growl/growl.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/inplace/inplace.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/lightbox/lightbox.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/menu/menu.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/notificationbar/notificationbar.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/panel/panel.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/poll/poll.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/orderlist/orderlist.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/overlaypanel/overlaypanel.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/paginator/paginator.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/picklist/picklist.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/progressbar/progressbar.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/rating/rating.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/resizable/resizable.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/scrollpanel/scrollpanel.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/slider/slider.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/spinner/spinner.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tabview/tabview.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tagcloud/tagcloud.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tooltip/tooltip.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tree/tree.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/treetable/treetable.js</include>
-										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/wizard/wizard.js</include>
-									</includes>
-								</aggregation>
-							</aggregations>
-						</configuration>
-					</plugin>
+<!-- 					<plugin> -->
+<!-- 						<groupId>net.alchim31.maven</groupId> -->
+<!-- 						<artifactId>yuicompressor-maven-plugin</artifactId> -->
+<!-- 						<executions> -->
+<!-- 							<execution> -->
+<!-- 								<goals> -->
+<!-- 									<goal>compress</goal> -->
+<!-- 								</goals> -->
+<!-- 							</execution> -->
+<!-- 						</executions> -->
+<!-- 						<configuration> -->
+<!-- 							<nosuffix>true</nosuffix> -->
+<!-- 							<linebreakpos>-1</linebreakpos> -->
+<!-- 							<excludes> -->
+<!-- 								<exclude>**/*.css</exclude> -->
+<!-- 							</excludes> -->
+<!-- 							<aggregations> -->
+<!-- 								<aggregation> -->
+<!-- 									<insertNewLine>true</insertNewLine> -->
+<!-- 									<removeIncluded>true</removeIncluded> -->
+<!-- 									<output>${project.build.directory}/classes/META-INF/resources/blazefaces/blazefaces.css</output> -->
+<!-- 									<includes> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/jquery/ui/jquery-ui.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/accordion/accordion.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/autocomplete/autocomplete.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/blockui/blockui.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/carousel/carousel.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/core/core.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/dashboard/dashboard.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datalist/datalist.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datagrid/datagrid.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datatable/datatable.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/dialog/dialog.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/fieldset/fieldset.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/forms/forms.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/growl/growl.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/inplace/inplace.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/lightbox/lightbox.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/menu/menu.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/messages/messages.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/notificationbar/notificationbar.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/orderlist/orderlist.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/overlaypanel/overlaypanel.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/panel/panel.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/panelgrid/panelgrid.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/paginator/paginator.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/picklist/picklist.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/progressbar/progressbar.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/rating/rating.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/scrollpanel/scrollpanel.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/spinner/spinner.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tabview/tabview.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tagcloud/tagcloud.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/toolbar/toolbar.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tooltip/tooltip.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tree/tree.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/treetable/treetable.css</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/wizard/wizard.css</include> -->
+<!-- 									</includes> -->
+<!-- 								</aggregation> -->
+<!-- 								<aggregation> -->
+<!-- 									<insertNewLine>true</insertNewLine> -->
+<!-- 									<removeIncluded>true</removeIncluded> -->
+<!-- 									<output>${project.build.directory}/classes/META-INF/resources/blazefaces/blazefaces.js</output> -->
+<!-- 									<includes> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/core/core.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/accordion/accordion.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/ajaxstatus/ajaxstatus.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/autocomplete/autocomplete.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/blockui/blockui.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/calendar/calendar.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/carousel/carousel.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/dashboard/dashboard.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datagrid/datagrid.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datalist/datalist.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/datatable/datatable.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/dialog/dialog.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/dragdrop/dragdrop.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/effect/effect.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/fieldset/fieldset.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/forms/forms.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/growl/growl.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/inplace/inplace.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/lightbox/lightbox.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/menu/menu.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/notificationbar/notificationbar.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/panel/panel.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/poll/poll.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/orderlist/orderlist.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/overlaypanel/overlaypanel.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/paginator/paginator.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/picklist/picklist.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/progressbar/progressbar.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/rating/rating.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/resizable/resizable.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/scrollpanel/scrollpanel.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/slider/slider.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/spinner/spinner.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tabview/tabview.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tagcloud/tagcloud.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tooltip/tooltip.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/tree/tree.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/treetable/treetable.js</include> -->
+<!-- 										<include>${project.build.directory}/classes/META-INF/resources/blazefaces/wizard/wizard.js</include> -->
+<!-- 									</includes> -->
+<!-- 								</aggregation> -->
+<!-- 							</aggregations> -->
+<!-- 						</configuration> -->
+<!-- 					</plugin> -->
 				</plugins>
 			</build>
 		</profile>

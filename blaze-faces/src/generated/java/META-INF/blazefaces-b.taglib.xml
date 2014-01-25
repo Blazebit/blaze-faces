@@ -239,6 +239,155 @@
         <attribute>
             <description>
                     <![CDATA[
+                            A comma-separated list of allowed file extensions. By default no restriction is applied.
+                    ]]>
+            </description>
+            <name>allowedExtensions</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            The maximum allowed file size. By default no restriction is applied to the file size.
+                    ]]>
+            </description>
+            <name>maxFileSize</name>
+            <required>false</required>
+            <type>java.lang.Long</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            When evaluates to true, a value for this component is required on a post-back. Default is false
+                    ]]>
+            </description>
+            <name>required</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            When set true, process validations logic is executed at apply request values phase for this component. Default is false.
+                    ]]>
+            </description>
+            <name>immediate</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            When set true, the component is disabled. Default is false.
+                    ]]>
+            </description>
+            <name>disabled</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Value of the component.
+                    ]]>
+            </description>
+            <name>value</name>
+            <required>false</required>
+            <type>java.lang.Object</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            An el expression or a literal text that defines a converter for the component. When it's an EL expression, it's resolved to a converter instance. 
+ In case it's a static text, it must refer to a converter id.
+                    ]]>
+            </description>
+            <name>converter</name>
+            <required>false</required>
+            <type>javax.faces.convert.Converter</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            An el expression referring to a server side UIComponent instance in a backing bean.
+                    ]]>
+            </description>
+            <name>binding</name>
+            <required>false</required>
+            <type>javax.faces.component.UIComponent</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Unique identifier of the component in a namingContainer.
+                    ]]>
+            </description>
+            <name>id</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            Boolean value to specify the rendering of the component, when set to false component will not be rendered.
+                    ]]>
+            </description>
+            <name>rendered</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <description>
+                <![CDATA[
+                        InputFiles is an input component for files.
+                ]]>
+        </description>
+        <display-name>
+                <![CDATA[
+                        InputFiles
+                ]]>
+        </display-name>
+        <tag-name>inputFiles</tag-name>
+        <component>
+            <component-type>com.blazebit.blazefaces.component.InputFiles</component-type>
+            <renderer-type>com.blazebit.blazefaces.renderer.InputFilesRenderer</renderer-type>
+        </component>
+        <attribute>
+            <name>style</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <name>styleClass</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            A comma-separated list of allowed file extensions. By default no restriction is applied.
+                    ]]>
+            </description>
+            <name>allowedExtensions</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
+                            The maximum allowed file size. By default no restriction is applied to the file size.
+                    ]]>
+            </description>
+            <name>maxFileSize</name>
+            <required>false</required>
+            <type>java.lang.Long</type>
+        </attribute>
+        <attribute>
+            <description>
+                    <![CDATA[
                             When evaluates to true, a value for this component is required on a post-back. Default is false
                     ]]>
             </description>
