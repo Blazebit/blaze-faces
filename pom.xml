@@ -19,7 +19,6 @@
 
 	<modules>
 		<module>blaze-faces</module>
-<!-- 		<module>blaze-faces-mobile</module> -->
 		<module>blaze-faces-dependencies</module>
 <!-- 		<module>examples</module> -->
 		<module>blaze-faces-apt</module>

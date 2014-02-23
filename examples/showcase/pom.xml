@@ -99,12 +99,6 @@
 			<groupId>com.blazebit</groupId>
 			<artifactId>blaze-faces</artifactId>
 		</dependency>
-		<!-- 
-		<dependency>
-			<groupId>com.blazebit</groupId>
-			<artifactId>blaze-faces-mobile</artifactId>
-		</dependency>
-		 -->
 
 		<!-- TESTING -->
 		<dependency>
